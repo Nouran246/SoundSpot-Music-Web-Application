@@ -245,3 +245,6 @@ body{
 .gender input[type="radio"]:checked + label:before {
     background-color: #512da8;
 }
+.error{
+    color:tomato;
+}
