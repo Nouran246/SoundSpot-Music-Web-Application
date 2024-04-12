@@ -1,147 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User frontpage</title>
-  <link rel = "stylesheet" href = "style.css">
-  
-    
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="UserHomePage.js"></script>
+    <link rel="stylesheet" href="UserHomePage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="1.ico">
+    <title>Sound Spot</title>
 </head>
+
 <body>
-
-<div class="container">
-    <h1 style="margin:20px;">Hello *UserName*!<br>What would you like to do today?</h1>
-
-    <div class="unit">
-      <img src="images/songs.jpg" alt="Songs">
-      <div class="overlay"></div>
-      <p class="text">Songs</p>
-    </div>
-
-    <div class="unit">
-      <img src="images/playlists.jpg" alt="Playlists">
-      <div class="overlay"></div>
-      <p class="text">Playlists</p>
-    </div>
-
-    <div class="unit">
-      <img src="images/history.jpg" alt="History">
-      <div class="overlay"></div>
-      <p class="text">History</p>
-    </div>
-
-    <div class="unit">
-      <img src="images/recap.jpg" alt="Recap">
-      <div class="overlay"></div>
-      <p class="text">Recap</p>
-    </div>
+    <script
+        type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "2777abff-0662-4aa9-8357-952d6efcfa53"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
+        <div class="header">
+            <i class="fa-solid fa-magnifying-glass" style="color: white;"></i>
+            <input type="text" id="Search" placeholder="Search...">
+            <a href="#" id="bell"><i class="fa-solid fa-bell"></i></a>
+            <a href="#" id="comment" name="head"><i class="fa-regular fa-comments"></i></a>
+            <a href="#" id="user" onclick=""><i class="fa-solid fa-user"></i></a>
+            <hr>
+            <div class="dropdown-content" id="dropdownContent">
+                <a href="#">Profile</a>
+                <a href="#">View As</a>
+                <a href="#">Light/Dark Mode</a>
+                <a href="#">Settings</a>
+                <button id="toggle-light-mode"></button>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+        
+        <div class="navigationbar">
+            <div class="toggle-button" onclick="toggleNavbar()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul>
+                <img id="trial-img" class="trial-img" src="output-onlinepngtools.png" alt="SoundSpot Logo"></a>
+                <img id="logo" class="logo" src="1(2).png" alt="logo">
+                <li><a href="#"><i class="fa-solid fa-music"></i><span style="padding-left: 7px;">Manage Songs</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-list"></i><span style="padding-left: 7px;">Manage Playlists</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i><span style="padding-left: 5px;">History</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-repeat"></i><span style="padding-left: 7px;">Recap</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-square-poll-vertical"></i><span style="padding-left: 7px;">Reports</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-clipboard-list"></i><span style="padding-left: 7px;">Plans</span></a></li>
+            </ul>
+        </div>
+        <footer>
+        <hr>
+        <p>&copy; 2024 SoundSpot. All rights reserved.<span style="padding-left: 10px;">
+            <a href="https://www.facebook.com/profile.php?id=61558330435298"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/soundspot?igsh=emRteDc4bmNqNTQz"><i class="fab fa-instagram"></i></a>
+        </p>
+        </footer>
     
-</div>
-
-<hr>
-
-
-
-
-  <div class="container"><!-- This is where you will place the albun covers-->
-    <div class="row">
-      <h2>New Releases</h2>
-      <div class="card">
-        <img src="images/Artist-Designed Album Covers 2.webp" alt="Album 1">
-        <div class="content">
-          <h3>Artist Name</h3>
-          <p>Album Title</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/Dark_Side_of_the_Moon.png" alt="Album 2">
-        <div class="content">
-          <h3>Artist Name</h3>
-          <p>Album Title</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Album 3">
-        <div class="content">
-          <h3>Artist Name</h3>
-          <p>Album Title</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/images.jpg" alt="Album 1">
-        <div class="content">
-          <h3>Artist Name</h3>
-          <p>Album Title</p>
-        </div>
-      </div>
-      
-    </div>
-
-    <div class="row">
-      <h2>Recommended for You</h2>
-      <div class="card">
-        <img src="images/Artist-Designed Album Covers 2.webp" alt="Artist 1">
-        <div class="content">
-          <h3>Artist Name</h3>
-          <p>Genre</p>
-        </div>
-      </div>
-      <div class="card">
-          <img src="images/Dark_Side_of_the_Moon.png" alt="Artist 1">
-          <div class="content">
-            <h3>Artist Name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="images/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Artist 1">
-          <div class="content">
-            <h3>Artist Name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="images/images.jpg" alt="Artist 1">
-          <div class="content">
-            <h3>Artist Name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-      
-    </div>
-
-    <div class="row">
-      <h2>Recommended for You</h2>
-      <div class="card">
-          <img src="images/Artist-Designed Album Covers 2.webp" alt="Artist 1">
-          <div class="content">
-            <h3>Mix name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="images/Dark_Side_of_the_Moon.png" alt="Artist 1">
-          <div class="content">
-            <h3>Mix name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="images/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Artist 1">
-          <div class="content">
-            <h3>Mix name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="images/images.jpg" alt="Artist 1">
-          <div class="content">
-            <h3>Mix name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-    </div>
 </body>
+
 </html>
+
