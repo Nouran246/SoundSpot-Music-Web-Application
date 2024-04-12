@@ -7,7 +7,7 @@
     <script src="UserHomePage.js"></script>
     <link rel="stylesheet" href="UserHomePage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" type="image/png" href="ss.png">
+    <link rel="icon" type="image/png" href="1.ico">
     <title>Sound Spot</title>
 </head>
 
@@ -16,37 +16,39 @@
         type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "2777abff-0662-4aa9-8357-952d6efcfa53"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
         <div class="header">
             <i class="fa-solid fa-magnifying-glass" style="color: white;"></i>
-            <input type="text" placeholder="Search...">
-            <a href="#"><i class="fa-solid fa-bell"></i></a>
-            <a href="#" name="head"><i class="fa-regular fa-comments"></i></a>
+            <input type="text" id="Search" placeholder="Search...">
+            <a href="#" id="bell"><i class="fa-solid fa-bell"></i></a>
+            <a href="#" id="comment" name="head"><i class="fa-regular fa-comments"></i></a>
             <a href="#" id="user" onclick=""><i class="fa-solid fa-user"></i></a>
+            <hr>
             <div class="dropdown-content" id="dropdownContent">
                 <a href="#">Profile</a>
                 <a href="#">View As</a>
-                <a href="#">Light Mode</a>
+                <a href="#">Light/Dark Mode</a>
                 <a href="#">Settings</a>
                 <button id="toggle-light-mode"></button>
                 <a href="#">Logout</a>
             </div>
         </div>
         
-    <div class="navigationbar">
-        <div class="toggle-button" onclick="toggleNavbar()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+        <div class="navigationbar">
+            <div class="toggle-button" onclick="toggleNavbar()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul>
+                <img id="trial-img" class="trial-img" src="output-onlinepngtools.png" alt="SoundSpot Logo"></a>
+                <img id="logo" class="logo" src="1(2).png" alt="logo">
+                <li><a href="#"><i class="fa-solid fa-music"></i><span style="padding-left: 7px;">Manage Songs</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-list"></i><span style="padding-left: 7px;">Manage Playlists</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i><span style="padding-left: 5px;">History</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-repeat"></i><span style="padding-left: 7px;">Recap</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-square-poll-vertical"></i><span style="padding-left: 7px;">Reports</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-clipboard-list"></i><span style="padding-left: 7px;">Plans</span></a></li>
+            </ul>
         </div>
-        <ul>
-            <img id="trial-img" class="trial-img" src="output-onlinepngtools.png" alt="SoundSpot Logo"></a>
-            <li><a href="#"><i class="fa-solid fa-music"></i><span style="padding-left: 7px;">Manage Songs</span></a></li>
-            <li><a href="#"><i class="fa-solid fa-list"></i><span style="padding-left: 7px;">Manage Playlists</span></a></li>
-            <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i><span style="padding-left: 5px;">History</span></a></li>
-            <li><a href="#"><i class="fa-solid fa-repeat"></i><span style="padding-left: 7px;"></span>Recap</a></li>
-            <li><a href="#"><i class="fa-solid fa-square-poll-vertical"></i><span style="padding-left: 7px;"></span>Reports</a></li>
-            <li><a href="#"><i class="fa-solid fa-clipboard-list"></i><span style="padding-left: 7px;"></span>Plans</a></li>
-        </ul>
-    </div>
-    <footer>
+        <footer>
         <hr>
         <p>&copy; 2024 SoundSpot. All rights reserved.<span style="padding-left: 10px;">
             <a href="https://www.facebook.com/profile.php?id=61558330435298"><i class="fab fa-facebook"></i></a>
