@@ -1,78 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="UserHomePage.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="icon" type="image/ico" href="images/icon.ico">
-  <title>Sound Spot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Sidenavbar .css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="icon" href="photo/2.png" type="image/png">
+    <script src="Sidenavbar.js"></script>
+    <link rel = "stylesheet" href = "Userhomepage.css">
+    <script src = "Userhomepage.js"></script>
 </head>
-
 <body>
     <script
-        type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "2777abff-0662-4aa9-8357-952d6efcfa53"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
-        <div class="header">
-            <i class="fa-solid fa-magnifying-glass" style="color: white;"></i>
-            <input type="text" id="Search" placeholder="Search...">
-            <a href="#" id="bell"><i class="fa-solid fa-bell"></i></a>
-            <a href="#" id="comment" name="head"><i class="fa-regular fa-comments"></i></a>
-            <a href="#" id="user" onclick=""><i class="fa-solid fa-user"></i></a>
-            <hr>
-            <div class="dropdown-content" id="dropdownContent">
-                <a href="#">Profile</a>
-                <a href="#">View As</a>
-                <a href="#">Light/Dark Mode</a>
-                <a href="#">Settings</a>
-                <button id="toggle-light-mode"></button>
-                <a href="#">Logout</a>
-            </div>
-        </div>
-        
-        <div class="navigationbar">
-            <div class="toggle-button" onclick="toggleNavbar()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul>
-                <img id="trial-img" class="trial-img" src="images/output-onlinepngtools.png" alt="SoundSpot Logo"></a>
-                <img id="logo" class="logo" src="images/1.png" alt="logo">
-                <li><a href="#"><i class="fa-solid fa-music"></i><span style="padding-left: 7px;">Manage Songs</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-list"></i><span style="padding-left: 7px;">Manage Playlists</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i><span style="padding-left: 5px;">History</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-repeat"></i><span style="padding-left: 7px;">Recap</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-square-poll-vertical"></i><span style="padding-left: 7px;">Reports</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-clipboard-list"></i><span style="padding-left: 7px;">Plans</span></a></li>
-            </ul>
-        </div>
+    type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "2777abff-0662-4aa9-8357-952d6efcfa53"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
+    <div class="sidebar">
+        <button onclick="changeLogo()" id="custom-sidebar-toggle"> 
+            <img id="custom-sidebar-img" src="photo\menu.png"  class="dark-mode-img" alt="Button Image">
+            <img id="custom-sidebar-img" src="photo\menu (1).png"  class="light-mode-img" alt="Button Image">
+        </button>
 
-<br><br>
+        <a href="home.html" id="trial">
+            <img id="trial-img" src="photo\output-onlinepngtools.png" alt="SoundSpot Logo">
+        </a>
+        <a href="ManageSongs.html">
+            <img src="photo\music.png" alt="Manage Users" class="dark-mode-img">
+            <img src="photo\music (1).png" alt="Manage Users" class="light-mode-img"> 
+            Manage Songs
+        </a>
+        <a href="recap.html">
+            <i class="fa-solid fa-list"></i><span style="padding-left: 11px;">Manage Playlists</span></a>
+        </a>
+        
+        <a href="Reports.html">
+            <img src="photo\report.png" alt="Manage Users" class="dark-mode-img">
+            <img src="photo\report (1).png" alt="Manage Users" class="light-mode-img">
+            Reports
+        </a>
+        <a href="Plans.html">
+            <img src="photo\money-bag.png" alt="Manage Users" class="dark-mode-img">
+            <img src="photo\money-bag (1).png" alt="Manage Users" class="light-mode-img"> 
+            Plans
+        </a>
+        <a href="recap.html">
+            <i class="fa-solid fa-repeat"></i><span style="padding-left: 11px;">Recap</span>
+        </a>
+        <a href="history.html">
+            <i class="fa-solid fa-clock-rotate-left"></i><span style="padding-left: 11px;">History</span>
+        </a>
+        <a href="CopanyOverview.html">
+            <img src="photo\company-details(1).png" alt="Manage Users" class="dark-mode-img"> 
+            <img src="photo\company-details.png" alt="Manage Users" class="light-mode-img"> 
+            Company Overview
+        </a>
+        <a href="CommunityGuidlines.html">
+            <img src="photo\artificial-intelligence.png" alt="Manage Users" class="dark-mode-img"> 
+            <img src="photo\artificial-intelligence (1).png" alt="Manage Users" class="light-mode-img">
+            Community Guidlines
+        </a>
+        <a href="contact.html">
+            <img src="photo\phone.png" alt="Manage Users" class="dark-mode-img"> 
+            <img src="photo\phone (1).png" alt="Manage Users" class="light-mode-img"> 
+            Contacts
+        </a>
+
+    </div>
+    <div class="navbar">
+        <div class="search-bar" id="searchBar" style="display: none;">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="navbar-icons">
+            <button id="search-button" class="search-button"></button>
+            <img id="noti-icon" src="photo/notification.png">
+            <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
+                <img id="chat-icon" src="photo/chat.png" alt="Chat Icon">
+            </a>
+            <div id="profile">
+                <img id="profile-icon" src="photo/cat.jpg">
+                <div class="profile_dropDownMenu">
+                    <nav>
+                        <div class="menu-item">
+                            <img src="photo\user.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\user (2).png" alt="Profile Icon" class="light-mode-img"> 
+                            <a href="#">Profile</a>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <img src="photo\view.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\eye.png" alt="Profile Icon" class="light-mode-img"> 
+                            <a href="#">Views as</a>
+                        </div>
+                        <div class="menu-item"> 
+                            <img src="photo\settings-gear-icon.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\settings.png" alt="Profile Icon" class="light-mode-img"> 
+                            <a href="#">Settings</a>
+                        </div>
+                        <div class="menu-item">
+                            <img src="photo\brightness.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\brightness (2).png" alt="Profile Icon" class="light-mode-img"> 
+                            <a href="#">Light Mode</a>
+                            <button id="toggle-light-mode"></button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="photo\exit.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\exit (2).png" alt="Profile Icon" class="light-mode-img">
+                            <a href="#">Log Out</a>
+                        </div>
+                    </nav>
+                </div>
+                
+
+        </div>
+    </div>
+    </div>
+
+    <br><br>
 <div class="container">
-    <h1 style="margin:20px; color:white;">Hello *UserName*!<br>What would you like to do today?</h1>
+  <h1 class="greeting">Hello *UserName*!<br>What would you like to do today?</h1>
+
 
     <div class="unit">
-      <img src="images/songs.jpg" alt="Songs">
+      <img src="photo/songs.jpg" alt="Songs">
       <div class="overlay"></div>
       <p class="text">Songs</p>
     </div>
 
     <div class="unit">
-      <img src="images/playlists.jpg" alt="Playlists">
+      <img src="photo/playlists.jpg" alt="Playlists">
       <div class="overlay"></div>
       <p class="text">Playlists</p>
     </div>
 
     <div class="unit">
-      <img src="images/history.jpg" alt="History">
+      <img src="photo/history.jpg" alt="History">
       <div class="overlay"></div>
       <p class="text">History</p>
     </div>
 
     <div class="unit">
-      <img src="images/recap.jpg" alt="Recap">
+      <img src="photo/recap.jpg" alt="Recap">
       <div class="overlay"></div>
       <p class="text">Recap</p>
     </div>
@@ -81,35 +148,32 @@
 
 <hr>
 
-
-
-
   <div class="container"><!-- This is where you will place the albun covers-->
     <div class="row">
       <h2>New Releases</h2>
       <div class="card">
-        <img src="images/Artist-Designed Album Covers 2.webp" alt="Album 1">
+        <img src="photo/Artist-Designed Album Covers 2.webp" alt="Album 1">
         <div class="content">
           <h3>Artist Name</h3>
           <p>Album Title</p>
         </div>
       </div>
       <div class="card">
-        <img src="images/Dark_Side_of_the_Moon.png" alt="Album 2">
+        <img src="photo/Dark_Side_of_the_Moon.png" alt="Album 2">
         <div class="content">
           <h3>Artist Name</h3>
           <p>Album Title</p>
         </div>
       </div>
       <div class="card">
-        <img src="images/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Album 3">
+        <img src="photo/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Album 3">
         <div class="content">
           <h3>Artist Name</h3>
           <p>Album Title</p>
         </div>
       </div>
       <div class="card">
-        <img src="images/images.jpg" alt="Album 1">
+        <img src="photo/images.jpg" alt="Album 1">
         <div class="content">
           <h3>Artist Name</h3>
           <p>Album Title</p>
@@ -121,28 +185,28 @@
     <div class="row">
       <h2>Recommended for You</h2>
       <div class="card">
-        <img src="images/Artist-Designed Album Covers 2.webp" alt="Artist 1">
+        <img src="photo/Artist-Designed Album Covers 2.webp" alt="Artist 1">
         <div class="content">
           <h3>Artist Name</h3>
           <p>Genre</p>
         </div>
       </div>
       <div class="card">
-          <img src="images/Dark_Side_of_the_Moon.png" alt="Artist 1">
+          <img src="photo/Dark_Side_of_the_Moon.png" alt="Artist 1">
           <div class="content">
             <h3>Artist Name</h3>
             <p>Genre</p>
           </div>
         </div>
         <div class="card">
-          <img src="images/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Artist 1">
+          <img src="photo/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Artist 1">
           <div class="content">
             <h3>Artist Name</h3>
             <p>Genre</p>
           </div>
         </div>
         <div class="card">
-          <img src="images/images.jpg" alt="Artist 1">
+          <img src="photo/images.jpg" alt="Artist 1">
           <div class="content">
             <h3>Artist Name</h3>
             <p>Genre</p>
@@ -154,44 +218,56 @@
     <div class="row">
       <h2>Recommended for You</h2>
       <div class="card">
-          <img src="images/Artist-Designed Album Covers 2.webp" alt="Artist 1">
+          <img src="photo/Artist-Designed Album Covers 2.webp" alt="Artist 1">
           <div class="content">
             <h3>Mix name</h3>
             <p>Genre</p>
           </div>
         </div>
         <div class="card">
-          <img src="images/Dark_Side_of_the_Moon.png" alt="Artist 1">
+          <img src="photo/Dark_Side_of_the_Moon.png" alt="Artist 1">
           <div class="content">
             <h3>Mix name</h3>
             <p>Genre</p>
           </div>
         </div>
         <div class="card">
-          <img src="images/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Artist 1">
+          <img src="photo/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Artist 1">
           <div class="content">
             <h3>Mix name</h3>
             <p>Genre</p>
           </div>
         </div>
         <div class="card">
-          <img src="images/images.jpg" alt="Artist 1">
+          <img src="photo/images.jpg" alt="Artist 1">
           <div class="content">
             <h3>Mix name</h3>
             <p>Genre</p>
           </div>
         </div>
     </div>
-
-
     <footer>
-      <hr>
-      <p>&copy; 2024 SoundSpot. All rights reserved.<span style="padding-left: 10px;">
-          <a href="https://www.facebook.com/profile.php?id=61558330435298"><i class="fab fa-facebook"></i></a>
-          <a href="https://www.instagram.com/soundspot?igsh=emRteDc4bmNqNTQz"><i class="fab fa-instagram"></i></a>
-      </p>
-      </footer>
+        <div class="footer-content">
+          
+            <div class="text-center">
+                <p>&copy; 2024 SoundSpot. All rights reserved.</p>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img src="photo\facebook.png"></a>
+                <a href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="photo\instagram.png"></a>
+                <a href="link_to_your_second_page.html"><img src="photo\twitter.png"></a>
+                <a href="mailto:emailsspamm101@gmail.com"><img src="photo\gmail.png"></a>
+            </div>
+        </div>
+    </footer>
+    
+    
+    
+
+   
+
+   
+
+
 </body>
-
 </html>
-
