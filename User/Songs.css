@@ -1,0 +1,15 @@
+.container #his{
+    color: white;
+}
+.light-mode .container #his{
+    color: black;
+}
+.container .secSongs{
+    display: flex; 
+    justify-content: space-between; 
+    
+}
+.section {
+    flex-grow: 1; 
+    margin-right: 20px; 
+}

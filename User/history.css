@@ -37,11 +37,15 @@ li:last-child {
 }
 .song-title {
     font-weight: bold;
-    color: #333;
+    color: white;
 }
 .artist {
     color: #666;
 }
 .light-mode .container {
     background-color: white;
+}
+
+.light-mode .container .song-title{
+    color: black;
 }
