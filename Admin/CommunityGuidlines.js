@@ -1,22 +1,20 @@
-
 document.addEventListener('DOMContentLoaded', function() {
-    const textArea = document.getElementById('resizable-textarea-3');
-    const saveBtn = document.getElementById('save-button-3');
+    const textArea4 = document.getElementById('resizable-textarea-4');
+    const saveBtn4 = document.getElementById('save-button-4');
 
-    // Retrieve saved text from localStorage when the page loads
-    const savedText = localStorage.getItem('savedText3');
+    const savedText = localStorage.getItem('savedText4');
     if (savedText) {
-        textArea.value = savedText;
+        textArea4.value = savedText;
     }
 
-    saveBtn.addEventListener('click', function() {
-        const text = textArea.value.trim();
+    saveBtn4.addEventListener('click', function() {
+        const text = textArea4.value.trim();
 
         if (text === '') {
             alert('Textarea is empty. Please enter some text before saving.');
         } else {
-            // Save text to localStorage
-            localStorage.setItem('savedText3', text);
+        
+            localStorage.setItem('savedText4', text);
             alert('Text saved: ' + text);
         }
     });
