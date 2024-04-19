@@ -15,7 +15,6 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-
     adjustDisplay();
 
     window.addEventListener("resize", function () {
@@ -39,6 +38,8 @@ window.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+/* end of search bar */
+
 //dropdown menu
 document.addEventListener("DOMContentLoaded", function () {
     var profileIcon = document.getElementById("profile-icon");
@@ -46,16 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     profileIcon.addEventListener("click", function () {
         dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    var profileIcon = document.getElementById("profile-icon");
-    var dropdownMenu = document.querySelector(".profile_dropDownMenu");
-
-    profileIcon.addEventListener("click", function () {
-
-        dropdownMenu.classList.toggle(".show");
     });
 });
 
@@ -169,7 +160,6 @@ function minimizeSidebar() {
 
     sidebar.classList.add("sidebar-minimized");
     logoImg.src = "photo/1(2).png";
-    logoImg.classList.add("minimized");
 }
 
 // teraga3 el sid-bar
