@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,52 +17,43 @@
 
 <body>
     <div class="sidebar">
-        <button onclick="changeLogo()" id="custom-sidebar-toggle"> 
-            <img id="custom-sidebar-img" src="photo\menu.png"  class="dark-mode-img" alt="Button Image">
-            <img id="custom-sidebar-img" src="photo\menu (1).png"  class="light-mode-img" alt="Button Image">
+        <button onclick="changeLogo()" id="custom-sidebar-toggle">
+            <img id="custom-sidebar-img" src="photo\menu.png" class="dark-mode-img" alt="Button Image">
+            <img id="custom-sidebar-img" src="photo\menu (1).png" class="light-mode-img" alt="Button Image">
         </button>
-
         <a href="home.html" id="trial">
             <img id="trial-img" src="photo\output-onlinepngtools.png" alt="SoundSpot Logo">
         </a>
-        <a href="ManageUsers.html">
-            <img src="photo\group.png" alt="Manage Users" class="dark-mode-img"> 
-            <img src="photo\group (1).png" alt="Manage Users" class="light-mode-img"> 
-            Manage Users
+        <a class="text-a" href="ManageUsers.html">
+            <i class="fas fa-users dark-mode-img  icons"></i>
+            <span class="t">Manage Users</span>
         </a>
-        
-        <a href="ManageSongs.html">
-            <img src="photo\music.png" alt="Manage Users" class="dark-mode-img">
-            <img src="photo\music (1).png" alt="Manage Users" class="light-mode-img"> 
-            Manage Songs
+        <a class="text-a" href="ManageSongs.html">
+            <i class="fa-solid fa-music icons"></i>
+            <span class="t">Manage Songs</span>
         </a>
-        <a href="Reports.html">
-            <img src="photo\report.png" alt="Manage Users" class="dark-mode-img">
-            <img src="photo\report (1).png" alt="Manage Users" class="light-mode-img">
-            Reports
+        <a class="text-a" href="Reports.html">
+            <i class="fa-solid fa-chart-column  icons"></i>
+            <span class="t">Reports</span>
         </a>
-        <a href="Plans.html">
-            <img src="photo\money-bag.png" alt="Manage Users" class="dark-mode-img">
-            <img src="photo\money-bag (1).png" alt="Manage Users" class="light-mode-img"> 
-            Plans
+        <a class="text-a" href="Plans.html">
+            <i class="fa-solid fa-wallet icons"></i>
+            <span class="t">Plans</span>
         </a>
-        <a href="CopanyOverview.html">
-            <img src="photo\company-details(1).png" alt="Manage Users" class="dark-mode-img"> 
-            <img src="photo\company-details.png" alt="Manage Users" class="light-mode-img"> 
-            Company Overview
+        <a class="text-a" href="CopanyOverview.html">
+            <i class="fa-regular fa-newspaper icons"></i>
+            <span class="t">Company Overview</span>
         </a>
-        <a href="CommunityGuidlines.html">
-            <img src="photo\artificial-intelligence.png" alt="Manage Users" class="dark-mode-img"> 
-            <img src="photo\artificial-intelligence (1).png" alt="Manage Users" class="light-mode-img">
-            Community Guidlines
+        <a class="text-a" href="CommunityGuidlines.html">
+            <i class="fa-solid fa-file-signature icons"></i>
+            <span class="t">Community Guidelines</span>
         </a>
-        <a href="contact.html">
-            <img src="photo\phone.png" alt="Manage Users" class="dark-mode-img"> 
-            <img src="photo\phone (1).png" alt="Manage Users" class="light-mode-img"> 
-            Contacts
+        <a class="text-a" href="contact.html">
+            <i class="fas fa-phone dark-mode-img icons"></i>
+            <span class="t">Contacts</span>
         </a>
-
     </div>
+    
     <div class="navbar">
         <div class="search-bar" id="searchBar" style="display: none;">
             <input type="text" placeholder="Search...">
@@ -70,61 +62,101 @@
         <div class="navbar-icons">
             <button id="search-button" class="search-button"></button>
             <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
-                <img id="chat-icon" src="photo/chat.png" alt="Chat Icon">
-            </a>
+                <i class="fa-solid fa-comment-dots chat-icon"></i> </a>
             <div id="profile">
                 <img id="profile-icon" src="photo/cat.jpg">
                 <div class="profile_dropDownMenu">
                     <nav>
                         <div class="menu-item">
-                            <img src="photo\user.png" alt="Profile Icon" class="dark-mode-img"> 
-                            <img src="photo\user (2).png" alt="Profile Icon" class="light-mode-img"> 
+                            <i class="fa-solid fa-user"></i>
                             <a href="#">Profile</a>
                         </div>
-                        
                         <div class="menu-item">
-                            <img src="photo\view.png" alt="Profile Icon" class="dark-mode-img"> 
-                            <img src="photo\eye.png" alt="Profile Icon" class="light-mode-img"> 
-                            <a href="#">Views as</a>
+                            <i class="fa-regular fa-eye"></i>
+                            <a href="#">View as</a>
                         </div>
-                        <div class="menu-item"> 
-                            <img src="photo\settings-gear-icon.png" alt="Profile Icon" class="dark-mode-img"> 
-                            <img src="photo\settings.png" alt="Profile Icon" class="light-mode-img"> 
+                        <div class="menu-item">
+                            <i class="fa-solid fa-gear"></i>
                             <a href="#">Settings</a>
                         </div>
                         <div class="menu-item">
-                            <img src="photo\brightness.png" alt="Profile Icon" class="dark-mode-img"> 
-                            <img src="photo\brightness (2).png" alt="Profile Icon" class="light-mode-img"> 
+                            <i class="fa-regular fa-sun"></i>
                             <a href="#">Light Mode</a>
                             <button id="toggle-light-mode"></button>
                         </div>
                         <div class="menu-item">
-                            <img src="photo\exit.png" alt="Profile Icon" class="dark-mode-img"> 
-                            <img src="photo\exit (2).png" alt="Profile Icon" class="light-mode-img">
+                            <i class="fa-solid fa-right-from-bracket"></i>
                             <a href="#">Log Out</a>
                         </div>
                     </nav>
                 </div>
-                
-
+            </div>
         </div>
     </div>
+    <!--User profiles list -->
+
+    <button class="history-button" onclick="showPopup()">Deleted Users</button>
+
+
+    <div class="main-content">
+        <div class="list-container">
+            <div class="list-item">
+                <a href="userProfile.html">
+                    <i class="fa-solid fa-user"></i>
+                    <div class="text">Roaa Khaled</div>
+                </a>
+                <button class="btn" onclick="deleteUser(this)">Delete</button>
+                <button class="btn" onclick="sendEmail()">Send E-mail</button>
+
+            </div>
+            <div class="list-item">
+                <a href="userProfile.html">
+                    <i class="fa-solid fa-user"></i>
+                    <div class="text">Sama Khaled</div>
+                </a>
+                <button class="btn" onclick="deleteUser(this)">Delete</button>
+                <button class="btn" onclick="sendEmail()">Send E-mail</button>
+
+            </div>
+
+            <div class="list-item">
+                <a href="userProfile.html">
+                    <i class="fa-solid fa-user"></i>
+                    <div class="text">Samya Khaled</div>
+                </a>
+                <button class="btn" onclick="deleteUser(this)">Delete</button>
+                <button class="btn" onclick="sendEmail()">Send E-mail</button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="deleted-popup" id="popup" style="display:none;">
+        <div class="popup-content">
+            <button class="exit-popup" onclick="exitPopup()">X</button>
+            <div class="deleted-users-list" id="deletedUsersList">
+                <!-- Deleted user list items will be added dynamically here -->
+            </div>
+        </div>
     </div>
 
     <footer>
         <div class="footer-content">
-          
+
             <div class="text-center">
                 <p>&copy; 2024 SoundSpot. All rights reserved.</p>
             </div>
             <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img src="photo\facebook.png"></a>
-                <a href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="photo\instagram.png"></a>
-                <a href="link_to_your_second_page.html"><img src="photo\twitter.png"></a>
+                <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img
+                        src="photo\facebook.png"></a>
+                <a
+                    href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img
+                        src="photo\instagram.png"></a>
                 <a href="mailto:emailsspamm101@gmail.com"><img src="photo\gmail.png"></a>
             </div>
         </div>
 
-    
+
 </body>
+
 </html>
