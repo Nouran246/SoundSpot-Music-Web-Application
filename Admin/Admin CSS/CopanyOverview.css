@@ -1,0 +1,45 @@
+
+
+#save-button-3 {
+    margin-top: 10px;
+    padding: 10px 20px;
+    margin-left:1280px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #800080;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+   
+}
+
+#save-button-3:hover {
+    background-color: #6a006a; /* Darker shade of purple on hover */
+}
+
+
+@media screen and (max-width: 768px) {
+  
+    #resizable-textarea-3 {
+        width: 325px;
+        margin: 0 auto;
+        resize: vertical;
+        overflow: auto;
+        margin-left:130px
+    }
+
+    #save-button-3 {
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        background-color: #800080;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+}
