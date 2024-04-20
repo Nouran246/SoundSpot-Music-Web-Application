@@ -1,0 +1,169 @@
+.user-info {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    width: auto;
+    height: 60px;
+
+    margin-left: 275px;
+    margin-right: 20px;
+    margin-top: 20px;
+
+    padding: 35px;
+    padding-left: 20px;
+
+    border-radius: 5px;
+    background: #353535;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#user-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 7px;
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0px;
+}
+
+.full-name {
+    color: #800080;
+    margin: 10px;
+    margin-left: 0px;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.username {
+    color: #ca6dca;
+    margin: 10px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.contentt {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+#user-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.buttons {
+    margin-top: 10px;
+    margin-right: 25px;
+    margin-left: 0px;
+}
+
+.btn {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.user-details {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: coloumn;
+
+    width: auto;
+    height: 700px;
+
+    margin-left: 275px;
+    margin-right: 20px;
+    margin-top: 20px;
+
+    padding-left: 20px;
+    padding-bottom: 42px;
+
+    border-radius: 5px;
+    background: #353535;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.details {
+    display: block;
+    margin-left: 7px;
+    margin-top: 30px;
+}
+
+.personal-info {
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.subscription {
+    margin-bottom: 20px;
+}
+
+.activity-log {
+    margin-bottom: 20px;
+}
+
+.security {
+    margin-bottom: 20px;
+}
+
+.contact-info div,
+.personal-info div,
+.subscription div,
+.activity-log div .security div {
+    display: block;
+    margin-top: 10px;
+}
+
+
+#head {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 13px;
+    color: #800080;
+    text-shadow: 0px 0px 3px rgba(128, 0, 128, 0.85);}
+
+#u {
+    padding-right: 100px;
+}
+.subscription, .authen {
+    margin-top: 5px;
+    display: inline-block;
+    margin-right: 10px;
+    background-color:#333;
+    border: 2px solid #333;
+    color:#ddd;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.authen
+{
+    margin-top:10px;
+}
+
+.selected {
+    background-color: #800080;
+    border-color: #fff;
+    border-color: #ddd;
+}
+
+#free,#family,#premium {
+    border-color: #333;
+}
