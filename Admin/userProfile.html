@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="icon" href="photo/2.png" type="image/png">
+
+    <script src="Sidenavbar.js"></script>
+    <script src="userProfile.js"></script>
+
+    <link rel="stylesheet" href="userProfile.css">
+    <link rel="stylesheet" href="ManageUsers.css">
+
+    <script src="ManageUsers.js"></script>
+</head>
+
+
+<body>
+    <div class="sidebar">
+        <button onclick="changeLogo()" id="custom-sidebar-toggle">
+            <img id="custom-sidebar-img" src="photo\menu.png" class="dark-mode-img" alt="Button Image">
+            <img id="custom-sidebar-img" src="photo\menu (1).png" class="light-mode-img" alt="Button Image">
+        </button>
+        <a href="home.html" id="trial">
+            <img id="trial-img" src="photo\output-onlinepngtools.png" alt="SoundSpot Logo">
+        </a>
+        <a class="text-a" href="ManageUsers.html">
+            <i class="fas fa-users dark-mode-img  icons"></i>
+            <span class="t">Manage Users</span>
+        </a>
+        <a class="text-a" href="ManageSongs.html">
+            <i class="fa-solid fa-music icons"></i>
+            <span class="t">Manage Songs</span>
+        </a>
+        <a class="text-a" href="Reports.html">
+            <i class="fa-solid fa-chart-column  icons"></i>
+            <span class="t">Reports</span>
+        </a>
+        <a class="text-a" href="Plans.html">
+            <i class="fa-solid fa-wallet icons"></i>
+            <span class="t">Plans</span>
+        </a>
+        <a class="text-a" href="CopanyOverview.html">
+            <i class="fa-regular fa-newspaper icons"></i>
+            <span class="t">Company Overview</span>
+        </a>
+        <a class="text-a" href="CommunityGuidlines.html">
+            <i class="fa-solid fa-file-signature icons"></i>
+            <span class="t">Community Guidelines</span>
+        </a>
+        <a class="text-a" href="contact.html">
+            <i class="fas fa-phone dark-mode-img icons"></i>
+            <span class="t">Contacts</span>
+        </a>
+    </div>
+    
+
+
+    <div class="navbar">
+        <div class="search-bar" id="searchBar" style="display: none;">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="navbar-icons">
+            <button id="search-button" class="search-button"></button>
+            <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
+                <i class="fa-solid fa-comment-dots chat-icon"></i> </a>
+            <div id="profile">
+                <img id="profile-icon" src="photo/cat.jpg">
+                <div class="profile_dropDownMenu">
+                    <nav>
+                        <div class="menu-item">
+                            <i class="fa-solid fa-user"></i>
+                            <a href="#">Profile</a>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-regular fa-eye"></i>
+                            <a href="#">View as</a>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-solid fa-gear"></i>
+                            <a href="#">Settings</a>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-regular fa-sun"></i>
+                            <a href="#">Light Mode</a>
+                            <button id="toggle-light-mode"></button>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <a href="#">Log Out</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="user-info">
+        <div id="user-img">
+            <img src="photo/cat.jpg">
+        </div>
+        <div class="contentt">
+            <div class="name">
+                <div class="full-name">Roaa Khaled</div>
+                <div class="username" id="username">roaakh_</div>
+            </div>
+            <div class="buttons">
+                <button class="btn">Ban</button>
+                <button class="btn">Delete</button>
+                <button class="btn">Edit</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div>
+
+        <div class="user-details">
+            <div class="details">
+
+                <div class="head-personal-info" id="head">Personal Information</div>
+                <div class="personal-info">
+                    <div class="birthday" id="u">Date of birth: <span class="user-birthday">January 1, 1990</span>
+                    </div>
+                    <div class="country" id="u">Country: <span class="user-country">Egypt</span> </div>
+                </div>
+
+                <div class="head-contact-info" id="head">Contact Information</div>
+                <div class="contact-info">
+                    <div class="email" id="u">E-mail:<span class="user-email">example@gmail.com</span></div>
+                    <div class="phone-number" id="u">Phone Number:<span class="user-number">+20 1024987531</span></div>
+                </div>
+
+                <div class="head-subscription" id="head">Subscription Plan</div>
+                <label id="free" class="subscription">Free</label>
+                <label id="premium" class="subscription">Premium</label>
+                <label id="family" class="subscription">Family</label>
+                
+
+                <div class="heading-activity-log" id="head">Activity Log</div>
+                <div class="activity-log">
+                    <div id="u">Playlists created:
+                        <span class="user-created-playlists">5</span>
+                    </div>
+                    <div id="u">Followers:
+                        <span class="user-followers">100</span>
+                    </div>
+                    <div id="u">Following:
+                        <span class="user-following">50</span>
+                    </div>
+                </div>
+
+                <div class="head-security" id="head">Security</div>
+                <div class="security">
+                    <div id="u">Last account access: <span class="user-last-access">March 15, 2024</span></div>
+                    <!--send email if old -->
+                    <div id="u">Number of password changes:<span class="user-password-changes">3</span>
+                    </div>
+                    <div id="u">Date of registration: <span class="user-registration-date">January 23, 2017</span>
+                    </div>
+                    <div id="u">Two-factor authentication</div>
+                    <label id="enable-authen" class="authen">Enabled</label>
+                    <label id="disable-authen" class="authen">Disabled</label>
+                    
+                 
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <footer>
+            <div class="footer-content">
+                <div class="text-center">
+                    <p>&copy; 2024 SoundSpot. All rights reserved.</p>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img
+                            src="photo\facebook.png"></a>
+                    <a
+                        href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img
+                            src="photo\instagram.png"></a>
+                    <a href="mailto:emailsspamm101@gmail.com"><img src="photo\gmail.png"></a>
+                </div>
+            </div>
+
+
+</body>
+
+</html>
