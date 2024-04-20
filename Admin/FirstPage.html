@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .text-container {
+            position: relative;
+        }
+
+        .text {
+            color: transparent;
+            text-align: center;
+            font-size: 6rem;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            animation: drawText 3s steps(20) forwards;
+            border-right: 2px solid bisque; /* Cursor effect */
+        }
+
+        @keyframes drawText {
+            0% {
+                width: 0;
+            }
+            100% {
+                color: bisque;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <h1 class="text">Sound Spot</h1>
+    </div>
+</body>
+</html>

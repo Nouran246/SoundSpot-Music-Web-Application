@@ -8,10 +8,10 @@
     <title>SoundSpot</title>
     <link rel="icon" href="photo/2.png" type="image/png">
     <link rel="stylesheet" href="ManageSongs.css">
-
     <script src="Sidenavbar.js"></script>
     <link rel="stylesheet" href="free.css">
     <script src="free.js"></script>
+
 </head>
 
 
@@ -53,7 +53,6 @@
             <span class="t">Contacts</span>
         </a>
     </div>
-    
     <div class="navbar">
         <div class="search-bar" id="searchBar" style="display: none;">
             <input type="text" placeholder="Search...">
@@ -108,20 +107,25 @@
 
 
     <h1 class="title">Free Subscription</h1>
-
-
     <div class="container">
         <textarea id="resizable-textarea" ></textarea>
         <br>
         <button id="save-button">Save</button>
-      </div>
+    </div>
 
-
-
-
-
-
-
+    <h1 class="title">Free Subscription details</h1>
+    <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Free Subscription Details</th>
+            </tr>
+        </thead>
+        <tbody id="free-subscription-details"></tbody>
+    </table>
+    <div class="edit-container">
+        <button class="edit-button" onclick="editPlan('free')">Edit</button>
+    </div>
+      
 
 
 
@@ -146,6 +150,6 @@
             </div>
         </div>
 
-    
+    </footer>
 </body>
 </html>
