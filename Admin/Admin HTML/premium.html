@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../Admin%20CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="icon" href="photo/2.png" type="image/png">
+    <link rel="stylesheet" href="../Admin%20CSS/ManageSongs.css">
+    <link rel="stylesheet" href="../Admin%20CSS/premium.css">
+    <script src="../Admin%20JavaScript/Sidenavbar.js"></script>
+    <link rel="stylesheet" href="../Admin%20CSS/free.css">
+    <script src="../Admin%20JavaScript/premium.js"></script>
+</head>
+
+
+<body>
+    <div class="sidebar">
+        <button onclick="changeLogo()" id="custom-sidebar-toggle">
+            <img id="custom-sidebar-img" src="photo\menu.png" class="dark-mode-img" alt="Button Image">
+            <img id="custom-sidebar-img" src="photo\menu (1).png" class="light-mode-img" alt="Button Image">
+        </button>
+        <a href="home.html" id="trial">
+            <img id="trial-img" src="photo\output-onlinepngtools.png" alt="SoundSpot Logo">
+        </a>
+        <a class="text-a" href="ManageUsers.html">
+            <i class="fas fa-users dark-mode-img  icons"></i>
+            <span class="t">Manage Users</span>
+        </a>
+        <a class="text-a" href="ManageSongs.html">
+            <i class="fa-solid fa-music icons"></i>
+            <span class="t">Manage Songs</span>
+        </a>
+        <a class="text-a" href="Reports.html">
+            <i class="fa-solid fa-chart-column  icons"></i>
+            <span class="t">Reports</span>
+        </a>
+        <a class="text-a" href="Plans.html">
+            <i class="fa-solid fa-wallet icons"></i>
+            <span class="t">Plans</span>
+        </a>
+        <a class="text-a" href="CopanyOverview.html">
+            <i class="fa-regular fa-newspaper icons"></i>
+            <span class="t">Company Overview</span>
+        </a>
+        <a class="text-a" href="CommunityGuidlines.html">
+            <i class="fa-solid fa-file-signature icons"></i>
+            <span class="t">Community Guidelines</span>
+        </a>
+        <a class="text-a" href="contact.html">
+            <i class="fas fa-phone dark-mode-img icons"></i>
+            <span class="t">Contacts</span>
+        </a>
+    </div>
+    
+    <div class="navbar">
+        <div class="search-bar" id="searchBar" style="display: none;">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="navbar-icons">
+            <button id="search-button" class="search-button"></button>
+          
+            <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
+                <img id="chat-icon" src="photo/chat.png" alt="Chat Icon">
+            </a>
+            <div id="profile">
+                <img id="profile-icon" src="photo/cat.jpg">
+                <div class="profile_dropDownMenu">
+                    <nav>
+                        <div class="menu-item">
+                            <img src="photo\user.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\user (2).png" alt="Profile Icon" class="light-mode-img"> 
+                            <a href="#">Profile</a>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <img src="photo\view.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\eye.png" alt="Profile Icon" class="light-mode-img"> 
+                            <a href="#">Views as</a>
+                        </div>
+                        <div class="menu-item"> 
+                            <img src="photo\settings-gear-icon.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\settings.png" alt="Profile Icon" class="light-mode-img"> 
+                            <a href="#">Settings</a>
+                        </div>
+                        <div class="menu-item">
+                            <img src="photo\brightness.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\brightness (2).png" alt="Profile Icon" class="light-mode-img"> 
+                            <a href="#">Light Mode</a>
+                            <button id="toggle-light-mode"></button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="photo\exit.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\exit (2).png" alt="Profile Icon" class="light-mode-img">
+                            <a href="#">Log Out</a>
+                        </div>
+                    </nav>
+                </div>
+                
+
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <h1 class="title">Premium Subscription</h1>
+
+
+    <div class="container">
+        <textarea id="resizable-textarea-2" ></textarea>
+        <br>
+        <button id="save-button-2">Save</button>
+    
+
+
+
+      <h1 class="title">Premium Subscription details</h1>
+     
+      
+      <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Students Subscription Details</th>
+            </tr>
+        </thead>
+        <tbody id="premium-plan-details"></tbody>
+    </table>
+    <div class="edit-container">
+        <button class="edit-button" onclick="editPlan('premium')">Edit</button>
+    </div>
+
+    <!-- Family Plan -->
+    <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Family Plan Details</th>
+            </tr>
+        </thead>
+        <tbody id="family-plan-details"></tbody>
+    </table>
+    <div class="edit-container">
+        <button class="edit-button" onclick="editPlan('family')">Edit</button>
+    </div>
+
+    <!-- Individual Plan -->
+    <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Individual Plan Details</th>
+            </tr>
+        </thead>
+        <tbody id="individual-plan-details"></tbody>
+    </table>
+    <div class="edit-container">
+        <button class="edit-button" onclick="editPlan('individual')">Edit</button>
+    </div>
+
+    <!-- Etisalat Offer -->
+    <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Etisalat Offer Details</th>
+            </tr>
+        </thead>
+        <tbody id="etisalat-offer-details"></tbody>
+    </table>
+    <div class="edit-container">
+        <button class="edit-button" onclick="editPlan('etisalat')">Edit</button>
+    </div>
+
+    <!-- Vodafone Offer -->
+    <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Vodafone Offer Details</th>
+            </tr>
+        </thead>
+        <tbody id="vodafone-offer-details"></tbody>
+    </table>
+    <div class="edit-container">
+        <button class="edit-button" onclick="editPlan('vodafone')">Edit</button>
+    </div>
+
+    <!-- Orange Offer -->
+    <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Orange Offer Details</th>
+            </tr>
+        </thead>
+        <tbody id="orange-offer-details"></tbody>
+    </table>
+    <div class="edit-container">
+        <button class="edit-button" onclick="editPlan('orange')">Edit</button>
+    </div>
+
+  
+    <footer>
+        <div class="footer-content">
+          
+            <div class="text-center">
+                <p>&copy; 2024 SoundSpot. All rights reserved.</p>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img src="photo\facebook.png"></a>
+                <a href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="photo\instagram.png"></a>
+                <a href="mailto:emailsspamm101@gmail.com"><img src="photo\gmail.png"></a>
+            </div>
+        </div>
+
+    </footer>
+    
+</body>
+</html>
