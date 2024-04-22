@@ -78,6 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const navbar = document.querySelector(".navbar");
         const sidebar = document.querySelector(".sidebar");
         const footer = document.querySelector("footer");
+        const rows = document.querySelectorAll(".row"); // Select all row elements
+        const headers = document.querySelectorAll("h2"); // Select all h2 elements
         const searchBarInput = document.querySelector(".search-bar input[type='text']");
         const sidebarImagesLight = document.querySelectorAll(".light-mode-img");
         const sidebarImagesDark = document.querySelectorAll(".dark-mode-img");
@@ -85,27 +87,24 @@ document.addEventListener("DOMContentLoaded", function () {
         const dropdownMenu = document.querySelector(".profile_dropDownMenu");
         const dropdownMenuIconsLight = dropdownMenu.querySelectorAll(".light-mode-img");
         const dropdownMenuIconsDark = dropdownMenu.querySelectorAll(".dark-mode-img");
-
+    
+        // Toggle light-mode class on multiple elements
         body.classList.toggle("light-mode", mode === 'light');
         navbar.classList.toggle("light-mode", mode === 'light');
         sidebar.classList.toggle("light-mode", mode === 'light');
         footer.classList.toggle("light-mode", mode === 'light');
         searchBarInput.classList.toggle("light-mode", mode === 'light');
-
-        sidebarImagesLight.forEach(function (img) {
-            img.classList.toggle("hidden", mode === 'dark');
-        });
-        sidebarImagesDark.forEach(function (img) {
-            img.classList.toggle("hidden", mode === 'light');
-        });
-
-        dropdownMenuIconsLight.forEach(function (img) {
-            img.classList.toggle("hidden", mode === 'dark');
-        });
-        dropdownMenuIconsDark.forEach(function (img) {
-            img.classList.toggle("hidden", mode === 'light');
-        });
+        rows.forEach(row => row.classList.toggle("light-mode", mode === 'light')); // Apply to all rows
+        headers.forEach(header => header.classList.toggle("light-mode", mode === 'light')); // Apply to all h2 headers
+    
+        sidebarImagesLight.forEach(img => img.classList.toggle("hidden", mode === 'dark'));
+        sidebarImagesDark.forEach(img => img.classList.toggle("hidden", mode === 'light'));
+    
+        dropdownMenuIconsLight.forEach(img => img.classList.toggle("hidden", mode === 'dark'));
+        dropdownMenuIconsDark.forEach(img => img.classList.toggle("hidden", mode === 'light'));
     }
+    
+    
 
     // Function to initialize the mode based on the stored preference
     function initializeMode() {

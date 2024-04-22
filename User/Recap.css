@@ -11,16 +11,20 @@
     margin-bottom: 10px;
     color: white; 
   }
-  
+  h2.light-mode {
+    color: black; 
+  }
   .row {
     overflow-x: auto;
     white-space: nowrap;
     margin-bottom: 20px;
-    background-color: #800080; 
+    background-color: #222; 
     border-radius: 8px; 
     padding: 10px; 
   }
-  
+  .row.light-mode {
+    background-color: #f0f0f0; 
+  }
   .card {
     display: inline-block;
     width: 200px;
