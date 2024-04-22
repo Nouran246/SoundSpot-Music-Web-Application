@@ -230,3 +230,109 @@ button[type="submit"]:hover {
     cursor: pointer;
     color: #333; /* Dark text color */
 }
+
+/* Dropdown styles */
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333; /* Dark border */
+    border-radius: 4px;
+    background-color: #333; /* Dark background */
+    color: #ddd; /* Light text color */
+    appearance: none; /* Remove default styles */
+    -webkit-appearance: none; /* Remove default styles for older versions of Chrome/Safari */
+    -moz-appearance: none; /* Remove default styles for Firefox */
+}
+
+/* Dropdown arrow styles */
+select::after {
+    content: "\25BC"; /* Unicode character for down arrow */
+    position: absolute;
+    top: calc(50% - 0.5em);
+    right: 10px;
+    color: #ddd; /* Light text color */
+    pointer-events: none; /* Ensure arrow doesn't interfere with dropdown functionality */
+}
+
+/* Styling for dropdown options */
+select option {
+    background-color: #333; /* Dark background */
+    color: #ddd; /* Light text color */
+}
+
+/* Dropdown focus/hover styles */
+select:focus,
+select:hover {
+    border: 2px solid #800080; /* Purple border on focus/hover */
+    outline: none;
+}
+
+
+/* Autocomplete input styles */
+.autocomplete {
+    position: relative;
+    width: 100%;
+}
+
+.autocomplete input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333; /* Dark border */
+    border-radius: 4px;
+    background-color: #333; /* Dark background */
+    color: #ddd; /* Light text color */
+    transition: border-color 0.3s ease;
+}
+
+.autocomplete input[type="text"]:focus {
+    border: 2px solid #800080; /* Purple border on focus */
+    outline: none;
+}
+
+/* Dropdown container styles */
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #333; /* Dark background */
+    border: 1px solid #333; /* Dark border */
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+}
+
+/* Dropdown item styles */
+.autocomplete-dropdown-item {
+    padding: 10px;
+    color: #ddd; /* Light text color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.autocomplete-dropdown-item:hover {
+    background-color: #444; /* Darker background on hover */
+}
+
+.light-mode select {
+    border: 1px solid #ccc; /* Light border */
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text color */
+}
+
+.light-mode select::after {
+    color: #333; /* Dark text color */
+}
+
+.light-mode select option {
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text color */
+}
+
+.light-mode select:focus,
+.light-mode select:hover {
+    border: 2px solid #800080; /* Purple border on focus/hover */
+    outline: none;
+}
