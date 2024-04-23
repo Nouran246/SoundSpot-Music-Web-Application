@@ -1,35 +1,26 @@
-/* Reset default margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Container for the form */
 .form-container {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #222; /* Dark background */
-    color: #ddd; /* Light text color */
+    background-color: #222; 
+    color: #ddd; 
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Form styles */
+
 form {
     display: grid;
     gap: 20px;
 }
 
-/* Label styles */
 label {
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 8px;
 }
 
-/* Input styles */
+
 input[type="text"],
 input[type="date"],
 textarea,
@@ -37,11 +28,11 @@ input[type="file"],
 button[type="submit"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #333; /* Dark border */
+    border: 1px solid #333;
     border-radius: 4px;
     transition: border-color 0.3s ease;
-    background-color: #333; /* Dark background */
-    color: #ddd; /* Light text color */
+    background-color: #333; 
+    color: #ddd; 
 }
 
 input[type="text"]:focus,
@@ -49,11 +40,11 @@ input[type="date"]:focus,
 textarea:focus,
 input[type="file"]:focus,
 button[type="submit"]:hover {
-    border: 2px solid #800080; /* Purple border on focus/hover */
+    border: 2px solid #800080; 
     outline: none;
 }
 
-/* Checkbox styles */
+
 input[type="checkbox"] {
     display: none;
 }
@@ -62,7 +53,7 @@ input[type="checkbox"] + label {
     display: inline-block;
     margin-bottom: 10px;
     cursor: pointer;
-    color: #ddd; /* Light text color */
+    color: #ddd; 
 }
 
 input[type="checkbox"] + label::before {
@@ -80,7 +71,6 @@ input[type="checkbox"]:checked + label::before {
     background-color: #800080;
 }
 
-/* File upload styles */
 .file-upload {
     position: relative;
     overflow: hidden;
@@ -97,17 +87,16 @@ input[type="checkbox"]:checked + label::before {
 .file-upload label {
     display: block;
     padding: 10px;
-    background-color: #800080; /* Purple background */
-    color: #fff; /* White text color */
+    background-color: #800080; 
+    color: #fff;
     border-radius: 4px;
     text-align: center;
     cursor: pointer;
 }
 
-/* Submit button styles */
 button[type="submit"] {
     padding: 12px 20px;
-    background-color: #800080; /* Updated button color */
+    background-color: #800080; 
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -116,7 +105,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #6a006a; /* Darker shade on hover */
+    background-color: #6a006a; 
 }
 
 .error {
@@ -129,7 +118,6 @@ button[type="submit"]:hover {
     font-size: 14px;
 }
 
-/* Save button styles */
 #save-button {
     padding: 12px 20px;
     background-color: #800080;
@@ -141,7 +129,7 @@ button[type="submit"]:hover {
 }
 
 #save-button:hover {
-    background-color: #6a006a; /* Darker shade on hover */
+    background-color: #6a006a; 
 }
 
 #save-button.error {
@@ -150,7 +138,7 @@ button[type="submit"]:hover {
 
 @media only screen and (max-width: 768px) {
     .form-container {
-        padding: 15px; /* Reduce padding for smaller screens */
+        padding: 15px; 
     }
     
     input[type="text"],
@@ -158,27 +146,27 @@ button[type="submit"]:hover {
     textarea,
     input[type="file"],
     button[type="submit"] {
-        padding: 8px; /* Reduce padding for smaller screens */
+        padding: 8px; 
     }
     
     button[type="submit"] {
-        padding: 10px 16px; /* Adjust padding for smaller screens */
+        padding: 10px 16px; 
     }
 }
 
 .light-mode {
-    background-color: #f4f4f4; /* Light background */
-    color: #333; /* Dark text color */
+    background-color: #f4f4f4; 
+    color: #333; 
 }
 
 .light-mode .form-container {
-    background-color: #f4f4f4; /* Light background */
-    color: #333; /* Dark text color */
+    background-color: #f4f4f4; 
+    color: #333; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .light-mode label {
-    color: #333; /* Dark text color */
+    color: #333; 
 }
 
 .light-mode input[type="text"],
@@ -186,9 +174,9 @@ button[type="submit"]:hover {
 .light-mode textarea,
 .light-mode input[type="file"],
 .light-mode button[type="submit"] {
-    border: 1px solid #ccc; /* Light border */
-    background-color: #fff; /* White background */
-    color: #333; /* Dark text color */
+    border: 1px solid #ccc; 
+    background-color: #fff; 
+    color: #333; 
 }
 
 .light-mode input[type="text"]:focus,
@@ -196,21 +184,21 @@ button[type="submit"]:hover {
 .light-mode textarea:focus,
 .light-mode input[type="file"]:focus,
 .light-mode button[type="submit"]:hover {
-    border: 2px solid #800080; /* Purple border on focus/hover */
+    border: 2px solid #800080; 
     outline: none;
 }
 
 .light-mode .file-upload label {
-    background-color: #800080; /* Purple background */
-    color: #fff; /* White text color */
+    background-color: #800080; 
+    color: #fff; 
 }
 
 .light-mode button[type="submit"] {
-    background-color: #800080; /* Updated button color */
+    background-color: #800080; 
 }
 
 .light-mode button[type="submit"]:hover {
-    background-color: #6a006a; /* Darker shade on hover */
+    background-color: #6a006a; 
 }
 
 .light-mode .error {
@@ -221,54 +209,49 @@ button[type="submit"]:hover {
     color: red;
 }
 
-/* Toggle button for light mode */
 #toggle-light-mode {
     margin-left: 8px;
     background: none;
     border: none;
     font-size: 16px;
     cursor: pointer;
-    color: #333; /* Dark text color */
+    color: #333; 
 }
 
-/* Dropdown styles */
 select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #333; /* Dark border */
+    border: 1px solid #333; 
     border-radius: 4px;
-    background-color: #333; /* Dark background */
-    color: #ddd; /* Light text color */
-    appearance: none; /* Remove default styles */
-    -webkit-appearance: none; /* Remove default styles for older versions of Chrome/Safari */
-    -moz-appearance: none; /* Remove default styles for Firefox */
+    background-color: #333; 
+    color: #ddd; 
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
 }
 
-/* Dropdown arrow styles */
+
 select::after {
-    content: "\25BC"; /* Unicode character for down arrow */
+    content: "\25BC"; 
     position: absolute;
     top: calc(50% - 0.5em);
     right: 10px;
-    color: #ddd; /* Light text color */
-    pointer-events: none; /* Ensure arrow doesn't interfere with dropdown functionality */
+    color: #ddd; 
+    pointer-events: none; 
 }
 
-/* Styling for dropdown options */
 select option {
-    background-color: #333; /* Dark background */
-    color: #ddd; /* Light text color */
+    background-color: #333; 
+    color: #ddd; 
 }
 
-/* Dropdown focus/hover styles */
 select:focus,
 select:hover {
-    border: 2px solid #800080; /* Purple border on focus/hover */
+    border: 2px solid #800080; 
     outline: none;
 }
 
 
-/* Autocomplete input styles */
 .autocomplete {
     position: relative;
     width: 100%;
@@ -277,19 +260,18 @@ select:hover {
 .autocomplete input[type="text"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #333; /* Dark border */
+    border: 1px solid #333; 
     border-radius: 4px;
-    background-color: #333; /* Dark background */
-    color: #ddd; /* Light text color */
+    background-color: #333; 
+    color: #ddd; 
     transition: border-color 0.3s ease;
 }
 
 .autocomplete input[type="text"]:focus {
-    border: 2px solid #800080; /* Purple border on focus */
+    border: 2px solid #800080; 
     outline: none;
 }
 
-/* Dropdown container styles */
 .autocomplete-dropdown {
     position: absolute;
     top: 100%;
@@ -298,41 +280,41 @@ select:hover {
     width: 100%;
     max-height: 200px;
     overflow-y: auto;
-    background-color: #333; /* Dark background */
-    border: 1px solid #333; /* Dark border */
+    background-color: #333; 
+    border: 1px solid #333; 
     border-top: none;
     border-radius: 0 0 4px 4px;
 }
 
-/* Dropdown item styles */
+
 .autocomplete-dropdown-item {
     padding: 10px;
-    color: #ddd; /* Light text color */
+    color: #ddd; 
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .autocomplete-dropdown-item:hover {
-    background-color: #444; /* Darker background on hover */
+    background-color: #444; 
 }
 
 .light-mode select {
-    border: 1px solid #ccc; /* Light border */
-    background-color: #fff; /* White background */
-    color: #333; /* Dark text color */
+    border: 1px solid #ccc;
+    background-color: #fff; 
+    color: #333; 
 }
 
 .light-mode select::after {
-    color: #333; /* Dark text color */
+    color: #333; 
 }
 
 .light-mode select option {
-    background-color: #fff; /* White background */
-    color: #333; /* Dark text color */
+    background-color: #fff; 
+    color: #333; 
 }
 
 .light-mode select:focus,
 .light-mode select:hover {
-    border: 2px solid #800080; /* Purple border on focus/hover */
+    border: 2px solid #800080; 
     outline: none;
 }
