@@ -1,0 +1,49 @@
+.container {
+    max-width: 1680px;
+    margin: 20px auto;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 300px;
+}
+h1 {
+    font-size:50px;
+    margin-bottom: 20px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+li:last-child {
+    border-bottom: none;
+}
+.song {
+    display: flex;
+    align-items: center;
+}
+.playlist {
+    display: flex;
+    align-items: center;
+}
+.playlist img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+.playlist-title {
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+}
+.light-mode .container .playlist-title{
+    color: black;
+}
+.light-mode .container {
+    background-color: white;
+}

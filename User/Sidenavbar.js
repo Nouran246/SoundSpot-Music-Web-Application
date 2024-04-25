@@ -1,4 +1,3 @@
-
 window.addEventListener("DOMContentLoaded", function () {
     var searchBar = document.getElementById("searchBar");
     var searchButton = document.getElementById("search-button");

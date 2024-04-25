@@ -1,17 +1,12 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+.container {
+    max-width: 1680px;
+    margin: 20px auto;
     background-color: #1a1a1a;
-    animation: fadeIn 0.1s ease-in; 
-  }
-  .container {
-    position: relative; 
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 20px;
-    color:black
-  }
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 300px;
+}
   
   h2 {
     font-size: 24px;
@@ -119,3 +114,4 @@ body {
   .light-mode .greeting {
     color: black;
   }
+  
