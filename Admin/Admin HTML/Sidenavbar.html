@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../Admin%20CSS/Sidenavbar.css">
+    <script src="../Admin%20JavaScript/Sidenavbar.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>SoundSpot</title>
     <link rel="icon" href="photo/2.png" type="image/png">
-    <script src="../Admin%20JavaScript/Sidenavbar.js"></script>
-
+    
 </head>
 <body>
   <div class="sidebar">
@@ -72,7 +72,8 @@
                         </div>
                         <div class="menu-item">
                             <i class="fa-solid fa-gear"></i>
-                            <a href="#">Settings</a>
+                            <a href="#" id="settings-button">Settings</a>
+
                         </div>
                         <div class="menu-item">
                             <i class="fa-regular fa-sun"></i>
@@ -86,8 +87,39 @@
                     </nav>
                 </div>
             </div>
+           
         </div>
     </div>
+
+    <div class="settings-popup-container">
+        <div class="settings-popup">
+            <h3>Settings</h3>
+
+<div class="language-selection">
+    <label for="language-select">Change Language:</label>
+    <select id="language-select">
+        <option value="en">English</option>
+        <option value="gm">German (Deutsch)</option>
+      
+    </select>
+        </div>
+        <div class="button-group">
+            <button id="save-button">Save</button>
+            <button id="cancel-button">Cancel</button>
+        </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
 
     <footer>
         <div class="footer-content">
@@ -107,8 +139,12 @@
     
 
    
+<script>
 
-   
+
+
+
+</script>
 
 
 </body>
