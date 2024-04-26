@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var userCheckboxes = document.querySelectorAll('.checkbox-input');
 
     console.log(document.getElementById('delete-icon'));
-        console.log("User Checkboxes:", userCheckboxes); // Debugging statement
+        console.log("User Checkboxes:", userCheckboxes);
     function deleteUser(username) {
         users = users.filter(function(user) {
             return user.username !== username;
@@ -103,15 +103,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    function attachCheckboxEventListeners() {
-        var userCheckboxes = document.querySelectorAll('.list-container .checkbox-input');
-        userCheckboxes.forEach(function (checkbox) {
-            checkbox.addEventListener('change', function () {
-                // Your checkbox change event logic here
-            });
-        });
-    }
-
     function displayUsers(page) {
         var startIndex = (page - 1) * usersPerPage;
         var endIndex = startIndex + usersPerPage;
@@ -143,18 +134,17 @@ document.addEventListener('DOMContentLoaded', function () {
             var accessDate = new Date(user.lastAccess);
             var currentDate = new Date();
             var timeDifference = Math.floor((currentDate - accessDate) / (1000 * 60 * 60 * 24));
-            lastAccessDiv.textContent = getTimeDifference(user.lastAccess); // Display time difference
+            lastAccessDiv.textContent = getTimeDifference(user.lastAccess);
             if (timeDifference >= 15) {
-                lastAccessDiv.classList.add("red-text"); // Apply red-text class
+                lastAccessDiv.classList.add("red-text"); // red text law 15 or more days
             }
 
             var checkboxInput = document.createElement("input");
             checkboxInput.classList.add("custom-checkbox");
             checkboxInput.type = "checkbox";
-            checkboxInput.id = "userCheckbox_" + user.username; // Unique id for each checkbox
-            checkboxInput.setAttribute("data-username", user.username); // Optional: Store username as data attribute
+            checkboxInput.id = "userCheckbox_" + user.username; // id for each checkbox
+            checkboxInput.setAttribute("data-username", user.username); 
 
-            // Append elements to the DOM
             userLink.appendChild(userIcon);
             userLink.appendChild(nameDiv);
             userLink.appendChild(usernameDiv);
@@ -164,7 +154,6 @@ document.addEventListener('DOMContentLoaded', function () {
             listContainer.appendChild(listItem);
             
         });
-        attachCheckboxEventListeners();
 
     }
 
@@ -173,36 +162,31 @@ document.addEventListener('DOMContentLoaded', function () {
         var pagination = document.querySelector('.pagination');
         pagination.innerHTML = '';
 
-        // Calculate start and end page numbers to display
         var startPage = Math.max(1, currentPage - 2);
         var endPage = Math.min(startPage + 4, totalPages);
 
-        // Previous page link
         if (currentPage > 1) {
             pagination.innerHTML += `<li class="page-item"><a class="page-link" href="#">Previous</a></li>`;
         }
 
-        // Numbered page links
         for (var i = startPage; i <= endPage; i++) {
             pagination.innerHTML += `<li class="page-item"><a class="page-link" href="#" onclick="goToPage(${i})">${i}</a></li>`;
         }
 
-        // Next page link
         if (currentPage < totalPages) {
             pagination.innerHTML += `<li class="page-item"><a class="page-link" href="#">Next</a></li>`;
         }
 
-        // Attach event listeners to pagination links
         pagination.querySelectorAll('.page-link').forEach(function (link) {
             link.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevent default link behavior
-                var action = this.textContent.toLowerCase(); // Extract action from link text
+                event.preventDefault();
+                var action = this.textContent.toLowerCase(); 
                 if (action === 'previous') {
                     goToPage(currentPage - 1);
                 } else if (action === 'next') {
                     goToPage(currentPage + 1);
                 } else {
-                    goToPage(parseInt(action)); // Go to the selected page
+                    goToPage(parseInt(action)); 
                 }
             });
         });
@@ -227,9 +211,9 @@ document.addEventListener('DOMContentLoaded', function () {
             var dateB = new Date(b.lastAccess);
             return sortOrder * (dateA - dateB);
         });
-        currentPage = 1; // Reset to first page after sorting
-        updateSortIconTitle(); // Update sort icon title
-        displayUsers(currentPage); // Redisplay sorted users
+        currentPage = 1;
+        updateSortIconTitle(); 
+        displayUsers(currentPage); 
     }
 
     function updateSortIconTitle() {
@@ -241,10 +225,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
     }
-
-
-    
-    // Initial setup
     displayUsers(currentPage);
     updatePagination();
     sortUsers();
