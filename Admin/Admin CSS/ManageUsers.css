@@ -4,60 +4,93 @@
     }
 }
 
-.main-container {
-    margin-top: 50px;
+.main-content {
+    margin-top: 10px;
     transition: transform 0.5s ease;
     margin-left: 10px;
     margin-right: 200px;
 }
 
 .list-container {
-    width: 600px;
-    height: 400px;
-    margin-left:350px;
-    margin-top:50px;
+    margin-left: 350px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 1040px;
 
 }
 
-.list-item {
+.list-item,
+.top-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 1000px;
-    height: 80px;
+    height: 30px;
     border-radius: 19px;
     background-color: #1a1a1a;
     font-size: 25px;
     padding: 20px;
-    margin-top: 5px;
     border: 1.5px solid #464446;
     position: relative;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.08);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 25px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+.top-content {
+    border: 2px solid #800080;
+}
 
 .list-item i {
+
     color: #800080;
     font-size: 40px;
-    margin-right: 10px;
+    margin-right: 0px;
+    text-align: center;
+    margin-top: -5px;
+    margin-left: 12px;
+    ;
 }
+
 .list-item a {
-    text-decoration: none; 
+    text-decoration: none;
     display: flex;
     align-items: center;
+    width: 1000px;
+    margin-right: 1px;
+    text-align: center;
+    gap: 50px;
 }
+
 
 .text {
     color: #ddd;
-    font-size: 25px;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    padding: 5px;
+    margin: 0;
+    width: 185px;
+}
+
+.top-text {
+
+    color: #ddd;
+    font-size: 20px;
     text-align: center;
-    margin: 0; 
-    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+    margin-right: 17px;
+}
+
+.top-texts {
+    margin-left: 73px;
+    display: flex;
+    width: 640px;
+    padding: 5px;
+    gap: 140px;
 }
 
 .btn {
@@ -68,6 +101,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     padding: 10px 20px;
+    margin: 0px;
 }
 
 .btn:hover {
@@ -75,27 +109,42 @@
 }
 
 
+.top-content i {
+    font-size: 20px;
+    margin: 1px;
+}
 
+.top-content {
+    /*     position: relative;
+ */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1000px;
+    height: 30px;
+    border-radius: 19px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    margin-bottom: 25px;
+    margin-left: 350px;
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.actions {
+    width: 155px;
+    font-size: 10px;
+    overflow: hidden;
+    display: flex;
+    padding: 5px;
+    gap: 25px;
+    margin-right: 7px;
+    margin-left: 15px;
+    align-content: center;
+}
 
 .list-item:hover {
-    /* check */
     background-color: #333;
     font-weight: bold;
     text-decoration: none;
@@ -103,7 +152,6 @@
 }
 
 body.light-mode .list-item {
-    /* check */
     background-color: white;
     border: 2px solid #852b85;
     color: #852b85;
@@ -118,12 +166,10 @@ body.light-mode .list-item:hover {
 }
 
 
-/* Icon scaling on hover */
 .list-item:hover i {
     animation: scaleIcon 0.5s ease forwards;
 }
 
-/* Light mode styles */
 body.light-mode .list-item {
     background-color: white;
     border: 2px solid #852b85;
@@ -136,4 +182,314 @@ body.light-mode .text {
 
 body.light-mode .list-item:hover {
     background-color: #cccbcb;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 100px;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 2px solid #800080;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    color: #ddd;
+}
+
+.page-link:hover {
+    background-color: #333;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.page-item.disabled .page-link {
+    color: #999;
+    pointer-events: none;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+    font-weight: bold;
+}
+
+
+/* checkbox */
+
+
+.checkbox-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-custom {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #1a1a1a;
+    border: 2px solid #800080;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* check mark */
+.checkbox-custom::after {
+    content: '\2713';
+    font-size: 14px;
+    color: #ddd;
+    background-color: #800080;
+    line-height: 20px;
+    text-align: center;
+    display: none;
+}
+
+.checkbox-input:checked+.checkbox-custom::after {
+    display: block;
+}
+
+.custom-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #800080;
+    border-radius: 4px;
+    position: relative;
+}
+
+.custom-checkbox::after {
+    content: '\2713';
+    font-size: 14px;
+    color: #ddd;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.custom-checkbox:checked {
+    background-color: purple;
+}
+
+.custom-checkbox:checked::after {
+    opacity: 1;
+}
+
+.red-text {
+    color: red;
+}
+
+/* Light mode styles */
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+
+body.light-mode .main-content,
+body.light-mode .list-container,
+body.light-mode .list-item,
+body.light-mode .top-content,
+body.light-mode .top-text,
+body.light-mode .top-content i,
+body.light-mode .actions,
+body.light-mode .checkbox-custom,
+body.light-mode .page-link {
+    background-color: white;
+    border-color: #ccc;
+    color: black;
+}
+
+body.light-mode .list-item:hover {
+    background-color: #cccbcb;
+    color: #852b85;
+}
+
+body.light-mode .checkbox-custom {
+    background-color: white;
+    border-color: #800080;
+}
+
+body.light-mode .checkbox-custom::after {
+    color: #ddd;
+    background-color: #800080;
+}
+
+body.light-mode .custom-checkbox:checked {
+    background-color: #800080;
+    border-color: #800080;
+}
+
+body.light-mode .custom-checkbox:checked::after {
+    color: white;
+}
+
+body.light-mode .red-text {
+    color: red;
+}
+
+@media (max-width: 1200px) {
+    .main-content {
+        margin-right: 100px;
+    }
+
+    .list-container {
+        margin-left: 250px;
+    }
+
+    .list-item,
+    .top-content {
+        width: 800px;
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .top-texts {
+        margin-left: 50px;
+        width: 500px;
+        gap: 100px;
+    }
+
+    .actions {
+        width: 100px;
+        gap: 15px;
+    }
+
+    .list-item a {
+        width: 800px;
+        gap: 30px;
+    }
+
+    .text {
+        width: 130px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-content {
+        margin-right: 50px;
+    }
+
+    .list-container {
+        margin-left: 150px;
+    }
+
+    .list-item,
+    .top-content {
+        width: 600px;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .top-texts {
+        margin-left: 30px;
+        width: 400px;
+        gap: 80px;
+    }
+
+    .actions {
+        width: 80px;
+        gap: 10px;
+    }
+
+    .list-item a {
+        width: 600px;
+        gap: 20px;
+    }
+
+    .text {
+        width: 100px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-right: 30px;
+    }
+
+    .list-container {
+        margin-left: 50px;
+    }
+
+    .list-item,
+    .top-content {
+        width: 400px;
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .top-texts {
+        margin-left: 10px;
+        width: 300px;
+        gap: 60px;
+    }
+
+    .actions {
+        width: 60px;
+        gap: 5px;
+    }
+
+    .list-item a {
+        width: 400px;
+        gap: 10px;
+    }
+
+    .text {
+        width: 70px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        margin-right: 10px;
+    }
+
+    .list-container {
+        margin-left: 10px;
+    }
+
+    .list-item,
+    .top-content {
+        width: 300px;
+        font-size: 14px;
+        padding: 3px;
+    }
+
+    .top-texts {
+        margin-left: 5px;
+        width: 200px;
+        gap: 40px;
+    }
+
+    .actions {
+        width: 40px;
+        gap: 3px;
+    }
+
+    .list-item a {
+        width: 300px;
+        gap: 5px;
+    }
+
+    .text {
+        width: 50px;
+        font-size: 10px;
+    }
 }
