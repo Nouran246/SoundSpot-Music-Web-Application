@@ -76,3 +76,4 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Changes saved for ' + planType);
     }
 });
+
