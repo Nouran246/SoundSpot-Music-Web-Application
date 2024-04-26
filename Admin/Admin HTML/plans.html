@@ -14,6 +14,7 @@
     <script src="../Admin%20JavaScript/Sidenavbar.js"></script>
     <link rel="stylesheet" href="../Admin%20CSS/plans.css">
     <script src="../Admin%20JavaScript/plans.js"></script>
+    <script src="../Admin%20JavaScript/german.js"></script>
 </head>
 
 
@@ -79,7 +80,7 @@
                         </div>
                         <div class="menu-item">
                             <i class="fa-solid fa-gear"></i>
-                            <a href="#">Settings</a>
+                            <a href="#" id="settings-button">Settings</a>
                         </div>
                         <div class="menu-item">
                             <i class="fa-regular fa-sun"></i>
@@ -95,7 +96,25 @@
             </div>
         </div>
     </div>
-    <h1 class="title">Manage Plans</h1>
+    <div class="settings-popup-container">
+        <div class="settings-popup">
+            <h3>Settings</h3>
+
+<div class="language-selection">
+    <label for="language-select">Change Language:</label>
+    <select id="language-select">
+        <option value="en">English</option>
+        <option value="gm">German (Deutsch)</option>
+      
+    </select>
+        </div>
+        <div class="button-group">
+            <button id="save-button">Save</button>
+            <button id="cancel-button">Cancel</button>
+        </div>
+        </div>
+    </div>
+    <h1 class="title7">Manage Plans</h1>
 
     <div class="main-content">
         <div class="box-container">
@@ -103,13 +122,13 @@
                 <a href="free.html">
                     <i class="fa-regular fa-handshake"></i>   
 
-                    <div class="text">Free Subscription</div>
+                    <div class="text1">Free Subscription</div>
                 </a>
             </div>
             <div class="box">
                 <a href="premium.html">
                     <i class="fa-solid fa-coins"></i>
-                    <div class="text">premium Subscription</div>
+                    <div class="text2">premium Subscription</div>
                 </a>
             </div>
         </div>
