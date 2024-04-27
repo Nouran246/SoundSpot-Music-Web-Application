@@ -39,3 +39,15 @@ document.addEventListener('DOMContentLoaded', function() {
     isAlbum.addEventListener('change', toggleArtistInput);
 });
 
+function toggleLyricsSections() {
+    var lyricsSection = document.getElementById('new-lyrics-section');
+    var lyricsCheckbox = document.getElementById('new-lyrics-checkbox');
+    if (lyricsSection && lyricsCheckbox) {
+        lyricsSection.style.display = lyricsCheckbox.checked ? 'block' : 'none';
+    } else {
+        console.error("Input or error message element not found: new-lyrics-section or new-lyrics-checkbox");
+    }
+}
+
+
+

@@ -1,5 +1,6 @@
 
 window.addEventListener("DOMContentLoaded", function () {
+    console.log(document.getElementById("sidebar")); 
     var searchBar = document.getElementById("searchBar");
     var searchButton = document.getElementById("search-button");
 
@@ -62,17 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
 //dark and light mode
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Function to set the selected mode (light/dark) in local storage
     function setModePreference(mode) {
         localStorage.setItem('mode', mode);
     }
 
-    // Function to get the selected mode from local storage
     function getModePreference() {
         return localStorage.getItem('mode');
     }
 
-    // Function to apply the selected mode to the page
     function applyMode(mode) {
         const body = document.body;
         const navbar = document.querySelector(".navbar");
@@ -107,16 +105,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Function to initialize the mode based on the stored preference
     function initializeMode() {
         const storedMode = getModePreference();
         applyMode(storedMode || 'light'); // Default to light mode if no preference is stored
     }
 
-    // Call initializeMode() when the page loads
     initializeMode();
 
-    // Toggle button event listener
     var toggleButton = document.getElementById("toggle-light-mode");
     toggleButton.addEventListener("click", function () {
         const mode = document.body.classList.contains("light-mode") ? 'dark' : 'light';
@@ -177,21 +172,16 @@ function restoreSidebar() {
     const sidebar = document.querySelector(".sidebar");
     const logoImg = document.getElementById("trial-img");
 
-    sidebar.classList.remove("sidebar-minimized");
-    logoImg.src = "photo/output-onlinepngtools.png";
-    logoImg.classList.remove("minimized");
-}
+    if (sidebar) {
+        sidebar.classList.remove("sidebar-minimized");
 
-function handleResize() {
-    if (window.innerWidth <= 768) {
-        minimizeSidebar();
+        logoImg.src = "photo/output-onlinepngtools.png";
+        logoImg.classList.remove("minimized");
     } else {
-        restoreSidebar();
+        console.error("Sidebar element not found");
     }
 }
 
-window.addEventListener("resize", handleResize);
-handleResize();
-
-
-
+function changeLogo() {
+  
+}

@@ -13,7 +13,7 @@
     <link rel="icon" href="photo/2.png" type="image/png">
     <script src="../Admin%20JavaScript/Sidenavbar.js"></script>
     <script src="../Admin%20JavaScript/addsong.js"></script>
-
+    <script src="../Admin%20JavaScript/german.js"></script>
 
 </head>
 <body>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="menu-item">
                             <i class="fa-solid fa-gear"></i>
-                            <a href="#">Settings</a>
+                            <a href="#" id="settings-button">Settings</a>
                         </div>
                         <div class="menu-item">
                             <i class="fa-regular fa-sun"></i>
@@ -94,13 +94,30 @@
             </div>
         </div>
     </div>
+    <div class="settings-popup-container">
+        <div class="settings-popup">
+            <h3>Settings</h3>
+
+<div class="language-selection">
+    <label for="language-select">Change Language:</label>
+    <select id="language-select">
+        <option value="en">English</option>
+        <option value="gm">German (Deutsch)</option>
+      
+    </select>
+        </div>
+        <div class="button-group">
+            <button id="save-button">Save</button>
+            <button id="cancel-button">Cancel</button>
+        </div>
+        </div>
+    </div>
 
 
-
-    <h1 class="title">Add a new song</h1>
+    <h1 class="title2">Add a new song</h1>
     <div class="form-container">
         <form id="add-song-form">
-            <label for="song-name">Song Name:</label>
+            <label for="song-names">Song Name:</label>
             <input type="text" id="song-name" placeholder="Enter song name" required oninput="validateInput('song-name')">
             <div id="song-name-error" class="error-message"></div>
             
@@ -199,6 +216,7 @@
                 <label for="privacy-settings">Privacy Settings:</label>
                 <select id="privacy-settings">
                     <option value="public">Public</option>
+                    <option value="private">Private</option>
                     <option value="hidden">Hidden</option>
                 </select>
             </div>

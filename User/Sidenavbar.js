@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const footer = document.querySelector("footer");
         const rows = document.querySelectorAll(".row"); // Select all row elements
         const headers = document.querySelectorAll("h2"); // Select all h2 elements
+        const container = document.querySelector(".container");
         const searchBarInput = document.querySelector(".search-bar input[type='text']");
         const sidebarImagesLight = document.querySelectorAll(".light-mode-img");
         const sidebarImagesDark = document.querySelectorAll(".dark-mode-img");
@@ -87,6 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const dropdownMenuIconsLight = dropdownMenu.querySelectorAll(".light-mode-img");
         const dropdownMenuIconsDark = dropdownMenu.querySelectorAll(".dark-mode-img");
     
+        [body, navbar, sidebar, footer, searchBarInput, container].forEach(el => {
+            el.classList.toggle("light-mode", mode === 'light');
+        });
         // Toggle light-mode class on multiple elements
         body.classList.toggle("light-mode", mode === 'light');
         navbar.classList.toggle("light-mode", mode === 'light');

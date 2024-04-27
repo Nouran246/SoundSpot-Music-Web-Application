@@ -53,7 +53,7 @@
             <span class="t">Contacts</span>
         </a>
     </div>
-    
+
     <div class="navbar">
         <div class="search-bar" id="searchBar" style="display: none;">
             <input type="text" placeholder="Search...">
@@ -95,50 +95,72 @@
     </div>
     <!--User profiles list -->
 
-    <button class="history-button" onclick="showPopup()">Deleted Users</button>
-
-
-    <div class="main-content">
-        <div class="list-container">
-            <div class="list-item">
-                <a href="userProfile.html">
-                    <i class="fa-solid fa-user"></i>
-                    <div class="text">Roaa Khaled</div>
-                </a>
-                <button class="btn" onclick="deleteUser(this)">Delete</button>
-                <button class="btn" onclick="sendEmail()">Send E-mail</button>
-
+    <div class=" main-content">
+        <div class="top-content">
+            <button class="btn" id="del-log" onclick="showPopup()">Log </button>
+            <div class="top-texts">
+                <div class="top-text">Name</div>
+                <div class="top-text">Username</div>
+                <div class="top-text">Last Access</div>
             </div>
-            <div class="list-item">
-                <a href="userProfile.html">
-                    <i class="fa-solid fa-user"></i>
-                    <div class="text">Sama Khaled</div>
-                </a>
-                <button class="btn" onclick="deleteUser(this)">Delete</button>
-                <button class="btn" onclick="sendEmail()">Send E-mail</button>
-
-            </div>
-
-            <div class="list-item">
-                <a href="userProfile.html">
-                    <i class="fa-solid fa-user"></i>
-                    <div class="text">Samya Khaled</div>
-                </a>
-                <button class="btn" onclick="deleteUser(this)">Delete</button>
-                <button class="btn" onclick="sendEmail()">Send E-mail</button>
+            <div class="actions">
+                <div class="checkbox" id="selectAllCheckbox">
+                    <input type="checkbox" id="topCheckbox" class="checkbox-input" />
+                    <span class="checkbox-custom"></span>
+                </div>
+                <i class="fa-solid fa-sort"></i>
+                <i class="fa-solid fa-envelope" title="Send E-mail"></i>
+                <i class="fa-solid fa-trash" title="Delete" id="delete-icon"></i>
 
             </div>
         </div>
+        <div class="list-container">
+            <div class="list-item">
+                <a href="userProfile.html?username=${user.username}">
+                    <i class="fa-solid fa-user"></i>
+                    <div class="text"></div>
+                    <div class="text"></div>
+                    <div class="text"></div>
+                    <div class="list-checkbox">
+                        <input type="checkbox" id="userCheckbox_${user.username}" class="checkbox-input" />
+                        <span class="list-checkbox-custom"></span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
     </div>
 
-    <div class="deleted-popup" id="popup" style="display:none;">
+    <!-- if there is no users to show  -->
+    <div class="zero-users" style="display: none;">
+        <h2>0 Users</h2>
+    </div>
+
+
+    <!--    <div class="deleted-popup" id="popup" style="display:none;">
         <div class="popup-content">
             <button class="exit-popup" onclick="exitPopup()">X</button>
             <div class="deleted-users-list" id="deletedUsersList">
-                <!-- Deleted user list items will be added dynamically here -->
             </div>
         </div>
     </div>
+ -->
+
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
+
+
+
+
+
 
     <footer>
         <div class="footer-content">

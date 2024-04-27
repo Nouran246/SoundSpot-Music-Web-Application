@@ -12,4 +12,17 @@ color:rgb(86, 84, 84);
         margin-right: 0; /* Ensure no right margin */
     }}
 
-    
+
+    .box i
+    {
+        color: #800080;
+    }
+    .box a
+    {
+        text-decoration: none;
+    }
+    .box-container   
+    {
+        margin-top:80px;
+    }
+

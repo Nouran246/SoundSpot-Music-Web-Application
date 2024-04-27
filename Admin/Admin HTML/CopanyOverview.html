@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../Admin%20CSS/CopanyOverview.css">
     <script src="../Admin%20JavaScript/CopanyOverview.js"></script>
     <link rel="stylesheet" href="../Admin%20CSS/ManageSongs.css">
+    <script src="../Admin%20JavaScript/german.js"></script>
 </head>
 
 
@@ -83,7 +84,7 @@
                         <div class="menu-item"> 
                             <img src="photo\settings-gear-icon.png" alt="Profile Icon" class="dark-mode-img"> 
                             <img src="photo\settings.png" alt="Profile Icon" class="light-mode-img"> 
-                            <a href="#">Settings</a>
+                            <a href="#" id="settings-button">Settings</a>
                         </div>
                         <div class="menu-item">
                             <img src="photo\brightness.png" alt="Profile Icon" class="dark-mode-img"> 
@@ -103,9 +104,27 @@
         </div>
     </div>
     </div>
+    <div class="settings-popup-container">
+        <div class="settings-popup">
+            <h3>Settings</h3>
 
+<div class="language-selection">
+    <label for="language-select">Change Language:</label>
+    <select id="language-select">
+        <option value="en">English</option>
+        <option value="gm">German (Deutsch)</option>
+      
+    </select>
+        </div>
+        <div class="button-group">
+            <button id="save-button">Save</button>
+            <button id="cancel-button">Cancel</button>
+        </div>
+        </div>
+    </div>
+    
 
-    <h1 class="title">Company Overwiew</h1>
+    <h1 class="title5">Company Overwiew</h1>
 
 
     <div class="container">
