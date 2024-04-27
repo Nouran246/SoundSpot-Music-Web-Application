@@ -5,32 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../User CSS/Sidenavbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>SoundSpot</title>
+    <title>Contact</title>
     <link rel="icon" href="../photo/2.png" type="image/png">
+    <link rel="stylesheet" href="../User CSS/UserHomePage.css">
+    <link rel="stylesheet" href="../User CSS/CommunityGuidlines.css">
+    <link rel="stylesheet" href="../User CSS/contact.css">
     <script src="../User js/Sidenavbar.js"></script>
-    <link rel="stylesheet" href="../User CSS/ManagePlaylists.css">
-    <link rel="stylesheet" href="../User CSS/playlistPage.css">
+    
+    
 </head>
 <body>
-    <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "2777abff-0662-4aa9-8357-952d6efcfa53"; (function() { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
+    <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "2777abff-0662-4aa9-8357-952d6efcfa53"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
     <div class="sidebar">
         <button onclick="changeLogo()" id="custom-sidebar-toggle"> 
             <img id="custom-sidebar-img" src="../photo/menu.png" class="dark-mode-img" alt="Button Image">
             <img id="custom-sidebar-img" src="../photo/menu (1).png" class="light-mode-img" alt="Button Image">
         </button>
 
-        <a href="../User HTML/Userhomepage.html" id="trial">
+        <a href="../User HTML/home.html" id="trial">
             <img id="trial-img" src="../photo/output-onlinepngtools.png" alt="SoundSpot Logo">
         </a>
-        <a href="../User HTML/Songs.html">
-            <img src="../photo/music.png" alt="Songs" class="dark-mode-img">
-            <img src="../photo/music (1).png" alt="Songs" class="light-mode-img"> 
-             Songs
+        <a href="../User HTML/ManageSongs.html">
+            <img src="../photo/music.png" alt="Manage Songs" class="dark-mode-img">
+            <img src="../photo/music (1).png" alt="Manage Songs" class="light-mode-img"> 
+            Manage Songs
         </a>
         <a href="../User HTML/ManagePlaylists.html">
-            <img src="../photo/Menu_icon_icon-icons.com_71858.png" alt="Playlists" class="dark-mode-img">
-            <img src="../photo/Menu_icon_icon-icons.com_light_71858.png" alt="Playlists" class="light-mode-img"> 
-             Playlists
+            <img src="../photo/menulight.png" alt="Manage Playlists" class="dark-mode-img">
+            <img src="../photo/menudark.png" alt="Manage Playlists" class="light-mode-img"> 
+            Manage Playlists
+        </a>
+        <a href="../User HTML/Reports.html">
+            <img src="../photo/report.png" alt="Reports" class="dark-mode-img">
+            <img src="../photo/report (1).png" alt="Reports" class="light-mode-img">
+            Reports
         </a>
         <a href="../User HTML/Plans.html">
             <img src="../photo/money-bag.png" alt="Plans" class="dark-mode-img">
@@ -38,27 +46,31 @@
             Plans
         </a>
         <a href="../User HTML/recap.html">
-            <img src="../photo/Recap-icon.png" alt="Recap" class="dark-mode-img">
-            <img src="../photo/Recap-icon-light.png" alt="Recap" class="light-mode-img"> 
+            <img src="../photo/recaplight (2).png" alt="Recap" class="dark-mode-img">
+            <img src="../photo/recapdark.png" alt="Recap" class="light-mode-img">
             Recap
         </a>
         <a href="../User HTML/history.html">
-            <img src="../photo/history-icon.png" alt="History" class="dark-mode-img">
-            <img src="../photo/history-icon-light.png" alt="History" class="light-mode-img"> 
+            <img src="../photo/historydark.png" alt="History" class="dark-mode-img">
+            <img src="../photo/historylight.png" alt="History" class="light-mode-img">
             History
         </a>
-        <a href="../User HTML/CommunityGuidelines.html">
-            <img src="../photo/artificial-intelligence.png" alt="Company Overview" class="dark-mode-img"> 
-            <img src="../photo/artificial-intelligence (1).png" alt="Company Overview" class="light-mode-img">
+        <a href="../User HTML/CopanyOverview.html">
+            <img src="../photo/company-details(1).png" alt="Company Overview" class="dark-mode-img"> 
+            <img src="../photo/company-details.png" alt="Company Overview" class="light-mode-img"> 
+            Company Overview
+        </a>
+        <a href="../User HTML/CommunityGuidlines.html">
+            <img src="../photo/artificial-intelligence.png" alt="Community Guidelines" class="dark-mode-img"> 
+            <img src="../photo/artificial-intelligence (1).png" alt="Community Guidelines" class="light-mode-img">
             Community Guidelines
         </a>
         <a href="../User HTML/contact.html">
-            <img src="../photo/phone.png" alt="contact" class="dark-mode-img"> 
-            <img src="../photo/phone (1).png" alt="contact" class="light-mode-img"> 
+            <img src="../photo/phone.png" alt="Contacts" class="dark-mode-img"> 
+            <img src="../photo/phone (1).png" alt="Contacts" class="light-mode-img"> 
             Contacts
         </a>
     </div>
-
     <div class="navbar">
         <div class="search-bar" id="searchBar" style="display: none;">
             <input type="text" placeholder="Search...">
@@ -79,7 +91,6 @@
                             <img src="../photo/user (2).png" alt="Profile Icon" class="light-mode-img"> 
                             <a href="#">Profile</a>
                         </div>
-                        
                         <div class="menu-item">
                             <img src="../photo/view.png" alt="Profile Icon" class="dark-mode-img"> 
                             <img src="../photo/eye.png" alt="Profile Icon" class="light-mode-img"> 
@@ -97,7 +108,7 @@
                             <button id="toggle-light-mode"></button>
                         </div>
                         <div class="menu-item">
-                            <img src="../photo/exit.png" alt="Profile Icon" class = "dark-mode-img"> 
+                            <img src="../photo/exit.png" alt="Profile Icon" class = " dark-mode-img"> 
                             <img src="../photo/exit (2).png" alt="Profile Icon" class = " light-mode-img">
                             <a href="#">Log Out</a>
                         </div>
@@ -121,43 +132,21 @@
         </div>
     </footer>
 
-    <div class="container">
-        <h1>Playlists</h1>
-        <ul>
-            <li>
-                <a href="../User HTML/playlistPage.html">
-                    <div class="playlist">
-                        <img src="../photo/LikedSongs.webp" alt="Playlist image">
-                        <div class="playlist-title">Liked Songs</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="../User HTML/playlistPage.html">
-                    <div class="playlist">
-                        <img src="../photo/offline_songs.jpg" alt="Playlist image">
-                        <div class="playlist-title">Offline Songs</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="../User HTML/playlistPage.html">
-                    <div class="playlist">
-                        <img src="../photo/playlist1.png" alt="Playlist image">
-                        <div class="playlist-title">Playlist 1</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="../User HTML/playlistPage.html">
-                    <div class="playlist">
-                        <img src="../photo/playlist2.jpg" alt="Playlist image">
-                        <div class="playlist-title">Playlist 2</div>
-                    </div>
-                </a>
-            </li>
-        </ul>
+    <!-- Additional content for the contact page -->
+    <h1>Contact Us</h1>
+    <h3>We're here to help :)</h3>
+    <div class="contact">
+        <div class="item"><i class="fa-brands fa-instagram"></i><br><a href="https://www.instagram.com/_soundspot_/">Instagram Account</a></div>
+        <div class="item"><i class="fa-brands fa-facebook"></i><br><a href="https://www.facebook.com/SoundSpot/">Facebook Account</a></div>
+        <div the="item"><i class="fa-brands fa-twitter"></i><br><a href="https://www.twitter.com/SoundSpot/">Twitter Account</a></div>
+        <div class="item"><i class="fa-solid fa-envelope"></i><br><a href="mailto:SoundSpot@gmail.com">SoundSpot@gmail.com</a></div>
     </div>
-
+    <div class="con"><h1>About Us</h1></div>
+    <div class="aboutus">
+    <pre>Introducing SoundSpot, our innovative music streaming web app! Explore a vast library of songs and playlists, 
+        create personalized playlists, and enjoy ad-free listening with premium features like high-quality audio and 
+        offline mode. Connect with friends, share music, and discover new tracks together. Join us on SoundSpot for 
+        the ultimate music experience! 👌</pre>
+    </div>
 </body>
 </html>
