@@ -121,3 +121,18 @@ body.light-mode .plan {
       margin-right: 5%; /* Adjusted margin for smaller screens */
   }
 }
+
+.title8{
+  color:rgb(86, 84, 84);
+      margin-left:300px;
+      font-family:cursive;
+  }
+  @media screen and (max-width: 768px) {
+      .title8 {
+          text-align: center;
+          font-size: 2em; /* Adjust font size as needed */
+          margin-top: 1em;
+          margin-left: 0; /* Ensure no left margin */
+          margin-right: 0; /* Ensure no right margin */
+      }}
+  
