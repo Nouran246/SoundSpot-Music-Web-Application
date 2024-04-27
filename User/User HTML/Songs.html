@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../User CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="icon" href="../photo/2.png" type="image/png">
+    <link rel="stylesheet" href="../User CSS/Songs.css">
+    <link rel="stylesheet" href="../User CSS/Userhomepage.css">
+    <link rel="stylesheet" href="../User CSS/History.css">
+    <script src="../User js/Sidenavbar.js"></script>
+</head>
+<body>
+    <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "2777abff-0662-4aa9-8357-952d6efcfa53"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
+    <div class="sidebar">
+        <button onclick="changeLogo()" id="custom-sidebar-toggle"> 
+            <img id="custom-sidebar-img" src="../photo/menu.png"  class="dark-mode-img" alt="Button Image">
+            <img id="custom-sidebar-img" src="../photo/menu (1).png"  class="light-mode-img" alt="Button Image">
+        </button>
+
+        <a href="Userhomepage.html" id="trial">
+            <img id="trial-img" src="../photo/output-onlinepngtools.png" alt="SoundSpot Logo">
+        </a>
+        <a href="Songs.html">
+            <img src="../photo/music.png" alt="Songs" class="dark-mode-img">
+            <img src="../photo/music (1).png" alt="Songs" class="light-mode-img"> 
+             Songs
+        </a>
+        <a href="ManagePlaylists.html">
+            <img src="../photo/Menu_icon_icon-icons.com_71858.png" alt="Playlists" class="dark-mode-img">
+            <img src="../photo/Menu_icon_icon-icons.com_light_71858.png" alt="Playlists" class="light-mode-img"> 
+             Playlists
+        </a>
+        <a href="Plans.html">
+            <img src="../photo/money-bag.png" alt="Plans" class="dark-mode-img">
+            <img src="../photo/money-bag (1).png" alt="Plans" class="light-mode-img"> 
+            Plans
+        </a>
+        <a href="recap.html">
+            <img src="../photo/Recap-icon.png" alt="Recap" class="dark-mode-img">
+            <img src="../photo/Recap-icon-light.png" alt="Recap" class="light-mode-img"> 
+            Recap
+        </a>
+        <a href="history.html">
+            <img src="../photo/history-icon.png" alt="History" class="dark-mode-img">
+            <img src="../photo/history-icon-light.png" alt="History" class = "light-mode-img"> 
+            History
+        </a>
+        
+        <a href="CommunityGuidelines.html">
+            <img src="../photo/artificial-intelligence.png" alt="Company Overview" class="dark-mode-img"> 
+            <img src="../photo/artificial-intelligence (1).png" alt="Company Overview" class="light-mode-img">
+            Community Guidelines
+        </a>
+        <a href="contact.html">
+            <img src="../photo/phone.png" alt="contact" class="dark-mode-img"> 
+            <img src="../photo/phone (1).png" alt="contact" class="light-mode-img"> 
+            Contacts
+        </a>
+    </div>
+
+    <div class="navbar">
+        <div class="search-bar" id="searchBar" style="display: none;">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="navbar-icons">
+            <button id="search-button" class="search-button"></button>
+            <img id="noti-icon" src="../photo/notification.png">
+            <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
+                <img id="chat-icon" src="../photo/chat.png" alt="Chat Icon">
+            </a>
+            <div id="profile">
+                <img id="profile-icon" src="../photo/cat.jpg">
+                <div class="profile_dropDownMenu">
+                    <nav>
+                        <div class="menu-item">
+                            <img src="../photo/user.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="../photo/user (2).png" alt="Profile Icon" class="light-mode-img"> 
+                            <a href="#">Profile</a>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <img src="../photo/view.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="../photo/eye.png" alt="Profile Icon" class = "light-mode-img"> 
+                            <a href="#">Views as</a>
+                        </div>
+                        <div class="menu-item"> 
+                            <img src="../photo/settings-gear-icon.png" alt="Profile Icon" class = "dark-mode-img"> 
+                            <img src="../photo/settings.png" alt="Profile Icon" class = "light-mode-img"> 
+                            <a href="#">Settings</a>
+                        </div>
+                        <div class="menu-item">
+                            <img src="../photo/brightness.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="../photo/brightness (2).png" alt="Profile Icon" class="light-mode-img"> 
+                            <a href="#">Light Mode</a>
+                            <button id="toggle-light-mode"></button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="../photo/exit.png" alt="Profile Icon" class = "dark-mode-img"> 
+                            <img src="../photo/exit (2).png" alt="Profile Icon" class = "light-mode-img">
+                            <a href="#">Log Out</a>
+                        </div>
+                    </nav>
+                </div>
+                
+
+        </div>
+    </div>
+    </div>
+
+    <div class ="container">
+        <h1 class="greeting">Hello there!<br>What would you like to tune in to?</h1>
+        <br>
+<div class ="secSongs">
+    <div class ="section">
+        <h1 id="his">Recently Played</h1>
+        <ul>
+            <li>
+                <div class="song">
+                    <img src="https://via.placeholder.com/50" alt="Song Image">
+                    <div class="song-info">
+                        <div class="song-title">Song Title 1</div>
+                        <div class="artist">Artist Name 1</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="song">
+                    <img src="https://via.placeholder.com/50" alt="Song Image">
+                    <div class="song-info">
+                        <div class = "song-title">Song Title 2</div>
+                        <div class = "artist">Artist Name 2</div>
+                    </div>
+                </div>
+            </li>
+            </ul>
+</div>
+
+<div class ="section">
+        <h1 id="his">Most Played</h1>
+        <ul>
+            <li>
+                <div class="song">
+                    <img src="https://via.placeholder.com/50" alt="Song Image">
+                    <div class="song-info">
+                        <div class = "song-title">Song Title 1</div>
+                        <div class = "artist">Artist Name 1</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="song">
+                    <img src="https://via.placeholder.com/50" alt="Song Image">
+                    <div class="song-info">
+                        <div class = "song-title">Song Title 2</div>
+                        <div class = "artist">Artist Name 2</div>
+                    </div>
+                </div>
+            </li>
+            </ul>
+        </div>
+ </div>
+            <br><br>
+        <div class="row">
+            <h2>New Releases</h2>
+            <div class="card">
+              <img src="../photo/Artist-Designed Album Covers 2.webp" alt="Album 1">
+              <div class="content">
+                <h3>Artist Name</h3>
+                <p>Album Title</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="../photo/Dark_Side_of_the_Moon.png" alt="Album 2">
+              <div class="content">
+                <h3>Artist Name</h3>
+                <p>Album Title</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="../photo/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Album 3">
+              <div class = "content">
+                <h3>Artist Name</h3>
+                <p>Album Title</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="../photo/images.jpg" alt="Album 1">
+              <div class="content">
+                <h3>Artist Name</h3>
+                <p>Album Title</p>
+              </div>
+            </div>
+            
+        
+    </div>
+
+
+
+    <div class="row">
+        <h2>We think you's like</h2>
+        <div class="card">
+          <img src="../photo/Artist-Designed Album Covers 2.webp" alt="Artist 1">
+          <div class = "content">
+            <h3>Artist Name</h3>
+            <p>Genre</p>
+          </div>
+        </div>
+        <div class = "card">
+            <img src="../photo/Dark_Side_of_the_Moon.png" alt="Artist 1">
+            <div class = "content">
+              <h3>Artist Name</h3>
+              <p>Genre</p>
+            </div>
+        </div>
+          <div class = "card">
+            <img src="../photo/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Artist 1">
+            <div class = "content">
+              <h3>Artist Name</h3>
+              <p>Genre</p>
+            </div>
+        </div>
+          <div class = "card">
+            <img src="../photo/images.jpg" alt="Artist 1">
+            <div class = "content">
+              <h3>Artist Name</h3>
+              <p>Genre</p>
+            </div>
+        </div>
+        
+        </div>
+
+</div>
+
+
+      <footer>
+        <div class="footer-content">
+          
+            <div class ="text-center">
+                <p>&copy; 2024 SoundSpot. All rights reserved.</p>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img src="../photo/facebook.png"></a>
+                <a href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="../photo/instagram.png"></a>
+                <a href="link_to_your_second_page.html"><img src="../photo/twitter.png"></a>
+                <a href="mailto:emailsspamm101@gmail.com"><img src="../photo/gmail.png"></a>
+            </div>
+        </div>
+        </footer>
+    
+</body>
+</html>

@@ -148,52 +148,33 @@ document.addEventListener("DOMContentLoaded", function () {
 //changes the logo when we minimize the side
 
 var logoFlag = 0;
-
 function toggleLogo() {
     var logoImg = document.getElementById("trial-img");
-
     logoFlag = (logoFlag === 0) ? 1 : 0;
 
     if (logoFlag === 1) {
-        logoImg.src = "photo/1(2).png";
+        logoImg.src = "../photo/1(2).png";  // Path updated to include "../photo/"
         logoImg.classList.add("minimized");
     } else {
-        logoImg.src = "photo/output-onlinepngtools.png";
+        logoImg.src = "../photo/output-onlinepngtools.png";  // Path updated to include "../photo/"
         logoImg.classList.remove("minimized");
     }
 }
 
-
-// t-minimize the side-bar
 function minimizeSidebar() {
     const sidebar = document.querySelector(".sidebar");
     const logoImg = document.getElementById("trial-img");
 
     sidebar.classList.add("sidebar-minimized");
-    logoImg.src = "photo/1(2).png";
+    logoImg.src = "../photo/1(2).png";  // Path updated to include "../photo/"
     logoImg.classList.add("minimized");
 }
 
-// teraga3 el sid-bar
 function restoreSidebar() {
     const sidebar = document.querySelector(".sidebar");
     const logoImg = document.getElementById("trial-img");
 
     sidebar.classList.remove("sidebar-minimized");
-    logoImg.src = "photo/output-onlinepngtools.png";
+    logoImg.src = "../photo/output-onlinepngtools.png";  // Path updated to include "../photo/"
     logoImg.classList.remove("minimized");
 }
-
-function handleResize() {
-    if (window.innerWidth <= 768) {
-        minimizeSidebar();
-    } else {
-        restoreSidebar();
-    }
-}
-
-window.addEventListener("resize", handleResize);
-handleResize();
-
-
-
