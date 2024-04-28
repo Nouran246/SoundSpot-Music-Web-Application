@@ -6,10 +6,10 @@ color:rgb(86, 84, 84);
 @media screen and (max-width: 768px) {
     .title {
         text-align: center;
-        font-size: 2em; /* Adjust font size as needed */
+        font-size: 2em; 
         margin-top: 1em;
-        margin-left: 0; /* Ensure no left margin */
-        margin-right: 0; /* Ensure no right margin */
+        margin-left: 0; 
+        margin-right: 0; 
     }}
 
 
@@ -26,3 +26,9 @@ color:rgb(86, 84, 84);
         margin-top:80px;
     }
 
+    .text100 {
+        color: #ddd;
+        font-size: 25px;
+        text-align: center;
+        margin: 40px;
+    }

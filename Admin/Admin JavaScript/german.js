@@ -115,8 +115,11 @@ var translations = {
         'edit': 'Edit',
         'price': 'Price',
         'features': 'Features',
-       
-        
+        'artist': 'Artist',
+        'album': 'Album',
+        'release_date': 'Date',
+        'next_page': 'Next',
+        'previous_page': 'Previous',
     },
     'gm': {
         // German translations
@@ -205,7 +208,13 @@ var translations = {
         'vodafone_offer_details': 'Details zum Vodafone-Angebot',
         'orange_offer_details': 'Details zum Orange-Angebot',
         'edit_button': 'Bearbeiten',
-        'song_name_label_german': 'Liedtitel'
+        'song_name_label_german': 'Liedtitel',
+      
+        'artist': 'Künstler',
+        'album': 'Album',
+        'release_date': 'Datum',
+        'next_page': 'Nächste',
+        'previous_page': 'Vorherige',
     }
 };
 
@@ -260,6 +269,47 @@ var titleElement = document.querySelector('.text2');
 if (titleElement && translation['premium_subscription']) {
     titleElement.textContent = translation['premium_subscription'];
 }
+
+
+
+var nextPageLink = document.querySelector('.pagination .page-item:last-of-type .page-link');
+var prevPageLink = document.querySelector('.pagination .page-item:first-of-type .page-link');
+
+// Update text content for Next and Previous links based on the selected language
+if (translation) {
+    if (translation['next_page'] && nextPageLink) {
+        nextPageLink.textContent = translation['next_page'];
+    }
+    if (translation['previous_page'] && prevPageLink) {
+        prevPageLink.textContent = translation['previous_page'];
+    }
+}
+
+
+
+
+
+
+
+var artistText = document.querySelector('.top-text:nth-of-type(2)');
+var releaseDateText = document.querySelector('.top-text:nth-of-type(4)');
+
+// Update text content for artistText and releaseDateText based on the selected language
+if (translation) {
+    // Check if the translation for artist and release_date exists in the selected language
+    if (translation['artist'] && artistText) {
+        artistText.textContent = translation['artist'];
+    }
+    if (translation['release_date'] && releaseDateText) {
+        releaseDateText.textContent = translation['release_date'];
+    }
+}
+
+
+
+
+
+
 
 var titleElement = document.querySelector('.text1');
 if (titleElement && translation['free_subscription']) {
@@ -318,7 +368,7 @@ if (manageSongsBox && translation['manage_songs']) {
 }
 
 // Update text content for the "Manage Playlists" box
-var managePlaylistsBox = document.querySelector('.title + .main-content .box-container:nth-of-type(2) .text');
+var managePlaylistsBox = document.querySelector('.text100');
 if (managePlaylistsBox && translation['manage_playlists']) {
     managePlaylistsBox.textContent = translation['manage_playlists'];
 }
