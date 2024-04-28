@@ -1,0 +1,92 @@
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    background: #1a1a1a; /* Dark background by default */
+    color: white; /* Light text by default */
+    padding: 30px;
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+    transform: translateX(50px);
+    z-index: 1;
+}
+
+.light-mode .container {
+    background: white; /* Light background for light mode */
+    color: black; /* Dark text for light mode */
+}
+
+/* Responsive and other styles remain the same */
+
+
+@media (max-width: 768px) {
+    .container {
+        transform: translateX(10px); /* Minor shift for smaller screens */
+        margin-top: 100px; /* Consistent top margin for mobile views */
+    }
+}
+
+/* Adjustment for very small screens */
+@media (max-width: 480px) {
+    .container {
+        transform: translateX(0); /* Remove horizontal shift completely */
+        width: 95%; /* Allow more usage of screen width */
+        max-width: 95%; /* Ensure the width is appropriately set */
+    }
+}
+
+
+ 
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px; /* Increased gap for better spacing */
+    margin: 20px auto;
+}
+
+.checkbox-group div {
+    display: flex;
+    align-items: center; /* Aligns checkboxes and labels vertically */
+}
+
+.email-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.email-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-basis: 45%;
+}
+
+.comment-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: magenta;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkmagenta;
+}
