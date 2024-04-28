@@ -23,4 +23,9 @@
             text-align: center;
             margin: 40px;
         }
-        
+        .light-mode .text2{
+            color:black;
+        }
+        .light-mode .text1{
+            color:black;
+        }

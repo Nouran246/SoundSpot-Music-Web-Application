@@ -93,6 +93,31 @@
     gap: 140px;
 }
 
+.top-text1 {
+    color: #ddd;
+    font-size: 20px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+    margin-right: 17px;
+}
+.top-text2 {
+    color: #ddd;
+    font-size: 20px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+    margin-right: 17px;
+}
+.light-mode .top-text1{
+    color:#1a1a1a;
+}
+.light-mode .top-text2{
+    color:#1a1a1a;
+}
+
 .btn {
     background-color: #852b85;
     color: white;
