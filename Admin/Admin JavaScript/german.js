@@ -120,6 +120,8 @@ var translations = {
         'release_date': 'Date',
         'next_page': 'Next',
         'previous_page': 'Previous',
+        'username': 'Username',
+        'last_access': 'Last Access',
     },
     'gm': {
         // German translations
@@ -215,6 +217,8 @@ var translations = {
         'release_date': 'Datum',
         'next_page': 'Nächste',
         'previous_page': 'Vorherige',
+        'username': 'Benutzername',
+        'last_access': 'Zugriff',
     }
 };
 
@@ -238,6 +242,34 @@ genreOptions.forEach(function(option) {
         option.textContent = translation[optionValue];
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+var usersBox = document.querySelector('.top-text2');
+if (usersBox && translation['username']) {
+    usersBox.textContent = translation['username'];
+}
+
+var usersBox = document.querySelector('.top-text1');
+if (usersBox && translation['last_access']) {
+    usersBox.textContent = translation['last_access'];
+}
+
+
+
+
+
+
+
+
 
 // Update text content for the Users box
 var usersBox = document.querySelector('.box:nth-of-type(1) .text');
