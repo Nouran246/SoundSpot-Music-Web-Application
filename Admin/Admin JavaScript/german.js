@@ -117,7 +117,7 @@ var translations = {
         'features': 'Features',
         'artist': 'Artist',
         'album': 'Album',
-        'release_date': 'Release Date',
+        'release_date': 'Date',
         'next_page': 'Next',
         'previous_page': 'Previous',
     },
@@ -212,7 +212,7 @@ var translations = {
       
         'artist': 'Künstler',
         'album': 'Album',
-        'release_date': 'Veröffentlichungsdatum',
+        'release_date': 'Datum',
         'next_page': 'Nächste',
         'previous_page': 'Vorherige',
     }
