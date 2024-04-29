@@ -142,7 +142,22 @@ var translations = {
         "Activity Log": "Activity Log",
         'Ban': 'Ban',
         'Delete': 'Delete',
-        'Edit': 'Edit'
+        'Edit': 'Edit',
+        'statistics_and_reports': 'SoundSpot - Statistics and Reports',
+        'user_reports': 'User Reports',
+        'app_statistics': 'Application Statistics',
+        'show_both': 'Show Both',
+        'mark_resolved': 'Mark as Resolved',
+        'email_user': 'Email User',
+        'total_users': 'Total Users',
+        'total_songs': 'Total Songs',
+        'most_played_song': 'Most Played Song',
+        'active_users': 'Active Users (Last 24 Hours)',
+        'total_playlists_created': 'Total Playlists Created',
+        'free_subscribers': 'Free Subscribers',
+        'premium_subscribers': 'Premium Subscribers',
+        'total_revenue': 'Total Revenue'
+    
     },
     'gm': {
         // German translations
@@ -261,7 +276,21 @@ var translations = {
    "Activity Log": "Aktivitätsprotokoll",
    'Ban': 'Sperren',
         'Delete': 'Löschen',
-        'Edit': 'Bearbeiten'
+        'Edit': 'Bearbeiten',
+        'statistics_and_reports': '  SoundSpot - Statistiken und Berichte',
+        'user_reports': 'Benutzerberichte',
+        'app_statistics': 'Anwendungsstatistiken',
+        'show_both': 'Beide anzeigen',
+        'mark_resolved': 'Als gelöst markieren',
+        'email_user': 'Benutzer kontaktieren',
+        'total_users': 'Gesamtzahl der Benutzer',
+        'total_songs': 'Gesamtzahl der Lieder',
+        'most_played_song': 'Am häufigsten gespieltes Lied',
+        'active_users': 'Aktive Benutzer (Letzte 24 Stunden)',
+        'total_playlists_created': 'Gesamte erstellte Playlists',
+        'free_subscribers': 'Kostenlose Abonnenten',
+        'premium_subscribers': 'Premium-Abonnenten',
+        'total_revenue': 'Gesamteinnahmen'
     }
 };
 
@@ -284,9 +313,86 @@ genreOptions.forEach(function(option) {
     if (optionValue && translation[optionValue]) {
         option.textContent = translation[optionValue];
     }
+
 });
 
+var resolveButton = document.querySelector('button[onclick="resolveIssue()"]');
+if (resolveButton && translation['mark_resolved']) {
+    resolveButton.textContent = translation['mark_resolved'];
+}
 
+var emailButton = document.querySelector('button[onclick="emailUser()"]');
+if (emailButton && translation['email_user']) {
+    emailButton.textContent = translation['email_user'];
+}
+
+var totalUsersHeading = document.querySelector('#app-statistics .stat:nth-child(2) h3');
+if (totalUsersHeading && translation['total_users']) {
+    totalUsersHeading.textContent = translation['total_users'];
+}
+
+var totalSongsHeading = document.querySelector('#app-statistics .stat:nth-child(3) h3');
+if (totalSongsHeading && translation['total_songs']) {
+    totalSongsHeading.textContent = translation['total_songs'];
+}
+
+var mostPlayedSongHeading = document.querySelector('#app-statistics .stat:nth-child(4) h3');
+if (mostPlayedSongHeading && translation['most_played_song']) {
+    mostPlayedSongHeading.textContent = translation['most_played_song'];
+}
+
+var activeUsersHeading = document.querySelector('#app-statistics .stat:nth-child(5) h3');
+if (activeUsersHeading && translation['active_users']) {
+    activeUsersHeading.textContent = translation['active_users'];
+}
+
+var playlistsHeading = document.querySelector('#app-statistics .stat:nth-child(6) h3');
+if (playlistsHeading && translation['total_playlists_created']) {
+    playlistsHeading.textContent = translation['total_playlists_created'];
+}
+
+var freeSubscribersHeading = document.querySelector('#app-statistics .stat:nth-child(7) h3');
+if (freeSubscribersHeading && translation['free_subscribers']) {
+    freeSubscribersHeading.textContent = translation['free_subscribers'];
+}
+
+var premiumSubscribersHeading = document.querySelector('#app-statistics .stat:nth-child(8) h3');
+if (premiumSubscribersHeading && translation['premium_subscribers']) {
+    premiumSubscribersHeading.textContent = translation['premium_subscribers'];
+}
+
+var totalRevenueHeading = document.querySelector('#app-statistics .stat:nth-child(9) h3');
+if (totalRevenueHeading && translation['total_revenue']) {
+    totalRevenueHeading.textContent = translation['total_revenue'];
+}
+var userReportsLink = document.querySelector('nav li:nth-child(1) a');
+if (userReportsLink && translation['user_reports']) {
+    userReportsLink.textContent = translation['user_reports'];
+}
+
+var appStatisticsLink = document.querySelector('nav li:nth-child(2) a');
+if (appStatisticsLink && translation['app_statistics']) {
+    appStatisticsLink.textContent = translation['app_statistics'];
+}
+
+var showBothLink = document.querySelector('nav li:nth-child(3) a');
+if (showBothLink && translation['show_both']) {
+    showBothLink.textContent = translation['show_both'];
+}
+var userReportsSection = document.getElementById('user-reports');
+if (userReportsSection && translation['user_reports']) {
+    userReportsSection.querySelector('h2').textContent = translation['user_reports'];
+}
+
+var appStatisticsSection = document.getElementById('app-statistics');
+if (appStatisticsSection && translation['app_statistics']) {
+    appStatisticsSection.querySelector('h2').textContent = translation['app_statistics'];
+}
+
+var usersBox = document.querySelector('h1');
+if (usersBox && translation['statistics_and_reports']) {
+    usersBox.textContent = translation['statistics_and_reports'];
+}
 
 
 var buttons = document.querySelectorAll('.buttons .btn');
