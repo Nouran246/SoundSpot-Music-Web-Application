@@ -122,6 +122,27 @@ var translations = {
         'previous_page': 'Previous',
         'username': 'Username',
         'last_access': 'Last Access',
+        "Personal Information": "Personal Information",
+        "Date of birth:": "Date of birth:",
+        "Country:": "Country:",
+        "Contact Information": "Contact Information",
+        "Subscription Plan": "Subscription Plan",
+        "Free": "Kostenlos",
+        "Family": "Family",
+        "Playlists created:": "Created Playlist:",
+        "Followers:": "Followers:",
+        "Following:": "Following:",
+        "Security": "Secuirty",
+        "Last account access:": "Last account access:",
+        "Number of password changes:": "Number of password changed:",
+        "Date of registration:": "Date of registeration:",
+        "Two-factor authentication": "Two-factor authentication",
+        "Enabled": "Enabled",
+        "Disabled": "Disabled",
+        "Activity Log": "Activity Log",
+        'Ban': 'Ban',
+        'Delete': 'Delete',
+        'Edit': 'Edit'
     },
     'gm': {
         // German translations
@@ -211,7 +232,6 @@ var translations = {
         'orange_offer_details': 'Details zum Orange-Angebot',
         'edit_button': 'Bearbeiten',
         'song_name_label_german': 'Liedtitel',
-      
         'artist': 'Künstler',
         'album': 'Album',
         'release_date': 'Datum',
@@ -219,6 +239,29 @@ var translations = {
         'previous_page': 'Vorherige',
         'username': 'Benutzername',
         'last_access': 'Zugriff',
+        "Personal Information": "Persönliche Informationen",
+  "Date of birth:": "Geburtsdatum:",
+  "Country:": "Land:",
+  "Contact Information": "Kontaktinformationen",
+  "E-mail:": "E-Mail:",
+  "Subscription Plan": "Abonnementplan",
+  "Free": "Kostenlos",
+  "Premium": "Premium",
+  "Family": "Familie",
+  "Playlists created:": "Wiedergabelisten erstellt:",
+  "Followers:": "Anhänger:",
+  "Following:": "Folgende:",
+  "Security": "Sicherheit",
+  "Last account access:": "Letzter Kontozugriff:",
+  "Number of password changes:": "Anzahl der Passwortänderungen:",
+  "Date of registration:": "Registrierungsdatum:",
+  "Two-factor authentication": "Zwei-Faktor-Authentifizierung",
+  "Enabled": "Aktiviert",
+  "Disabled": "Deaktiviert",  
+   "Activity Log": "Aktivitätsprotokoll",
+   'Ban': 'Sperren',
+        'Delete': 'Löschen',
+        'Edit': 'Bearbeiten'
     }
 };
 
@@ -242,6 +285,81 @@ genreOptions.forEach(function(option) {
         option.textContent = translation[optionValue];
     }
 });
+
+
+
+
+var buttons = document.querySelectorAll('.buttons .btn');
+buttons.forEach(function(button) {
+    if (button.dataset.originalText) {
+        // Swap text content with original text content
+        var originalText = button.dataset.originalText;
+        button.textContent = originalText;
+        // Store the translated text as the original text content
+        button.dataset.originalText = translation[originalText];
+    } else {
+        // Store the original text content for toggling
+        button.dataset.originalText = button.textContent;
+        // Translate the text content based on the current language
+        if (translation[button.textContent]) {
+            button.textContent = translation[button.textContent];
+        }
+    }
+});
+
+var usersBox = document.querySelector('.head-personal-info');
+if (usersBox && translation['Personal Information']) {
+    usersBox.textContent = translation['Personal Information'];
+}
+// var usersBox = document.querySelector('.birthday');
+// if (usersBox && translation['Date of birth:']) {
+//     usersBox.textContent = translation['Date of birth:'];
+// }
+
+var usersBox = document.querySelector('.head-contact-info');
+if (usersBox && translation['Contact Information']) {
+    usersBox.textContent = translation['Contact Information'];
+}
+
+var usersBox = document.querySelector('.head-subscription');
+if (usersBox && translation['Subscription Plan']) {
+    usersBox.textContent = translation['Subscription Plan'];
+}
+
+var usersBox = document.querySelector('#free');
+if (usersBox && translation['Free']) {
+    usersBox.textContent = translation['Free'];
+}
+
+var usersBox = document.querySelector('#family');
+if (usersBox && translation['Family']) {
+    usersBox.textContent = translation['Family'];
+}
+
+var usersBox = document.querySelector('.head-security');
+if (usersBox && translation['Security']) {
+    usersBox.textContent = translation['Security'];
+}
+var usersBox = document.querySelector('#disable-authen');
+if (usersBox && translation['Disabled']) {
+    usersBox.textContent = translation['Disabled'];
+}
+
+
+var usersBox = document.querySelector('#enable-authen');
+if (usersBox && translation['Enabled']) {
+    usersBox.textContent = translation['Enabled'];
+}
+
+
+var usersBox = document.querySelector('.heading-activity-log');
+if (usersBox && translation['Activity Log']) {
+    usersBox.textContent = translation['Activity Log'];
+}
+
+
+
+
 
 
 
