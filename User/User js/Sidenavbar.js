@@ -110,10 +110,9 @@ if (toggleButton) {
 initializeMode();
 
 // Logo toggle based on sidebar state
-var logoFlag = 0;
+// Logo toggle based on sidebar state
 function toggleLogo() {
-    logoFlag = (logoFlag === 0) ? 1 : 0;
-    if (logoFlag === 1) {
+    if (sidebar.classList.contains("sidebar-minimized")) {
         logoImg.src = "../photo/1(2).png";
         logoImg.classList.add("minimized");
     } else {
@@ -121,6 +120,8 @@ function toggleLogo() {
         logoImg.classList.remove("minimized");
     }
 }
+
+
 });
 
 

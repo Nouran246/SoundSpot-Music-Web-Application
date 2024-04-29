@@ -47,3 +47,111 @@ li:last-child {
 .light-mode .container {
     background-color: white;
 }
+.light-mode .container #addPlaylistButton {
+    color: black;
+}
+
+#addPlaylistButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    position: fixed; 
+    right: 20px; 
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #1a1a1a;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 33%;
+  }
+  
+  .modal-content h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .modal-content input[type="text"],
+  .modal-content input[type="file"],
+  .modal-content button {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content input[type="text"]::placeholder,
+  .modal-content input[type="file"]::placeholder {
+    color: #b4aaaa;
+  }
+  
+  .modal-content button {
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #6a0dad; /* Dark purple background color */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+    border: none; /* Remove button border */
+  }
+  
+  .modal-content button:hover {
+    background-color: #4c0073; /* Darker purple on hover */
+  }
+  
+  /* Light mode styles */
+.light-mode .modal-content {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black;
+  }
+  
+  .light-mode .modal-content h2 {
+    color: black;
+  }
+  
+  .light-mode .modal-content input[type="text"],
+  .light-mode .modal-content input[type="file"] {
+    background-color: white;
+    color: black;
+    border: none; /* Remove button border */
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .light-mode .modal-content input[type="text"]::placeholder,
+  .light-mode .modal-content input[type="file"]::placeholder {
+    color: #ccc;
+  }
+  
+  /* Style only the create button in light mode */
+  .light-mode .modal-content .create-button {
+    background-color: #6a0dad; /* Dark purple background color */
+  }
+
+  
+  .light-mode .modal-content button:hover {
+    background-color: #4c0073; /* Darker purple on hover */
+  }
+  
+  #modalHeader {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
