@@ -156,7 +156,10 @@ var translations = {
         'total_playlists_created': 'Total Playlists Created',
         'free_subscribers': 'Free Subscribers',
         'premium_subscribers': 'Premium Subscribers',
-        'total_revenue': 'Total Revenue'
+        'total_revenue': 'Total Revenue',
+        "unresolved_problems": "Unresolved Problems",
+        "resolved_problems": "Resolved problems",
+        "sort_by_date": "Latest Date"
     
     },
     'gm': {
@@ -290,7 +293,10 @@ var translations = {
         'total_playlists_created': 'Gesamte erstellte Playlists',
         'free_subscribers': 'Kostenlose Abonnenten',
         'premium_subscribers': 'Premium-Abonnenten',
-        'total_revenue': 'Gesamteinnahmen'
+        'total_revenue': 'Gesamteinnahmen',
+        "unresolved_problems": "Ungelöste Probleme",
+        "resolved_problems": "Gelöste Probleme",
+        "sort_by_date": "Nach Datum sortieren"
     }
 };
 
@@ -306,6 +312,21 @@ function setLanguage(language) {
         }
     });
 
+    var unresolvedProblemsLink = document.querySelector('#user-reports nav ul li:nth-child(1) a');
+    if (unresolvedProblemsLink && translation['unresolved_problems']) {
+        unresolvedProblemsLink.textContent = translation['unresolved_problems'];
+    }
+    
+    var resolvedProblemsLink = document.querySelector('#user-reports nav ul li:nth-child(2) a');
+    if (resolvedProblemsLink && translation['resolved_problems']) {
+        resolvedProblemsLink.textContent = translation['resolved_problems'];
+    }
+    
+    var sortByDateLink = document.querySelector('#user-reports nav ul li:nth-child(3) a');
+    if (sortByDateLink && translation['sort_by_date']) {
+        sortByDateLink.textContent = translation['sort_by_date'];
+    }
+
     var genreOptions = document.querySelectorAll('#genre option');
 
 genreOptions.forEach(function(option) {
@@ -316,15 +337,24 @@ genreOptions.forEach(function(option) {
 
 });
 
-var resolveButton = document.querySelector('button[onclick="resolveIssue()"]');
-if (resolveButton && translation['mark_resolved']) {
-    resolveButton.textContent = translation['mark_resolved'];
-}
+// Get all buttons with onclick="resolveIssue()"
+var resolveButtons = document.querySelectorAll('button[onclick="resolveIssue()"]');
+// Loop through each button and update its text content
+resolveButtons.forEach(function(button) {
+    if (button && translation['mark_resolved']) {
+        button.textContent = translation['mark_resolved'];
+    }
+});
 
-var emailButton = document.querySelector('button[onclick="emailUser()"]');
-if (emailButton && translation['email_user']) {
-    emailButton.textContent = translation['email_user'];
-}
+// Get all buttons with onclick="emailUser()"
+var emailButtons = document.querySelectorAll('button[onclick="emailUser()"]');
+// Loop through each button and update its text content
+emailButtons.forEach(function(button) {
+    if (button && translation['email_user']) {
+        button.textContent = translation['email_user'];
+    }
+});
+
 
 var totalUsersHeading = document.querySelector('#app-statistics .stat:nth-child(2) h3');
 if (totalUsersHeading && translation['total_users']) {
