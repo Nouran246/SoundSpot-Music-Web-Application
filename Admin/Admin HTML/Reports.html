@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../Admin%20CSS/Reports.css">
     <script src="../Admin%20JavaScript/Reports.js"></script>
     <script src="../Admin%20JavaScript/german.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 
@@ -112,6 +114,123 @@
         </div>
     </div>
               
+
+    <header>
+        <h1>SoundSpot - Statistics and Reports</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="#"onclick="toggleUserReports()">User Reports</a></li>
+          <li><a href="#"onclick="toggleAppStatistics()">Application Statistics</a></li>
+          <li><a href="#"onclick="toggleAll()">Show both</a></li>
+
+        </ul>
+      </nav>
+      <section id="user-reports">
+        <h2>User Reports</h2>
+        <div class="report">
+        
+            <h3>User: John Doe</h3>
+            <p>Email: john.doe@example.com</p>
+            <p>Username: johndoe123</p>
+            <p>Issue: Unable to play songs</p>
+            <p>Date: April 28, 2024</p>
+            <p>Status: <span class="status">Pending</span></p>            <p>Details:</p>
+            <p>Hey, I'm John and I'm having trouble playing songs on the mobile app. I've tried restarting the app and my device, but the songs still won't play. Can you please help me fix this issue?</p>
+            <button onclick="resolveIssue()">Mark as Resolved</button>
+            <button onclick="emailUser()">Email User</button>
+          </div>
+          <div class="report">
+            <h3>User: Jane Smith</h3>
+            <p>Email: jane.smith@example.com</p>
+            <p>Username: janesmith456</p>
+            <p>Issue: Account login problem</p>
+            <p>Date: April 25, 2024</p>
+            <p>Status: <span class="status">Pending</span></p>            <p>Details:</p>
+            <p>Hi there, I'm Jane and I'm having trouble logging into my account. I've tried resetting my password multiple times, but I still can't access my account. Can you please assist me in resolving this issue?</p>
+            <button onclick="resolveIssue()">Mark as Resolved</button>
+            <button onclick="emailUser()">Email User</button>
+          </div>
+          
+          <div class="report">
+            <h3>User: Alex Johnson</h3>
+            <p>Email: alex.johnson@example.com</p>
+            <p>Username: alexj</p>
+            <p>Issue: Playlist not saving</p>
+            <p>Date: April 23, 2024</p>
+            <p>Status: <span class="status">Pending</span></p>            <p>Details:</p>
+            <p>Hey, this is Alex. I created a new playlist, but it's not saving when I try to save it. I've tried on both mobile and web platforms, but the changes just won't stick. Can you please look into this issue for me?</p>
+            <button onclick="resolveIssue()">Mark as Resolved</button>
+            <button onclick="emailUser()">Email User</button>
+          </div>
+      </section>
+      <section id="app-statistics">
+        <h2>Application Statistics</h2>
+        <div class="stat">
+          <h3>Total Users</h3>
+          <p>1000</p>
+          <canvas id="myChart" width="300" height="100"></canvas>
+        </div>
+        <div class="stat">
+          <h3>Total Songs</h3>
+          <p>5000</p>
+          <canvas id="songsChart" width="300" height="100"></canvas>
+        </div>
+        <div class="stat">
+          <h3>Most Played Song</h3>
+          <p>"Song Name" by Artist</p>
+          <canvas id="mostPlayedChart" width="300" height="100"></canvas>
+
+        </div>
+        <div class="stat">
+            <h3>Active Users (Last 24 Hours)</h3>
+            <p>500</p>
+            <canvas id="activeUsersChart" width="300" height="100"></canvas>
+          </div>
+          <div class="stat">
+            <h3>Total Playlists Created</h3>
+            <p>200</p>
+            <canvas id="playlistsChart" width="300" height="100"></canvas>
+          </div>
+          <div class="stat">
+            <h3>Free Subscribers</h3>
+            <p>800</p>
+            <canvas id="freeSubscribersChart" width="300" height="100"></canvas>
+          </div>
+          <div class="stat">
+            <h3>Premium Subscribers</h3>
+            <p>200</p>
+            <canvas id="premiumSubscribersChart" width="300" height="100"></canvas>
+          </div>
+          <div class="stat">
+            <h3>Total Revenue</h3>
+            <p>$10,000</p>
+            <canvas id="revenueChart" width="300" height="100"></canvas>
+          </div>
+         
+        <!-- More statistics can be added -->
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <footer>
         <div class="footer-content">
           

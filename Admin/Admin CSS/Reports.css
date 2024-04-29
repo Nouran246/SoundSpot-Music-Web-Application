@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+  
+  }
+  
+  .main-content {
+    margin-left: 300px; /* Adjust this value as needed */
+  }
+  
+  header, nav, section{
+    padding: 20px;
+  }
+  
+  header {
+  
+    color: #fff;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #757272;
+    font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+    color: darkmagenta;
+  }
+  
+  .report, .stat {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 300px;
+  }
+  
+  .report h3, .stat h3 {
+    margin-top: 0;
+ 
+  }
+  
+  h2 {
+    font-family: cursive;
+    margin-left: 250px;
+    color:darkmagenta;
+  }
+  h1{
+
+    font-family: cursive;
+  }
+  .light-mode h1 {
+color:black;
+    font-family: cursive;
+  }
+
+  button {
+    background-color: darkmagenta;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-left: auto; /* To align the buttons to the right */
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: purple; /* Change color on hover */
+  }
