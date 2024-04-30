@@ -142,7 +142,54 @@ var translations = {
         "Activity Log": "Activity Log",
         'Ban': 'Ban',
         'Delete': 'Delete',
-        'Edit': 'Edit'
+        'Edit': 'Edit',
+        'statistics_and_reports': 'SoundSpot - Statistics and Reports',
+        'user_reports': 'User Reports',
+        'app_statistics': 'Application Statistics',
+        'show_both': 'Show Both',
+        'mark_resolved': 'Mark as Resolved',
+        'email_user': 'Email User',
+        'total_users': 'Total Users',
+        'total_songs': 'Total Songs',
+        'most_played_song': 'Most Played Song',
+        'active_users': 'Active Users (Last 24 Hours)',
+        'total_playlists_created': 'Total Playlists Created',
+        'free_subscribers': 'Free Subscribers',
+        'premium_subscribers': 'Premium Subscribers',
+        'total_revenue': 'Total Revenue',
+        "unresolved_problems": "Unresolved Problems",
+        "resolved_problems": "Resolved problems",
+        "sort_by_date": "Latest Date",
+        "Achievement Badges": "Achievement Badges",
+        "Certified Listener": "Certified Listener",
+        "Awarded for listening to 100 songs.": "Awarded for listening to 100 songs.",
+        "Top Playlist Curator": "Top Playlist Creator",
+        "Awarded for creating 10 playlists.": "Awarded for creating 10 playlists.",
+        "Bronze Record Holder": "Bronze Record Holder",
+        "Awarded for adding 5 vinyl records to your collection.": "Awarded for adding 5 vinyl records to your collection.",
+        "Master Mixer": "Master Mixer",
+        "Awarded for creating a playlist with songs from 10 different genres.": "Awarded for creating a playlist with songs from 10 different genres.",
+        "Concert Junkie": "Concert Junkie",
+        "Awarded for attending 5 live music concerts.": "Awarded for attending 5 live music concerts.",
+        "Vinyl Enthusiast": "Vinyl Enthusiast",
+        "Awarded for collecting 10 vinyl records.": "Awarded for collecting 10 vinyl records.",
+        "Guitar Virtuoso": "Guitar Virtuoso",
+        "Awarded for mastering 10 guitar solos.": "Awarded for mastering 10 guitar solos.",
+        "Radio Star": "Radio Star",
+        "Awarded for creating a radio playlist with 50 or more songs.": "Awarded for creating a radio playlist with 50 or more songs.",
+        "Karaoke Champion": "Karaoke Champion",
+        "Awarded for singing in 10 karaoke sessions.": "Awarded for singing in 10 karaoke sessions.",
+        "Music Explorer": "Music Explorer",
+        "Awarded for listening to songs from 50 different artists.": "Awarded for listening to songs from 50 different artists.",
+        "Premium Subscriber": "Premium Subscriber",
+        "Awarded for subscribing to SoundSpot Premium.": "Awarded for subscribing to SoundSpot Premium.",
+        "Melody Maestro": "Melody Maestro",
+        "Awarded for composing 10 original melodies.": "Awarded for composing 10 original melodies.",
+        "SoundSpot Superfan": "SoundSpot Superfan",
+        "Awarded for listening to over 1000 songs on SoundSpot.": "Awarded for listening to over 1000 songs on SoundSpot.",
+        "Studio Savant": "Studio Savant",
+        "Awarded for recording and mixing 10 original tracks.": "Awarded for recording and mixing 10 original tracks."
+    
     },
     'gm': {
         // German translations
@@ -261,12 +308,203 @@ var translations = {
    "Activity Log": "Aktivitätsprotokoll",
    'Ban': 'Sperren',
         'Delete': 'Löschen',
-        'Edit': 'Bearbeiten'
+        'Edit': 'Bearbeiten',
+        'statistics_and_reports': '  SoundSpot - Statistiken und Berichte',
+        'user_reports': 'Benutzerberichte',
+        'app_statistics': 'Anwendungsstatistiken',
+        'show_both': 'Beide anzeigen',
+        'mark_resolved': 'Als gelöst markieren',
+        'email_user': 'Benutzer kontaktieren',
+        'total_users': 'Gesamtzahl der Benutzer',
+        'total_songs': 'Gesamtzahl der Lieder',
+        'most_played_song': 'Am häufigsten gespieltes Lied',
+        'active_users': 'Aktive Benutzer (Letzte 24 Stunden)',
+        'total_playlists_created': 'Gesamte erstellte Playlists',
+        'free_subscribers': 'Kostenlose Abonnenten',
+        'premium_subscribers': 'Premium-Abonnenten',
+        'total_revenue': 'Gesamteinnahmen',
+        "unresolved_problems": "Ungelöste Probleme",
+        "resolved_problems": "Gelöste Probleme",
+        "sort_by_date": "Nach Datum sortieren",
+        "Achievement Badges": "Leistungsabzeichen",
+        "Certified Listener": "Zertifizierter Zuhörer",
+        "Awarded for listening to 100 songs.": "Ausgezeichnet für das Hören von 100 Liedern.",
+        "Top Playlist Curator": "Top-Playlist-Ersteller",
+        "Awarded for creating 10 playlists.": "Ausgezeichnet für die Erstellung von 10 Wiedergabelisten.",
+        "Bronze Record Holder": "Bronze Record Inhaber",
+        "Awarded for adding 5 vinyl records to your collection.": "Ausgezeichnet für das Hinzufügen von 5 Vinylplatten zu Ihrer Sammlung.",
+        "Master Mixer": "Meister Mixer",
+        "Awarded for creating a playlist with songs from 10 different genres.": "Ausgezeichnet für das Erstellen einer Wiedergabeliste mit Liedern aus 10 verschiedenen Genres.",
+        "Concert Junkie": "Konzert-Junkie",
+        "Awarded for attending 5 live music concerts.": "Ausgezeichnet für den Besuch von 5 Live-Musikkonzerten.",
+        "Vinyl Enthusiast": "Vinyl-Enthusiast",
+        "Awarded for collecting 10 vinyl records.": "Ausgezeichnet für das Sammeln von 10 Vinylplatten.",
+        "Guitar Virtuoso": "Gitarrenvirtuose",
+        "Awarded for mastering 10 guitar solos.": "Ausgezeichnet für das Beherrschen von 10 Gitarrensoli.",
+        "Radio Star": "Radiostar",
+        "Awarded for creating a radio playlist with 50 or more songs.": "Ausgezeichnet für die Erstellung einer Radioplaylist mit 50 oder mehr Liedern.",
+        "Karaoke Champion": "Karaoke-Champion",
+        "Awarded for singing in 10 karaoke sessions.": "Ausgezeichnet für das Singen in 10 Karaoke-Sitzungen.",
+        "Music Explorer": "Musik-Entdecker",
+        "Awarded for listening to songs from 50 different artists.": "Ausgezeichnet für das Hören von Liedern von 50 verschiedenen Künstlern.",
+        "Premium Subscriber": "Premium-Abonnent",
+        "Awarded for subscribing to SoundSpot Premium.": "Ausgezeichnet für das Abonnieren von SoundSpot Premium.",
+        "Melody Maestro": "Melodie-Meister",
+        "Awarded for composing 10 original melodies.": "Ausgezeichnet für das Komponieren von 10 originalen Melodien.",
+        "SoundSpot Superfan": "SoundSpot-Superfan",
+        "Awarded for listening to over 1000 songs on SoundSpot.": "Ausgezeichnet für das Hören von über 1000 Liedern auf SoundSpot.",
+        "Studio Savant": "Studio-Savant",
+        "Awarded for recording and mixing 10 original tracks.": "Ausgezeichnet für das Aufnehmen und Mischen von 10 Originaltiteln."
     }
 };
 
 function setLanguage(language) {
     var translation = translations[language];
+// Translate Achievement Badges
+var certifiedListenerBadge = document.querySelectorAll('.badge-title')[0];
+if (certifiedListenerBadge && translations[language]['Certified Listener']) {
+    certifiedListenerBadge.textContent = translations[language]['Certified Listener'];
+}
+
+var topPlaylistCuratorBadge = document.querySelectorAll('.badge-title')[1];
+if (topPlaylistCuratorBadge && translations[language]['Top Playlist Curator']) {
+    topPlaylistCuratorBadge.textContent = translations[language]['Top Playlist Curator'];
+}
+
+var bronzeRecordHolderBadge = document.querySelectorAll('.badge-title')[2];
+if (bronzeRecordHolderBadge && translations[language]['Bronze Record Holder']) {
+    bronzeRecordHolderBadge.textContent = translations[language]['Bronze Record Holder'];
+}
+
+var masterMixerBadges = document.querySelector('.badges-title');
+if (masterMixerBadges && translations[language]['Achievement Badges']) {
+    masterMixerBadges.textContent = translations[language]['Achievement Badges'];
+}
+
+var masterMixerBadge = document.querySelectorAll('.badge-title')[3];
+if (masterMixerBadge && translations[language]['Master Mixer']) {
+    masterMixerBadge.textContent = translations[language]['Master Mixer'];
+}
+
+var concertJunkieBadge = document.querySelectorAll('.badge-title')[4];
+if (concertJunkieBadge && translations[language]['Concert Junkie']) {
+    concertJunkieBadge.textContent = translations[language]['Concert Junkie'];
+}
+
+var vinylEnthusiastBadge = document.querySelectorAll('.badge-title')[5];
+if (vinylEnthusiastBadge && translations[language]['Vinyl Enthusiast']) {
+    vinylEnthusiastBadge.textContent = translations[language]['Vinyl Enthusiast'];
+}
+
+var guitarVirtuosoBadge = document.querySelectorAll('.badge-title')[6];
+if (guitarVirtuosoBadge && translations[language]['Guitar Virtuoso']) {
+    guitarVirtuosoBadge.textContent = translations[language]['Guitar Virtuoso'];
+}
+
+var radioStarBadge = document.querySelectorAll('.badge-title')[7];
+if (radioStarBadge && translations[language]['Radio Star']) {
+    radioStarBadge.textContent = translations[language]['Radio Star'];
+}
+
+var karaokeChampionBadge = document.querySelectorAll('.badge-title')[8];
+if (karaokeChampionBadge && translations[language]['Karaoke Champion']) {
+    karaokeChampionBadge.textContent = translations[language]['Karaoke Champion'];
+}
+
+var musicExplorerBadge = document.querySelectorAll('.badge-title')[9];
+if (musicExplorerBadge && translations[language]['Music Explorer']) {
+    musicExplorerBadge.textContent = translations[language]['Music Explorer'];
+}
+
+var premiumSubscriberBadge = document.querySelectorAll('.badge-title')[10];
+if (premiumSubscriberBadge && translations[language]['Premium Subscriber']) {
+    premiumSubscriberBadge.textContent = translations[language]['Premium Subscriber'];
+}
+
+var melodyMaestroBadge = document.querySelectorAll('.badge-title')[11];
+if (melodyMaestroBadge && translations[language]['Melody Maestro']) {
+    melodyMaestroBadge.textContent = translations[language]['Melody Maestro'];
+}
+
+var soundSpotSuperfanBadge = document.querySelectorAll('.badge-title')[12];
+if (soundSpotSuperfanBadge && translations[language]['SoundSpot Superfan']) {
+    soundSpotSuperfanBadge.textContent = translations[language]['SoundSpot Superfan'];
+}
+
+var studioSavantBadge = document.querySelectorAll('.badge-title')[13];
+if (studioSavantBadge && translations[language]['Studio Savant']) {
+    studioSavantBadge.textContent = translations[language]['Studio Savant'];
+}
+
+var certifiedListenerBadgeInfo = document.querySelector('.badge:nth-of-type(1) .badge-hover-info');
+if (certifiedListenerBadgeInfo && translations[language]['Awarded for listening to 100 songs.']) {
+    certifiedListenerBadgeInfo.textContent = translations[language]['Awarded for listening to 100 songs.'];
+}
+
+var topPlaylistCuratorBadgeInfo = document.querySelector('.badge:nth-of-type(2) .badge-hover-info');
+if (topPlaylistCuratorBadgeInfo && translations[language]['Awarded for creating 10 playlists.']) {
+    topPlaylistCuratorBadgeInfo.textContent = translations[language]['Awarded for creating 10 playlists.'];
+}
+
+var bronzeRecordHolderBadgeInfo = document.querySelector('.badge:nth-of-type(3) .badge-hover-info');
+if (bronzeRecordHolderBadgeInfo && translations[language]['Awarded for adding 5 vinyl records to your collection.']) {
+    bronzeRecordHolderBadgeInfo.textContent = translations[language]['Awarded for adding 5 vinyl records to your collection.'];
+}
+
+var masterMixerBadgeInfo = document.querySelector('.badge:nth-of-type(4) .badge-hover-info');
+if (masterMixerBadgeInfo && translations[language]['Awarded for creating a playlist with songs from 10 different genres.']) {
+    masterMixerBadgeInfo.textContent = translations[language]['Awarded for creating a playlist with songs from 10 different genres.'];
+}
+
+var concertJunkieBadgeInfo = document.querySelector('.badge:nth-of-type(5) .badge-hover-info');
+if (concertJunkieBadgeInfo && translations[language]['Awarded for attending 5 live music concerts.']) {
+    concertJunkieBadgeInfo.textContent = translations[language]['Awarded for attending 5 live music concerts.'];
+}
+
+var vinylEnthusiastBadgeInfo = document.querySelector('.badge:nth-of-type(6) .badge-hover-info');
+if (vinylEnthusiastBadgeInfo && translations[language]['Awarded for collecting 10 vinyl records.']) {
+    vinylEnthusiastBadgeInfo.textContent = translations[language]['Awarded for collecting 10 vinyl records.'];
+}
+var guitarVirtuosoBadgeInfo = document.querySelector('.badge:nth-of-type(7) .badge-hover-info');
+if (guitarVirtuosoBadgeInfo && translations[language]['Awarded for mastering 10 guitar solos.']) {
+    guitarVirtuosoBadgeInfo.textContent = translations[language]['Awarded for mastering 10 guitar solos.'];
+}
+
+var radioStarBadgeInfo = document.querySelector('.badge:nth-of-type(8) .badge-hover-info');
+if (radioStarBadgeInfo && translations[language]['Awarded for creating a radio playlist with 50 or more songs.']) {
+    radioStarBadgeInfo.textContent = translations[language]['Awarded for creating a radio playlist with 50 or more songs.'];
+}
+
+var karaokeChampionBadgeInfo = document.querySelector('.badge:nth-of-type(9) .badge-hover-info');
+if (karaokeChampionBadgeInfo && translations[language]['Awarded for singing in 10 karaoke sessions.']) {
+    karaokeChampionBadgeInfo.textContent = translations[language]['Awarded for singing in 10 karaoke sessions.'];
+}
+
+var musicExplorerBadgeInfo = document.querySelector('.badge:nth-of-type(10) .badge-hover-info');
+if (musicExplorerBadgeInfo && translations[language]['Awarded for listening to songs from 50 different artists.']) {
+    musicExplorerBadgeInfo.textContent = translations[language]['Awarded for listening to songs from 50 different artists.'];
+}
+
+var premiumSubscriberBadgeInfo = document.querySelector('.badge:nth-of-type(11) .badge-hover-info');
+if (premiumSubscriberBadgeInfo && translations[language]['Awarded for subscribing to SoundSpot Premium.']) {
+    premiumSubscriberBadgeInfo.textContent = translations[language]['Awarded for subscribing to SoundSpot Premium.'];
+}
+
+var melodyMaestroBadgeInfo = document.querySelector('.badge:nth-of-type(12) .badge-hover-info');
+if (melodyMaestroBadgeInfo && translations[language]['Awarded for composing 10 original melodies.']) {
+    melodyMaestroBadgeInfo.textContent = translations[language]['Awarded for composing 10 original melodies.'];
+}
+
+var soundSpotSuperfanBadgeInfo = document.querySelector('.badge:nth-of-type(13) .badge-hover-info');
+if (soundSpotSuperfanBadgeInfo && translations[language]['Awarded for listening to over 1000 songs on SoundSpot.']) {
+    soundSpotSuperfanBadgeInfo.textContent = translations[language]['Awarded for listening to over 1000 songs on SoundSpot.'];
+}
+
+var studioSavantBadgeInfo = document.querySelector('.badge:nth-of-type(14) .badge-hover-info');
+if (studioSavantBadgeInfo && translations[language]['Awarded for recording and mixing 10 original tracks.']) {
+    studioSavantBadgeInfo.textContent = translations[language]['Awarded for recording and mixing 10 original tracks.'];
+}
+
 
 
     var sidebarLinks = document.querySelectorAll('.text-a.t');
@@ -277,6 +515,21 @@ function setLanguage(language) {
         }
     });
 
+    var unresolvedProblemsLink = document.querySelector('#user-reports nav ul li:nth-child(1) a');
+    if (unresolvedProblemsLink && translation['unresolved_problems']) {
+        unresolvedProblemsLink.textContent = translation['unresolved_problems'];
+    }
+    
+    var resolvedProblemsLink = document.querySelector('#user-reports nav ul li:nth-child(2) a');
+    if (resolvedProblemsLink && translation['resolved_problems']) {
+        resolvedProblemsLink.textContent = translation['resolved_problems'];
+    }
+    
+    var sortByDateLink = document.querySelector('#user-reports nav ul li:nth-child(3) a');
+    if (sortByDateLink && translation['sort_by_date']) {
+        sortByDateLink.textContent = translation['sort_by_date'];
+    }
+
     var genreOptions = document.querySelectorAll('#genre option');
 
 genreOptions.forEach(function(option) {
@@ -284,9 +537,95 @@ genreOptions.forEach(function(option) {
     if (optionValue && translation[optionValue]) {
         option.textContent = translation[optionValue];
     }
+
+});
+
+// Get all buttons with onclick="resolveIssue()"
+var resolveButtons = document.querySelectorAll('button[onclick="resolveIssue()"]');
+// Loop through each button and update its text content
+resolveButtons.forEach(function(button) {
+    if (button && translation['mark_resolved']) {
+        button.textContent = translation['mark_resolved'];
+    }
+});
+
+// Get all buttons with onclick="emailUser()"
+var emailButtons = document.querySelectorAll('button[onclick="emailUser()"]');
+// Loop through each button and update its text content
+emailButtons.forEach(function(button) {
+    if (button && translation['email_user']) {
+        button.textContent = translation['email_user'];
+    }
 });
 
 
+var totalUsersHeading = document.querySelector('#app-statistics .stat:nth-child(2) h3');
+if (totalUsersHeading && translation['total_users']) {
+    totalUsersHeading.textContent = translation['total_users'];
+}
+
+var totalSongsHeading = document.querySelector('#app-statistics .stat:nth-child(3) h3');
+if (totalSongsHeading && translation['total_songs']) {
+    totalSongsHeading.textContent = translation['total_songs'];
+}
+
+var mostPlayedSongHeading = document.querySelector('#app-statistics .stat:nth-child(4) h3');
+if (mostPlayedSongHeading && translation['most_played_song']) {
+    mostPlayedSongHeading.textContent = translation['most_played_song'];
+}
+
+var activeUsersHeading = document.querySelector('#app-statistics .stat:nth-child(5) h3');
+if (activeUsersHeading && translation['active_users']) {
+    activeUsersHeading.textContent = translation['active_users'];
+}
+
+var playlistsHeading = document.querySelector('#app-statistics .stat:nth-child(6) h3');
+if (playlistsHeading && translation['total_playlists_created']) {
+    playlistsHeading.textContent = translation['total_playlists_created'];
+}
+
+var freeSubscribersHeading = document.querySelector('#app-statistics .stat:nth-child(7) h3');
+if (freeSubscribersHeading && translation['free_subscribers']) {
+    freeSubscribersHeading.textContent = translation['free_subscribers'];
+}
+
+var premiumSubscribersHeading = document.querySelector('#app-statistics .stat:nth-child(8) h3');
+if (premiumSubscribersHeading && translation['premium_subscribers']) {
+    premiumSubscribersHeading.textContent = translation['premium_subscribers'];
+}
+
+var totalRevenueHeading = document.querySelector('#app-statistics .stat:nth-child(9) h3');
+if (totalRevenueHeading && translation['total_revenue']) {
+    totalRevenueHeading.textContent = translation['total_revenue'];
+}
+var userReportsLink = document.querySelector('nav li:nth-child(1) a');
+if (userReportsLink && translation['user_reports']) {
+    userReportsLink.textContent = translation['user_reports'];
+}
+
+var appStatisticsLink = document.querySelector('nav li:nth-child(2) a');
+if (appStatisticsLink && translation['app_statistics']) {
+    appStatisticsLink.textContent = translation['app_statistics'];
+}
+
+var showBothLink = document.querySelector('nav li:nth-child(3) a');
+if (showBothLink && translation['show_both']) {
+    showBothLink.textContent = translation['show_both'];
+}
+var userReportsSection = document.getElementById('user-reports');
+if (userReportsSection && translation['user_reports']) {
+    userReportsSection.querySelector('h2').textContent = translation['user_reports'];
+}
+
+var appStatisticsSection = document.getElementById('app-statistics');
+if (appStatisticsSection && translation['app_statistics']) {
+    appStatisticsSection.querySelector('h2').textContent = translation['app_statistics'];
+}
+
+var usersBox = document.querySelector('h1');
+if (usersBox && translation['statistics_and_reports']) {
+    usersBox.textContent = translation['statistics_and_reports'];
+}
 
 
 var buttons = document.querySelectorAll('.buttons .btn');

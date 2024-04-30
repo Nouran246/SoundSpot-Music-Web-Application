@@ -278,3 +278,34 @@ var revenueChart = new Chart(revenueCtx, {
 
 
 });
+
+
+
+function filterReports(status) {
+    // Hide all reports
+    document.querySelectorAll('.report').forEach(report => {
+        report.style.display = 'none';
+    });
+
+    // Show reports based on status
+    document.querySelectorAll('.status').forEach(statusElement => {
+        if (statusElement.textContent.toLowerCase() === status.toLowerCase()) {
+            statusElement.parentElement.parentElement.style.display = 'block';
+        }
+    });
+}
+
+// Sorting by Date
+function sortReportsByDate() {
+    const reportsContainer = document.getElementById('user-reports');
+    const reports = Array.from(reportsContainer.querySelectorAll('.report'));
+    reports.sort((a, b) => {
+        const dateA = new Date(a.querySelector('p:nth-child(4)').textContent.split(': ')[1]);
+        const dateB = new Date(b.querySelector('p:nth-child(4)').textContent.split(': ')[1]);
+        return dateB - dateA; 
+    });
+    reports.forEach(report => {
+        reportsContainer.appendChild(report);
+    });
+}
+
