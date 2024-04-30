@@ -1,0 +1,64 @@
+  body {
+            background-color: #1a1a1a; /* Dark background color */
+            color: #fff; /* Text color */
+        
+        }
+        .badges-container {
+            margin: 50px auto;
+            text-align: center;
+            margin-left:250px;
+        }
+        .badges-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .badge {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 15px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* White shadow for contrast */
+        }
+        .badge:hover {
+            transform: scale(1.1);
+            background-color: #333; /* Dark gray background color */
+        }
+        .badge i {
+            font-size: 64px;
+        }
+        .badge-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .badge:hover .badge-hover-info {
+            display: block;
+        }
+        .badge-hover-info {
+            display: none;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .light-mode .badge {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 15px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(94, 92, 92, 0.2); /* White shadow for contrast */
+        }
+        .light-mode .badge:hover {
+            transform: scale(1.1);
+            background-color: #bcbaba; /* Dark gray background color */
+        }
