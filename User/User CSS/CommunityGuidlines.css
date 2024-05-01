@@ -10,6 +10,7 @@ h2{
 .community pre{
    background-color: #333;
 }
+
 pre{
     border-style: solid;
     padding: 40px;
@@ -17,8 +18,15 @@ pre{
     color: white;
     margin-left:260px;
     margin-right: 20px;
+    overflow: auto;
 }
+
 .community pre.light-mode{
     background-color: white;
     color: black
  }
+
+ .container.light-mode pre {
+    background-color: white;
+    color: black;
+}

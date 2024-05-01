@@ -1,3 +1,35 @@
 a {
     text-decoration: none;
 }
+
+/* CSS for hover animation */
+.playlist:hover {
+    background-color: #333; /* Change background color on hover */
+    transition: background-color 0.3s ease; /* Add smooth transition effect */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.light-mode .playlist:hover {
+    background-color: #f5f5f5; /* Change background color on hover */
+    transition: background-color 0.3s ease; /* Add smooth transition effect */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* CSS for playlist title text */
+.playlist-title {
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+}
+/* Light mode styles */
+.light-mode .playlist-title {
+    color: black;
+}
+
+.light-mode .playlist {
+    background-color: white;
+}
+
+.light-mode .playlist img {
+    border: 1px solid #ccc; /* Add border to images in light mode */
+}
