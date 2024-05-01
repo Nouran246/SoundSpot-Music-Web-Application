@@ -187,6 +187,7 @@ img:hover {
     margin-left: 10px;
 }
 
+
 .search-bar {
     position: relative;
     margin-left: 75px;
@@ -200,12 +201,6 @@ img:hover {
     fill: #ccc;
 }
 
-.search-bar {
-    position: relative;
-    margin-left: 75px;
-}
-
-
 .search-bar input[type="text"] {
     padding: 10px 10px 10px 40px;
     border-radius: 5px;
@@ -217,24 +212,41 @@ img:hover {
     margin-right: 5px;
 }
 
-.search-bar input[type="text"]:focus {
-    border: 2px solid purple;
+
+#search-button {
+    width: 40px; /* Adjust button width as needed */
+    height: 40px; /* Adjust button height as needed */
+    border: none;
+    background-color: transparent; /* Set background to transparent */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7px;
+}
+
+#search-button i {
+    font-size: 26px; /* Adjust icon size as needed */
+    color:#ddd;;
+}
+.light-mode #search-button i{
+    color: black;
+}
+
+body.light-mode .search-bar input[type="text"]:focus {
+    border: 2px solid #852b85;
     outline: none;
 }
 
-
-#search-button {
-    width: 30px;
-    height: 30px;
-    border: none;
+.search-bar input[type="text"].light-mode {
+    padding: 10px 10px 10px 40px;
     border-radius: 5px;
-    cursor: pointer;
-    background-image: url("photo/Untitled.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: none;
-    margin-top: 5px;
+    border: none;
+    font-size: 16px;
+    width: 500px;
+    background-color: #cccbcb;
+    color: #222;
+    margin-right: 5px;
 }
 
 #profile-icon {
@@ -244,6 +256,7 @@ img:hover {
     overflow: hidden;
     margin-right: 32px;
     margin-top: 7px;
+    margin-bottom: 10px;
 }
 
 #profile-icon img {
@@ -304,7 +317,8 @@ img:hover {
 }
 
 footer {
-    height: 25px;
+    font-size: small;
+    height: 50px; /* Increase the height to accommodate the button */
     background-color: #1a1a1a;
     color: #ddd;
     text-align: center;
@@ -314,25 +328,25 @@ footer {
     margin: 0;
     padding: 0;
     border-top: 1px solid #ccc;
-    margin: 20px 0;
 }
-
 
 .footer-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 100%;
 }
 
 .text-center {
     text-align: center;
-
     flex-grow: 1;
 }
 
 .social-icons {
     margin-left: auto;
     padding-right: 15px;
+    margin-bottom: 10px; /* Add margin bottom to create space between the button and footer */
+    margin-right: 80px;
 }
 
 .social-icons a img {
@@ -374,27 +388,13 @@ footer.light-mode {
     color: #000;
 }
 
-body.light-mode .search-bar input[type="text"]:focus {
-    border: 2px solid #852b85;
-    outline: none;
-}
 
-.search-bar input[type="text"].light-mode {
-    padding: 10px 10px 10px 40px;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-    width: 500px;
-    background-color: #cccbcb;
-    color: #222;
-    margin-right: 5px;
-}
 
 .profile_dropDownMenu .menu-item {
     position: relative;
 }
-
-.profile_dropDownMenu .menu-item #toggle-light-mode {
+/* Add this CSS to style the toggle button */
+#toggle-light-mode {
     width: 30px;
     height: 20px;
     background-color: #ccc;
@@ -408,7 +408,7 @@ body.light-mode .search-bar input[type="text"]:focus {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.profile_dropDownMenu .menu-item #toggle-light-mode::before {
+#toggle-light-mode::before {
     content: '';
     position: absolute;
     width: 15px;
@@ -421,18 +421,14 @@ body.light-mode .search-bar input[type="text"]:focus {
     transition: transform 0.3s ease;
 }
 
-.profile_dropDownMenu .menu-item #toggle-light-mode.active {
-    background-color: #c11dc1;
+#toggle-light-mode.active {
+    background-color: #c11dc1; /* Dark purple color */
 }
 
-.profile_dropDownMenu .menu-item #toggle-light-mode.active::before {
-    transform: translate(-50%, -50%) translateX(16px);
-    /* Move the inner circle */
-}
-
-.profile_dropDownMenu .menu-item #toggle-light-mode.light-mode::before {
+.light-mode #toggle-light-mode::before {
     transform: translateX(12px) translateY(-50%);
 }
+
 
 .profile_dropDownMenu.light-mode .menu-item a {
     color: #000;
