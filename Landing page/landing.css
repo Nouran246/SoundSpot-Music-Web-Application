@@ -98,6 +98,7 @@ z-index:-1;
 
 .big-text p {
     font-size: 1.5em; /* Adjust font size for p */
+    margin-left:30px;
 }
 
 
@@ -178,3 +179,43 @@ z-index:-1;
     opacity:1;
 }
 
+.social-icons {
+    display: flex;
+    margin-left: 70px; /* Adjust the margin to move the icons to the right */
+    margin-top: 50px;
+
+
+}
+
+.social-icons i {
+    margin-right: 30px;
+    color: white; /* Set the color of the icon */
+    background-color: transparent; /* Set transparent background */
+    border: 2px solid white; /* Add white border */
+    border-radius: 50%; /* Make the icons round */
+    padding: 20px; /* Add padding to increase the size */
+    font-size: 30px; /* Adjust the size of the icons */
+    width: 60px; /* Ensure fixed width */
+    height: 60px; /* Ensure fixed height */
+    display: flex; /* Add display flex */
+    justify-content: center; /* Center the icon horizontally */
+    align-items: center; /* Center the icon vertically */
+    
+}
+
+
+
+
+
+
+.social-icons i:not(:first-child) {
+    margin-left: 10px; /* Set equal spacing for other icons */
+}
+
+.social-icons i:hover {
+    transform: scale(1.1); /* Scale up the icon on hover */
+}
+.social-icons a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit the color from parent */
+}
