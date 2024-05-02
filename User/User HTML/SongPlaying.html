@@ -62,12 +62,19 @@
     </div>
 
     <div class="navbar">
+
+
         <div class="search-bar" id="searchBar" style="display: none;">
             <input type="text" placeholder="Search...">
             <i class="fas fa-search search-icon"></i>
         </div>
+
+        
         <div class="navbar-icons">
-            <button id="search-button" class="search-button"> <i class="fa-solid fa-search"></i> </button>
+
+          <button id="search-button" class="search-button"> <i class="fa-solid fa-search"></i> </button>
+
+            
             <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
                 <i class="fa-solid fa-comment-dots chat-icon"></i> </a>
             <div id="profile">
@@ -99,7 +106,30 @@
                     </nav>
                 </div>
             </div>
-           
+
+            <div id="edit-window" class="modal">
+                <div class="edit-content">
+                  <h2 id="modalHeader">Edit Profile</h2>
+                  <label>New Username:</label>
+                  <input type="text" id="newUsername" placeholder="New Username"><br>
+                  <label>New Profile Picture:</label>
+                  <input type="file" id="newProfilePic" placeholder="New Profile Picture" accept="image/*">
+                  <br>
+                  <label>Account Status:</label><br>
+                  <input type="radio" id="activate" name="account-status" value="activate" name="accStat">
+                  <label for="activate">Activate</label><br>
+                  <input type="radio" id="deactivate" name="account-status" value="deactivate" name="accStat">
+                  <label for="deactivate">Deactivate</label>
+                  <br>
+
+                  <label>Conatct Admin:</label>
+                    <input type="email" placeholder="example@gmail.com">
+                    <br>
+                  <button type="submit">Save</button>
+                  <button type="button" id="cancel-edit">Cancel</button>
+                </div>
+            </div>
+
         </div>
     </div>
     

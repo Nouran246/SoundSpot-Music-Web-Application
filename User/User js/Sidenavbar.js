@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Responsive Search Bar and Button Display
     var searchBar = document.getElementById("searchBar");
     var searchButton = document.getElementById("search-button");
-
+    
     searchButton.style.display = "none";
 
     function adjustDisplay() {
@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    
     // Sidebar toggle for minimizing
     var sidebar = document.querySelector(".sidebar");
     var sidebarToggle = document.getElementById("custom-sidebar-toggle");
@@ -56,6 +57,80 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleLogo();
     });
 
+    
+
+    // Function to show profile editing window
+    function showProfileEditWindow() {
+        document.getElementById("edit-window").style.display = "block";
+    }
+
+    // Function to hide profile editing window
+    function hideProfileEditWindow() {
+        document.getElementById("edit-window").style.display = "none";
+    }
+    
+
+    // Event listener for Profile menu item click
+    var profileMenuItem = document.querySelector(".menu-item a[href='#']");
+    profileMenuItem.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the default behavior of anchor tag
+        showProfileEditWindow(); // Show profile editing window when Profile menu item is clicked
+    });
+
+    // Event listener to close profile editing window when clicked outside of it
+    document.addEventListener("click", function (event) {
+        var modal = document.getElementById("edit-window");
+        if (!modal.contains(event.target) && event.target !== profileMenuItem) {
+            hideProfileEditWindow(); // Hide profile editing window if clicked outside
+        }
+    });
+
+    // Event listener for "Cancel" button click
+    var cancelButton = document.getElementById("cancel-edit");
+    cancelButton.addEventListener("click", function () {
+        hideProfileEditWindow(); // Hide profile editing window when "Cancel" button is clicked
+    });
+
+
+    var saveButton = document.querySelector("#edit-window button[type='submit']");
+    saveButton.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent form submission
+        saveProfile(); // Call the saveProfile function when the "Save" button is clicked
+    });
+
+    // Function to save profile data
+    function saveProfile() {
+        var newUsername = document.getElementById("newUsername").value;
+        var newProfilePic = document.getElementById("newProfilePic").files[0];
+        var accountStatus = document.querySelector('input[name="account-status"]:checked').value;
+        var contactAdmin = document.querySelector('input[type="email"]').value;
+    
+        // Here, you would send this data to the server for processing
+        // For demonstration purposes, let's just log the data to console
+        console.log("New Username:", newUsername);
+        console.log("New Profile Picture:", newProfilePic);
+        console.log("Account Status:", accountStatus);
+        console.log("Contact Admin:", contactAdmin);
+    
+        // Update profile picture if a new picture is uploaded
+        if (newProfilePic) {
+            // Create a FileReader to read the uploaded file
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                // Update the profile picture in the UI
+                var profilePicElement = document.getElementById("profile-icon");
+                profilePicElement.src = event.target.result;
+            };
+            // Read the uploaded file as a data URL
+            reader.readAsDataURL(newProfilePic);
+        }
+    
+        // After saving, you may want to update the UI with the new data
+        // For now, let's just close the edit window
+        hideProfileEditWindow();
+    }
+    
+    
     // Dark and light mode
 
     function applyMode(mode) {
@@ -100,6 +175,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
         toggleButton.classList.toggle("active", mode === 'light');
     }
+
+    
     
 
     function initializeMode() {
