@@ -259,6 +259,7 @@ body.light-mode .search-bar input[type="text"]:focus {
     margin-bottom: 10px;
 }
 
+
 #profile-icon img {
     width: 100%;
     height: 100%;
@@ -789,3 +790,4 @@ body.light-mode .profile_dropDownMenu {
   font-weight: bold;
   margin-bottom: 40px;
 }
+

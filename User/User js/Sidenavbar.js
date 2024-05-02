@@ -54,11 +54,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     sidebarToggle.addEventListener("click", function () {
         sidebar.classList.toggle("sidebar-minimized");
+        document.querySelector(".container").style.marginLeft = sidebar.classList.contains("sidebar-minimized") ? "130px" : "250px"; // Adjust margin based on sidebar state
         toggleLogo();
     });
-
+    function adjustMainContent() {
+        const container = document.querySelector(".container");
+        container.style.marginLeft = sidebar.classList.contains("sidebar-minimized") ? "120px" : "250px";
+    }
     
-
+    // Adjust main content margin on page load
+    
+    
     // Function to show profile editing window
     function showProfileEditWindow() {
         document.getElementById("edit-window").style.display = "block";
@@ -183,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const storedMode = localStorage.getItem('mode') || 'light';
         applyMode(storedMode);
     }
+    
 
     const toggleButton = document.getElementById("toggle-light-mode");
     if (toggleButton) {

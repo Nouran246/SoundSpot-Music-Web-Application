@@ -5,11 +5,17 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-left: 300px;
+  margin-left: 250px;
   color:black;
 }
 
+.container {
+  transition: margin-left 0.5s ease; /* Smooth transition for margin-left adjustments */
+}
 
+.sidebar-minimized + .container {
+  margin-left: 200px; /* Adjusted margin when sidebar is minimized */
+}
 .container.light-mode {
 color: #333; 
 background-color: white; 
