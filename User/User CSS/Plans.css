@@ -7,13 +7,14 @@ h4{
 
 .three-buttons {
     display: inline-block; 
-    color: #333; 
     cursor: pointer; 
     font-weight: bold; 
     margin-left: 45%;
-    background-color: #f0f0f0;
+    background-color: #222;
     border-radius: 20px;
     padding: 15px;
+    border: 3px solid #ddd; /* Add white outline border */
+
   }
   
   #pay1, #pay2, #pay3{
@@ -34,14 +35,21 @@ h4{
 }
 
 .card {
-    background-color: #f0f0f0;
+    background-color: #222;
     border-radius: 20px;
     margin: 20px; 
     padding: 20px;
     text-align: center;
     width: 17%;
-    height: 450px;
+    height: 440px;
+    border: 2px solid white; /* Add white outline border */
+
 }
+.card:hover {
+    transform: scale(1.1); /* Zoom in by 10% */
+    transition: transform 0.3s ease; /* Add smooth transition */
+}
+
 #card1{
     margin-left: 260px;
     text-align: center;
@@ -52,15 +60,15 @@ h4{
     margin-left: 20px;
 }
 .card h1{
- color: black;
+ color: white;
  margin-left: 20px;
 }
 .card h1 #mon{
-    color: grey;
+    color: darkmagenta;
     font-size: small;
 }
 .card p {
-    color: #333;
+    color: white;
     margin-top: 10px;
 }
 
@@ -95,3 +103,11 @@ h4{
 #planCards2 h1{
     margin-left: 4px;
 }
+.light-mode .card, .light-mode .three-buttons {
+    background-color: #f0f0f0; 
+    border: 2px solid darkmagenta;
+} 
+
+.light-mode .card p,.light-mode .card h1{
+    color: black; 
+} 
