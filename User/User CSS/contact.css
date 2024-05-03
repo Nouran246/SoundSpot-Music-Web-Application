@@ -1,10 +1,10 @@
-h3{
-    margin-left: 260px;
-}
 
+.Contacts h1{
+    margin-top: -70px;
+}
 .contact {
     position: fixed;
-    top: 30%; /* Adjust as needed */
+    top: 25%; 
     left: 50%;
     transform: translate(-50%, -50%);
     margin-left: 40%;
@@ -17,8 +17,8 @@ h3{
     margin: 30px; 
     padding: 20px;
     text-align: center;
-    width: 72%; /* Adjust the width as needed */
-    height: auto; /* Allow height to adjust based on content */
+    width: 72%; 
+    height: auto; 
     font-size: 20px;
     display: flex;
     flex-direction: row;
@@ -28,19 +28,19 @@ h3{
 
 .light-mode .contact {
     background-color: white;
-    color: black; /* Set text color to black for light mode */
-    border-color: #ccc; /* Lighter border color for better visibility in light mode */
+    color: black; 
+    border-color: #ccc; 
 }
 
 
 .light-mode .item a {
-    color: black; /* Set text color to black for light mode */
+    color: black; 
 }
 
 .light-mode .aboutus pre {
-    background-color: white; /* Light background for light mode */
-    color: black; /* Dark text for light mode */
-    border-color: #ccc; /* Lighter border color for better visibility in light mode */
+    background-color: white; 
+    color: black; 
+    border-color: #ccc; 
 }
 
 
@@ -79,7 +79,7 @@ h3{
 
 .aboutus pre {
     position: fixed;
-    top: 55%; /* Adjust as needed */
+    top: 55%; 
     left: 50%;
     transform: translate(-50%, -50%);
     margin-left: 40%;
@@ -92,21 +92,25 @@ h3{
     margin: 30px; 
     padding: 20px;
     text-align: center;
-    width: 72%; /* Adjust the width as needed */
-    height: auto; /* Allow height to adjust based on content */
+    width: 72%; 
+    height: auto; 
     font-family: Arial, sans-serif;
     font-size: x-large;
-    color: white; /* Set text color */
-    overflow: auto; /* Enable scroll if content exceeds height */
-    white-space: pre-wrap; /* Preserve whitespace and wrap text */
+    color: white; 
+    overflow: auto; 
+    white-space: pre-wrap; 
 }
 
 h1{
     margin-left: 260px;
     color: darkmagenta;
 }
-.con h1{
+#con h1{
     margin-top:240px;
     margin-left: 270px;
+}
+#cov{
+    position: fixed;
+    top: 80%; 
 }
 
