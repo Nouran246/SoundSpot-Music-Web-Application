@@ -54,7 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     sidebarToggle.addEventListener("click", function () {
         sidebar.classList.toggle("sidebar-minimized");
-        document.querySelector(".container").style.marginLeft = sidebar.classList.contains("sidebar-minimized") ? "130px" : "250px"; // Adjust margin based on sidebar state
+        var subscribecontainer = document.querySelector(".subscribe_container");
+        var container = document.querySelector(".container")
+        if (container) {
+            container.style.marginLeft = sidebar.classList.contains("sidebar-minimized") ? "130px" : "250px";  // Adjust for signupContainer specifically
+        }
+        else if (subscribecontainer){
+            
+        }
         toggleLogo();
     });
     function adjustMainContent() {
@@ -149,6 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const rows = document.querySelectorAll(".row");
         const headers = document.querySelectorAll("h2");
         const container = document.querySelector(".container");
+        
         const searchBarInput = document.querySelector(".search-bar input[type='text']");
         const sidebarImagesLight = document.querySelectorAll(".light-mode-img");
         const sidebarImagesDark = document.querySelectorAll(".dark-mode-img");

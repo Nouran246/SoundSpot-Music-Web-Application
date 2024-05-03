@@ -19,3 +19,6 @@ function section2() {
     document.getElementById("planCards2").style.display = "flex";
 }
 
+function redirectToSubscription() {
+    window.location.href = 'Subscription.html';
+}
