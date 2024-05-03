@@ -1,3 +1,7 @@
+.communityguide{
+   margin-top: -4%;
+}
+
 h1{
     margin-left:260px;
     color:darkmagenta ; 
@@ -7,17 +11,15 @@ h2{
     margin-left:260px;
     
 }
-.community pre{
-   background-color: #333;
-}
 
 pre{
     border-style: solid;
     padding: 40px;
-    border-color: grey;
+    border-color: #222;
     color: white;
     margin-left:260px;
     margin-right: 20px;
+    background-color: #333;
     overflow: auto;
 }
 
@@ -26,7 +28,7 @@ pre{
     color: black
  }
 
- .container.light-mode pre {
+ .communityguide.light-mode pre {
     background-color: white;
     color: black;
 }
