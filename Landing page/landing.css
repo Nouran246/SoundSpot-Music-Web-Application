@@ -1,21 +1,222 @@
+
+
+
+
+
+article{
+  
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html,body{
+    width:100vw;
+    height:100vh;
+    overflow: hidden;   
+    background:#141414;
+    font-family:"Neue Montreal";
+
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.preview{
+    position:absolute;
+    bottom:2em;
+    right:2em;
+    display:flex;
+    gap:0.3em;
+    clip-path:polygon(0 0,100% 0,100% 100%,0% 100%);
+
+}
+.preview img{
+    position:relative;
+    top:100px;
+    width:80px;
+    height:50px;
+
+}
+.slide-num{
+    margin:3em 0;
+    text-align: center;
+    color:#fff;
+    clip-path:polygon(0 0,100% 0,100% 100%,0% 100%);
+
+}
+.slide-num p{
+    position:relative;
+    top:30px;
+}
+
+.containers{
+    position:fixed;
+width:100%;
+height:100%;
+display:flex;
+gap:1em;
+}
+
+.containers .col{
+    position: relative;
+    flex:1;
+    width:100%;
+    flex-direction:column;
+    gap:1em;
+    display:flex;
+}
+
+.col .item{
+    position:relative;
+    flex:1;
+    width:100%;
+    background:grey;
+    overflow:hidden;
+}
+
+.c-1, .c-3 , .c-5{
+    top:100%;
+}
+
+.c-1 .item, .c-3 .item , .c-5 .item{
+    top:100%;
+}
+
+.c-2 .item, .c-4 .item{
+    top:-103%;
+} 
+
+@media(max-width: 900px){
+    .slide-num{
+        text-align:left;
+        padding-left:2em;
+        margin-bottom:2.5em;
+    }
+
+
+.title{
+    font-size:30px;
+}
+
+.icon, icon-2{
+    padding:0 1em;
+    font-size: 16px;
+}
+.preview img{
+    width:60px;
+    height:40px;
+    
+}
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nav{
+    position:fixed;
+    width: 100%;
+    padding:2.5em;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    gap: 3em;
+}
+.nav-item{
+    clip-path:polygon(0 0, 100% 0,100% 100%,0% 100%);
+}
+
+.nav-item a{
+    position:relative;
+    top:20px;
+    text-decoration:none;
+    color:#fff;
+    opacity:0.35;
+}
+
+.nav-item a #active{
+    opacity:1;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the header stays above other content */
+    background-color: #141414; /* Adjusts needed */
+}
+#first ,#second {
+    position: relative; /* Add position relative */
+    margin-top: 20px;
+    background-color: #3d3a3a; /* Set background color */
+    padding: 50px; /* Add padding to the section */
+    height: 500px;
+    z-index: 2;
+}
+#first{
+    margin-bottom: -20px; /* Remove margin and pull the section up */
+    margin-top:-20px;
+}
+
+.trial {
+    max-width: 800px; /* Set maximum width for the content */
+    margin: 0 auto; /* Center the content horizontally */
+}
+
+.trial p {
+    font-size: 18px; /* Set font size for the paragraph */
+    line-height: 1.6; /* Set line height for better readability */
+    color: #333; /* Set text color */
+}
+
+
+.content{
+    position:relative;
+    width:100%;
+    height:100%;
+    z-index:2;
+}
+
+
+
+
+
+/* hanshoof men 2wal hena */
 :root{
-    --color-accent:rgb(213, 205, 187);
+    --color-accent:rgb(230, 170, 40);
 }
 *{
     margin:0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+body {
     background: #000;
 }
 img{
     width: 100%;
     height:100%;
     object-fit:cover;
+
 }
-
-
 .container{
     width:100%;
     height:2000vh;
@@ -31,14 +232,15 @@ background: #000;
 opacity: 0.35;
 z-index:-1;
 
+
 }
 .active-slide img{
     position:absolute;
     filter:blur(50px);
     transform: scale(1.125);
-
 }
 .slider{
+ 
     position: fixed;
     top:0;
     width:100vw;
@@ -48,7 +250,6 @@ z-index:-1;
     overflow:hidden;
     
 }
-
 .slide{
     position:absolute;
     width:400px;
@@ -56,11 +257,11 @@ z-index:-1;
     overflow:hidden;
 
 }
-
 .slide img {
     width: 100%;
     height: auto; /* Ensure image maintains aspect ratio */
 }
+
 .slide-copy {
     position: absolute;
     bottom: 30px; /* Adjust the distance from the bottom as needed */
@@ -72,8 +273,9 @@ z-index:-1;
     text-align: center; /* Center the text */
 }
 
+
+
 .slide-copy p {
-    margin: 0; /* Remove top margin */
     font-family: cursive;
     font-size: 20px;
     font-weight: bolder;
@@ -219,3 +421,6 @@ z-index:-1;
     text-decoration: none; /* Remove underline */
     color: inherit; /* Inherit the color from parent */
 }
+
+
+
