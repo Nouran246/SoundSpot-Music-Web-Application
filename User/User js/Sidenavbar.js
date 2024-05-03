@@ -158,6 +158,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const dropdownMenuIconsDark = dropdownMenu.querySelectorAll(".dark-mode-img");
         const contact = document.querySelectorAll(".contact");
         const aboutus = document.querySelectorAll(".aboutus");
+        const plancard = document.querySelectorAll(".Plan");
+
+
     
         [body, navbar, sidebar, footer, searchBarInput, container].forEach(el => {
             el.classList.toggle("light-mode", mode === 'light');
@@ -166,6 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
         headers.forEach(header => header.classList.toggle("light-mode", mode === 'light'));
         contact.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
         aboutus.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
+        plancard.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
     
         sidebarImagesLight.forEach(img => img.classList.toggle("hidden", mode === 'dark'));
         sidebarImagesDark.forEach(img => img.classList.toggle("hidden", mode === 'light'));
