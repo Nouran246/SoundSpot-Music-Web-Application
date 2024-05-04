@@ -691,3 +691,13 @@ body.light-mode .profile_dropDownMenu {
 .settings-popup-container {
    background-color: #f0f0f0;
 }
+
+.light-mode .footer-content {
+    background-color:white;
+
+}
+
+.footer-content {
+    background-color:#1a1a1a;
+
+}
