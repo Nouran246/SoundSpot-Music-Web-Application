@@ -32,7 +32,7 @@
       <div class="col c-3">
         <div class="item"><img src="photo\get (9).jpg" alt=""></div>
         <div class="item"><img src="photo\StFelix-Charlie-Puth.webp" alt=""></div>
-        <div class="item"><img src="photo\3740304.jpeg" ></div>
+        <div class="item"><img src="photo\perfect_sitemap.jpg" ></div>
         <div class="item"><img src="photo\CamilaCabello.jpg" alt=""></div>
         <div class="item"><img src="photo\61bdDM8CxSL._UF1000,1000_QL80_.jpg" alt=""></div>
       </div>
@@ -59,14 +59,17 @@
                 <a href="#first" id="active">Home</a>
               </div>  
               <div class="nav-item">
-                <a href="#second" id="active">About us</a>
+                <a href="#second" id="active">Explore App</a>
               </div>  
               <div class="nav-item">
                 <a href="#last" id="active">Features</a>
               </div>  
               <div class="nav-item">
-                <a href="#footer" id="active">contact us</a>
+                <a href="#footer" id="active">Contact us</a>
               </div>  
+              <div class="nav-item">
+                <a href="#footer" id="active">Sign in</a>
+              </div> 
             </nav>
     </div>
     
@@ -81,11 +84,34 @@
     </section>
     
     <section id="second">
-        <div class="trial">
-            
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam facere fugit eum, dignissimos sint alias harum possimus necessitatibus, deleniti adipisci quia molestias accusantium veniam. Commodi iure necessitatibus veniam minima unde harum iste consequatur distinctio fugit, doloribus accusamus laborum eligendi, facilis exercitationem error molestiae. Earum, ut sunt, quibusdam aliquam temporibus eaque odit beatae dolor sit reiciendis blanditiis aperiam animi vitae expedita laudantium pariatur assumenda. Eveniet aliquid magni totam facilis nulla, qui dignissimos cum dolore numquam praesentium deleniti ut deserunt perferendis pariatur assumenda repellendus provident. Quibusdam quae ad, culpa numquam architecto molestiae nam officiis sapiente eius consequatur a enim veritatis repudiandae reiciendis.</p>
+        <div class="headering">
+            <h1>SoundSpot</h1>
         </div>
+    
+        <div id="background" class="background">
+            <div id="introText" class="intro-text">Explore the App in a Thrilling Game!</div>
+            <button id="playGameButton" onclick="startGame()">Play Game</button>
+            <button id="exploreAppButtons" onclick="exploreApp()">Explore the App</button>
+        </div>
+    
+        <!-- Pop-up Dialog -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <p>Welcome to SoundSpot Games!</p>
+                <p>Click on the items to explore more about SoundSpot; each item you click on earns you one point. Take care: the items will zoom in when you click on them. Hurry up to click on more than half of the pictures before time runs out.</p>
+                <button onclick="closePopup()">OK</button>
+            </div>
+        </div>
+    
+        <!-- Countdown Timer -->
+        <div id="countdown" class="countdown">Time: <span id="timer">10</span> Score: <span id="score">0</span></div>
+    
+        <audio id="startAudio" src="Audio/start.ogg"></audio>
+        <audio id="pointsAudio" src="Audio/points.wav"></audio>
+    
+        <div class="alert-container"></div>
     </section>
+    
  
     
     
@@ -215,8 +241,10 @@
  <footer>
 
  </footer>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="../Landing page/landing.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
