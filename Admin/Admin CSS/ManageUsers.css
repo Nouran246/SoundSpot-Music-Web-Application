@@ -35,7 +35,7 @@
     border: 1.5px solid #464446;
     position: relative;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
@@ -43,27 +43,37 @@
     border: 2px solid #800080;
 }
 
-.list-item i {
-
-    color: #800080;
-    font-size: 40px;
-    margin-right: 0px;
-    text-align: center;
-    margin-top: -5px;
+.list-item img {
+    width: 40px;
+    height: 40px;
+    margin-top: -7px;
     margin-left: 12px;
-    ;
+    border-radius: 50%;
 }
 
-.list-item a {
+.content div {
     text-decoration: none;
     display: flex;
     align-items: center;
     width: 1000px;
-    margin-right: 1px;
-    text-align: center;
-    gap: 50px;
+    margin-right: 0px;
+    text-align: start;
+    gap: 90px;
+    margin-top: -5px;
 }
 
+#plus {
+    margin-left: 20px;
+    font-size: 25px;
+
+}
+
+.list-item .fa-chevron-right {
+    color: #ddd;
+    font-size: 18px;
+    margin-left: 19px;
+    margin-top: 2px;
+}
 
 .text {
     color: #ddd;
@@ -82,40 +92,16 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 5px;
-    margin-right: 17px;
+    margin-right: 20px;
 }
 
 .top-texts {
     margin-left: 73px;
+
     display: flex;
     width: 640px;
     padding: 5px;
-    gap: 140px;
-}
-
-.top-text1 {
-    color: #ddd;
-    font-size: 20px;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 5px;
-    margin-right: 17px;
-}
-.top-text2 {
-    color: #ddd;
-    font-size: 20px;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 5px;
-    margin-right: 17px;
-}
-.light-mode .top-text1{
-    color:#1a1a1a;
-}
-.light-mode .top-text2{
-    color:#1a1a1a;
+    gap: 130px;
 }
 
 .btn {
@@ -127,6 +113,8 @@
     transition: background-color 0.3s ease;
     padding: 10px 20px;
     margin: 0px;
+    width: 70px;
+
 }
 
 .btn:hover {
@@ -140,8 +128,6 @@
 }
 
 .top-content {
-    /*     position: relative;
- */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -165,8 +151,17 @@
     padding: 5px;
     gap: 25px;
     margin-right: 7px;
-    margin-left: 15px;
+    margin-left: 20px;
+    margin-top: 2px;
     align-content: center;
+}
+
+.content .custom-checkbox {
+    margin-right: 25px;
+}
+
+.actions i {
+    margin-top: 3px;
 }
 
 .list-item:hover {
@@ -209,12 +204,15 @@ body.light-mode .list-item:hover {
     background-color: #cccbcb;
 }
 
+
 .pagination {
     display: flex;
     justify-content: center;
     list-style: none;
     padding: 0;
     margin-bottom: 100px;
+    width: 1000px;
+    margin-left: 340px;
 }
 
 .page-item {
@@ -258,6 +256,7 @@ body.light-mode .list-item:hover {
     position: absolute;
     opacity: 0;
     cursor: pointer;
+
 }
 
 .checkbox-custom {
@@ -335,8 +334,26 @@ body.light-mode .actions,
 body.light-mode .checkbox-custom,
 body.light-mode .page-link {
     background-color: white;
-    border-color: #ccc;
+    border-color: #800080;
     color: black;
+}
+
+
+body.light-mode .general-content div,
+body.light-mode .security-content div,
+body.light-mode .activity-log-content div,
+.body.light-mode .user-info i {
+    color: black;
+}
+
+body.light-mode .fa-chevron-down,
+body.light-mode .fa-chevron-right {
+    color: #800080;
+}
+
+body.light-mode .page-link {
+    border: 2px solid #800080;
+
 }
 
 body.light-mode .list-item:hover {
@@ -517,4 +534,216 @@ body.light-mode .red-text {
         width: 50px;
         font-size: 10px;
     }
+}
+
+
+
+.list-item .fa-chevron-down {
+    color: #ddd;
+    font-size: 18px;
+    margin-left: 19px;
+    margin-top: 2px;
+}
+
+.see-more {
+    display: none;
+    width: 1040px;
+}
+
+
+.list-item.active .see-more {
+    display: inline-block;
+    margin-top: 20px;
+    ;
+}
+
+.list-item.active {
+    background-color: #333;
+}
+
+.caret-label {
+    cursor: pointer;
+}
+
+.list-item {
+    display: inline-block;
+    /* Change display property */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.list-item {
+    cursor: pointer;
+    transition: background-color 0.3s ease, height 0.3s ease;
+    /* Added height transition */
+    height: 20px;
+    /* Set initial height */
+    overflow: hidden;
+    /* Hide overflow content */
+
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+.user-info-container {
+    animation: fadeIn 0.5s ease forwards;
+    position: relative;
+    width: 965px;
+    height: auto;
+    padding: 15px;
+    padding-top: 0px;
+    ;
+    margin-bottom: 25px;
+    margin-left: 18px;
+    margin-top: 0px;
+    border-left: 3px ridge #800080;
+    border-right: 3px groove #800080;
+
+}
+
+.user-info {
+    display: flex;
+    padding: 30px;
+    padding-top: 10px;
+    padding-left: 5px;
+    height: auto;
+
+}
+
+
+.user-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20px;
+    position: relative;
+    width: 80px;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.user-info i {
+    display: block;
+    margin: 5px;
+    font-size: 24px;
+    width: fit-content;
+    padding: 5px;
+
+
+}
+
+.user-info i:hover,
+i.hovered {
+    outline: 1px groove #800080;
+    background-color: #333;
+    border-radius: 5px;
+    ;
+}
+.body.light-mode .user-info i:hover,
+.body.light-mode i.hovered {
+    outline: 1px groove #800080;
+    background-color:#ddd;
+    border-radius: 5px;
+    ;
+}
+
+#personal {
+    margin-left: 15px;
+}
+
+.actual-content {
+    width: auto;
+    height: auto;
+}
+
+#first {
+    float: left;
+    border: 2px solid slateblue;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 250px;
+}
+
+#second {
+    float: inherit;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+    width: 300px;
+    height: 250px;
+}
+
+.security-content,
+.activity-log-content,
+.general-content {
+    margin: 15px;
+    margin-top: 25px;
+    margin-left: 0px;
+    width: 800px;
+    padding: 10px;
+    height: 250px;
+}
+
+.first-sec {
+    float: left;
+    width: 350px;
+    height: 250px;
+}
+
+.first-sec div,
+.second-sec div {
+    margin-bottom: 16px;
+
+}
+
+.first-sec span {
+    float: right;
+
+}
+
+.second-sec {
+    float: right;
+    width: 350px;
+    height: 250px;
+}
+
+.second-sec span {
+    float: right;
+}
+
+.general-content div,
+.security-content div,
+.activity-log-content div {
+    padding: 10px;
+    color: #ddd;
+}
+
+
+.general-content span,
+.security-content span,
+.activity-log-content span {
+    display: inline;
+    justify-content: flex-start;
+    color: #999;
+}
+
+#edit-button {
+    float: right;
+    margin-right: 45px;
+    margin-top: 25px;
+
 }
