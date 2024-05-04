@@ -12,8 +12,6 @@
     <script src="../Admin%20JavaScript/Sidenavbar.js"></script>
     <link rel="stylesheet" href="../Admin%20CSS/ManageUsers.css">
     <script src="../Admin%20JavaScript/ManageUsers.js"></script>
-    <script src="../Admin%20JavaScript/german.js"></script>
-
 </head>
 
 
@@ -66,7 +64,7 @@
             <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
                 <i class="fa-solid fa-comment-dots chat-icon"></i> </a>
             <div id="profile">
-                <img id="profile-icon" src="photo/cat.jpg">
+                <img id="profile-icon" src="photo/avatar_2633291.png">
                 <div class="profile_dropDownMenu">
                     <nav>
                         <div class="menu-item">
@@ -79,7 +77,7 @@
                         </div>
                         <div class="menu-item">
                             <i class="fa-solid fa-gear"></i>
-                            <a href="#" id="settings-button">Settings</a>
+                            <a href="#">Settings</a>
                         </div>
                         <div class="menu-item">
                             <i class="fa-regular fa-sun"></i>
@@ -95,57 +93,17 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-    <div class="settings-popup-container">
-        <div class="settings-popup">
-            <h3>Settings</h3>
-
-<div class="language-selection">
-    <label for="language-select">Change Language:</label>
-    <select id="language-select">
-        <option value="en">English</option>
-        <option value="gm">German (Deutsch)</option>
-      
-    </select>
-        </div>
-        <div class="button-group">
-            <button id="save-button">Save</button>
-            <button id="cancel-button">Cancel</button>
-        </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!--User profiles list -->
 
     <div class=" main-content">
         <div class="top-content">
-            <button class="btn" id="del-log" onclick="showPopup()">Log </button>
+            <!--<button class="btn" id="del-log" onclick="showPopup()">Log </button>-->
+            <i class="fa-solid fa-plus" id="plus" title="Add User"></i>
+
             <div class="top-texts">
                 <div class="top-text">Name</div>
-                <div class="top-text2">Username</div>
-                <div class="top-text1">Last Access</div>
+                <div class="top-text">Username</div>
+                <div class="top-text">Last Access</div>
             </div>
             <div class="actions">
                 <div class="checkbox" id="selectAllCheckbox">
@@ -155,13 +113,12 @@
                 <i class="fa-solid fa-sort"></i>
                 <i class="fa-solid fa-envelope" title="Send E-mail"></i>
                 <i class="fa-solid fa-trash" title="Delete" id="delete-icon"></i>
-
             </div>
         </div>
         <div class="list-container">
             <div class="list-item">
-                <a href="userProfile.html?username=${user.username}">
-                    <i class="fa-solid fa-user"></i>
+                <div class="content">
+                    <img src="#">
                     <div class="text"></div>
                     <div class="text"></div>
                     <div class="text"></div>
@@ -169,42 +126,123 @@
                         <input type="checkbox" id="userCheckbox_${user.username}" class="checkbox-input" />
                         <span class="list-checkbox-custom"></span>
                     </div>
-                </a>
+                    <i class="fa-solid fa-chevron-right" id="see-more"></i>
+                </div>
+            </div>
+            <div class="user-info-container">
+
+                <div class="user-info">
+                    <div class="user-icons">
+                        <img src="photo/information.png" id="info">
+                        <img src="photo/contact-mail.png" id="info">
+                        <img src="photo/subscription.png" id="info">
+                        <img src="photo/log.png" id="info">
+                        <img src="photo/verified.png" id="info">
+                    </div>
+                    <div class="actual-content">
+                        <div class="personal-info-content" id="personalInfoContent" style="display: block;">
+                            <div class="user-content" style="display: none;">
+                                <div class="general-content">
+                                    <div class="info-item">
+                                        <label>Date of Birth</label>
+                                        <span>1985-07-15</span>
+                                        <label>ID</label>
+                                        <span>#64628</span>
+                                        <label>Billing Information</label>
+                                        <span>Visa **** **** **** 1234</span>
+                                        <label>Language</label><span> English</span>
+                                        <label>Theme</label><span> Dark Mode</span>
+                                        <label>Role</label><span> User</span>
+                                        <label>Permissions</label><span> Limited access</span>
+                                    </div>
+                                </div>
+                                <div class="contact-content">
+                                    <div class="info-item">
+                                        <label>Contact Information</label>
+                                        <label>Email</label><span> example@example.com</span>
+                                        <label>Phone Number</label><span> +1234567890</span>
+                                        <label>LinkedIn </label><span>linkedin.com/in/example</span>
+                                        <label>Twitter </label><span>twitter.com/example</span>
+                                        <label>Facebook </label><span>facebook.com/example</span>
+                                    </div>
+
+                                </div>
+                                <div class="plan-content">
+                                    <div class="info-item">
+                                        <label>Plan Type:</label><span> Basic</span>
+                                        <label>Start Date:</label><span> January 1, 2024</span>
+                                        <label>Renewal Date:</label><span> January 1, 2025</span>
+                                        <label>Subscription Status:</label><span> Active</span>
+                                        <label>Payment Method:</label><span> Credit Card</span>
+                                        <label>Next Payment Amount:</label><span> $9.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-log-content">
+                            <div class="info-item">
+                                <label>Total Listening Time</label>
+                                <span>3,240 minutes</span>
+                                <label>Playlists Created</label>
+                                <span>5 playlists</span>
+                                <label>Songs Uploaded</label>
+                                <span>20 songs</span>
+                                <label>Followers</label>
+                                <span>500 followers</span>
+                                <label>Following</label>
+                                <span>250 users</span>
+                                <label>Liked Songs</label>
+                                <span>100 songs</span>
+                            </div>
+                        </div>
+
+                        <div class="security-content">
+
+                            <div>
+                                <label>Password Strength:</label><span> Strong</span>
+                            </div>
+                            <div>
+                                <label>Password Last Updated:</label><span> April 25, 2024</span>
+                            </div>
+                            <div>
+                                <label>Account Status:</label><span> Active</span>
+                            </div>
+                            <div>
+                                <label>Two-Factor Authentication:</label><span> Enabled</span>
+                            </div>
+                            <div>
+                                <label>Security Questions Set:</label><span> Yes</span>
+                            </div>
+                            <div>
+                                <label>Last Login:</label><span> April 30, 2024</span>
+                            </div>
+                            <div>
+                                <label>IP Address of Last Login:</label><span> 192.168.1.10</span>
+                            </div>
+                            <div>
+                                <label>Device of Last Login:</label><span> Chrome on Windows 10</span>
+                            </div>
+                            <div>
+                                <label>Recent Password Changes:</label><span> None</span>
+                            </div>
+                            <div>
+                                <label>Failed Login Attempts:</label><span> 0</span>
+                            </div>
+                            <div>
+                                <label>Accessed from New Device:</label><span> No</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
+
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- if there is no users to show  -->
-    <div class="zero-users" style="display: none;">
-        <h2>0 Users</h2>
     </div>
-
-
-    <!--    <div class="deleted-popup" id="popup" style="display:none;">
-        <div class="popup-content">
-            <button class="exit-popup" onclick="exitPopup()">X</button>
-            <div class="deleted-users-list" id="deletedUsersList">
-            </div>
-        </div>
     </div>
- -->
 
 
     <nav aria-label="Page navigation example">
@@ -217,14 +255,8 @@
         </ul>
     </nav>
 
-
-
-
-
-
     <footer>
         <div class="footer-content">
-
             <div class="text-center">
                 <p>&copy; 2024 SoundSpot. All rights reserved.</p>
             </div>
@@ -237,8 +269,6 @@
                 <a href="mailto:emailsspamm101@gmail.com"><img src="photo\gmail.png"></a>
             </div>
         </div>
-
-
 </body>
 
 </html>
