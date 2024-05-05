@@ -569,6 +569,24 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    document.getElementById("custom-sidebar-toggle").addEventListener("click", function () {
+        var sidebar = document.querySelector(".sidebar");
+        sidebar.classList.toggle("minimized");
+
+        // Adjust margin of content container based on sidebar state
+        var container = document.querySelector(".list-container");
+        var top = document.querySelector(".top-content");
+
+        if (sidebar.classList.contains("minimized")) {
+            container.style.marginLeft = "250px"; // Adjust as needed based on your sidebar width
+            top.style.marginLeft = "250px"; // Adjust as needed based on your sidebar width
+
+        } else {
+            container.style.marginLeft = "350px"; // Adjust as needed based on your sidebar width
+            top.style.marginLeft = "350px"; // Adjust as needed based on your sidebar width
+
+        }
+    });
     displayUsers(currentPage);
     updatePagination();
     sortUsers();
