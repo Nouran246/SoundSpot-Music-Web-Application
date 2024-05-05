@@ -78,6 +78,7 @@ function removeUserElement(username) {
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log("Dom content loaded");
+    console.log(window.innerWidth);
 
     console.log(document.getElementById('delete-icon'));
     console.log("User Checkboxes:", userCheckboxes);
@@ -166,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
             checkboxInput.setAttribute("data-username", user.username);
             checkboxInput.style.width = "170px";
             checkboxInput.style.height = "25px";
+
 
             let caretIcon = document.createElement("i");
             caretIcon.classList.add("fa-solid", "fa-chevron-right");
@@ -423,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 currentContent.style.display = "block"; // Show corresponding content
 
                             } else {
-                                currentIcon.style.color = "#999"; // Reset color for other icons
+                                currentIcon.style.color = "#333"; // Reset color for other icons
                                 currentContent.style.display = "none"; // Hide other content divs
                             }
                         }
@@ -449,6 +451,44 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Function to adjust checkbox styles based on window width
+    function adjustCheckboxStyles() {
+        console.log("Function called"); // Check if the function is called
+
+        var checkboxInputs = document.querySelectorAll(".custom-checkbox");
+        var sidebar = document.querySelector(".sidebar");
+        console.log(window.innerWidth); // Check the window width
+
+        checkboxInputs.forEach(function (input) {
+            if (window.innerWidth <= 1200) {
+                console.log("Window width is less than or equal to 1200");
+
+                input.style.width = "80px";
+                input.style.height = "24px";
+                sidebar.classList.add("minimized");
+
+            } else {
+                console.log("Window width is not it");
+
+                input.style.width = "170px";
+                input.style.height = "25px";
+                input.style.marginRight = "21px";
+                sidebar.classList.remove("minimized");
+
+            }
+        });
+    }
+    function logWindowWidth() {
+        console.log("Window width:", window.innerWidth);
+    }
+
+    // Add event listener for window resize
+    window.addEventListener("resize", logWindowWidth);
+
+
+    // Call the function initially and on window resize
+    window.addEventListener("DOMContentLoaded", adjustCheckboxStyles);
+    window.addEventListener("resize", adjustCheckboxStyles);
 
 
 
@@ -466,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         for (var i = startPage; i <= endPage; i++) {
-            pagination.innerHTML += `<li class="page-item"><a class="page-link" href="#" onclick="goToPage(${i})">${i}</a></li>`;
+            pagination.innerHTML += `<li class="page-item"><a class="page-link" href="#" onclick="goToPage(${i}) ">${i}</a></li>`;
         }
 
         if (currentPage < totalPages) {
@@ -601,6 +641,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
     });
+    function adjustSidebar() {
+        var sidebar = document.querySelector(".sidebar");
+
+        if (window.innerWidth <= 990) {
+            minimizeSidebar();
+        } else {
+            restoreSidebar();
+        }
+    }
+
+    // Call the function initially and on window resize
+    window.addEventListener("DOMContentLoaded", adjustSidebar);
+    window.addEventListener("resize", adjustSidebar);
+
     displayUsers(currentPage);
     updatePagination();
     sortUsers();
