@@ -48,6 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
     profileIcon.addEventListener("click", function () {
         dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
     });
+      document.body.addEventListener("click", function (event) {
+        if (!dropdownMenu.contains(event.target) && event.target !== profileIcon) {
+            dropdownMenu.style.display = "none";
+        }
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
