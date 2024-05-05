@@ -11,7 +11,7 @@ let users = [
     { username: "sophia_smith456", name: "Sophia Smith", lastAccess: "2024-04-17T08:20:00" },
     { username: "william_jackson", name: "William Jackson", lastAccess: "2024-04-17T08:20:00" },
     { username: "lucy_brown123", name: "Lucy Brown", lastAccess: "2024-04-19T09:15:00" },
-    
+
     { username: "michael_lee", name: "Michael Lee", lastAccess: "2024-04-18T12:30:00" },
     { username: "olivia_clark", name: "Olivia Clark", lastAccess: "2024-04-17T10:20:00" },
     { username: "ryan_miller789", name: "Ryan Miller", lastAccess: "2024-04-16T08:00:00" },
@@ -407,16 +407,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     icons.forEach(function (currentIcon, index) {
                         var currentContent = contents[index];
-                        if (currentIcon === icon) {
-                            currentIcon.style.color = "#800080"; // Set color for clicked icon
-                            currentContent.style.display = "block"; // Show corresponding content
+                        if (document.body.classList.contains('light-mode')) {
+                            if (currentIcon === icon) {
+                                currentIcon.style.color = "#800080"; // Set color for icons in light mode
+                                currentContent.style.display = "block"; // Show content in light mode
+                            }
+                            else {
+                                currentIcon.style.color = "#333"; // Reset color for other icons
+                                currentContent.style.display = "none"; // Hide other content divs
+                            }
+                        }
+                        else {
+                            if (currentIcon === icon) {
+                                currentIcon.style.color = "#800080"; // Set color for clicked icon
+                                currentContent.style.display = "block"; // Show corresponding content
 
-                        } else {
-                            currentIcon.style.color = "#ffffff"; // Reset color for other icons
-                            currentContent.style.display = "none"; // Hide other content divs
+                            } else {
+                                currentIcon.style.color = "#999"; // Reset color for other icons
+                                currentContent.style.display = "none"; // Hide other content divs
+                            }
                         }
                     });
                 }
+
+
                 // Event listener for personal info icon
                 personalInfoIcon.addEventListener('click', function () {
                     toggleIcon(personalInfoIcon, personalInfoContent);
