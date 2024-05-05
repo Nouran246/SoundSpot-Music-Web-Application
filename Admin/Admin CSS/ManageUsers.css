@@ -36,8 +36,7 @@
     position: relative;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 15px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;}
 
 .top-content {
     border: 2px solid #800080;
@@ -139,8 +138,7 @@
     margin-bottom: 25px;
     margin-left: 350px;
     margin-top: 40px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
 .actions {
@@ -171,12 +169,6 @@
     color: #852b85;
 }
 
-body.light-mode .list-item {
-    background-color: white;
-    border: 2px solid #852b85;
-    color: #852b85;
-}
-
 body.light-mode .text {
     color: #000;
 }
@@ -192,8 +184,6 @@ body.light-mode .list-item:hover {
 
 body.light-mode .list-item {
     background-color: white;
-    border: 2px solid #852b85;
-    color: #852b85;
 }
 
 body.light-mode .text {
@@ -650,6 +640,8 @@ i.hovered {
     outline: 1px groove #800080;
     border-radius: 5px;
 }
+
+
 #personal {
     margin-left: 15px;
 }
