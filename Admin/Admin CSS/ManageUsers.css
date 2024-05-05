@@ -648,18 +648,8 @@ body.light-mode .red-text {
 .user-info i:hover,
 i.hovered {
     outline: 1px groove #800080;
-    background-color: #333;
     border-radius: 5px;
-    ;
 }
-.body.light-mode .user-info i:hover,
-.body.light-mode i.hovered {
-    outline: 1px groove #800080;
-    background-color:#ddd;
-    border-radius: 5px;
-    ;
-}
-
 #personal {
     margin-left: 15px;
 }
