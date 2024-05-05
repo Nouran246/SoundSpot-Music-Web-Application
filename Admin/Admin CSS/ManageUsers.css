@@ -4,11 +4,26 @@
     }
 }
 
+/* 
+.list-container.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+ */
+
 .main-content {
-    margin-top: 10px;
+    margin-top: 0px;
     transition: transform 0.5s ease;
     margin-left: 10px;
     margin-right: 200px;
+    transition: margin-left 0.5s ease;
 }
 
 .list-container {
@@ -36,7 +51,8 @@
     position: relative;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 15px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;}
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 
 .top-content {
     border: 2px solid #800080;
@@ -374,81 +390,6 @@ body.light-mode .red-text {
     color: red;
 }
 
-@media (max-width: 1200px) {
-    .main-content {
-        margin-right: 100px;
-    }
-
-    .list-container {
-        margin-left: 250px;
-    }
-
-    .list-item,
-    .top-content {
-        width: 800px;
-        font-size: 20px;
-        padding: 15px;
-    }
-
-    .top-texts {
-        margin-left: 50px;
-        width: 500px;
-        gap: 100px;
-    }
-
-    .actions {
-        width: 100px;
-        gap: 15px;
-    }
-
-    .list-item a {
-        width: 800px;
-        gap: 30px;
-    }
-
-    .text {
-        width: 130px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 992px) {
-    .main-content {
-        margin-right: 50px;
-    }
-
-    .list-container {
-        margin-left: 150px;
-    }
-
-    .list-item,
-    .top-content {
-        width: 600px;
-        font-size: 18px;
-        padding: 10px;
-    }
-
-    .top-texts {
-        margin-left: 30px;
-        width: 400px;
-        gap: 80px;
-    }
-
-    .actions {
-        width: 80px;
-        gap: 10px;
-    }
-
-    .list-item a {
-        width: 600px;
-        gap: 20px;
-    }
-
-    .text {
-        width: 100px;
-        font-size: 14px;
-    }
-}
 
 @media (max-width: 768px) {
     .main-content {
@@ -729,3 +670,395 @@ i.hovered {
     margin-top: 25px;
 
 }
+
+
+@media (max-width: 1200px) {
+    .main-content {
+        margin-right: 50px;
+    }
+
+    .list-container,
+    .top-content {
+        margin-left: 240px;
+    }
+
+    .list-item,
+    .top-content {
+        width: 800px;
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .top-texts {
+        margin-left: 60px;
+        width: 500px;
+        gap: 90px;
+        justify-content: end;
+    }
+
+    .top-text {
+        font-size: 16px;
+        margin-left: 5px;
+    }
+
+    .actions {
+        width: 120px;
+        gap: 4px;
+        margin-right: 0px;
+    }
+
+    .actions i {
+        margin-right: 10px;
+        font-size: 18px;
+
+    }
+
+    .actions .checkbox-custom {
+        margin-right: 10px;
+        width: 16px;
+    }
+
+    .text {
+        font-size: 16px;
+        padding: 4px;
+        justify-content: center;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .content div {
+        gap: 40px;
+        width: 800px;
+    }
+
+    .list-item i {
+        margin-right: 0px;
+    }
+
+    .list-item .fa-chevron-right {
+        margin-left: 1px;
+    }
+
+    .list-item img {
+        width: 40px;
+        height: 40px;
+        margin-top: -4px;
+        margin-left: 1px;
+        border-radius: 50%;
+    }
+
+    #plus {
+        margin-left: 9px;
+        margin-right: 9px;
+        font-size: 20px;
+    }
+
+    .custom-checkbox {
+        width: 10px;
+        height: 20px;
+    }
+
+    .pagination {
+        margin-left: 120px;
+    }
+
+    .user-info-container {
+        width: 760px;
+    }
+
+
+    .user-info i {
+        margin: 1px;
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    #personal {
+        margin-left: 10px;
+    }
+
+    #first {
+        float: left;
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 200px;
+
+    }
+
+    #second {
+        width: 200px;
+        height: 200px;
+    }
+
+    .security-content,
+    .activity-log-content,
+    .general-content {
+        margin: 10px;
+        margin-top: 9px;
+        margin-left: 0px;
+        width: 800px;
+        padding: 10px;
+        height: 200px;
+    }
+
+    .first-sec {
+        float: left;
+        width: 300px;
+        height: 240px;
+    }
+
+    .first-sec div,
+    .second-sec div {
+        margin-bottom: 16px;
+
+    }
+
+    .first-sec span {
+        float: right;
+        margin-left: 0px;
+    }
+
+    .second-sec {
+        float: inline-start;
+        width: 320px;
+        height: 240px;
+
+    }
+
+    .second-sec span {
+        float: right;
+
+    }
+
+    .general-content div,
+    .security-content div,
+    .activity-log-content div {
+        padding: 10px;
+        color: #ddd;
+    }
+
+
+    .general-content span,
+    .security-content span,
+    .activity-log-content span {
+        display: inline;
+        justify-content: flex-start;
+    }
+
+    #edit-button {
+        float: right;
+        margin-left: 0px;
+        margin-right: 44px;
+        margin-top: 20px;
+
+    }
+
+    .actual-content {
+        width: 700px;
+        height: auto;
+
+    }
+}
+
+@media (max-width: 992px) {
+    .main-content {
+        margin-right: 50px;
+    }
+
+    .list-container,
+    .top-content {
+        margin-left: 100px;
+    }
+
+
+    .list-item,
+    .top-content {
+        width: 750px;
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .top-texts {
+        margin-left: 60px;
+        width: 500px;
+        gap: 90px;
+        justify-content: end;
+    }
+
+    .top-text {
+        font-size: 16px;
+        margin-left: 5px;
+    }
+
+    .actions {
+        width: 120px;
+        gap: 4px;
+        margin-right: 0px;
+    }
+
+    .actions i {
+        margin-right: 10px;
+        font-size: 18px;
+
+    }
+
+    .actions .checkbox-custom {
+        margin-right: 10px;
+        width: 16px;
+    }
+
+    .text {
+        font-size: 16px;
+        padding: 4px;
+        justify-content: center;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .content div {
+        gap: 40px;
+        width: 750px;
+    }
+
+    .list-item i {
+        margin-right: 0px;
+    }
+
+    .list-item .fa-chevron-right {
+        margin-left: 1px;
+    }
+
+    .list-item img {
+        width: 40px;
+        height: 40px;
+        margin-top: -4px;
+        margin-left: 1px;
+        border-radius: 50%;
+    }
+
+    #plus {
+        margin-left: 9px;
+        margin-right: 9px;
+        font-size: 20px;
+    }
+
+    .custom-checkbox {
+        width: 10px;
+        height: 20px;
+    }
+
+    .pagination {
+        margin-left: 0px;
+    }
+
+    .user-info-container {
+        width: 710px;
+        height:350px;
+    }
+
+
+    .user-info i {
+        margin: 1px;
+        font-size: 18px;
+        padding: 5px;
+
+    }
+
+    #personal {
+        margin-left: 10px;
+    }
+
+    #first {
+        float: left;
+        display: flex;
+        flex-direction: column;
+        width: 180px;
+        height: 200px;
+
+    }
+
+    #second {
+        width: 180px;
+        height: 200px;
+    }
+
+    .security-content,
+    .activity-log-content,
+    .general-content {
+        margin: 10px;
+        margin-top: 9px;
+        margin-left: 0px;
+        width: 700px;
+        padding: 10px;
+        height: 200px;
+
+    }
+
+    .first-sec {
+        float: left;
+        width: 250px;
+        height: 240px;
+
+    }
+
+    .first-sec div,
+    .second-sec div {
+        margin-bottom: 16px;
+
+    }
+
+    .first-sec span {
+        float: right;
+        margin-left: 0px;
+
+    }
+
+    .second-sec {
+        float: inline-start;
+        width: 320px;
+        height: 240px;
+
+
+    }
+
+    .second-sec span {
+        float: right;
+
+    }
+
+    .general-content div,
+    .security-content div,
+    .activity-log-content div {
+        padding: 10px;
+        color: #ddd;
+    }
+
+
+    .general-content span,
+    .security-content span,
+    .activity-log-content span {
+        display: inline;
+        justify-content: flex-start;
+    }
+
+    #edit-button {
+        float: right;
+        margin-left: 0px;
+        margin-right: 70px;
+        margin-top: 20px;
+
+    }
+
+    .actual-content {
+        width: 670px;
+        height: auto;
+    }
+}
+
+
+.main-content,
+.list-container {
+    transition: margin-left 0.5s ease;
+}
+
