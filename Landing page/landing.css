@@ -1,6 +1,9 @@
 
 
-
+body {
+    overflow-x: hidden; 
+    background:transparent;
+}
 
 
 article{
@@ -147,67 +150,133 @@ nav{
     position:relative;
     top:20px;
     text-decoration:none;
-    color:#fff;
+    color:#ffffff;
     opacity:0.35;
 }
 
 .nav-item a #active{
     opacity:1;
 }
-
+.nav-item a:hover {
+    color: #edecec; 
+    opacity: 1; 
+}
+#signin-item {
+    margin-left: auto; 
+}
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Ensure the header stays above other content */
-    background-color: #141414; /* Adjusts needed */
+    z-index: 1000; 
+    background-color:translate; 
 }
 #first {
-    position: relative; /* Add position relative */
-    margin-top: 20px;
-    background-color: #6e1e1e; /* Set background color */
-    padding: 50px; /* Add padding to the section */
-    height: 500px;
-    z-index: 2;
+    position: relative; 
+    background-image: url('photo/pexels-daniel-reche-718241-3721941.jpg'); 
+    padding: 50px; 
+    height: 850px;
+    z-index: 2; 
+    color: #b1b1b1;
+    background-size: cover; 
+    background-position: center; 
+    opacity:0;
 }
-#first{
-    margin-bottom: -20px; /* Remove margin and pull the section up */
-    margin-top:-20px;
-      width: 100%; /* Set the width of each section to 100% */
-    max-width: 100vw; /* Ensure the maximum width of each section is the viewport width */
-    overflow-x: hidden;
-    
+
+#heading, #subheading {
+
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(40) forwards;
+    animation-delay: 6.5s; 
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+#description{
+    font-size:20px;
+    margin-left:50px;
+    margin-bottom:20px;
+    width: 400px;
+    line-height: 1.5; 
+    animation: smoothFontResize 0.3s ease 6.5s forwards;
 }
 
 
+@keyframes smoothFontResize {
+    from {
+        font-size: 15px;
+    }
+    to {
+        font-size: 20px;
+    }
+}
+
+.trial #subheading {
+    font-size: 50px;
+    margin-left:20px;
+    margin-bottom:20px;
+}
+
+.trial h1 {
+    margin-top: 100px;
+    font-size: 100px;
+margin-left:20px;
+}
 
 .trial {
-    max-width: 800px; /* Set maximum width for the content */
-    margin: 0 auto; /* Center the content horizontally */
+    max-width: 800px; 
 }
 
-.trial p {
-    font-size: 18px; /* Set font size for the paragraph */
-    line-height: 1.6; /* Set line height for better readability */
-    color: #333; /* Set text color */
+#explore-btn {
+    background-color: #800080;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left:400px;
+    margin-top:40px;
+    font-size: 20px;
 }
 
+#explore-btn:hover {
+    background-color: rgb(84, 4, 84); 
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes darkMagentaBtn {
+    from { background-color: transparent; }
+    to { background-color: darkmagenta; }
+}
 
 .content{
     position:relative;
     width:100%;
     height:100%;
     z-index:2;
+    font-size: large;
 }
 
 
 
 
 
-/* hanshoof men 2wal hena */
+
+
 :root{
-    --color-accent:rgb(230, 170, 40);
+    --color-accent:rgb(190, 185, 181);
 }
 *{
     margin:0;
@@ -226,6 +295,7 @@ img{
 .container{
     width:100%;
     height:2000vh;
+    overflow-x: hidden;
 }
 .active-slide{
     position:fixed;
@@ -265,18 +335,18 @@ z-index:-1;
 }
 .slide img {
     width: 100%;
-    height: auto; /* Ensure image maintains aspect ratio */
+    height: auto; 
 }
 
 .slide-copy {
     position: absolute;
-    bottom: 30px; /* Adjust the distance from the bottom as needed */
+    bottom: 30px; 
     left: 50%;
     transform: translateX(-50%);
-    width: 80%; /* Adjust width as needed */
-    padding: 20px; /* Adjust padding as needed */
+    width: 80%; 
+    padding: 20px; 
     box-sizing: border-box;
-    text-align: center; /* Center the text */
+    text-align: center; 
 }
 
 
@@ -291,28 +361,24 @@ z-index:-1;
 .big-text {
     position: absolute;
     top: 50%;
-    left: 1px; /* Adjust the left position as needed */
+    left: 1px; 
     transform: translateY(-50%);
     text-align: left;
     color: white;
     font-size: 36px;
-    z-index: 9999; /* Ensure it's above other elements */
+    z-index: 9999; 
     margin-left: 200px;
     margin-bottom:20px;
+ 
 }
 .big-text h1 {
-    font-size: 2.5em; /* Adjust font size for h1 */
+    font-size: 2.5em; 
 }
 
 .big-text p {
-    font-size: 1.5em; /* Adjust font size for p */
+    font-size: 1.5em; 
     margin-left:30px;
 }
-
-
-
-
-
 
 #slide-1{
     position: absolute;
@@ -389,7 +455,7 @@ z-index:-1;
 
 .social-icons {
     display: flex;
-    margin-left: 70px; /* Adjust the margin to move the icons to the right */
+    margin-left: 70px; 
     margin-top: 50px;
 
 
@@ -397,17 +463,17 @@ z-index:-1;
 
 .social-icons i {
     margin-right: 30px;
-    color: white; /* Set the color of the icon */
-    background-color: transparent; /* Set transparent background */
-    border: 2px solid white; /* Add white border */
-    border-radius: 50%; /* Make the icons round */
-    padding: 20px; /* Add padding to increase the size */
-    font-size: 30px; /* Adjust the size of the icons */
-    width: 60px; /* Ensure fixed width */
-    height: 60px; /* Ensure fixed height */
-    display: flex; /* Add display flex */
-    justify-content: center; /* Center the icon horizontally */
-    align-items: center; /* Center the icon vertically */
+    color: white; 
+    background-color: transparent; 
+    border: 2px solid white; 
+    border-radius: 50%; 
+    padding: 20px;
+    font-size: 30px; 
+    width: 60px; 
+    height: 60px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     
 }
 
@@ -417,15 +483,15 @@ z-index:-1;
 
 
 .social-icons i:not(:first-child) {
-    margin-left: 10px; /* Set equal spacing for other icons */
+    margin-left: 10px; 
 }
 
 .social-icons i:hover {
-    transform: scale(1.1); /* Scale up the icon on hover */
+    transform: scale(1.1); 
 }
 .social-icons a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit the color from parent */
+    text-decoration: none; 
+    color: inherit; 
 }
 
 
@@ -476,11 +542,11 @@ z-index:-1;
 
   
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translate(-50%, -20%); } /* Start position */
-    100% { opacity: 1; transform: translate(-50%, -30%); } /* End position */
+    0% { opacity: 0; transform: translate(-50%, -20%); } 
+    100% { opacity: 1; transform: translate(-50%, -30%); } 
   }
   #playGameButton:hover, #exploreAppButtons:hover {
-    background-color: purple; /* Change background color on hover */
+    background-color: purple; 
     transform: scale(1.1);
 }
 .alert-container {
@@ -492,29 +558,29 @@ z-index:-1;
 }
 
 .alert {
-    background-color: #F8F9FA; /* Light gray background */
-    border: 3px solid #CED4DA; /* Subtle border color */
-    padding: 40px; /* Increased padding */
-    border-radius: 30px; /* Increased border radius */
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  width: 600px; /* Increased max-width */
+    background-color: #F8F9FA; 
+    border: 3px solid #CED4DA; 
+    padding: 40px; 
+    border-radius: 30px; 
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); 
+  width: 600px; 
   height:210px;
     text-align: center;
     position: relative;
     margin-bottom: 30px;
-    font-family: 'Roboto', sans-serif; /* Clean and elegant font */
+    font-family: 'Roboto', sans-serif; 
 }
 
 .alert-title {
-    font-size: 35px; /* Increased title font size */
+    font-size: 35px; 
     font-weight: bold;
-    margin-bottom: 20px; /* Increased margin */
-    color: darkmagenta; /* Dark gray title color */
+    margin-bottom: 20px; 
+    color: darkmagenta; 
 }
 
 .alert-message {
-    font-size: 30px; /* Increased message font size */
-    color: #495057; /* Dark gray message color */
+    font-size: 30px; 
+    color: #495057; 
 }
 
 
@@ -531,16 +597,16 @@ z-index:-1;
     height:250px;
     overflow:hidden;
     background:#fff;
-    transition: transform 0.3s ease; /* Add a smooth transition */
+    transition: transform 0.3s ease; 
     z-index:2; 
     justify-content: center;
     text-align: center;
     align-items:center;
-    left: 0; /* Ensure the items start from the left edge of the section */
+    left: 0; 
     right: 0; 
 }
 
-/* CSS styles for the countdown */
+
 #second .countdown {
     position: absolute;
     top: 10px;
@@ -549,14 +615,14 @@ z-index:-1;
     font-size: 18px;
 }
 #second {
-    height: 110vh; /* Increase the height of the section */
+    height: 110vh; 
 width:100%;
-    position: relative; /* Ensure the section is positioned relative for absolute positioning of children */
+    position: relative; 
     background: #000;
     z-index: 2;
 }
 
-/* Add the specific selector for the second section */
+
 #second .background {
     position: relative;
     top: 0;
@@ -570,7 +636,7 @@ width:100%;
     z-index: 3;
 }
 
-/* Update button styles within the second section */
+
 #second .background button {
     padding: 10px 20px;
     font-size: 20px;
@@ -596,13 +662,49 @@ width:100%;
 }
 #second .intro-text {
     color: white;
-    font-size: 80px; /* Increased font size */
-    font-family: "Roboto", sans-serif; /* Updated font family */
+    font-size: 80px; 
+    font-family: "Roboto", sans-serif; 
     position: absolute;
-    top: 20%; /* Positioned above the center */
+    top: 20%; 
     left: 40%;
     transform: translateX(-50%);
-    opacity: 0; /* Initially hidden */
-    animation: fadeIn 1.5s ease-in-out forwards; /* Fade in animation */
+    opacity: 0; 
+    animation: fadeIn 1.5s ease-in-out forwards; 
     z-index: 99999999999999999999;
+}
+footer {
+display:flex;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+    width: 100%;
+    margin-top:auto;
+    bottom: 0;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-divider {
+    background-color: #fff;
+    height: 2px;
+    width: 100%;
+    margin: 20px auto;
+}
+.footer-message {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+.footer-button {
+    background-color: #800080;
+    color: #fff;
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+.footer-button:hover {
+    background-color: #4d043d;
 }
