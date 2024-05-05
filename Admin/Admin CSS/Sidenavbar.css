@@ -255,18 +255,19 @@ img:hover {
 
 .profile_dropDownMenu {
     position: absolute;
-    top: 80px;
+    top: 65px;
     right: 50px;
-    background-color: #413a41;
-    box-shadow: 0 2px 5px rgba(34, 27, 174, 0.2);
+    background-color: #222;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     border-radius: 5px;
     padding: 7px;
     z-index: 1;
-    border: 1px solid #413a41;
+    border: 1px solid #222;
     width: 140px;
     align-items: center;
     display: none;
 }
+
 
 .show {
     max-height: 200px;
