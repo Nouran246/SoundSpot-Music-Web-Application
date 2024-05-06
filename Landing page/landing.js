@@ -1,84 +1,7 @@
-gsap.registerPlugin(ScrollTrigger); //wasalna el gsap be scroll 3lshan section last
-window.addEventListener("load", function () { //el page to be fully load 3lshan t3mel el
-    const slides = gsap.utils.toArray(".slide"); //25adna el sowar 7atenaha fe array 3lshan ne2dar net7akem feha w nezherha  
-    const activeSlideImages = gsap.utils.toArray(".active-slide img");
-
-    // Function to get the initial translateZ value
-    function getInitialTranslateZ(slide) {
-        const style = window.getComputedStyle(slide);
-        const matrix = style.transform.match(/matrix3d\((.+)\)/); 
-        if (matrix) {
-            const values = matrix[1].split(", ");
-            return parseFloat(values[14] || 0); //hatala3 el value of el index
-        }
-        return 0; // lw mafeesh matrix mawgoda hayreturn zero
-    }
-
-    // Function to map range of values
-    function mapRange(value, inMin, inMax, outMin, outMax) {
-        return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
-    }
-
-    // Loop through slides to set up ScrollTrigger
-    slides.forEach((slide, index) => {
-        const initialZ = getInitialTranslateZ(slide);
-        ScrollTrigger.create({
-            trigger: ".container",
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-            onUpdate: (self) => {
-                const progress = self.progress;
-                const zIncrement = progress * 22500;
-                const currentZ = initialZ + zIncrement;
-                let opacity;
-                if (currentZ > -2500) {
-                    opacity = mapRange(currentZ, -2500, 0, 0.5, 1);
-                } else {
-                    opacity = mapRange(currentZ, -5000, -2500, 0, 0.5);
-                }
-                slide.style.opacity = opacity;
-                slide.style.transform = `translateX(-50%) translateY(-50%) translateZ(${currentZ}px)`;
-                if (currentZ < 100) {
-                    gsap.to(activeSlideImages[index], 1.5, {
-                        opacity: 1,
-                        ease: "power3.out",
-                    });
-                } else {
-                    gsap.to(activeSlideImages[index], 1.5, {
-                        opacity: 0,
-                        ease: "power3.out",
-                    });
-                }
-            },
-        });
-    });
-});
-
-
-// Initially hide the big text
-document.querySelector('.big-text').style.display = 'none';
-
-// Function to check if the user has scrolled to the bottom of the page
-function isScrolledToBottom() {
-    return window.innerHeight + window.pageYOffset >= document.body.scrollHeight;
-}
-
-// makes the big-text appear when it reaches the end
-function handleScroll() {
-    if (isScrolledToBottom()) {
-        document.querySelector('.big-text').style.display = 'block';
-    } else {
-        document.querySelector('.big-text').style.display = 'none';
-    }
-}
-
-window.addEventListener('scroll', handleScroll);
-
 
 
 //entrance
-let tl=gsap.timeline({delay:0});
+let tl=gsap.timeline({delay:0}); // I made a gsap timeline makes the animation start immediately
 tl.to(".col",{
     top:0,
     
@@ -88,38 +11,38 @@ tl.to(".col",{
 
 tl.to(".c-1 .item",{
     top:0,
-    stagger:0.25,
+    stagger:0.25, //hatebda2 el animation b3d el 2blaha be 0.25 sec
     duration:3,
     ease:"power4.inOut"
-},"-=2");
+},"-=2"); //tebda2 b3d 2d eh men el timeline el 7atenah fo2
 tl.to(".c-2 .item",{
     top:0,
-    stagger:-0.25,
+    stagger:-0.25, //hatebda2o m3 2wel wa7da
     duration:3,
     ease:"power4.inOut"
 },"-=4");
 tl.to(".c-3 .item",{
     top:0,
-    stagger:0.25,
+    stagger:0.25, //hatebda2o m3 tany wa7da
     duration:3,
     ease:"power4.inOut"
 },"-=4");
 tl.to(".c-4 .item",{
     top:0,
-    stagger:-0.25,
+    stagger:-0.25, //2wel
     duration:3,
     ease:"power4.inOut"
 },"-=4");
 tl.to(".c-5 .item",{
     top:0,
-    stagger:0.25,
+    stagger:0.25, //tany
     duration:3,
     ease:"power4.inOut"
 },"-=4");
 
 tl.to(".containers",{
-    scale:6,
-    duration:4,
+    scale:6, //enlarge 6 times
+    duration:4, // el animation y23od 4 sec
     ease:"power4.inOut"
 },"-=2");
 
@@ -199,22 +122,22 @@ setTimeout(function() {
 //bodies -->various shapes with physical bodies
 
 //modify the properties of the existing bodies
-const Engine = Matter.Engine;
+const Engine = Matter.Engine; //for adding a type of physics called physics engine
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body=Matter.Body;
 let engine;
-let items = [];
+let items = []; //7atena feha el objects w el bodies
 let lastMouseX=-1;
  let lastMouseY=1;
  let sectionX, sectionY, sectionWidth, sectionHeight;
 
- function setup() {
-     createCanvas(window.innerWidth, window.innerHeight);
-     engine = Engine.create();
+ function setup() { 
+     createCanvas(window.innerWidth, window.innerHeight); // han3mel canvas be mesa7et el window
+     engine = Engine.create(); //3malna matter engine
      engine.world.gravity.y = 0;
  
-     addBoundaries();
+     addBoundaries(); //boundries 3lshan el movements of the object
  
      let x = random(100, width - 100);
      let y = random(100, height - 100);
@@ -254,7 +177,7 @@ let lastMouseX=-1;
      });
  }
  
-//3malt add le boundries
+//3malt add le boundries movements of the object
 function addBoundaries() {
     const thickness = 50;
     World.add(engine.world, [
@@ -274,7 +197,7 @@ function addBoundaries() {
 }
 
 function draw() {
-  
+  //2sta5demna p5.js 3lshan y3mel sketch to update
     Engine.update(engine);
     items.forEach((iteming) => iteming.update());
 }
@@ -397,7 +320,7 @@ toggleZoom() {
         duration: 0.5,
         width: "500px",
         height: "400px",
-        left: `${this.centerPosition.x - 250}px`,
+        left: `${this.centerPosition.x - 250}px`, //interpolation bet5aly el data ta5od el value el hatet7at
         top: `${this.centerPosition.y - 200}px`,
         x: 0,
         y: 0,
@@ -449,6 +372,86 @@ zoomOut() {
     
 }
 
+gsap.registerPlugin(ScrollTrigger); //wasalna el gsap be scroll 3lshan section last
+window.addEventListener("load", function () { //el page to be fully load 3lshan t3mel el
+    const slides = gsap.utils.toArray(".slide"); //25adna el sowar 7atenaha fe array 3lshan ne2dar net7akem feha w nezherha  
+    const activeSlideImages = gsap.utils.toArray(".active-slide img");
+
+    // Function to get the initial translateZ value
+    function getInitialTranslateZ(slide) {
+        const style = window.getComputedStyle(slide); //acces el calculations  w el 2rkam el 27na 3mlenha fe el css files w ygebha hena
+        const matrix = style.transform.match(/matrix3d\((.+)\)/);  // lw ne5aly el transformation y apply 3la el 7aga el 3d
+        if (matrix) {
+            const values = matrix[1].split(", "); // hanefsel el array w ne7ot  kol wa7da lwa7daha w n3melaha split be comma
+            return parseFloat(values[14] || 0); //hatala3 el value of el index
+        }
+        return 0; // lw mafeesh matrix mawgoda hayreturn zero
+    }
+
+    // Function to map range of values () benzabat range of values bta3 el 3d
+    function mapRange(value, inMin, inMax, outMin, outMax) {
+        return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+       // it's used to map the range of currentZ (the current Z-axis position) to the range of opacity values. It ensures that as the slides move along the Z-axis (in 3D space), their opacity changes smoothly.
+
+    }
+
+    // Loop through slides to set up ScrollTrigger
+    slides.forEach((slide, index) => {
+        const initialZ = getInitialTranslateZ(slide);
+        ScrollTrigger.create({ //zabatna el range bta3 el scroll trigger
+            trigger: ".container", //element that triggers the animation
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true, //bet5aly el animation yb2a smooth tool ma 27na mashyeen
+            onUpdate: (self) => { //kol mara b3mel scroll el function beteshta8al
+                const progress = self.progress; // progress el animation tool ma 27na mashyeen bel scroll l7d ma nwsal lel  nehaya
+                const zIncrement = progress * 22500;  //bta5od el w2ef feen 
+                const currentZ = initialZ + zIncrement;  //bn7seb el z-axis w2ef feen  + makan el z el adeem 3lshan netala3 el current z
+                let opacity;
+                if (currentZ > -2500) {
+                    opacity = mapRange(currentZ, -2500, 0, 0.5, 1);
+                    //If currentZ is greater than -2500, it means the slide is closer to the viewer, so we map its opacity smoothly from 0.5 to 1 as it moves closer.
+                } else {
+                  //  If currentZ is less than or equal to -2500, it means the slide is farther from the viewer, so we map its opacity smoothly from 0 to 0.5 as it moves farther away.
+                    opacity = mapRange(currentZ, -5000, -2500, 0, 0.5);
+                }
+                slide.style.opacity = opacity;
+                slide.style.transform = `translateX(-50%) translateY(-50%) translateZ(${currentZ}px)`;
+                if (currentZ < 100) {
+                    gsap.to(activeSlideImages[index], 1.5, {
+                        opacity: 1,
+                        ease: "power3.out", //visiual effect for the opacity
+                    });
+                } else {
+                    gsap.to(activeSlideImages[index], 1.5, {
+                        opacity: 0,
+                        ease: "power3.out",
+                    });
+                }
+            },
+        });
+    });
+});
+
+
+// Initially hide the big text
+document.querySelector('.big-text').style.display = 'none';
+
+// Function to check if the user has scrolled to the bottom of the page
+function isScrolledToBottom() {
+    return window.innerHeight + window.pageYOffset >= document.body.scrollHeight;
+}
+
+// makes the big-text appear when it reaches the end
+function handleScroll() {
+    if (isScrolledToBottom()) {
+        document.querySelector('.big-text').style.display = 'block';
+    } else {
+        document.querySelector('.big-text').style.display = 'none';
+    }
+}
+
+window.addEventListener('scroll', handleScroll);
 
 
 
@@ -456,8 +459,7 @@ zoomOut() {
 
 
 
-
-// Global variables 3lshan te7seb el l3ba
+// Global variables 3lshan te7seb el l3ba CHANGES IN SECTIONN 2 TO MAKE IT A GAME
 let timerInterval;
 let score = 0;
 
