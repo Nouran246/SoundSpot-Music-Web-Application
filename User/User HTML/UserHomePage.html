@@ -9,7 +9,8 @@
     <link rel="icon" href="../photo/2.png" type="image/png">
     <link rel="stylesheet" href="../User CSS/Userhomepage.css">
     <script src="../User js/Sidenavbar.js"></script>
-   
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+
 </head>
 <body>
   <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="ae50a009-d1c9-47fb-b54d-be8104b05ac3";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
@@ -61,7 +62,6 @@
 
     <div class="navbar">
 
-
       <div class="search-bar" id="searchBar" style="display: none;">
           <input type="text" placeholder="Search...">
           <i class="fas fa-search search-icon"></i>
@@ -69,12 +69,9 @@
 
       
       <div class="navbar-icons">
-
         <button id="search-button" class="search-button"> <i class="fa-solid fa-search"></i> </button>
-
-          
-          <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
-              <i class="fa-solid fa-comment-dots chat-icon"></i> </a>
+        <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
+            <i class="fa-solid fa-comment-dots chat-icon"></i> </a>
           <div id="profile">
               <img id="profile-icon" src="../photo/cat.jpg">
               <div class="profile_dropDownMenu">
@@ -104,7 +101,7 @@
                   </nav>
               </div>
           </div>
-
+          
           <div id="edit-window" class="modal">
               <div class="edit-content">
                 <h2 id="modalHeader">Edit Profile</h2>
@@ -119,18 +116,17 @@
                 <input type="radio" id="deactivate" name="account-status" value="deactivate" name="accStat">
                 <label for="deactivate">Deactivate</label>
                 <br>
-
                 <label>Conatct Admin:</label>
                   <input type="email" placeholder="example@gmail.com">
                   <br>
+                  <label>Website Language:<div id="google_translate_element"></div></label>
+                  <br> 
                 <button type="submit">Save</button>
                 <button type="button" id="cancel-edit">Cancel</button>
               </div>
           </div>
-
       </div>
   </div>
-
     <br><br>
 
 <div class ="container">
@@ -269,9 +265,6 @@
         </div>
     </div>
 </div>
-
-
-
 <footer>
   <div class="footer-content">
     
@@ -285,13 +278,5 @@
       </div>
   </div>
 </footer>
-    
-    
-
-   
-
-   
-
-
 </body>
 </html>
