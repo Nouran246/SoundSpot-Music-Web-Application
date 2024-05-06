@@ -117,3 +117,20 @@ function validateForm(form) {
         alert(dataPreview);
     }
 }
+
+function validateLogin() {
+    var email = document.querySelector('.sign-in form input[type="email"]').value;
+    var password = document.querySelector('.sign-in form input[type="password"]').value;
+    
+    if (email === "1" && password === "1") {
+        window.location.href = "../User/User HTML/UserHomePage.html";  
+    }
+    else if(email === "2" && password === "2"){
+        window.location.href = "../Admin/Admin HTML/home.html";
+    } 
+    else {
+        document.getElementById("loginErr").innerText = "Incorrect email or password";
+        document.getElementById("loginErr").style.color = "red";  
+    }
+}
+
