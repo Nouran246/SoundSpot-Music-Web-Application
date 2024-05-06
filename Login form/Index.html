@@ -63,7 +63,8 @@
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
                 <a href="#">Forget Your Password?</a>
-                <button type="button">Sign In</button>
+                <div class="error" id="loginErr"></div>
+                <button type="button" onclick="validateLogin()">Sign In</button> <!--for signing in-->
             </form>
         </div>
         <div class="toggle-container">

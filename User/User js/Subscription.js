@@ -20,6 +20,14 @@ function validateForm(form) {
     var cardNumberRegex = /^\d{16}$/;  // Assuming Visa card number format
     var expiryRegex = /^(0[1-9]|1[0-2])\/([0-9]{2})$/; // MM/YY format
 
+
+    if (country === "") {
+        document.getElementById("countryErr").innerText = "Please select a country";
+        countryErr = true;
+    } else {
+        document.getElementById("countryErr").innerText = "";
+    }
+    
     // Validate first name
     if (firstname === "" || firstname.length < 3 || firstname.length > 15 || !nameAddressCityRegex.test(firstname)) {
         document.getElementById("firstnameErr").innerText = "First name must be 3-15 letters and no special characters";
