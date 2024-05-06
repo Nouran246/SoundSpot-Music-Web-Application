@@ -1,18 +1,17 @@
-//25adna el sowar 7atenaha fe array 3lshan ne2dar net7akem feha w nezherha
-gsap.registerPlugin(ScrollTrigger);
-window.addEventListener("load", function () {
-    const slides = gsap.utils.toArray(".slide");
+gsap.registerPlugin(ScrollTrigger); //wasalna el gsap be scroll 3lshan section last
+window.addEventListener("load", function () { //el page to be fully load 3lshan t3mel el
+    const slides = gsap.utils.toArray(".slide"); //25adna el sowar 7atenaha fe array 3lshan ne2dar net7akem feha w nezherha  
     const activeSlideImages = gsap.utils.toArray(".active-slide img");
 
     // Function to get the initial translateZ value
     function getInitialTranslateZ(slide) {
         const style = window.getComputedStyle(slide);
-        const matrix = style.transform.match(/matrix3d\((.+)\)/);
+        const matrix = style.transform.match(/matrix3d\((.+)\)/); 
         if (matrix) {
             const values = matrix[1].split(", ");
-            return parseFloat(values[14] || 0);
+            return parseFloat(values[14] || 0); //hatala3 el value of el index
         }
-        return 0;
+        return 0; // lw mafeesh matrix mawgoda hayreturn zero
     }
 
     // Function to map range of values
