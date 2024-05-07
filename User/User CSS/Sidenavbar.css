@@ -791,3 +791,39 @@ body.light-mode .profile_dropDownMenu {
   margin-bottom: 40px;
 }
 
+#badges {
+    margin-right: 10px; /* Adjust the position if needed */
+}
+
+.badges-dropdown {
+    display: none; /* Ensure it's hidden by default */
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    top: 50px;
+    right: 0;
+    z-index: 5;
+}
+
+.light-mode .badges-dropdown {
+    background-color: #fff; /* White background in light mode */
+}
+
+.badges-dropdown .menu-item {
+    padding: 10px 20px;
+    white-space: nowrap;
+    color: #ddd; /* Default text color */
+}
+
+.light-mode .badges-dropdown .menu-item {
+    color: #000; /* Black text in light mode for visibility */
+}
+
+.badges-dropdown .menu-item:hover {
+    background-color: #555;
+}
+
+.light-mode .badges-dropdown .menu-item:hover {
+    background-color: #ddd;
+}

@@ -134,19 +134,16 @@
     <br><br>
     <div class="subscribe_container" id="container">
         <form id="signupForm">
-            <input type="text" placeholder="First Name" name="firstname" required>
+            <input class = "textbox" type="text" placeholder="First Name" name="firstname" required>
             <div class="error" id="firstnameErr"></div>
 
-            <input type="text" placeholder="Last Name" name="lastname" required>
+            <input class = "textbox" type="text" placeholder="Last Name" name="lastname" required>
             <div class="error" id="lastnameErr"></div>
 
-            <input type="text" placeholder="Billing Address" name="address" required>
+            <input class = "textbox" type="text" placeholder="Billing Address" name="address" required>
             <div class="error" id="addressErr"></div>
 
-            <input type="text" placeholder="City" name="city" required>
-            <div class="error" id="cityErr"></div>
-
-            <input type="text" placeholder="Zip/Postal Code" name="zip" required>
+            <input class = "textbox" type="text" placeholder="Zip/Postal Code" name="zip" required>
             <div class="error" id="zipErr"></div>
 
             <select name="country">
@@ -159,16 +156,19 @@
             </select>
             <div class="error" id="countryErr"></div>
 
-            <input type="text" placeholder="Phone Number" name="phone" required>
+            <input class = "textbox" type="text" placeholder="City" name="city" required>
+            <div class="error" id="cityErr"></div>
+
+            <input class = "textbox" type="text" placeholder="Phone Number" name="phone" required>
             <div class="error" id="phoneErr"></div>
 
-            <input type="text" placeholder="Card Number" name="cardnumber" required>
+            <input class = "textbox" type="text" placeholder="Card Number" name="cardnumber" required>
             <div class="error" id="cardnumberErr"></div>
 
-            <input type="text" placeholder="Expiry Date (MM/YY)" name="expiry" required>
+            <input class = "textbox" type="text" placeholder="Expiry Date (MM/YY)" name="expiry" required>
             <div class="error" id="expiryErr"></div>
 
-            <input type="text" placeholder="CVC" name="cvc" required>
+            <input class = "textbox" type="text" placeholder="CVC" name="cvc" required>
             <div class="error" id="cvcErr"></div>
 
             <button type="button" onclick="validateForm(document.getElementById('signupForm'))">Sign Up</button>

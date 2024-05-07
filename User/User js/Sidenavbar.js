@@ -237,3 +237,21 @@ function googleTranslateElementInit() {
         'google_translate_element'
     );
 } 
+
+document.addEventListener("DOMContentLoaded", function() {
+    var badgesIcon = document.querySelector("#badges .fa-certificate");
+    var badgesDropdown = document.querySelector(".badges-dropdown");
+
+    badgesIcon.addEventListener("click", function(event) {
+        // Toggle dropdown visibility
+        badgesDropdown.style.display = badgesDropdown.style.display === "block" ? "none" : "block";
+        event.stopPropagation(); // Prevent click event from bubbling up to document
+    });
+
+    // Close the dropdown when clicking outside of it
+    document.addEventListener("click", function(event) {
+        if (!badgesDropdown.contains(event.target) && event.target !== badgesIcon) {
+            badgesDropdown.style.display = "none";
+        }
+    });
+});

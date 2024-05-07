@@ -104,3 +104,14 @@ button:hover {
 .light-mode button:hover {
     background-color: #e1e1e1; /* Lighter grey for hover state */
 }
+button{
+    background-color: magenta;
+}
+button:hover {
+    background-color: black; /* Lighter grey for hover state */
+}
+
+.textbox{
+    background-color: #292929;
+    color: white;
+}
