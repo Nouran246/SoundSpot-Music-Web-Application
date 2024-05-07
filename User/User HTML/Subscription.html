@@ -112,6 +112,10 @@
                           <button id="toggle-light-mode"></button>
                       </div>
                       <div class="menu-item">
+                        <i class="fa-solid fa-flag"></i>
+                        <a href="Report.html">Report</a>
+                    </div>
+                      <div class="menu-item">
                           <i class="fa-solid fa-right-from-bracket"></i>
                           <a href="#">Log Out</a>
                       </div>
@@ -148,19 +152,24 @@
     <br><br>
     <div class="subscribe_container" id="container">
         <form id="signupForm">
-            <input class = "textbox" type="text" placeholder="First Name" name="firstname" required>
+            <label for="firstname">First Name</label>
+            <input class="textbox" type="text" placeholder="First Name" name="firstname" id="firstname" required>
             <div class="error" id="firstnameErr"></div>
-
-            <input class = "textbox" type="text" placeholder="Last Name" name="lastname" required>
+    
+            <label for="lastname">Last Name</label>
+            <input class="textbox" type="text" placeholder="Last Name" name="lastname" id="lastname" required>
             <div class="error" id="lastnameErr"></div>
-
-            <input class = "textbox" type="text" placeholder="Billing Address" name="address" required>
+    
+            <label for="address">Billing Address</label>
+            <input class="textbox" type="text" placeholder="Billing Address" name="address" id="address" required>
             <div class="error" id="addressErr"></div>
-
-            <input class = "textbox" type="text" placeholder="Zip/Postal Code" name="zip" required>
+    
+            <label for="zip">Zip/Postal Code</label>
+            <input class="textbox" type="text" placeholder="Zip/Postal Code" name="zip" id="zip" required>
             <div class="error" id="zipErr"></div>
-
-            <select name="country">
+    
+            <label for="country">Country</label>
+            <select class="textbox" name="country" id="country">
                 <option value="">Select Country</option>
                 <option>Australia</option>
                 <option>Canada</option>
@@ -169,25 +178,31 @@
                 <option>United Kingdom</option>
             </select>
             <div class="error" id="countryErr"></div>
-
-            <input class = "textbox" type="text" placeholder="City" name="city" required>
+    
+            <label for="city">City</label>
+            <input class="textbox" type="text" placeholder="City" name="city" id="city" required>
             <div class="error" id="cityErr"></div>
-
-            <input class = "textbox" type="text" placeholder="Phone Number" name="phone" required>
+    
+            <label for="phone">Phone Number</label>
+            <input class="textbox" type="text" placeholder="Phone Number" name="phone" id="phone" required>
             <div class="error" id="phoneErr"></div>
-
-            <input class = "textbox" type="text" placeholder="Card Number" name="cardnumber" required>
+    
+            <label for="cardnumber">Card Number</label>
+            <input class="textbox" type="text" placeholder="Card Number" name="cardnumber" id="cardnumber" required>
             <div class="error" id="cardnumberErr"></div>
-
-            <input class = "textbox" type="text" placeholder="Expiry Date (MM/YY)" name="expiry" required>
+    
+            <label for="expiry">Expiry Date (MM/YY)</label>
+            <input class="textbox" type="text" placeholder="Expiry Date (MM/YY)" name="expiry" id="expiry" required>
             <div class="error" id="expiryErr"></div>
-
-            <input class = "textbox" type="text" placeholder="CVC" name="cvc" required>
+    
+            <label for="cvc">CVC</label>
+            <input class="textbox" type="text" placeholder="CVC" name="cvc" id="cvc" required>
             <div class="error" id="cvcErr"></div>
-
+    
             <button type="button" onclick="validateForm(document.getElementById('signupForm'))">Sign Up</button>
         </form>
     </div>
+    
     <footer>
         <div class="footer-content">
           

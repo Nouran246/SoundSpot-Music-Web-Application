@@ -8,8 +8,7 @@
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    max-height: 1500px;
-    min-height: 1100px;
+    min-height: 1050px;
 }
 .subscribe_container.light-mode {
     background-color: white;
@@ -19,19 +18,26 @@ form {
     display: flex;
     flex-direction: column;
 }
-
+label {
+    color: white;
+    margin-bottom: 5px;
+    font-size: 14px; 
+}
 input[type="text"],
 input[type="email"],
 input[type="password"],
 select {
-    height: 40px;
-    padding: 10px;
-    margin-bottom: 20px;
+    height: 30px; /* Reduced height */
+    padding: 5px 10px; /* Adjust padding as needed */
+    margin-bottom: 10px; /* Space between input fields */
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 12px; /* Smaller font size for text inside input */
 }
-
+.textbox {
+    background-color: #292929;
+    color: white;
+}
 input::placeholder {
     color: #888;
 }
@@ -64,19 +70,18 @@ button:hover {
     margin-bottom: 10px;
 }
 
-.gender {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+input:focus,
+select:focus {
+    border-color: #0078d7;
+    outline: none;
+}
+.light-mode label {
+    color: black; /* Color for labels in light mode */
 }
 
-.gender label {
-    margin-right: 10px;
-    font-size: 14px;
-}
-
-.gender input {
-    margin-right: 5px;
+.light-mode .textbox {
+    background-color: white; /* Background color for inputs in light mode */
+    color: black; /* Text color for inputs in light mode */
 }
 /* Light mode styles */
 .light-mode .subscribe_container {
