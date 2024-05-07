@@ -77,12 +77,18 @@ body.light-mode .plan {
   padding: 10px;
   font-size: 20px;
 }
+#premium-details{
+  
+  padding: 10px;
+  font-size: 20px;
+}
 
 .edit-container {
   text-align: right;
+  
 }
 
-.edit-button {
+.edit-button, .delete-button{
   background-color: #800080;
   color: white;
   padding: 10px 20px;
@@ -93,7 +99,7 @@ body.light-mode .plan {
   margin-right: 200px;
 }
 
-.edit-button:hover {
+.edit-button,.delete-button:hover {
   background-color: #6a006a;
 }
 

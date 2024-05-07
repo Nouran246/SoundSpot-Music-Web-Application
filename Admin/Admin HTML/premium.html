@@ -137,7 +137,45 @@
 
 
       <h1 class="title10">Premium Subscription details</h1>
-     
+      <button id="addPlanButton">Add Plan</button>
+
+      <div id="dynamicPlansContainer"></div>
+
+      <!-- Popup form for adding a new plan -->
+      <div id="popupForm" class="popup">
+          <h2>Add Plan</h2>
+          <form id="planForm">
+              <label for="title">Title:</label>
+              <input type="text" id="title" name="title" placeholder="Enter title" required><br>
+      
+              <label for="features">Features:</label>
+              <input type="text" id="features" name="features" placeholder="Enter features" required><br>
+      
+              <label for="price">Price:</label>
+              <input type="text" id="price" name="price" placeholder="Enter price" required><br>
+      
+              <button type="submit">Save</button>
+              <button type="button" onclick="hidePopupForm()">Cancel</button>
+          </form>
+          <div id="message" style="display: none;">Data saved successfully!</div>
+      </div>
+    
+    <!-- Premium Plan Details -->
+    <table class="plan" style="display: none;">
+        <thead>
+            <tr>
+                <th colspan="2" id="premium-details">Premium Subscription Details</th>
+            </tr>
+        </thead>
+        <tbody id="premium-subscription-details"></tbody>
+    </table>
+    <div class="edit-container" style="display: none;">
+        <button class="edit-button" onclick="editPlan('premium')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('premium')">Delete</button>
+    </div>
+    
+
+    
       
       <table class="plan">
         <thead>
@@ -147,8 +185,9 @@
         </thead>
         <tbody id="premium-plan-details"></tbody>
     </table>
-    <div class="edit-container">
+    <div class="edit-container" >
         <button class="edit-button" onclick="editPlan('premium')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('premium')">Delete</button>
     </div>
 
     <!-- Family Plan -->
@@ -160,8 +199,9 @@
         </thead>
         <tbody id="family-plan-details"></tbody>
     </table>
-    <div class="edit-container">
+    <div class="edit-container" >
         <button class="edit-button" onclick="editPlan('family')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('family')">Delete</button>
     </div>
 
     <!-- Individual Plan -->
@@ -173,8 +213,9 @@
         </thead>
         <tbody id="individual-plan-details"></tbody>
     </table>
-    <div class="edit-container">
+    <div class="edit-container" >
         <button class="edit-button" onclick="editPlan('individual')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('individual')">Delete</button>
     </div>
 
     <!-- Etisalat Offer -->
@@ -188,6 +229,7 @@
     </table>
     <div class="edit-container">
         <button class="edit-button" onclick="editPlan('etisalat')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('etisalat')">Delete</button>
     </div>
 
     <!-- Vodafone Offer -->
@@ -199,8 +241,9 @@
         </thead>
         <tbody id="vodafone-offer-details"></tbody>
     </table>
-    <div class="edit-container">
+    <div class="edit-container" >
         <button class="edit-button" onclick="editPlan('vodafone')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('vodafone')">Delete</button>
     </div>
 
     <!-- Orange Offer -->
@@ -212,8 +255,9 @@
         </thead>
         <tbody id="orange-offer-details"></tbody>
     </table>
-    <div class="edit-container">
+    <div class="edit-container" >
         <button class="edit-button" onclick="editPlan('orange')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('orange')">Delete</button>
     </div>
 
   

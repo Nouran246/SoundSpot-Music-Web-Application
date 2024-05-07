@@ -1,7 +1,7 @@
-#save-button-2 {
+#save-button-2,#addPlanButton {
     margin-top: 10px;
     padding: 10px 20px;
-    margin-left:1000px;
+    margin-left:1200px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -12,14 +12,68 @@
   
  
 }
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222; /* Dark background color */
+    color: white; /* White text color */
+    border: 2px solid #800080; /* Border color */
+    padding: 40px; /* Increased padding for bigger size */
+    z-index: 9999;
+    display: none; /* Initially hide the pop-up */
+}
 
-#save-button-2:hover {
+.popup h2 {
+    font-size: 24px; /* Larger font size for titles */
+    margin-bottom: 20px; /* Add some space below titles */
+}
+
+.popup input[type="text"] {
+    background-color: #5a555a; /* Purple button color */
+    color: white; /* White text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.popup button[type="submit"] {
+    background-color: #800080; /* Purple button color */
+    color: white; /* White text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.popup input[type="text"]::placeholder {
+    color: #ccc; /* Placeholder text color */
+}
+
+.popup button[type="submit"]:hover {
+    background-color: #6a006a; /* Darker shade of purple on hover */
+}
+
+
+#save-button-2, #addPlanButton:hover {
     background-color: #6a006a; /* Darker shade of purple on hover */
 }
 
 body.light-mode .plan {
     background-color: #f0f0f0;
 }
+
 
 .plan {
     width: 100%; /* Adjust width as needed */
@@ -46,6 +100,7 @@ body.light-mode .plan {
     margin-top: 20px;
 }
 
+
 #details {
     padding: 10px;
     font-size: 20px;
@@ -67,6 +122,20 @@ body.light-mode .plan {
 
 .edit-button:hover {
     background-color: #6a006a;
+}
+.popup button[type="button"] {
+    background-color: #800080; /* Purple button color */
+    color: white; /* White text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup button[type="button"]:hover {
+    background-color: #6a006a; /* Darker shade of purple on hover */
 }
 
 /* Responsive Styles */

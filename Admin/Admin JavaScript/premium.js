@@ -111,15 +111,19 @@ function editPlan(planType) {
     const planDetails = document.getElementById(`${planType}-plan-details`);
     const editButton = document.querySelector(`#${planType}-edit-button`);
 
-    if (planDetails.contentEditable === 'true') {
-        planDetails.contentEditable = 'false';
+    // Check if the plan details are currently editable
+    const isEditable = planDetails.getAttribute('contenteditable') === 'true';
+
+    if (isEditable) {
+        planDetails.setAttribute('contenteditable', 'false');
         editButton.textContent = 'Edit';
         saveChanges(planType);
     } else {
-        planDetails.contentEditable = 'true';
+        planDetails.setAttribute('contenteditable', 'true');
         editButton.textContent = 'Save';
     }
 }
+
 
 
 function saveChanges(planType) {
@@ -153,3 +157,87 @@ function editPlanPrice(planType) {
         alert(`Price updated for ${planType}: ${newPrice}`);
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    const addPlanButton = document.getElementById('addPlanButton');
+    const popupForm = document.getElementById('popupForm');
+    const planForm = document.getElementById('planForm');
+    const planDetailsContainer = document.getElementById('dynamicPlansContainer');
+
+    // Function to show the pop-up form
+    addPlanButton.addEventListener('click', function() {
+        popupForm.style.display = 'block';
+    });
+
+    // Function to hide the pop-up form
+    function hidePopupForm() {
+        popupForm.style.display = 'none';
+    }
+
+    // Function to handle form submission
+    planForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get form inputs
+        const title = document.getElementById('title').value;
+        const features = document.getElementById('features').value;
+        const price = document.getElementById('price').value;
+
+        // Create new plan details div
+        const planDetailsDiv = document.createElement('div');
+        planDetailsDiv.classList.add('plan');
+        planDetailsDiv.innerHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" id="details">${title} Subscription Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Price:</td>
+                        <td>${price}</td>
+                    </tr>
+                    <tr>
+                        <td>Features:</td>
+                        <td>${features}</td>
+                    </tr>
+                </tbody>
+            </table>
+        `;
+
+        // Append plan details div to container
+        planDetailsContainer.appendChild(planDetailsDiv);
+
+        // Hide pop-up form
+        hidePopupForm();
+    });
+});
+function hidePopupForm() {
+    document.getElementById('popupForm').style.display = 'none';
+}
+function deletePlan(planType) {
+    console.log('Deleting plan:', planType);
+    const planContainer = document.querySelector(`#${planType}-plan-details`).closest('.plan');
+    if (planContainer) {
+        planContainer.remove();
+
+        // Hide the corresponding edit button
+        const editButtons = document.querySelectorAll(`.edit-button[onclick="editPlan('${planType}')"]`);
+        editButtons.forEach(button => {
+            button.style.display = 'none';
+        });
+
+        // Hide the corresponding delete button
+        const deleteButtons = document.querySelectorAll(`.delete-button[onclick="deletePlan('${planType}')"]`);
+        deleteButtons.forEach(button => {
+            button.style.display = 'none';
+        });
+
+        // Remove details from local storage
+        localStorage.removeItem(`${planType}PlanDetails`);
+        alert('Plan deleted: ' + planType);
+    } else {
+        console.log('Plan container not found');
+    }
+}
+
