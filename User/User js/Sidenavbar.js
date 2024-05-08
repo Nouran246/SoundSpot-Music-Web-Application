@@ -55,15 +55,16 @@ document.addEventListener("DOMContentLoaded", function () {
     sidebarToggle.addEventListener("click", function () {
         sidebar.classList.toggle("sidebar-minimized");
         var plan = document.querySelector(".Plan");
-        var Contacts = document.querySelector(".Contacts");
-        var contact = document.querySelector(".contact");
-        var aboutus = document.querySelector(".aboutus");
         var container = document.querySelector(".container")
+        var containers = document.querySelector(".containers");
         if (container) {
             container.style.marginLeft = sidebar.classList.contains("sidebar-minimized") ? "130px" : "250px";  // Adjust for signupContainer specifically
         }
         else if (plan){
             plan.style.marginLeft = sidebar.classList.contains("sidebar-minimized") ? "-130px" : "0px";
+        }
+        else if (containers){
+            containers.style.marginLeft = sidebar.classList.contains("sidebar-minimized") ? "-130px" : "0px";
         }
         
         toggleLogo();
