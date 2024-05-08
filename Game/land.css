@@ -1,0 +1,175 @@
+*{
+    margin:0;
+padding:0;
+box-sizing :border-box;
+}
+
+html,body{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background:#000;
+
+}
+
+.headering
+{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+}
+.headering h1{
+    font-family: "Circular Std", sans-serif;
+    font-size: 12vw;
+    font-weight: 500;
+    letter-spacing:-0.05em ;
+    line-height:175%;
+    color:#fff;
+    text-align:center;
+}
+.item{
+    position:absolute;
+    padding:0.5em 0.5em  4em 0.5em ;
+    width:200px;
+    height:250px;
+    overflow:hidden;
+    background:#fff;
+    transition: transform 0.3s ease; /* Add a smooth transition */
+    z-index: 1; 
+    justify-content: center;
+    text-align: center;
+    align-items:center;
+}
+.item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+.popup-content {
+    text-align: center;
+}
+.popup button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: darkmagenta;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* CSS styles for the countdown */
+.countdown {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+/* CSS styles for the background */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background button {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: darkmagenta;
+    color: white;
+    border: none;
+    
+    cursor: pointer;
+}
+
+#playGameButton, #exploreAppButtons {
+   
+    margin: 10px;
+   margin-top:150px;
+    background-color: darkmagenta;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s; 
+}
+
+.intro-text {
+    color: white;
+    font-size: 80px; /* Increased font size */
+    font-family: "Roboto", sans-serif; /* Updated font family */
+    position: absolute;
+    top: 20%; /* Positioned above the center */
+    left: 40%;
+    transform: translateX(-50%);
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1.5s ease-in-out forwards; /* Fade in animation */
+}
+
+
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translate(-50%, -20%); } /* Start position */
+    100% { opacity: 1; transform: translate(-50%, -30%); } /* End position */
+  }
+  #playGameButton:hover, #exploreAppButtons:hover {
+    background-color: purple; /* Change background color on hover */
+    transform: scale(1.1);
+}
+.alert-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.alert {
+    background-color: #F8F9FA; /* Light gray background */
+    border: 3px solid #CED4DA; /* Subtle border color */
+    padding: 40px; /* Increased padding */
+    border-radius: 30px; /* Increased border radius */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  width: 600px; /* Increased max-width */
+  height:210px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif; /* Clean and elegant font */
+}
+
+.alert-title {
+    font-size: 35px; /* Increased title font size */
+    font-weight: bold;
+    margin-bottom: 20px; /* Increased margin */
+    color: darkmagenta; /* Dark gray title color */
+}
+
+.alert-message {
+    font-size: 30px; /* Increased message font size */
+    color: #495057; /* Dark gray message color */
+}
+
+
