@@ -33,3 +33,17 @@ a {
 .light-mode .playlist img {
     border: 1px solid #ccc; /* Add border to images in light mode */
 }
+.song-title:hover{
+    color: darkmagenta;
+}
+.minimizedsongcontainer.light-mode{
+    background-color:#ddd;
+    color: black;
+}
+.minimizedsongcontainer.light-mode #icons{
+    color: black;
+}
+
+.minimizedsongcontainer.light-mode #current-time, .minimizedsongcontainer.light-mode #duration{
+    color: black;
+}
