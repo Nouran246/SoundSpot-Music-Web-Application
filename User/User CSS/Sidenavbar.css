@@ -96,7 +96,31 @@ body {
     animation: slideInTop 0.5s ease-out;
     transition: width 0.5s ease, left 0.5s ease;
 }
-
+.navbar-icons button {
+    background: transparent; /* Ensures no background color */
+    border: none; /* No borders */
+    padding: 10px; /* Adequate padding */
+    cursor: pointer; /* Cursor to pointer to indicate clickable */
+    color: #ddd; /* Text/icon color */
+    font-size: 20px; /* Icon size, adjust as necessary */
+    display: flex; /* Flex display to center items */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+#game {
+    color: white; /* Styling the icon color to fit the theme */
+    transition: color 0.3s ease; /* Smooth transition for hover effects */
+}
+.light-mode #game{
+    color:black;
+}
+.navbar-icons button:hover {
+    background-color: transparent; /* Maintain transparent background on hover */
+}
+/* Hover effect for game icon */
+#game:hover {
+    color: #852b85; /* Change color on hover */
+}
 .navbar-icons {
     display: flex;
     align-items: center;
@@ -826,4 +850,14 @@ body.light-mode .profile_dropDownMenu {
 
 .light-mode .badges-dropdown .menu-item:hover {
     background-color: #ddd;
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        display: none;  /* Hide the search bar */
+    }
+
+    .search-button {
+        display: flex;  /* Show the search button */
+    }
 }
