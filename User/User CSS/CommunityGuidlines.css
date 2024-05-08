@@ -12,7 +12,7 @@ h2{
     
 }
 
-pre{
+.commguide{
     border-style: solid;
     padding: 40px;
     border-color: #222;
@@ -23,12 +23,7 @@ pre{
     overflow: auto;
 }
 
-.community pre.light-mode{
+.commguide.light-mode{
     background-color: white;
     color: black
  }
-
- .communityguide.light-mode pre {
-    background-color: white;
-    color: black;
-}
