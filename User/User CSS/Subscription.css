@@ -49,7 +49,7 @@ select:focus {
 }
 
 button {
-    background-color: #0a62a3;
+    background-color: magenta;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -60,6 +60,9 @@ button {
     transition: background-color 0.3s;
 }
 
+.light-mode button{
+    background-color: magenta;
+}
 button:hover {
     background-color: #005792;
 }
@@ -93,8 +96,7 @@ select:focus {
 .light-mode input[type="text"],
 .light-mode input[type="email"],
 .light-mode input[type="password"],
-.light-mode select,
-.light-mode button {
+.light-mode select {
     background-color: #fff; /* Light backgrounds for inputs and buttons */
     color: #000; /* Dark text color for readability */
     border: 1px solid #ccc; /* Slightly darker border for better visibility */
@@ -109,9 +111,7 @@ select:focus {
 .light-mode button:hover {
     background-color: #e1e1e1; /* Lighter grey for hover state */
 }
-button{
-    background-color: magenta;
-}
+
 button:hover {
     background-color: black; /* Lighter grey for hover state */
 }

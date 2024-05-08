@@ -238,7 +238,7 @@ body.light-mode .search-bar input[type="text"]:focus {
     outline: none;
 }
 
-.search-bar input[type="text"].light-mode {
+.light-mode .search-bar input[type="text"] {
     padding: 10px 10px 10px 40px;
     border-radius: 5px;
     border: none;
@@ -362,29 +362,29 @@ body.light-mode {
 }
 
 
-.navbar.light-mode {
+.light-mode .navbar {
     background-color: #f0f0f0;
     color: #000;
 }
 
 
-.sidebar.light-mode {
+.light-mode .sidebar {
     background-color: #f0f0f0;
     color: #000;
 }
 
 
-footer.light-mode {
+.light-mode footer {
     background-color: #fff;
     color: #000;
 }
 
-.sidebar.light-mode a {
+.light-mode .sidebar a {
 
     color: #000;
 }
 
-.navbar.light-mode a {
+.light-mode .navbar a {
 
     color: #000;
 }
