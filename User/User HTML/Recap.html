@@ -65,7 +65,8 @@
   <div class="search-bar" id="searchBar" style="display: none;">
       <input type="text" placeholder="Search...">
       <i class="fas fa-search search-icon"></i>
-      
+      <button id="mic-button" class="navbar-icons"> <i class="fa-solid fa-microphone"></i> </button>   
+
   </div>
 
   
@@ -130,6 +131,16 @@
               </nav>
           </div>
       </div>
+                
+      <div id="micModal" class="mod">
+        <div class="mod-content">
+            <span id="closeButton" class="close">&times;</span>
+            <div id="micDetection">
+                <i id="micIcon" class="fa-solid fa-ear-listen"></i><br><br>
+                <h2 id="micIcon" style="font-size: 40px;">Listening..</h2>
+            </div>
+        </div>
+    </div>
       
       <div id="edit-window" class="modal">
           <div class="edit-content">

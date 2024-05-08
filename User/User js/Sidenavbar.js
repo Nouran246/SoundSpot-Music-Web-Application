@@ -31,6 +31,40 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+
+    //line 33
+        // Event listener for mic button click (NEW)
+        document.getElementById("mic-button").addEventListener("click", function() {
+            document.getElementById("micModal").style.display = "block";
+        });
+
+
+        // Add event listener for mic button click
+document.getElementById("mic-button").addEventListener("click", function() {
+    openMicModal();
+});
+
+// Function to open mic modal window
+function openMicModal() {
+    var micModal = document.getElementById("micModal");
+    if (micModal) {
+        micModal.style.display = "block";
+    }
+}
+
+// Function to close mic modal window when X button is clicked
+document.getElementById("closeButton").addEventListener("click", function() {
+    closeMicModal();
+});
+
+// Function to close mic modal window
+function closeMicModal() {
+    var micModal = document.getElementById("micModal");
+    if (micModal) {
+        micModal.style.display = "none";
+    }
+}
+
     // Dropdown menu
     var profileIcon = document.getElementById("profile-icon");
     var dropdownMenu = document.querySelector(".profile_dropDownMenu");
@@ -172,8 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const contact = document.querySelectorAll(".contact");
         const aboutus = document.querySelectorAll(".aboutus");
         const plancard = document.querySelectorAll(".Plan");
-        const minimizedsongcontainer = document.querySelectorAll(".minimizedsongcontainer");
-        const maximizedsongcontainer = document.querySelectorAll(".maximizedsongcontainer");
+
 
     
         [body, navbar, sidebar, footer, searchBarInput, container].forEach(el => {
@@ -184,8 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
         contact.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
         aboutus.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
         plancard.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
-        minimizedsongcontainer.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
-        maximizedsongcontainer.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
     
         sidebarImagesLight.forEach(img => img.classList.toggle("hidden", mode === 'dark'));
         sidebarImagesDark.forEach(img => img.classList.toggle("hidden", mode === 'light'));
@@ -258,4 +289,13 @@ document.addEventListener("DOMContentLoaded", function() {
             badgesDropdown.style.display = "none";
         }
     });
+});
+
+document.getElementById('search-button').addEventListener('click', function() {
+    var searchBar = document.getElementById('searchBar');
+    if (searchBar.style.display === 'none' || searchBar.style.display === '') {
+        searchBar.style.display = 'flex';  // Adjust as necessary for your layout
+    } else {
+        searchBar.style.display = 'none';
+    }
 });
