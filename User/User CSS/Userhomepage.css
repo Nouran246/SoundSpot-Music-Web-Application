@@ -9,8 +9,7 @@
     color:black;
 }
 
-
-.container.light-mode {
+.light-mode .container {
   color: #333; 
   background-color: white; 
 }
@@ -20,7 +19,7 @@
     margin-bottom: 10px;
     color: white; 
   }
-  h2.light-mode{
+  .light-mode h2{
     color: black;
   }
   
@@ -33,7 +32,7 @@
     padding: 10px; 
 }
 
-.row.light-mode {
+.light-mode .row {
     background-color: #f0f0f0; 
 }
 

@@ -256,3 +256,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+document.getElementById('search-button').addEventListener('click', function() {
+    var searchBar = document.getElementById('searchBar');
+    if (searchBar.style.display === 'none' || searchBar.style.display === '') {
+        searchBar.style.display = 'flex';  // Adjust as necessary for your layout
+    } else {
+        searchBar.style.display = 'none';
+    }
+});
