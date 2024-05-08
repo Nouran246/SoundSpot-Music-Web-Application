@@ -3,13 +3,13 @@ function toggleAudio() {
     var singIcon = document.getElementById("sing");
     var volumeControl = document.getElementById("volumeControl");
     var timeDisplay = document.getElementById("current-time");
+    var songTitle = document.getElementById("sing1"); // Get the song title element
 
     if (audio.paused) {
         audio.play();
         document.getElementById("play").innerHTML = '<i class="fa-solid fa-pause"></i>';
         singIcon.parentElement.classList.add("playing"); // Start the animation
-        var songname = document.getElementById("songname");
-        songname.style.color = "darkmagenta";
+        songTitle.style.color = "darkmagenta"; // Change the color of the song title
 
         // Start updating the volume control and progress bar
         audio.addEventListener('timeupdate', function() {
@@ -22,8 +22,7 @@ function toggleAudio() {
         audio.pause();
         document.getElementById("play").innerHTML = '<i class="fa-solid fa-play"></i>';
         singIcon.parentElement.classList.remove("playing"); // Stop the animation
-        var songname = document.getElementById("songname");
-        songname.style.color = "white";
+        songTitle.style.color = "white"; // Change the color of the song title back to white
 
         // Stop updating the volume control and progress bar
         audio.removeEventListener('timeupdate', function() {
@@ -32,6 +31,7 @@ function toggleAudio() {
         });
     }
 }
+
 
 
 
@@ -81,6 +81,7 @@ function maximizePage() {
     var songname = document.getElementById("songname");
     var artistname = document.getElementById("artistname");
     var maxpage = document.getElementById("maxpage");
+    var cont = document.querySelector(".container");
     
     maximizedContainer.classList.add("show"); // start fading in
     body.style.backgroundColor = "black";
@@ -89,7 +90,7 @@ function maximizePage() {
     artistname.style.display="none";
     songpic.style.display = "none";
     pic.style.display = "block"; // show the pic
-
+    cont.style.display = "none";
 }
 
 function minimizePage() {
@@ -100,6 +101,7 @@ function minimizePage() {
     var songname = document.getElementById("songname");
     var artistname = document.getElementById("artistname");
     maxpage = document.getElementById("maxpage");
+    var cont = document.querySelector(".container");
 
 
     minimizedContainer.style.opacity = "1"; // start fading in
@@ -110,6 +112,7 @@ function minimizePage() {
     artistname.style.display="block";
     songpic.style.display = "block";
     maxpage.style.display="inline";
+    cont.style.display = "block";
 
 }
 
