@@ -172,7 +172,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const contact = document.querySelectorAll(".contact");
         const aboutus = document.querySelectorAll(".aboutus");
         const plancard = document.querySelectorAll(".Plan");
-
+        const minimizedsongcontainer = document.querySelectorAll(".minimizedsongcontainer");
+        const maximizedsongcontainer = document.querySelectorAll(".maximizedsongcontainer");
 
     
         [body, navbar, sidebar, footer, searchBarInput, container].forEach(el => {
@@ -183,6 +184,8 @@ document.addEventListener("DOMContentLoaded", function () {
         contact.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
         aboutus.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
         plancard.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
+        minimizedsongcontainer.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
+        maximizedsongcontainer.forEach(item => item.classList.toggle("light-mode", mode === 'light'));
     
         sidebarImagesLight.forEach(img => img.classList.toggle("hidden", mode === 'dark'));
         sidebarImagesDark.forEach(img => img.classList.toggle("hidden", mode === 'light'));
@@ -255,13 +258,4 @@ document.addEventListener("DOMContentLoaded", function() {
             badgesDropdown.style.display = "none";
         }
     });
-});
-
-document.getElementById('search-button').addEventListener('click', function() {
-    var searchBar = document.getElementById('searchBar');
-    if (searchBar.style.display === 'none' || searchBar.style.display === '') {
-        searchBar.style.display = 'flex';  // Adjust as necessary for your layout
-    } else {
-        searchBar.style.display = 'none';
-    }
 });
