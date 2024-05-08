@@ -22,8 +22,9 @@ h2{
     background-color: #333;
     overflow: auto;
 }
-
-.commguide.light-mode{
+ 
+.light-mode .commguide {
     background-color: white;
-    color: black
+    color: black;
+    border-color: #c9c9c9;
  }
