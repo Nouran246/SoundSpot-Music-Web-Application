@@ -3,21 +3,6 @@
         scroll-behavior: smooth
     }
 }
-
-/* 
-.list-container.grid-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.grid-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-}
- */
-
 .main-content {
     margin-top: 0px;
     transition: transform 0.5s ease;
@@ -1062,3 +1047,128 @@ i.hovered {
     transition: margin-left 0.5s ease;
 }
 
+
+/* pop up */
+.delete-popup {
+    text-align: center;
+    color: #ddd;
+    font-size: 15px;
+    border: 2px groove #800080;
+    background-color: #1a1a1a;
+    width: 400px;
+    height: 150px;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#cancel-delete,
+#ok-delete,
+#save,
+#cancel {
+    margin: 10px;
+    margin-top: 0px;
+    height: 35px;
+    width: 75px;
+    padding: 10px;
+    background-color: #1a1a1a;
+    outline: 2px groove #800080;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.popup-content {
+    text-align: center;
+    color: red;
+    font-size: 15px;
+    border: 2px groove #800080;
+    background-color: #1a1a1a;
+    width: 400px;
+    height: 60px;
+    position: fixed;
+    z-index: 1000;
+    top: 57%;
+    left:58%;
+    transform: translate(-50%, -50%);
+    display: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#save,
+#cancel {
+
+    margin-top: 7px;
+}
+
+.editpopup-labels {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 50px;
+}
+
+.editpopup-labels label {
+    color: #ddd;
+    padding: 5px;
+    border-bottom: #800080 groove;
+    font-size: 20px;
+    margin-bottom: 15px;;
+}
+
+.editpopup-labels label.active{
+    background-color: #333;
+    border-radius: 5px;
+}
+.add-playlist-div:active,
+.delete-playlist-div:active{
+    background-color: #333;
+    border-radius: 5px;
+}
+
+#edit-popup i {
+
+    margin-top: 15px;
+}
+
+.add-playlist-div,
+.delete-playlist-div {
+    color: #ddd;
+    margin-bottom: 0px;
+    margin-left: 50px;   
+}
+.playlist-display
+{
+    height:179px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #1a1a1a #999;
+}
+
+.add-playlist-div .song,
+.delete-playlist-div .song {
+    margin: 0px;
+    width: 770px;
+    margin-top: 5px;
+    margin-left: -25px;}
+
+#edit-popup .generalContent-header,
+#edit-popup .generalContent-header {
+    margin: 0px;
+    width: 790px;
+    margin-top: 5px;
+    margin-left: -24px;
+}
+
+.editpopup-labels label:hover {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+
+#edit-popup {
+    width: 825px;
+    height: 350px;
+}
