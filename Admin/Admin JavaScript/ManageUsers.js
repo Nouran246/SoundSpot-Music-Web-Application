@@ -22,28 +22,10 @@ let users = [
     { username: "zoey_carter", name: "Zoey Carter", lastAccess: "2024-04-19T08:20:00" },
     { username: "nathan_adams", name: "Nathan Adams", lastAccess: "2024-04-17T07:45:00" },
     { username: "madison_morris", name: "Madison Morris", lastAccess: "2024-04-19T13:20:00" },
-    { username: "chloe_jackson", name: "Chloe Jackson", lastAccess: "2024-04-18T15:00:00" },
-    { username: "jacob_baker", name: "Jacob Baker", lastAccess: "2024-04-17T16:30:00" },
-    { username: "ava_hall", name: "Ava Hall", lastAccess: "2024-04-17T08:45:00" },
-    { username: "ethan_wilson", name: "Ethan Wilson", lastAccess: "2024-04-16T12:20:00" },
-    { username: "oliver_thomas", name: "Oliver Thomas", lastAccess: "2024-04-18T08:20:00" },
-    { username: "amelia_scott", name: "Amelia Scott", lastAccess: "2024-04-18T14:30:00" },
-    { username: "william_hall", name: "William Hall", lastAccess: "2024-04-19T09:20:00" },
-    { username: "mia_mitchell", name: "Mia Mitchell", lastAccess: "2024-04-17T11:15:00" },
-    { username: "ethan_wilson", name: "Ethan Wilson", lastAccess: "2024-04-16T12:20:00" },
-    { username: "sophie_brown", name: "Sophie Brown", lastAccess: "2024-04-19T09:30:00" },
-    { username: "jackson_smith", name: "Jackson Smith", lastAccess: "2024-04-18T12:15:00" },
-    { username: "oliver_davis", name: "Oliver Davis", lastAccess: "2024-04-17T11:20:00" },
-    { username: "amelia_jones", name: "Amelia Jones", lastAccess: "2024-04-16T08:45:00" },
-    { username: "noah_wilson", name: "Noah Wilson", lastAccess: "2024-04-15T14:30:00" },
-    { username: "emily_taylor", name: "Emily Taylor", lastAccess: "2024-04-18T10:00:00" },
-    { username: "ethan_anderson", name: "Ethan Anderson", lastAccess: "2024-04-17T16:20:00" },
-    { username: "mia_thompson", name: "Mia Thompson", lastAccess: "2024-04-17T08:50:00" },
-    { username: "lucas_white", name: "Lucas White", lastAccess: "2024-04-16T12:10:00" }
+    { username: "chloe_jackson", name: "Chloe Jackson", lastAccess: "2024-04-18T15:00:00" }
 ];
 
 /*----------------Avatars for users--------------- */
-
 // Array of photo URLs
 const photoURLs = [
     "photo/avatar_2633291.png",
@@ -55,34 +37,19 @@ const photoURLs = [
     "photo/avatar_2633280.png"
 ];
 
-// Function to randomly select a photo URL
 function getRandomPhotoURL() {
     return photoURLs[Math.floor(Math.random() * photoURLs.length)];
 }
 
-// Modify the users array to include a random photo URL for each user
 users.forEach(function (user) {
     user.photo = getRandomPhotoURL();
 });
-
-/* -------------Delete User completly------------- */
-
-//delete el list item
-function removeUserElement(username) {
-    var userElement = document.getElementById('userCheckbox_' + username).closest('.list-item');
-    if (userElement) {
-        userElement.remove();
-    }
-}
-
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log("Dom content loaded");
     console.log(window.innerWidth);
 
-    console.log(document.getElementById('delete-icon'));
     console.log("User Checkboxes:", userCheckboxes);
-
 
     /* Pagination Var */
     var usersPerPage = 10;
@@ -92,23 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
     /* checkboxes Var */
     var userCheckboxes = document.querySelectorAll('.checkbox-input');
     var userCheckboxesTop = document.querySelectorAll('.checkbox-input-top');
-
-
-    /*--------------------Event listener for delete icon-------------------- */
-    document.getElementById('delete-icon').addEventListener('click', function () {
-        var userCheckboxes = document.querySelectorAll('.checkbox-input');
-        userCheckboxes.forEach(function (checkbox) {
-            if (checkbox.checked) {
-                var username = checkbox.getAttribute('data-username') || checkbox.id.split('_')[1];
-                deleteUser(username);
-                removeUserElement(username);
-            }
-        });
-        // Update pagination and sorting after deletion
-        updatePagination();
-        sortUsers();
-    });
-
     function calculateTotalPages() {
         return Math.ceil(users.length / usersPerPage);
     }
@@ -139,8 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
             var content_div = document.createElement("div");
             listItem.classList.add("content");
 
-            var userIcon = document.createElement("img"); // Change to <img> for displaying photos
-            userIcon.src = user.photo; // Assign the photo URL
+            var userIcon = document.createElement("img");
+            userIcon.src = user.photo; 
 
             var nameDiv = document.createElement("div");
             nameDiv.classList.add("text");
@@ -278,12 +228,6 @@ document.addEventListener('DOMContentLoaded', function () {
         <span> Credit Card</span>
     </div>
 </div>
-
-            
-            
-            
-            
-            
             `;
             userContent.appendChild(generalContent);
 
@@ -385,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             actualContent.appendChild(securityContent);
 
-            var editButton = document.createElement("button");
+/*             var editButton = document.createElement("button");
             editButton.textContent = "Edit";
             editButton.classList.add("btn");
             editButton.id = "edit-button";
@@ -397,11 +341,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     this.textContent = "Edit";
                 }
             });
-            actualContent.appendChild(editButton);
+            actualContent.appendChild(editButton); */
 
             listItem.addEventListener('click', function () {
-                var infoContainer = this.nextElementSibling; // Get the next element (user info container)
-                infoContainer.style.display = infoContainer.style.display === "none" ? "block" : "none"; // Toggle visibility
+                var infoContainer = listItem.nextElementSibling; 
+                infoContainer.style.display = infoContainer.style.display === "none" ? "block" : "none";
 
                 function toggleIcon(icon, content) {
                     var icons = [personalInfoIcon, activityLogIcon, securityIcon];
@@ -411,29 +355,26 @@ document.addEventListener('DOMContentLoaded', function () {
                         var currentContent = contents[index];
                         if (document.body.classList.contains('light-mode')) {
                             if (currentIcon === icon) {
-                                currentIcon.style.color = "#800080"; // Set color for icons in light mode
-                                currentContent.style.display = "block"; // Show content in light mode
+                                currentIcon.style.color = "#800080"; 
+                                currentContent.style.display = "block"; 
                             }
                             else {
-                                currentIcon.style.color = "#333"; // Reset color for other icons
-                                currentContent.style.display = "none"; // Hide other content divs
+                                currentIcon.style.color = "#333"; 
+                                currentContent.style.display = "none"; 
                             }
                         }
                         else {
                             if (currentIcon === icon) {
-                                currentIcon.style.color = "#800080"; // Set color for clicked icon
-                                currentContent.style.display = "block"; // Show corresponding content
+                                currentIcon.style.color = "#800080"; 
+                                currentContent.style.display = "block"; 
 
                             } else {
-                                currentIcon.style.color = "#333"; // Reset color for other icons
-                                currentContent.style.display = "none"; // Hide other content divs
+                                currentIcon.style.color = "#333";
+                                currentContent.style.display = "none"; 
                             }
                         }
                     });
                 }
-
-
-                // Event listener for personal info icon
                 personalInfoIcon.addEventListener('click', function () {
                     toggleIcon(personalInfoIcon, personalInfoContent);
                 });
@@ -445,19 +386,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 securityIcon.addEventListener('click', function () {
                     toggleIcon(securityIcon, securityContent);
                 });
+                chevronIcon.addEventListener('click', function (event) {
+                    event.stopPropagation(); 
+                    toggleItem(item); 
+                });
 
+                
             });
+
 
         });
     }
 
-    // Function to adjust checkbox styles based on window width
+
     function adjustCheckboxStyles() {
-        console.log("Function called"); // Check if the function is called
+        console.log("Function called"); 
 
         var checkboxInputs = document.querySelectorAll(".custom-checkbox");
         var sidebar = document.querySelector(".sidebar");
-        console.log(window.innerWidth); // Check the window width
+        console.log(window.innerWidth); 
 
         checkboxInputs.forEach(function (input) {
             if (window.innerWidth <= 1200) {
@@ -481,18 +428,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function logWindowWidth() {
         console.log("Window width:", window.innerWidth);
     }
-
-    // Add event listener for window resize
     window.addEventListener("resize", logWindowWidth);
-
-
-    // Call the function initially and on window resize
     window.addEventListener("DOMContentLoaded", adjustCheckboxStyles);
     window.addEventListener("resize", adjustCheckboxStyles);
-
-
-
-
     function updatePagination() {
         var totalPages = calculateTotalPages();
         var pagination = document.querySelector('.pagination');
@@ -548,21 +486,21 @@ document.addEventListener('DOMContentLoaded', function () {
         userInfoContainers.forEach(function (container) {
             container.style.display = 'none';
         });
-
-        // Select all list items
         var listItems = document.querySelectorAll('.list-item');
-
-        // Loop through each list item
         listItems.forEach(function (item) {
-            // Add click event listener
+            var chevronIcon = item.querySelector('.fa-chevron-right');
+            if (chevronIcon) {
+                chevronIcon.addEventListener('click', function (event) {
+                    event.stopPropagation(); 
+                    toggleItem(item); 
+                });
+            }
+
             item.addEventListener('click', function () {
-                // Check if the clicked item is already active
                 var isActive = this.classList.contains('active');
 
-                // Toggle active class
                 this.classList.toggle('active', !isActive);
 
-                // Toggle chevron icon
                 var caretIcon = this.querySelector('.fa-chevron-right');
                 if (caretIcon) {
                     caretIcon.classList.remove('fa-chevron-right');
@@ -572,32 +510,116 @@ document.addEventListener('DOMContentLoaded', function () {
                     caretIcon.classList.remove('fa-chevron-down');
                     caretIcon.classList.add('fa-chevron-right');
                 }
-                // Close other open items if the clicked item was not initially active
+
                 if (!isActive) {
                     listItems.forEach(function (otherItem) {
                         if (otherItem !== item && otherItem.classList.contains('active')) {
                             otherItem.classList.remove('active');
 
-                            // Reset chevron icon
                             var otherCaretIcon = otherItem.querySelector('.fa-chevron-down');
                             if (otherCaretIcon) {
                                 otherCaretIcon.classList.remove('fa-chevron-down');
                                 otherCaretIcon.classList.add('fa-chevron-right');
                             }
-
                             var otherUserInfoContainer = otherItem.nextElementSibling;
                             if (otherUserInfoContainer) {
                                 otherUserInfoContainer.style.display = 'none';
                             }
                         }
-
                     });
-                    item.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-
         });
     }
+    
+    /* Delete */
+    var topCheckbox = document.getElementById('topCheckbox1');
+    var deleteusersIcon = document.getElementById('delete-icon1');
+    var deletePopup = document.getElementById('delete-popup');
+    var selectItemPopup = document.getElementById('select-item-popup'); 
+    var noUsers = document.getElementById('select-item');
+
+    deleteusersIcon.addEventListener('click', function () {
+        var anyCheckboxChecked = false;
+        var checkboxes = document.querySelectorAll('.custom-checkbox');
+        checkboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                anyCheckboxChecked = true;
+            }
+        });
+        if (anyCheckboxChecked) {
+            deletePopup.style.display = 'block';
+        } else if (users.length == 0) {
+            noUsers.style.display = 'block';
+            setTimeout(function () {
+                noUsers.style.display = 'none';
+            }, 2000);
+            topCheckbox.checked = false;
+
+        }
+        else {
+            selectItemPopup.style.display = 'block'; 
+            setTimeout(function () {
+                selectItemPopup.style.display = 'none';
+            }, 2000);
+        }
+    });
+
+    var okButton = document.getElementById('ok-delete');
+    okButton.addEventListener('click', function () {
+        var checkboxes = document.querySelectorAll('.custom-checkbox');
+        var newUsers = [];
+        checkboxes.forEach(function (checkbox) {
+            if (!checkbox.checked) {
+                var username = checkbox.getAttribute('data-username');
+                var user = users.find(u => u.username === username);
+                if (user) {
+                    newUsers.push(user);
+                }
+            }
+        });
+        users = newUsers;
+        displayUsers(currentPage);
+        updatePagination();
+        User_Info();
+        deletePopup.style.display = 'none';
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+        });
+        topCheckbox.checked = false;
+    });
+
+    var cancelButton = document.getElementById('cancel-delete');
+    cancelButton.addEventListener('click', function () {
+        deletePopup.style.display = 'none';
+    });
+
+    topCheckbox.addEventListener('change', function () {
+        var isChecked = this.checked;
+        var listItemCheckboxes = document.querySelectorAll('.list-item .custom-checkbox');
+        listItemCheckboxes.forEach(function (checkbox) {
+            checkbox.checked = isChecked;
+        });
+    });
+
+    function toggleItem(item) {
+        var isActive = item.classList.contains('active');
+        item.classList.toggle('active', !isActive);
+        var caretIcon = item.querySelector('.fa-chevron-right');
+        if (caretIcon) {
+            caretIcon.classList.remove('fa-chevron-right');
+            caretIcon.classList.add('fa-chevron-down');
+        } else {
+            caretIcon = item.querySelector('.fa-chevron-down');
+            caretIcon.classList.remove('fa-chevron-down');
+            caretIcon.classList.add('fa-chevron-right');
+        }
+        var userInfoContainer = item.nextElementSibling;
+        if (userInfoContainer) {
+            userInfoContainer.style.display = isActive ? 'none' : 'block';
+        }
+    }
+
 
 
     function sortUsers() {
@@ -627,17 +649,16 @@ document.addEventListener('DOMContentLoaded', function () {
         var sidebar = document.querySelector(".sidebar");
         sidebar.classList.toggle("minimized");
 
-        // Adjust margin of content container based on sidebar state
         var container = document.querySelector(".list-container");
         var top = document.querySelector(".top-content");
 
         if (sidebar.classList.contains("minimized")) {
-            container.style.marginLeft = "250px"; // Adjust as needed based on your sidebar width
-            top.style.marginLeft = "250px"; // Adjust as needed based on your sidebar width
+            container.style.marginLeft = "250px"; 
+            top.style.marginLeft = "250px"; 
 
         } else {
-            container.style.marginLeft = "350px"; // Adjust as needed based on your sidebar width
-            top.style.marginLeft = "350px"; // Adjust as needed based on your sidebar width
+            container.style.marginLeft = "350px"; 
+            top.style.marginLeft = "350px"; 
 
         }
     });
@@ -651,7 +672,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Call the function initially and on window resize
+
+    var add_icon = document.getElementById('plus');
+    add_icon.addEventListener('click', function () {
+        window.location.href = 'addsong.html';
+    });
+
     window.addEventListener("DOMContentLoaded", adjustSidebar);
     window.addEventListener("resize", adjustSidebar);
 
