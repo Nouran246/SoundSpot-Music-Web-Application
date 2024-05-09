@@ -63,7 +63,7 @@
         </div>
         <div class="navbar-icons">
             <button id="search-button" class="search-button"></button>
-            <a href="https://app.crisp.chat/website/426af94c-e0f5-41fe-890a-0a360c3921f5/inbox/" target="_blank">
+            <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
                 <i class="fa-solid fa-comment-dots chat-icon"></i> </a>
             <div id="profile">
                 <img id="profile-icon" src="photo/avatar_2633291.png">
@@ -98,6 +98,10 @@
     <!--User profiles list -->
 
     <div class=" main-content">
+      <!--      <div class="options">
+        <i class="fa-solid fa-bars" id="list-option" title="List view"></i>
+        <i class="fa-solid fa-grip" id="grid-option" title="Grid view"></i>
+    </div> -->
         <div class="top-content">
             <!--<button class="btn" id="del-log" onclick="showPopup()">Log </button>-->
             <i class="fa-solid fa-plus" id="plus" title="Add User"></i>
@@ -108,13 +112,13 @@
                 <div class="top-text">Last Access</div>
             </div>
             <div class="actions">
-                <div class="checkbox" id="selectAllCheckbox">
-                    <input type="checkbox" id="topCheckbox" class="checkbox-input" />
+                <div class="checkbox" id="selectAllCheckbox1">
+                    <input type="checkbox" id="topCheckbox1" class="checkbox-input" />
                     <span class="checkbox-custom"></span>
                 </div>
                 <i class="fa-solid fa-sort"></i>
                 <i class="fa-solid fa-envelope" title="Send E-mail"></i>
-                <i class="fa-solid fa-trash" title="Delete" id="delete-icon"></i>
+                <i class="fa-solid fa-trash" title="Delete" id="delete-icon1"></i>
             </div>
         </div>
         <div class="list-container">
@@ -246,7 +250,29 @@
     </div>
     </div>
 
+    <div class="delete-popup" id="delete-popup">
+        <h2>Confirm Deletion</h2>
+        <p>Are you sure you want to delete this item?</p>
+        <button id="ok-delete" class="btn">OK</button>
+        <button id="cancel-delete" class="btn">CANCEL</button>
+    </div>
 
+    <div class="select-item-popup">
+        <div class="popup-content" id="one-edit">
+            <h2>Please select one user at a time</h2>
+        </div>
+    </div>
+    <div class="select-item-popup">
+        <div class="popup-content" id="select-item">
+            <h2>No Users</h2>
+        </div>
+    </div>
+    <div class="select-item-popup">
+        <div class="popup-content" id="select-item-popup">
+            <h2>Please select an item</h2>
+        </div>
+    </div>
+ 
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -256,23 +282,6 @@
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
     </nav>
-
-    <div class="settings-popup-container">
-        <div class="settings-popup">
-            <h3>Settings</h3>
-
- 
-            <h4>Change Language</h4> 
-        <div id="google_translate_element"></div>
-      
-    
-   
-        <div class="button-group">
-            <button id="save-button">Save</button>
-            <button id="cancel-button">Cancel</button>
-        </div>
-        </div>
-    </div>
 
     <footer>
         <div class="footer-content">
