@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../Admin%20CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="icon" href="photo/2.png" type="image/png">
+    <link rel="stylesheet" href="../Admin%20CSS/home.css">
+    <link rel="stylesheet" href="../Admin%20CSS/ManageUsers.css">
+    <script src="../Admin%20JavaScript/Sidenavbar.js"></script>
+    <link rel="stylesheet" href="../Admin%20CSS/managePlaylist.css">
+    <script src="../Admin%20JavaScript/managePlaylist.js"></script>
+    <script src="../Admin%20JavaScript/german.js"></script>
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <button onclick="changeLogo()" id="custom-sidebar-toggle">
+            <img id="custom-sidebar-img" src="photo\menu.png" class="dark-mode-img" alt="Button Image">
+            <img id="custom-sidebar-img" src="photo\menu (1).png" class="light-mode-img" alt="Button Image">
+        </button>
+        <a href="home.html" id="trial">
+            <img id="trial-img" src="photo\output-onlinepngtools.png" alt="SoundSpot Logo">
+        </a>
+        <a class="text-a" href="ManageUsers.html">
+            <i class="fas fa-users dark-mode-img  icons"></i>
+            <span class="t">Manage Users</span>
+        </a>
+        <a class="text-a" href="ManageSongs.html">
+            <i class="fa-solid fa-music icons"></i>
+            <span class="t">Manage Songs</span>
+        </a>
+        <a class="text-a" href="Reports.html">
+            <i class="fa-solid fa-chart-column  icons"></i>
+            <span class="t">Reports</span>
+        </a>
+        <a class="text-a" href="Plans.html">
+            <i class="fa-solid fa-wallet icons"></i>
+            <span class="t">Plans</span>
+        </a>
+        <a class="text-a" href="CopanyOverview.html">
+            <i class="fa-regular fa-newspaper icons"></i>
+            <span class="t">Company Overview</span>
+        </a>
+        <a class="text-a" href="CommunityGuidlines.html">
+            <i class="fa-solid fa-file-signature icons"></i>
+            <span class="t">Community Guidelines</span>
+        </a>
+        <a class="text-a" href="contact.html">
+            <i class="fas fa-phone dark-mode-img icons"></i>
+            <span class="t">Contacts</span>
+        </a>
+    </div>
+
+    <div class="navbar">
+        <div class="search-bar" id="searchBar" style="display: none;">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="navbar-icons">
+            <button id="search-button" class="search-button"></button>
+            <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
+                <i class="fa-solid fa-comment-dots chat-icon"></i> </a>
+            <div id="profile">
+                <img id="profile-icon" src="photo/cat.jpg">
+                <div class="profile_dropDownMenu">
+                    <nav>
+                        <div class="menu-item">
+                            <i class="fa-solid fa-user"></i>
+                            <a href="#">Profile</a>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-regular fa-eye"></i>
+                            <a href="#">View as</a>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-solid fa-gear"></i>
+                            <a href="#" id="settings-button">Settings</a>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-regular fa-sun"></i>
+                            <a href="#">Light Mode</a>
+                            <button id="toggle-light-mode"></button>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <a href="#">Log Out</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-popup-container">
+        <div class="settings-popup">
+            <h3>Settings</h3>
+
+            <div class="language-selection">
+                <label for="language-select">Change Language:</label>
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="gm">German (Deutsch)</option>
+
+                </select>
+            </div>
+            <div class="button-group">
+                <button id="save-button">Save</button>
+                <button id="cancel-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class=" main-content">
+        <div class="top-content">
+            <i class="fa-solid fa-plus" id="plus" title="Add User"></i>
+            <div class="top-texts">
+                <div class="top-text">Name</div>
+                <div class="top-text">Artist</div>
+                <div class="top-text">Duration</div>
+                <div class="top-text">Creator</div> <!-- still written date does not change  -->
+            </div>
+            <div class="actions">
+                <div class="checkbox" id="selectAllCheckbox">
+                    <input type="checkbox" id="topCheckbox" class="checkbox-input" />
+                    <span class="checkbox-custom"></span>
+                </div>
+                <i class="fa-solid fa-pen" title="edit" id="edit-icon"></i>
+                <i class="fa-solid fa-trash" title="Delete" id="delete-icon"></i>
+            </div>
+        </div>
+        <div class="list-container">
+            <div class="list-item">
+                <div class="content">
+                    <i class="fa-solid fa-music"></i>
+                    <div class="text"></div>
+                    <div class="text"></div>
+                    <div class="text"></div>
+
+                    <div class="text"></div>
+                    <div class="list-checkbox">
+                        <input type="checkbox" id="songCheckbox_${user.name}" class="checkbox-input" />
+                        <span class="list-checkbox-custom"></span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right" id="see-more"></i>
+                </div>
+            </div>
+            <div class="user-info-container">
+                <div class="user-info">
+                    <div class="actual-content">
+                        <div class="personal-info-content" id="personalInfoContent" style="display: block;">
+                            <div class="user-content" style="display: none;">
+                                <div class="general-content">
+                                    <div class="info-item">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="delete-popup" id="delete-popup">
+            <h2>Confirm Deletion</h2>
+            <p>Are you sure you want to delete this item?</p>
+            <button id="ok-delete" class="btn">OK</button>
+            <button id="cancel-delete" class="btn">CANCEL</button>
+        </div>
+
+        <div class="select-item-popup">
+            <div class="popup-content" id="one-edit">
+                <h2>Please select one playlist at a time</h2>
+            </div>
+        </div>
+        <div class="select-item-popup">
+            <div class="popup-content" id="select-item">
+                <h2>No playlists</h2>
+            </div>
+        </div>
+        <div class="select-item-popup">
+            <div class="popup-content" id="select-item-popup">
+                <h2>Please select an item</h2>
+            </div>
+        </div>
+        <div class="select-item-popup">
+            <div class="popup-content" id="edit-popup">
+                <div class="editpopup-labels">
+                    <label id="add-edit">Add</label>
+                    <label id="delete-edit">Delete</label>
+                </div>
+                <div class="generalContent-header">
+                    <div>Artist</div>
+                    <div>Album</div>
+                    <div>Duration</div>
+                    <div>Genre</div>
+
+                </div>
+                <div class="playlist-display">
+                    <div class="add-playlist-div">
+                        <div class="song">
+                            <div>Taylor Swift</div>
+                            <div>1989</div>
+                            <div>3:31</div>
+                            <div>Pop</div>
+                            <i class="fa-solid fa-plus add" id="plus-one"></i>
+
+                        </div>
+                        <div class="song">
+                            <div>Imagine Dragons</div>
+                            <div>Night Visions</div>
+                            <div>3:07</div>
+                            <div>Alternative</div>
+                            <i class="fa-solid fa-plus add" id="plus-two"></i>
+
+                        </div>
+                        <div class="song">
+                            <div>Michael Jackson</div>
+                            <div>Thriller</div>
+                            <div>5:57</div>
+                            <div>Pop</div>
+                            <i class="fa-solid fa-plus add" id="plus-three"></i>
+
+                        </div>
+                    </div>
+                    <div class="delete-playlist-div" style="display: none;">
+                        <div class="song">
+                            <div>Ed Sheeran</div>
+                            <div>÷ (Divide)</div>
+                            <div>3:57</div>
+                            <div>Pop</div>
+                            <i class="fa-solid fa-trash delete" title="Delete" id="del-one"></i>
+
+                        </div>
+
+                        <div class="song">
+                            <div>The Weeknd</div>
+                            <div>After Hours</div>
+                            <div>3:44</div>
+                            <div>R&B</div>
+                            <i class="fa-solid fa-trash delete" title="Delete" id="del-two"></i>
+
+                        </div>
+
+                        <div class="song">
+                            <div>Journey</div>
+                            <div>Escape</div>
+                            <div>4:11</div>
+                            <div>Rock</div>
+                            <i class="fa-solid fa-trash delete" title="Delete" id="del-three"></i>
+
+                        </div>
+                        <div class="song">
+                            <div>Queen</div>
+                            <div>Greatest Hits</div>
+                            <div>5:55</div>
+                            <div>Rock</div>
+                            <i class="fa-solid fa-trash delete" title="Delete" id="del-four"></i>
+
+                        </div>
+                        <div class="song">
+                            <div>Nirvana</div>
+                            <div>Nevermind</div>
+                            <div>5:01</div>
+                            <div>Rock</div>
+                            <i class="fa-solid fa-trash delete" title="Delete" id="del-five"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <button id="save" class="btn">SAVE</button>
+                <button id="cancel" class="btn">CANCEL</button>
+            </div>
+
+        </div>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+        <footer>
+            <div class="footer-content">
+                <div class="text-center">
+                    <p>&copy; 2024 SoundSpot. All rights reserved.</p>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img
+                            src="photo\facebook.png"></a>
+                    <a
+                        href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img
+                            src="photo\instagram.png"></a>
+                    <a href="mailto:emailsspamm101@gmail.com"><img src="photo\gmail.png"></a>
+                </div>
+            </div>
+        </footer>
+</body>
+
+</html>
