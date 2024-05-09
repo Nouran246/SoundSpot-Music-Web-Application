@@ -1,30 +1,54 @@
-.communityguide{
-   margin-top: -4%;
+/* Base styles that apply when no specific media query condition is met */
+.communityguide {
+    margin-top: -4%;
 }
 
-h1{
-    margin-left:260px;
-    color:darkmagenta ; 
-}
-h2{
-    color:grey;
-    margin-left:260px;
-    
+h1, h2 {
+    color: darkmagenta; 
+    margin-left: 20px; /* Reduced margin for better mobile view */
 }
 
-.commguide{
+h2 {
+    color: grey;
+}
+
+.commguide {
     border-style: solid;
-    padding: 40px;
+    padding: 20px; /* Reduced padding for smaller screens */
     border-color: #222;
     color: white;
-    margin-left:260px;
+    margin-left: 20px; /* Reduced margin for better mobile view */
     margin-right: 20px;
     background-color: #333;
     overflow: auto;
 }
- 
+
 .light-mode .commguide {
     background-color: white;
     color: black;
     border-color: #c9c9c9;
- }
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+    h1, h2 {
+        margin-left: 260px; /* Original margin for larger screens */
+    }
+
+    .commguide {
+        padding: 40px; /* Original padding for larger screens */
+        margin-left: 260px; /* Original margin for larger screens */
+    }
+}
+
+/* Additional media query for very small screens */
+@media (max-width: 480px) {
+    h1, h2 {
+        margin-left: 10px; /* Even smaller margin for very small devices */
+    }
+
+    .commguide {
+        padding: 10px; /* Smaller padding for very small devices */
+        margin-left: 10px; /* Smaller margin for very small devices */
+    }
+}
