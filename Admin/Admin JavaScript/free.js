@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const textarea = document.getElementById('resizable-textarea');
-    const saveButton = document.getElementById('save-button');
+    const saveButton = document.getElementById('save-buttons');
 
     // Retrieve saved text from localStorage when the page loads
     const savedText = localStorage.getItem('savedText');

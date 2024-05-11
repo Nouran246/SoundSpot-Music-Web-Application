@@ -22,7 +22,7 @@
   
   
   
-  #save-button {
+  #save-buttons {
     margin-top: 10px;
     margin-top: 10px;
     padding: 10px 20px;
@@ -36,7 +36,7 @@
     margin-left:1280px;
   }
   
-  #save-button:hover {
+  #save-buttons:hover {
     background-color: #6a006a; /* Darker shade of purple on hover */
   }
   
@@ -119,7 +119,7 @@ body.light-mode .plan {
       margin-left: 5%; /* Adjusted margin for smaller screens */
   }
 
-  #save-button {
+  #save-buttons {
       margin-left: 5%; /* Adjusted margin for smaller screens */
   }
 
