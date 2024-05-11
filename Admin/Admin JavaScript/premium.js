@@ -159,6 +159,7 @@ function editPlanPrice(planType) {
 }
 document.addEventListener('DOMContentLoaded', function() {
     // Get the textarea and save button
+    
     const textarea2 = document.getElementById('resizable-textarea-2');
     const saveButton2 = document.getElementById('save-button-2');
 
@@ -223,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to hide the pop-up form
     function hidePopupForm() {
-        popupForm.style.display = 'none';
+        document.getElementById('popupForm').style.display = 'none';
     }
 
     // Function to handle form submission
@@ -342,6 +343,34 @@ function clearErrorMessage(field) {
     }
 }
 
-        
+
 });
 
+function hidePopupForm() {
+    document.getElementById('popupForm').style.display = 'none';
+}
+function deletePlan(planType) {
+    console.log('Deleting plan:', planType);
+    const planContainer = document.querySelector(`#${planType}-plan-details`).closest('.plan');
+    if (planContainer) {
+        planContainer.remove();
+
+        // Hide the corresponding edit button
+        const editButtons = document.querySelectorAll(`.edit-button[onclick="editPlan('${planType}')"]`);
+        editButtons.forEach(button => {
+            button.style.display = 'none';
+        });
+
+        // Hide the corresponding delete button
+        const deleteButtons = document.querySelectorAll(`.delete-button[onclick="deletePlan('${planType}')"]`);
+        deleteButtons.forEach(button => {
+            button.style.display = 'none';
+        });
+
+        // Remove details from local storage
+        localStorage.removeItem(`${planType}PlanDetails`);
+        alert('Plan deleted: ' + planType);
+    } else {
+        console.log('Plan container not found');
+    }
+}
