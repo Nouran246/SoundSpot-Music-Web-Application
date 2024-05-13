@@ -115,7 +115,7 @@ function closeMicModal() {
     function showProfileEditWindow() {
         document.getElementById("edit-window").style.display = "block";
     }
-
+    
     // Function to hide profile editing window
     function hideProfileEditWindow() {
         document.getElementById("edit-window").style.display = "none";
@@ -181,6 +181,29 @@ function closeMicModal() {
         // For now, let's just close the edit window
         hideProfileEditWindow();
     }
+    
+// Get the newProfilePic input element
+var newProfilePicInput = document.getElementById("newProfilePic");
+
+// Add an event listener to the input element
+newProfilePicInput.addEventListener("change", function() {
+    // Check if a file has been selected
+    if (newProfilePicInput.files.length > 0) {
+        // Get the selected file
+        var file = newProfilePicInput.files[0];
+
+        // Check if the selected file is an image
+        if (file.type.startsWith("image/")) {
+            // It's an image, allow the selection and disable the input to prevent further changes
+            newProfilePicInput.disabled = true;
+        } else {
+            // It's not an image, reset the input
+            newProfilePicInput.value = "";
+            alert("Please select an image file.");
+        }
+    }
+});
+
     
     
     // Dark and light mode

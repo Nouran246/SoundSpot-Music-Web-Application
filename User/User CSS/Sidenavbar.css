@@ -766,6 +766,8 @@ body.light-mode .profile_dropDownMenu {
     background-color: #6a0dad; /* Dark purple background color */
     transition: background-color 0.3s ease; /* Smooth transition effect */
     border: none; /* Remove button border */
+    display: inline-block; /* Make buttons display inline-block */
+    margin-right: 10px; /* Add spacing between buttons */
   }
   
   .edit-content button:hover {
