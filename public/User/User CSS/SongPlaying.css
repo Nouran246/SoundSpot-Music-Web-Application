@@ -1,0 +1,241 @@
+.minimizedsongcontainer {
+    position: fixed;
+    /* bottom: 45px;  */ /*law 7ateet footer ha7oto*/
+    bottom: 5px;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-bar {
+    flex-direction: column; 
+}
+.player-bar button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    left: 5%;    
+    border-radius: 50%;
+    margin: 20px; 
+    width: 40px;
+    height: 40px;
+    
+}
+
+.player-bar #maxpage{
+   left: 60%;
+}
+
+.player-bar #play{
+    background-color: darkmagenta;
+}
+
+.player-bar button:hover {
+    opacity: 0.7;
+    background-color: #333;
+    
+}
+
+.player-bar #play:hover{
+    background-color: darkmagenta;
+    opacity: 1;
+}
+.songinfo{
+    bottom: 55px;
+    margin: 90px;
+    padding-bottom: 40px;
+}
+#songname{
+    font-size: 17px;
+    position: absolute;
+    left: 320px;
+}
+#artistname{
+    font-size: 13px;
+    position: absolute;
+    left: 320px;
+}
+#songpic{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    left: 250px;
+}
+
+#artistname:hover, #songname:hover{
+    text-decoration: underline;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 80px;
+    background-color: #333;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px; 
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+#songname {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+}
+
+.fa-headphones-simple {
+    animation: none; 
+    padding: 0px 5px;
+}
+
+.playing .fa-headphones-simple {
+    animation: beat 0.5s infinite; 
+    color: darkmagenta;
+}
+
+input[type="range"] {
+    width: 90%;
+    margin-left: 1%;
+    background-color: darkmagenta;
+} 
+
+.time-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px; 
+}
+
+#current-time, #duration {
+    font-size: 12px; 
+    color: white; 
+}
+
+#volumeControl {
+    width: 90%; 
+    margin: 0px 10px 5px; 
+    background-color: darkmagenta;
+}
+.maximizedsongcontainer {
+    position: fixed;
+    background-color: black;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 2s ease; 
+    opacity: 0; 
+    pointer-events: none; 
+    z-index: -1; 
+}
+
+#pic {
+    width: 400px;
+    height: 400px;
+    align-items: center;
+    margin-left: 770px;
+    margin-top: 20px;
+    display: none;
+}
+
+.minimizedsongcontainer {
+    transition: opacity 1s ease-out; 
+    opacity: 1; 
+}
+
+.maximizedsongcontainer.show {
+    opacity: 1; 
+    pointer-events: auto; 
+    z-index: 1; 
+
+}
+
+.maximizedsongcontainer button{
+    margin-left: 1500px;
+    margin-top: 20px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%; 
+    width: 40px;
+    height: 40px;
+}
+
+.maximizedsongcontainer .info{
+    align-items: center;
+    left: 300px;
+}
+
+.tool .tooltipptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px; 
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: 99%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tool:hover .tooltipptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+#songh1{
+    margin-left: 870px;
+}
+#songh3{
+    margin-left: 930px;
+}
+#songh1:hover{
+    text-decoration: underline;
+    color: darkmagenta;
+}
+#songh3:hover{
+    text-decoration: underline;
+}
+.accent {
+    accent-color: darkmagenta;
+}
+
