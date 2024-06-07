@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <title>Login</title>
 </head>
-
 <body>
-
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form id="signupForm">
+            <form id="signupForm" action="/auth/signup" method="POST">
                 <h1>Create Account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -28,30 +25,31 @@
                 <div class="error" id="emailErr"></div>
                 <input type="password" placeholder="Password" name="password">
                 <div class="error" id="passwordErr"></div>
-                <input type="password" placeholder="Confirm Password" name="confirm">
+                <input type="password" placeholder="Confirm Password" name="confirmPassword">
                 <div class="error" id="confpassErr"></div>
-                <input type="text" placeholder="Phone" name="phone">
+                <input type="text" placeholder="Phone" name="phone_number">
                 <div class="error" id="mobileErr"></div>
                 <div class="gender">
-                    <input type="radio" id="male" name="gender" value="male">
+                    <input type="radio" id="male" name="gender" value="Male">
                     <label for="male">Male</label>
-                    <input type="radio" id="female" name="gender" value="female">
+                    <input type="radio" id="female" name="gender" value="Female">
                     <label for="female">Female</label>
                 </div>
                 <div class="error" id="genderErr"></div>
                 <select name="country">
-                    <option>Select</option>
-                    <option>Australia</option>
-                    <option>India</option>
-                    <option>United States</option>
-                    <option>United Kingdom</option>
+                    <option value="Select">Select</option>
+                    <option value="Australia">Australia</option>
+                    <option value="India">India</option>
+                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
                 </select>
                 <div class="error" id="countryErr"></div>
+                <input type="hidden" name="type" value="user"> <!-- Adjust type as needed -->
                 <button type="button" onclick="validateForm(document.getElementById('signupForm'))">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form id="loginForm" action="/auth/login" method="POST">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -60,11 +58,11 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email password</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="email" placeholder="Email" name="username">
+                <input type="password" placeholder="Password" name="password">
                 <a href="#">Forget Your Password?</a>
                 <div class="error" id="loginErr"></div>
-                <button type="button" onclick="validateLogin()">Sign In</button> <!--for signing in-->
+                <button type="button" onclick="validateLogin()">Sign In</button>
             </form>
         </div>
         <div class="toggle-container">
@@ -85,5 +83,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>

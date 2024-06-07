@@ -14,11 +14,11 @@ function validateForm(form) {
     // Retrieving the values of form elements 
     var name = form.firstname.value;
     var email = form.email.value;
-    var mobile = form.phone.value;
+    var mobile = form.phone_number.value;
     var country = form.country.value;
     var gender = form.gender.value;
     var password = form.password.value;
-    var confirm = form.confirm.value;
+    var confirm = form.confirmPassword.value;
     
     // Defining error variables with a default value
     var nameErr = emailErr = mobileErr = countryErr = genderErr = passwordErr = confirmErr = false;
@@ -63,11 +63,11 @@ function validateForm(form) {
     // Validate confirm password
     if(confirm == "") {
         document.getElementById("confpassErr").innerText = "Please confirm your password";
-        confpassErr = true;
+        confirmErr = true;
     } else if (confirm != password) {       
-        document.getElementById("confpassErr").innerText = "confirmation incorrect";       
-    }
-    else{
+        document.getElementById("confpassErr").innerText = "Passwords do not match";       
+        confirmErr = true;
+    } else {
         document.getElementById("confpassErr").innerText = "";  
     }
 
@@ -78,7 +78,7 @@ function validateForm(form) {
     } else {
         var regex = /^[1-9]\d{9}$/;
         if(regex.test(mobile) === false) {
-            document.getElementById("mobileErr").innerText = "Please enter a valid 10 digit mobile number";
+            document.getElementById("mobileErr").innerText = "Please enter a valid 10-digit mobile number";
             mobileErr = true;
         } else {
             document.getElementById("mobileErr").innerText = "";
@@ -94,7 +94,7 @@ function validateForm(form) {
     }
     
     // Validate gender
-    if(gender == "") {
+    if(!gender) {
         document.getElementById("genderErr").innerText = "Please select your gender";
         genderErr = true;
     } else {
@@ -102,35 +102,23 @@ function validateForm(form) {
     }
     
     // Prevent the form from being submitted if there are any errors
-    if(nameErr || emailErr || mobileErr || countryErr || genderErr || passwordErr || confpassErr) {
+    if(nameErr || emailErr || mobileErr || countryErr || genderErr || passwordErr || confirmErr) {
        return false;
     } else {
-        // Creating a string from input data for preview
-        var dataPreview = "You've entered the following details: \n" +
-                          "Full Name: " + name + "\n" +
-                          "Email Address: " + email + "\n" +
-                          "Mobile Number: " + mobile + "\n" +
-                          "Country: " + country + "\n" +
-                          "Gender: " + gender + "\n";
-
-        // Display input data in a dialog box before submitting the form
-        alert(dataPreview);
+        form.submit();
     }
 }
 
 function validateLogin() {
-    var email = document.querySelector('.sign-in form input[type="email"]').value;
-    var password = document.querySelector('.sign-in form input[type="password"]').value;
+    var form = document.getElementById('loginForm');
+    var email = form.username.value;
+    var password = form.password.value;
     
-    if (email === "1" && password === "1") {
-        window.location.href = "../UserHomePage.html";  
-    }
-    else if(email === "2" && password === "2"){
-        window.location.href = "../Admin/Admin HTML/home.html";
-    } 
-    else {
-        document.getElementById("loginErr").innerText = "Incorrect email or password";
+    if (email === "" || password === "") {
+        document.getElementById("loginErr").innerText = "Please enter both email and password";
         document.getElementById("loginErr").style.color = "red";  
+        return false;
+    } else {
+        form.submit();
     }
 }
-
