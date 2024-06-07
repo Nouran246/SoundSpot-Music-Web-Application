@@ -18,7 +18,6 @@
     flex-direction: column;
     align-items: flex-start;
     width: 1040px;
-
 }
 
 .list-item,
@@ -1171,4 +1170,46 @@ i.hovered {
 #edit-popup {
     width: 825px;
     height: 350px;
+}
+
+/* Popup styles for light mode */
+body.light-mode .delete-popup,
+body.light-mode .popup-content {
+    color: #000;
+    border-color: #800080;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* Button styles for light mode */
+body.light-mode #cancel-delete,
+body.light-mode #ok-delete,
+body.light-mode #save,
+body.light-mode #cancel {
+    background-color: #fff;
+    color: #000;
+    outline-color: #800080;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+body.light-mode #edit-popup {
+    color: #000;
+    background-color: #fff;
+}
+
+body.light-mode .playlist-display {
+    scrollbar-color: #fff #999;
+}
+
+body.light-mode .editpopup-labels label {
+    color: #000;
+    border-bottom-color: #800080;
+}
+
+body.light-mode .editpopup-labels label.active {
+    background-color: #333;
+}
+
+body.light-mode .editpopup-labels label:hover {
+    background-color: #333;
 }

@@ -45,24 +45,154 @@ users.forEach(function (user) {
     user.photo = getRandomPhotoURL();
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    console.log("Dom content loaded");
+/*-------------display user info (accordion)----------*/
+
+function User_Info() {
+    var userInfoContainers = document.querySelectorAll('.user-info-container');
+    userInfoContainers.forEach(function (container) {
+        container.style.display = 'none';
+    });
+    var listItems = document.querySelectorAll('.list-item');
+    listItems.forEach(function (item) {
+        var chevronIcon = item.querySelector('.fa-chevron-right');
+        if (chevronIcon) {
+            chevronIcon.addEventListener('click', function (event) {
+                event.stopPropagation();
+                toggleItem(item);
+            });
+        }
+
+        item.addEventListener('click', function () {
+            var isActive = this.classList.contains('active');
+
+            this.classList.toggle('active', !isActive);
+
+            var caretIcon = this.querySelector('.fa-chevron-right');
+            if (caretIcon) {
+                caretIcon.classList.remove('fa-chevron-right');
+                caretIcon.classList.add('fa-chevron-down');
+            } else {
+                caretIcon = this.querySelector('.fa-chevron-down');
+                caretIcon.classList.remove('fa-chevron-down');
+                caretIcon.classList.add('fa-chevron-right');
+            }
+
+            if (!isActive) {
+                listItems.forEach(function (otherItem) {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+
+                        var otherCaretIcon = otherItem.querySelector('.fa-chevron-down');
+                        if (otherCaretIcon) {
+                            otherCaretIcon.classList.remove('fa-chevron-down');
+                            otherCaretIcon.classList.add('fa-chevron-right');
+                        }
+                        var otherUserInfoContainer = otherItem.nextElementSibling;
+                        if (otherUserInfoContainer) {
+                            otherUserInfoContainer.style.display = 'none';
+                        }
+                    }
+                });
+            }
+        });
+    });
+}
+
+/*------Search function-------*/
+
+function setupSearch() {
+    const searchInput = document.querySelector('.search-bar input');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            const searchText = this.value.toLowerCase().trim();
+            const listItems = document.querySelectorAll('.list-item');
+
+            listItems.forEach(function (item) {
+                const itemText = item.querySelector('.text').textContent.toLowerCase();
+
+                if (searchText === '' || itemText.includes(searchText)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    }
+}
+
+/*--------Adjust checkboxes when window minimized----------*/
+function adjustCheckboxStyles() {
+    console.log("Function called");
+
+    var checkboxInputs = document.querySelectorAll(".custom-checkbox");
+    var sidebar = document.querySelector(".sidebar");
     console.log(window.innerWidth);
 
-    console.log("User Checkboxes:", userCheckboxes);
+    checkboxInputs.forEach(function (input) {
+        if (window.innerWidth <= 1200) {
+            console.log("Window width is less than or equal to 1200");
 
-    /* Pagination Var */
-    var usersPerPage = 10;
+            input.style.width = "80px";
+            input.style.height = "24px";
+            sidebar.classList.add("minimized");
+
+        } else {
+            console.log("Window width is not it");
+
+            input.style.width = "170px";
+            input.style.height = "25px";
+            input.style.marginRight = "21px";
+            sidebar.classList.remove("minimized");
+
+        }
+    });
+}
+
+/*adjust side bar*/
+function adjustSidebar() {
+    var sidebar = document.querySelector(".sidebar");
+
+    if (window.innerWidth <= 990) {
+        minimizeSidebar();
+    } else {
+        restoreSidebar();
+    }
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+
+    /*--------CONSOLE-------*/
+    console.log("Dom content loaded");
+    console.log(window.innerWidth);
+    console.log("User Checkboxes:", userCheckboxes);
+    function logWindowWidth() {
+        console.log("Window width:", window.innerWidth);
+    }
+
+
+    /*--------WINDOW-------*/
+    window.addEventListener("resize", logWindowWidth);
+    window.addEventListener("DOMContentLoaded", adjustCheckboxStyles);
+    window.addEventListener("resize", adjustCheckboxStyles);
+    window.addEventListener("DOMContentLoaded", adjustSidebar);
+    window.addEventListener("resize", adjustSidebar);
+
+    /*---------VAR--------*/
+    var usersPerPage = 5;
     var currentPage = 1;
     var sortOrder = 1; // 1 for ascending, -1 for descending
-
-    /* checkboxes Var */
     var userCheckboxes = document.querySelectorAll('.checkbox-input');
     var userCheckboxesTop = document.querySelectorAll('.checkbox-input-top');
+
+    /*-------FUNCTIONS-------*/
+
     function calculateTotalPages() {
         return Math.ceil(users.length / usersPerPage);
     }
-
     function getTimeDifference(lastAccess) {
         var currentTime = new Date();
         var accessTime = new Date(lastAccess);
@@ -70,8 +200,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
         return daysDifference === 0 ? 'Today' : daysDifference === 1 ? 'Yesterday' : daysDifference + ' days ago';
     }
-
-
     function displayUsers(page) {
         var startIndex = (page - 1) * usersPerPage;
         var endIndex = startIndex + usersPerPage;
@@ -90,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
             listItem.classList.add("content");
 
             var userIcon = document.createElement("img");
-            userIcon.src = user.photo; 
+            userIcon.src = user.photo;
 
             var nameDiv = document.createElement("div");
             nameDiv.classList.add("text");
@@ -328,23 +456,8 @@ document.addEventListener('DOMContentLoaded', function () {
             securityContent.style.display = 'none';
 
             actualContent.appendChild(securityContent);
-
-/*             var editButton = document.createElement("button");
-            editButton.textContent = "Edit";
-            editButton.classList.add("btn");
-            editButton.id = "edit-button";
-            editButton.addEventListener("click", () => handleEditButtonClick());
-            editButton.addEventListener("click", function () {
-                if (this.textContent === "Edit") {
-                    this.textContent = "Save";
-                } else {
-                    this.textContent = "Edit";
-                }
-            });
-            actualContent.appendChild(editButton); */
-
             listItem.addEventListener('click', function () {
-                var infoContainer = listItem.nextElementSibling; 
+                var infoContainer = listItem.nextElementSibling;
                 infoContainer.style.display = infoContainer.style.display === "none" ? "block" : "none";
 
                 function toggleIcon(icon, content) {
@@ -355,22 +468,22 @@ document.addEventListener('DOMContentLoaded', function () {
                         var currentContent = contents[index];
                         if (document.body.classList.contains('light-mode')) {
                             if (currentIcon === icon) {
-                                currentIcon.style.color = "#800080"; 
-                                currentContent.style.display = "block"; 
+                                currentIcon.style.color = "#800080";
+                                currentContent.style.display = "block";
                             }
                             else {
-                                currentIcon.style.color = "#333"; 
-                                currentContent.style.display = "none"; 
+                                currentIcon.style.color = "#333";
+                                currentContent.style.display = "none";
                             }
                         }
                         else {
                             if (currentIcon === icon) {
-                                currentIcon.style.color = "#800080"; 
-                                currentContent.style.display = "block"; 
+                                currentIcon.style.color = "#800080";
+                                currentContent.style.display = "block";
 
                             } else {
                                 currentIcon.style.color = "#333";
-                                currentContent.style.display = "none"; 
+                                currentContent.style.display = "none";
                             }
                         }
                     });
@@ -387,51 +500,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     toggleIcon(securityIcon, securityContent);
                 });
                 chevronIcon.addEventListener('click', function (event) {
-                    event.stopPropagation(); 
-                    toggleItem(item); 
+                    event.stopPropagation();
+                    toggleItem(item);
                 });
 
-                
+
             });
 
 
         });
     }
-
-
-    function adjustCheckboxStyles() {
-        console.log("Function called"); 
-
-        var checkboxInputs = document.querySelectorAll(".custom-checkbox");
-        var sidebar = document.querySelector(".sidebar");
-        console.log(window.innerWidth); 
-
-        checkboxInputs.forEach(function (input) {
-            if (window.innerWidth <= 1200) {
-                console.log("Window width is less than or equal to 1200");
-
-                input.style.width = "80px";
-                input.style.height = "24px";
-                sidebar.classList.add("minimized");
-
-            } else {
-                console.log("Window width is not it");
-
-                input.style.width = "170px";
-                input.style.height = "25px";
-                input.style.marginRight = "21px";
-                sidebar.classList.remove("minimized");
-
-            }
-        });
-    }
-    function logWindowWidth() {
-        console.log("Window width:", window.innerWidth);
-    }
-    window.addEventListener("resize", logWindowWidth);
-    window.addEventListener("DOMContentLoaded", adjustCheckboxStyles);
-    window.addEventListener("resize", adjustCheckboxStyles);
     function updatePagination() {
+        console.log("Updating pagination...");
+
         var totalPages = calculateTotalPages();
         var pagination = document.querySelector('.pagination');
         pagination.innerHTML = '';
@@ -464,9 +545,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
+        console.log("Current page:", currentPage);
+        console.log("Total pages:", totalPages);
     }
-
     function goToPage(page) {
+        console.log("Going to page:", page);
+
         if (page < 1) {
             page = 1;
         }
@@ -475,68 +559,17 @@ document.addEventListener('DOMContentLoaded', function () {
             page = totalPages;
         }
         currentPage = page;
+        console.log("Current page:", currentPage);
         displayUsers(currentPage);
         updatePagination();
         User_Info();
 
     }
-
-    function User_Info() {
-        var userInfoContainers = document.querySelectorAll('.user-info-container');
-        userInfoContainers.forEach(function (container) {
-            container.style.display = 'none';
-        });
-        var listItems = document.querySelectorAll('.list-item');
-        listItems.forEach(function (item) {
-            var chevronIcon = item.querySelector('.fa-chevron-right');
-            if (chevronIcon) {
-                chevronIcon.addEventListener('click', function (event) {
-                    event.stopPropagation(); 
-                    toggleItem(item); 
-                });
-            }
-
-            item.addEventListener('click', function () {
-                var isActive = this.classList.contains('active');
-
-                this.classList.toggle('active', !isActive);
-
-                var caretIcon = this.querySelector('.fa-chevron-right');
-                if (caretIcon) {
-                    caretIcon.classList.remove('fa-chevron-right');
-                    caretIcon.classList.add('fa-chevron-down');
-                } else {
-                    caretIcon = this.querySelector('.fa-chevron-down');
-                    caretIcon.classList.remove('fa-chevron-down');
-                    caretIcon.classList.add('fa-chevron-right');
-                }
-
-                if (!isActive) {
-                    listItems.forEach(function (otherItem) {
-                        if (otherItem !== item && otherItem.classList.contains('active')) {
-                            otherItem.classList.remove('active');
-
-                            var otherCaretIcon = otherItem.querySelector('.fa-chevron-down');
-                            if (otherCaretIcon) {
-                                otherCaretIcon.classList.remove('fa-chevron-down');
-                                otherCaretIcon.classList.add('fa-chevron-right');
-                            }
-                            var otherUserInfoContainer = otherItem.nextElementSibling;
-                            if (otherUserInfoContainer) {
-                                otherUserInfoContainer.style.display = 'none';
-                            }
-                        }
-                    });
-                }
-            });
-        });
-    }
-    
-    /* Delete */
+    /*--------Delete------ */
     var topCheckbox = document.getElementById('topCheckbox1');
     var deleteusersIcon = document.getElementById('delete-icon1');
     var deletePopup = document.getElementById('delete-popup');
-    var selectItemPopup = document.getElementById('select-item-popup'); 
+    var selectItemPopup = document.getElementById('select-item-popup');
     var noUsers = document.getElementById('select-item');
 
     deleteusersIcon.addEventListener('click', function () {
@@ -558,7 +591,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
         else {
-            selectItemPopup.style.display = 'block'; 
+            selectItemPopup.style.display = 'block';
             setTimeout(function () {
                 selectItemPopup.style.display = 'none';
             }, 2000);
@@ -568,17 +601,29 @@ document.addEventListener('DOMContentLoaded', function () {
     var okButton = document.getElementById('ok-delete');
     okButton.addEventListener('click', function () {
         var checkboxes = document.querySelectorAll('.custom-checkbox');
-        var newUsers = [];
+        var selectedUsers = [];
         checkboxes.forEach(function (checkbox) {
-            if (!checkbox.checked) {
+            if (checkbox.checked) {
                 var username = checkbox.getAttribute('data-username');
                 var user = users.find(u => u.username === username);
                 if (user) {
-                    newUsers.push(user);
+                    selectedUsers.push(user);
                 }
             }
         });
-        users = newUsers;
+        console.log('Selected users:', selectedUsers);
+    
+        selectedUsers.forEach(function(selectedUser) {
+            var index = users.findIndex(function(user) {
+                return user.username === selectedUser.username;
+            });
+            if (index !== -1) {
+                users.splice(index, 1);
+            }
+        });
+    
+        console.log('New users after deletion:', users);
+    
         displayUsers(currentPage);
         updatePagination();
         User_Info();
@@ -588,6 +633,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         topCheckbox.checked = false;
     });
+    
 
     var cancelButton = document.getElementById('cancel-delete');
     cancelButton.addEventListener('click', function () {
@@ -601,26 +647,6 @@ document.addEventListener('DOMContentLoaded', function () {
             checkbox.checked = isChecked;
         });
     });
-
-    function toggleItem(item) {
-        var isActive = item.classList.contains('active');
-        item.classList.toggle('active', !isActive);
-        var caretIcon = item.querySelector('.fa-chevron-right');
-        if (caretIcon) {
-            caretIcon.classList.remove('fa-chevron-right');
-            caretIcon.classList.add('fa-chevron-down');
-        } else {
-            caretIcon = item.querySelector('.fa-chevron-down');
-            caretIcon.classList.remove('fa-chevron-down');
-            caretIcon.classList.add('fa-chevron-right');
-        }
-        var userInfoContainer = item.nextElementSibling;
-        if (userInfoContainer) {
-            userInfoContainer.style.display = isActive ? 'none' : 'block';
-        }
-    }
-
-
 
     function sortUsers() {
         sortOrder *= -1; // Toggle sort order
@@ -653,24 +679,15 @@ document.addEventListener('DOMContentLoaded', function () {
         var top = document.querySelector(".top-content");
 
         if (sidebar.classList.contains("minimized")) {
-            container.style.marginLeft = "250px"; 
-            top.style.marginLeft = "250px"; 
+            container.style.marginLeft = "250px";
+            top.style.marginLeft = "250px";
 
         } else {
-            container.style.marginLeft = "350px"; 
-            top.style.marginLeft = "350px"; 
+            container.style.marginLeft = "350px";
+            top.style.marginLeft = "350px";
 
         }
     });
-    function adjustSidebar() {
-        var sidebar = document.querySelector(".sidebar");
-
-        if (window.innerWidth <= 990) {
-            minimizeSidebar();
-        } else {
-            restoreSidebar();
-        }
-    }
 
 
     var add_icon = document.getElementById('plus');
@@ -678,41 +695,15 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'addsong.html';
     });
 
-    window.addEventListener("DOMContentLoaded", adjustSidebar);
-    window.addEventListener("resize", adjustSidebar);
 
+    setupSearch();
     displayUsers(currentPage);
     updatePagination();
     sortUsers();
+    adjustSidebar();
 
     var sortIcon = document.querySelector('.fa-sort');
     sortIcon.addEventListener('click', sortUsers);
 
 });
-
-
-//search user-list
-document.addEventListener('DOMContentLoaded', function () {
-
-    const searchInput = document.querySelector('.search-bar input');
-
-    searchInput.addEventListener('input', function () {
-
-        const searchText = this.value.toLowerCase().trim();
-        const listItems = document.querySelectorAll('.list-item');
-
-        listItems.forEach(function (item) {
-            const itemText = item.querySelector('.text').textContent.toLowerCase();
-
-            if (searchText === '' || itemText.includes(searchText)) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
-
-});
-
-
 

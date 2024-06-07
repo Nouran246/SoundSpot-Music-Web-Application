@@ -454,15 +454,15 @@ document.addEventListener('DOMContentLoaded', function () {
         var endPage = Math.min(startPage + 4, totalPages);
 
         if (currentPage > 1) {
-            pagination.innerHTML += <li class="page-item"><a class="page-link" href="#">Previous</a></li>;
+            pagination.innerHTML += `<li class="page-item"><a class="page-link" href="#">Previous</a></li>`;
         }
 
         for (var i = startPage; i <= endPage; i++) {
-            pagination.innerHTML += <li class="page-item"><a class="page-link" href="#" onclick="goToPage(${i}) ">${i}</a></li>;
+            pagination.innerHTML += `<li class="page-item"><a class="page-link" href="#" onclick="goToPage(${i}) ">${i}</a></li>`;
         }
 
         if (currentPage < totalPages) {
-            pagination.innerHTML += <li class="page-item"><a class="page-link" href="#">Next</a></li>;
+            pagination.innerHTML += `<li class="page-item"><a class="page-link" href="#">Next</a></li>`;
         }
 
         pagination.querySelectorAll('.page-link').forEach(function (link) {
@@ -634,3 +634,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 }); */
+
+
+
+

@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="../Admin%20CSS/managePlaylist.css">
     <script src="../Admin%20JavaScript/managePlaylist.js"></script>
     <script src="../Admin%20JavaScript/german.js"></script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
-
 
 </head>
 
@@ -103,25 +101,24 @@
         <div class="settings-popup">
             <h3>Settings</h3>
 
- 
-            <h4>Change Language</h4> 
-        <div id="google_translate_element"></div>
-      
-    
-   
-        <div class="button-group">
-            <button id="save-button">Save</button>
-            <button id="cancel-button">Cancel</button>
-        </div>
+            <div class="language-selection">
+                <label for="language-select">Change Language:</label>
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="gm">German (Deutsch)</option>
+
+                </select>
+            </div>
+            <div class="button-group">
+                <button id="save-button">Save</button>
+                <button id="cancel-button">Cancel</button>
+            </div>
         </div>
     </div>
 
-
     <div class=" main-content">
         <div class="top-content">
-            <a href="addplaylist.html">
-                <i class="fa-solid fa-plus" title="Add Playlist"></i>
-            </a>
+            <i class="fa-solid fa-plus" id="plus" title="Add User"></i>
             <div class="top-texts">
                 <div class="top-text">Name</div>
                 <div class="top-text">Artist</div>
@@ -171,7 +168,7 @@
             </div>
         </div>
 
-
+        
 
         <div class="delete-popup" id="delete-popup">
             <h2>Confirm Deletion</h2>
@@ -304,7 +301,7 @@
                     <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img
                             src="photo\facebook.png"></a>
                     <a
-                        href="https://www.instagram.com/soundspot?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img
+                        href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img
                             src="photo\instagram.png"></a>
                     <a href="mailto:emailsspamm101@gmail.com"><img src="photo\gmail.png"></a>
                 </div>
