@@ -123,7 +123,7 @@ function validateLogin() {
     var password = document.querySelector('.sign-in form input[type="password"]').value;
     
     if (email === "1" && password === "1") {
-        window.location.href = "../User/User HTML/UserHomePage.html";  
+        window.location.href = "../UserHomePage.html";  
     }
     else if(email === "2" && password === "2"){
         window.location.href = "../Admin/Admin HTML/home.html";

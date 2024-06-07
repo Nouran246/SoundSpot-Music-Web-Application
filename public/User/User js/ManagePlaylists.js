@@ -20,7 +20,7 @@ function openModal() {
       // If the user entered a name, create a new list item for the playlist
       var playlistItem = document.createElement('li');
       var playlistLink = document.createElement('a');
-      playlistLink.setAttribute('href', '../User HTML/playlistPage.html?playlist=' + encodeURIComponent(playlistName));
+      playlistLink.setAttribute('href', '../../../view/playlistPage.html?playlist=' + encodeURIComponent(playlistName));
       var playlistDiv = document.createElement('div');
       playlistDiv.classList.add('playlist');
       var playlistImg = document.createElement('img');
