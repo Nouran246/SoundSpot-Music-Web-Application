@@ -1,54 +1,69 @@
-/* Base styles that apply when no specific media query condition is met */
-.communityguide {
-    margin-top: -4%;
+
+
+
+.cursive-titling {
+  
+    text-align: center;
+    margin-top: 20px;
+    font-size: 40px;
+   
+}
+.comphoto {
+    width: 25%;
+    height: 600px;
+   margin-top:-100px;
 }
 
-h1, h2 {
-    color: darkmagenta; 
-    margin-left: 20px; /* Reduced margin for better mobile view */
+
+.conrs {
+    display: flex;
+    align-items: center; /* Align items vertically */
 }
+
+.comphoto {
+    display: inline-block; /* Set the image to inline-block */
+    vertical-align: middle; /* Align the image vertically in the line */
+}
+
+.text{
+    margin-top:0;
+}
+
 
 h2 {
-    color: grey;
+    font-weight: bold;
 }
 
-.commguide {
-    border-style: solid;
-    padding: 20px; /* Reduced padding for smaller screens */
-    border-color: #222;
-    color: white;
-    margin-left: 20px; /* Reduced margin for better mobile view */
-    margin-right: 20px;
-    background-color: #333;
-    overflow: auto;
-}
 
-.light-mode .commguide {
-    background-color: white;
-    color: black;
-    border-color: #c9c9c9;
-}
+
+       
 
 /* Media queries for responsiveness */
 @media (min-width: 768px) {
-    h1, h2 {
-        margin-left: 260px; /* Original margin for larger screens */
+    h1, h2 ,p{
+        margin-left: 270px; /* Original margin for larger screens */
+    }
+   p{
+        margin-left: 290px; /* Original margin for larger screens */
     }
 
     .commguide {
         padding: 40px; /* Original padding for larger screens */
         margin-left: 260px; /* Original margin for larger screens */
+       
     }
 }
 
 /* Additional media query for very small screens */
 @media (max-width: 480px) {
-    h1, h2 {
-        margin-left: 10px; /* Even smaller margin for very small devices */
+    h1, h2, p {
+        margin-left: 40%; /* Adjust the margin for smaller screens */
     }
 
     .commguide {
-        padding: 10px; /* Smaller padding for very small devices */
-        margin-left: 10px; /* Smaller margin for very small devices */
+        padding: 2%; /* Adjust the padding for smaller screens */
+        margin-left: 5%; /* Adjust the margin for smaller screens */
+        margin-right: 5%;
+      
     }
 }
