@@ -1,30 +1,32 @@
 
-.Contacts h1{
-    margin-top: 0px;
+
+ h1{
+
+    margin-top: 50px;
+    text-align: center;
 }
+
 .contact {
     position: fixed;
-    top: 25%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-left: 40%;
+    top:215px;
+    left: 55%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
     align-items: center;
-    display: block;
-    border: 2px;
-    border-style: double;
-    background-color: #222;
-    border-radius: 30px;
-    margin: 30px; 
-    padding: 20px;
-    text-align: center;
-    width: 72%; 
-    height: auto; 
-    font-size: 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    border: 2px double;
+    background-color: #222;
+    border-radius: 30px;
+    margin: 30px;
+    padding: 20px;
+    text-align: center;
+    width: 72%;
+    height: auto;
+    font-size: 20px;
 }
+
 
 .light-mode .contact {
     background-color: white;
@@ -79,39 +81,97 @@
 }
 
 .aboutus pre {
-    position: fixed;
-    top: 55%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-left: 40%;
-    align-items: center;
-    display: block;
-    border: 2px;
-    border-style: double;
-    background-color: #222;
-    border-radius: 30px;
-    margin: 30px; 
-    padding: 20px;
-    text-align: center;
-    width: 72%; 
-    height: auto; 
-    font-family: Arial, sans-serif;
-    font-size: x-large;
-    color: white; 
-    overflow: auto; 
-    white-space: pre-wrap; 
+   
+        position: fixed;
+        top: 70%; /* Center vertically */
+        left: 57%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Center horizontally and vertically */
+        align-items: center;
+        display: block;
+        border: 2px double;
+        background-color: #222;
+        border-radius: 30px;
+        margin: 30px auto; /* Center horizontally */
+        padding: 20px;
+        text-align: center;
+        width: 72%;
+        height: auto;
+        font-family: Arial, sans-serif;
+        font-size: x-large;
+        color: white;
+        overflow: auto;
+        white-space: pre-wrap;
+    
 }
+
 
 h1{
     margin-left: 260px;
-    color: darkmagenta;
+   
 }
 #con h1{
-    margin-top:240px;
+    margin-top:200px;
     margin-left: 270px;
+    text-align: center;
 }
 #cov{
     position: fixed;
     top: 80%; 
+}
+
+
+@media (max-width: 480px) {
+    .contact {
+        position: static; /* Remove fixed positioning for smaller screens */
+
+        width: 70%; /* Adjust width for smaller screens */
+        margin: 10px; /* Reduce margin for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+        flex-direction: column; /* Change to column layout for smaller screens */
+        align-items: center; /* Center items vertically for smaller screens */
+        top: auto; /* Remove fixed positioning for smaller screens */
+        left: auto; /* Remove fixed positioning for smaller screens */
+        transform: none; /* Remove fixed positioning for smaller screens */
+        margin-top:45px;
+        margin-left:90px;
+    }
+
+    .aboutus pre {
+        position: static; /* Remove fixed positioning for smaller screens */
+        top: auto; /* Remove fixed positioning for smaller screens */
+        left: auto; /* Remove fixed positioning for smaller screens */
+        transform: none; /* Remove fixed positioning for smaller screens */
+        margin: 10px auto; /* Center horizontally for smaller screens */
+        width: 90%; /* Adjust width for smaller screens */
+        margin-top: 300px;
+        width: 70%;
+        margin-top:45px;
+        margin-left:90px;
+    }
+
+    h1 {
+        margin-left: 70px; /* Reset margin for smaller screens */
+        margin-top: 20px; /* Adjust margin top for smaller screens */
+        text-align: center; /* Center the heading for smaller screens */
+    }
+
+    #con h1 {
+        margin-top: 20px; /* Adjust margin top for smaller screens */
+        margin-left: 0; /* Reset margin for smaller screens */
+        text-align: center; /* Center the heading for smaller screens */
+    }
+    #con{
+        margin-left:100px;
+      
+    }
+    #cov {
+        position: static; /* Remove fixed positioning for smaller screens */
+        top: auto; /* Remove fixed positioning for smaller screens */
+        left: auto; /* Remove fixed positioning for smaller screens */
+    }
+
+    .item {
+        margin-bottom: 10px; /* Reduce margin between items for smaller screens */
+    }
 }
 
