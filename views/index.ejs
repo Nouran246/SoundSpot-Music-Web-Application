@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
     <title>Login</title>
 </head>
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form id="signupForm" action="/auth/signup" method="POST">
+            <form id="signupForm" onsubmit="return validateForm(event, this)" action="/auth/signup" method="POST">
                 <h1>Create Account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -44,12 +44,12 @@
                     <option value="United Kingdom">United Kingdom</option>
                 </select>
                 <div class="error" id="countryErr"></div>
-                <input type="hidden" name="type" value="user"> <!-- Adjust type as needed -->
-                <button type="button" onclick="validateForm(document.getElementById('signupForm'))">Sign Up</button>
+                <input type="hidden" name="type" value="user">
+                <button type="submit">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form id="loginForm" action="/auth/login" method="POST">
+            <form id="loginForm" onsubmit="return validateLogin(event)" action="/auth/login" method="POST">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -58,11 +58,11 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email password</span>
-                <input type="email" placeholder="Email" name="username">
+                <input type="email" placeholder="Email" name="loginemail">
                 <input type="password" placeholder="Password" name="password">
                 <a href="#">Forget Your Password?</a>
                 <div class="error" id="loginErr"></div>
-                <button type="button" onclick="validateLogin()">Sign In</button>
+                <button type="submit">Sign In</button>
             </form>
         </div>
         <div class="toggle-container">
@@ -81,6 +81,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

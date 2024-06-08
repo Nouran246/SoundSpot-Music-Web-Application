@@ -10,41 +10,43 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 
-function validateForm(form) {
+function validateForm(event, form) {
+    event.preventDefault(); // Prevent form from submitting
+
     // Retrieving the values of form elements 
     var name = form.firstname.value;
     var email = form.email.value;
     var mobile = form.phone_number.value;
     var country = form.country.value;
-    var gender = form.gender.value;
+    var gender = form.querySelector('input[name="gender"]:checked')?.value;
     var password = form.password.value;
     var confirm = form.confirmPassword.value;
-    
+
     // Defining error variables with a default value
     var nameErr = emailErr = mobileErr = countryErr = genderErr = passwordErr = confirmErr = false;
-    
+
     // Validate name
-    if(name == "") {
+    if (name === "") {
         document.getElementById("nameErr").innerText = "Please enter your name";
         nameErr = true;
     } else {
         var regex = /^[a-zA-Z\s]+$/;                
-        if(regex.test(name) === false) {
+        if (regex.test(name) === false) {
             document.getElementById("nameErr").innerText = "Please enter a valid name";
             nameErr = true;
         } else {
             document.getElementById("nameErr").innerText = "";
         }
     }
-    
+
     // Validate email address
-    if(email == "") {
+    if (email === "") {
         document.getElementById("emailErr").innerText = "Please enter your email address";
         emailErr = true;
     } else {
         // Regular expression for basic email validation
         var regex = /^\S+@\S+\.\S+$/;
-        if(regex.test(email) === false) {
+        if (regex.test(email) === false) {
             document.getElementById("emailErr").innerText = "Please enter a valid email address";
             emailErr = true;
         } else {
@@ -53,7 +55,7 @@ function validateForm(form) {
     }
 
     // Validate password
-    if(password == "") {
+    if (password === "") {
         document.getElementById("passwordErr").innerText = "Please enter your password";
         passwordErr = true;
     } else {       
@@ -61,10 +63,10 @@ function validateForm(form) {
     }
 
     // Validate confirm password
-    if(confirm == "") {
+    if (confirm === "") {
         document.getElementById("confpassErr").innerText = "Please confirm your password";
         confirmErr = true;
-    } else if (confirm != password) {       
+    } else if (confirm !== password) {       
         document.getElementById("confpassErr").innerText = "Passwords do not match";       
         confirmErr = true;
     } else {
@@ -72,46 +74,47 @@ function validateForm(form) {
     }
 
     // Validate mobile number
-    if(mobile == "") {
+    if (mobile === "") {
         document.getElementById("mobileErr").innerText = "Please enter your mobile number";
         mobileErr = true;
     } else {
         var regex = /^[1-9]\d{9}$/;
-        if(regex.test(mobile) === false) {
+        if (regex.test(mobile) === false) {
             document.getElementById("mobileErr").innerText = "Please enter a valid 10-digit mobile number";
             mobileErr = true;
         } else {
             document.getElementById("mobileErr").innerText = "";
         }
     }
-    
+
     // Validate country
-    if(country == "Select") {
+    if (country === "Select") {
         document.getElementById("countryErr").innerText = "Please select your country";
         countryErr = true;
     } else {
         document.getElementById("countryErr").innerText = "";
     }
-    
+
     // Validate gender
-    if(!gender) {
+    if (!gender) {
         document.getElementById("genderErr").innerText = "Please select your gender";
         genderErr = true;
     } else {
         document.getElementById("genderErr").innerText = "";
     }
-    
+
     // Prevent the form from being submitted if there are any errors
-    if(nameErr || emailErr || mobileErr || countryErr || genderErr || passwordErr || confirmErr) {
-       return false;
+    if (nameErr || emailErr || mobileErr || countryErr || genderErr || passwordErr || confirmErr) {
+        return false;
     } else {
         form.submit();
     }
 }
 
-function validateLogin() {
+function validateLogin(event) {
+    event.preventDefault();
     var form = document.getElementById('loginForm');
-    var email = form.username.value;
+    var email = form.loginemail.value;
     var password = form.password.value;
     
     if (email === "" || password === "") {

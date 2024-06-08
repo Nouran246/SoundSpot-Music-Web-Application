@@ -14,26 +14,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    validate: {
-      validator: function(v) {
-        return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v);
-      },
-      message: props => `${props.value} is not a valid email address!`
-    },
+    
   },
   phone: {
     type: String,
     required: true,
-    validate: {
-      validator: function(v) {
-        return /^\d{10}$/.test(v);
-      },
-      message: props => `${props.value} is not a valid 10-digit phone number!`
-    },
   },
   gender: {
     type: String,
-    enum: ['Male', 'Female', 'Other'],
     required: true,
   },
   country: {

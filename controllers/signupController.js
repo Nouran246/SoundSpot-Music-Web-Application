@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const registrationProcess = async (req, res) => {
   try {
     const { username, email, password, confirmPassword, phone_number, gender, country, type } = req.body;
-
+    console.log(req.body);
     if (password !== confirmPassword) {
       return res.render("signup", {
         currentPage: "signup",
