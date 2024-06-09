@@ -3,8 +3,8 @@ const bcrypt = require("bcrypt");
 
 const registrationProcess = async (req, res) => {
   try {
-    const { username, email, password, confirmPassword, phone_number, gender, country, type } = req.body;
-    console.log(req.body);
+    const { firstname, email, password, confirmPassword, phone_number, gender, country } = req.body;
+
     if (password !== confirmPassword) {
       return res.render("signup", {
         currentPage: "signup",
@@ -13,7 +13,7 @@ const registrationProcess = async (req, res) => {
       });
     }
 
-    const existingUser = await User.findOne({ username });
+    const existingUser = await User.findOne({ username: firstname });
     if (existingUser) {
       return res.render("signup", {
         currentPage: "signup",
@@ -33,21 +33,25 @@ const registrationProcess = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
-      username,
+      username: firstname,
       email,
       password: hashedPassword,
       phone: phone_number,
       gender,
       country,
-      type,
+      type: "user",
     });
 
     await newUser.save();
     req.session.user = newUser;
     res.redirect("/");
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
+    console.error("Error during registration:", error);
+    res.status(500).render("signup", {
+      currentPage: "signup",
+      error: "Internal Server Error. Please try again later.",
+      user: null,
+    });
   }
 };
 
