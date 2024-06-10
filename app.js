@@ -3,10 +3,10 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 require("dotenv").config();
 const { connectToMongoDB } = require("./config/mongo.js");
-const authRoutes = require("./routes/authRoutes.js");
+const { setupRoutes } = require("./routes/routes.js");
 
 const app = express();
-//
+
 // Serve static files
 app.use(express.static("public", { maxAge: "7d" }));
 
@@ -30,8 +30,7 @@ app.use(
 );
 
 // Setup routes
-app.use("/", authRoutes);
+setupRoutes(app);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
- 

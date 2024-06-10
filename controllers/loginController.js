@@ -1,10 +1,11 @@
+// controllers/loginController.js
 const User = require("../models/Users.js");
 const bcrypt = require("bcrypt");
-//
+
 const loginProcess = async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
+    const { loginemail, password } = req.body;
+    const user = await User.findOne({ email: loginemail });
 
     if (!user) {
       return res.status(401).send("Invalid email or password");
@@ -16,7 +17,7 @@ const loginProcess = async (req, res) => {
     }
 
     req.session.user = user;
-    res.redirect("/user-home"); // Redirect to the user home page after login
+    res.redirect("/auth/user-home");
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");

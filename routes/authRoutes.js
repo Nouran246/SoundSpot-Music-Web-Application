@@ -1,3 +1,4 @@
+// routes/authRoutes.js
 const express = require("express");
 const loginController = require("../controllers/loginController");
 const signupController = require("../controllers/signupController");
@@ -22,12 +23,12 @@ router.get("/user-home", (req, res) => {
     res.redirect("/");
   }
 });
-//
+
 // Process login
 router.post("/login", loginController.loginProcess);
 
 // Process signup
-router.post("/user-home", signupController.registrationProcess);
+router.post("/signup", signupController.registrationProcess);
 
 // Logout route
 router.get("/logout", (req, res) => {
