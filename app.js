@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 require("dotenv").config();
 const { connectToMongoDB } = require("./config/mongo.js");
-const { setupRoutes } = require("./routes/routes.js");
+const authRoutes = require("./routes/authRoutes.js");
 
 const app = express();
 
@@ -30,7 +30,8 @@ app.use(
 );
 
 // Setup routes
-setupRoutes(app);
+app.use("/", authRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+ 
