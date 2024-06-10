@@ -6,7 +6,7 @@ const { connectToMongoDB } = require("./config/mongo.js");
 const authRoutes = require("./routes/authRoutes.js");
 
 const app = express();
-
+//
 // Serve static files
 app.use(express.static("public", { maxAge: "7d" }));
 
