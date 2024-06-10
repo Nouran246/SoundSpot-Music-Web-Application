@@ -12,8 +12,6 @@ app.use((req, res, next) => {
     });
   }
 });
-// Define user-related routes here...
-app.get("/display", userController.displayAllUsers);
 // User-related routes
 app.get("/display", userController.displayAllUsers);
 app.post("/users", userController.addUser);

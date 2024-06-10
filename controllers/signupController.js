@@ -3,48 +3,30 @@ const bcrypt = require("bcrypt");
 
 const registrationProcess = async (req, res) => {
   try {
-    const { firstname, email, password, confirmPassword, phone_number, gender, country } = req.body;
+    const { username, password, email, phone, gender, country, type } = req.body;
 
-    if (password !== confirmPassword) {
-      return res.render("signup", {
-        currentPage: "signup",
-        error: "Passwords do not match.",
-        user: null,
-      });
+    if (!username || !password || !email || !phone || !gender || !country || !type) {
+      return res.status(400).send("All fields are required");
     }
 
-    const existingUser = await User.findOne({ username: firstname });
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.render("signup", {
-        currentPage: "signup",
-        error: "Username already exists.",
-        user: null,
-      });
-    }
-
-    const existingEmail = await User.findOne({ email });
-    if (existingEmail) {
-      return res.render("signup", {
-        currentPage: "signup",
-        error: "Email already exists.",
-        user: null,
-      });
+      return res.status(400).send("User with this email already exists");
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
-      username: firstname,
-      email,
+      username,
       password: hashedPassword,
-      phone: phone_number,
+      email,
+      phone,
       gender,
       country,
       type: "user",
     });
 
     await newUser.save();
-    req.session.user = newUser;
-    res.redirect("/");
+    res.status(201).send("User registered successfully");
   } catch (error) {
     console.error("Error during registration:", error);
     res.status(500).render("signup", {
