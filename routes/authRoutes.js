@@ -23,7 +23,17 @@ router.get("/user-home", (req, res) => {
     res.redirect("/");
   }
 });
-
+// CommunityGuidelines
+router.get("/CommunityGuidelines", (req, res) => {
+  if (req.session.user) {
+    res.render("CommunityGuidelines", {
+      currentPage: "CommunityGuidelines",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
 // Process login
 router.post("/login", loginController.loginProcess);
 
