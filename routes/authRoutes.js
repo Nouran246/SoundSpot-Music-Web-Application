@@ -1,6 +1,9 @@
 const express = require("express");
 const loginController = require("../controllers/loginController");
 const signupController = require("../controllers/signupController");
+const signupController = require("../controllers/CommunityControlers");
+const signupController = require("../controllers/CompanyControllers");
+
 const app = express();
 
 app.get("/login", (req, res) => {
@@ -42,5 +45,9 @@ app.get("/logout", (req, res) => {
     res.redirect("/auth/login");
   });
 });
+
+
+
+
 
 module.exports = app;

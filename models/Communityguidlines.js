@@ -7,7 +7,6 @@ const comuniSchema = new mongoose.Schema({
   },
 });
 
-// Optionally, you can create a model from the schema:
 const Comuni = mongoose.model('Comuni', comuniSchema);
 
 module.exports = Comuni;
