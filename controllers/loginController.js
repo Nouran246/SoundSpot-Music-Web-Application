@@ -17,7 +17,12 @@ const loginProcess = async (req, res) => {
     }
 
     req.session.user = user;
-    res.redirect("/auth/user-home");
+    if(user.type == "user"){
+      res.redirect("/auth/user-home");
+    }
+    else if(user.type == "admin"){
+      res.redirect("/auth/home");
+    }
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
