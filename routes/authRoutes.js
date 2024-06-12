@@ -34,6 +34,16 @@ router.get("/CommunityGuidelines", (req, res) => {
     res.redirect("/");
   }
 });
+router.get("/CommunityGuidelinesAdmin", (req, res) => {
+  if (req.session.user) {
+    res.render("CommunityGuidelinesAdmin", {
+      currentPage: "CommunityGuidelinesAdmin",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
 
 router.get("/home", (req, res) => {
   if (req.session.user) {
