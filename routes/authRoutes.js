@@ -34,6 +34,42 @@ app.use((req, res, next) => {
     });
   }
 });
+<<<<<<< Updated upstream
+=======
+// CommunityGuidelines
+router.get("/CommunityGuidelines", (req, res) => {
+  if (req.session.user) {
+    res.render("CommunityGuidelines", {
+      currentPage: "CommunityGuidelines",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/Subscription", (req, res) => {
+  if (req.session.user) {
+    res.render("Subscription", {
+      currentPage: "Subscription",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/Plan", (req, res) => {
+  if (req.session.user) {
+    res.render("Plan", {
+      currentPage: "Plan",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+// Process login
+router.post("/login", loginController.loginProcess);
+>>>>>>> Stashed changes
 
 // Add the logout route
 app.get("/logout", (req, res) => {
