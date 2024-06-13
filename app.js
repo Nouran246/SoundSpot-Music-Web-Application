@@ -1,21 +1,22 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const session = require("express-session");
-require("dotenv").config();
-const { connectToMongoDB } = require("./config/mongo.js");
-const { setupRoutes } = require("./routes/routes.js");
+// app.js
+require('dotenv').config();
+const express = require('express');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const { connectToMongoDB } = require('./config/mongo.js');
+const { setupRoutes } = require('./routes/routes.js');
 
 const app = express();
 
 // Serve static files
-app.use(express.static("public", { maxAge: "7d" }));
+app.use(express.static('public', { maxAge: '7d' }));
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Set view engine
-app.set("view engine", "ejs");
+app.set('view engine', 'ejs');
 
 // Connect to MongoDB
 connectToMongoDB();
@@ -32,5 +33,5 @@ app.use(
 // Setup routes
 setupRoutes(app);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
