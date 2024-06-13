@@ -25,6 +25,18 @@ router.get("/user-home", (req, res) => {
     res.redirect("/");
   }
 });
+
+router.get("/ManageUsers", (req, res) => {
+  if (req.session.user) {
+    res.render("ManageUsers", {
+      currentPage: "ManageUsers",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
 // CommunityGuidelines
 router.get("/CommunityGuidelines", async (req, res) => {
   if (req.session.user) {
