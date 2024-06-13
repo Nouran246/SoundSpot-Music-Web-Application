@@ -6,8 +6,8 @@ const companyprocess = async (req, res) => {
 
     // Check if COMPOVER is empty or null
     if (!COMPOVER) {
-      return res.render("community", {
-        currentPage: "community",
+      return res.render("Companyover", {
+        currentPage: "Companyover",
         error: "Text cannot be empty.",
         COMPOVER: null,
       });
