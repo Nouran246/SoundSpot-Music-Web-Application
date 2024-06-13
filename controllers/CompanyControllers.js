@@ -1,4 +1,5 @@
-const CompanyOverviewModel = require("../models/Company.js");
+// CompanyController.js
+const CompanyOverviewModel = require("../models/company.js");
 
 const companyprocess = async (req, res) => {
   try {
@@ -6,8 +7,8 @@ const companyprocess = async (req, res) => {
 
     // Check if COMPOVER is empty or null
     if (!COMPOVER) {
-      return res.render("Companyover", {
-        currentPage: "Companyover",
+      return res.render("CompanyOverview", {
+        currentPage: "CompanyOverview",
         error: "Text cannot be empty.",
         COMPOVER: null,
       });
@@ -17,17 +18,14 @@ const companyprocess = async (req, res) => {
     let companyOverview = await CompanyOverviewModel.findOne();
     if (!companyOverview) {
       // Create new company overview if none exist
-      companyOverview = new CompanyOverviewModel({ companyoverview: COMPOVER });
+      companyOverview = new CompanyOverviewModel({ COMPOVER });
     } else {
       // Update existing company overview
-      companyOverview.companyoverview = COMPOVER;
+      companyOverview.COMPOVER = COMPOVER;
     }
 
     // Save the updated company overview
     await companyOverview.save();
-
-    // Update session user (example, make sure it fits your application logic)
-    req.session.user = companyOverview;
 
     // Redirect to home page or appropriate route
     res.redirect("/");

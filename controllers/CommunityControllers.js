@@ -6,8 +6,8 @@ const communityProcess = async (req, res) => {
 
     // Check if Comguide is empty or null
     if (!Comguide) {
-      return res.render("community", {
-        currentPage: "community",
+      return res.render("CommunityGuidelinesAdmin", {
+        currentPage: "CommunityGuidelinesAdmin",
         error: "Text cannot be empty.",
         Comguide: null,
       });
