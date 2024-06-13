@@ -66,6 +66,17 @@ router.get("/Plans", (req, res) => {
     res.redirect("/");
   }
 });
+// Songs
+router.get("/Songs", (req, res) => {
+  if (req.session.user) {
+    res.render("Songs", {
+      currentPage: "Songs",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
 // Process login
 router.post("/login", loginController.loginProcess);
 
