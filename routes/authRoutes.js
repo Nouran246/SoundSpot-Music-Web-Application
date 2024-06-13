@@ -44,6 +44,27 @@ router.get("/CommunityGuidelinesAdmin", (req, res) => {
     res.redirect("/");
   }
 });
+// CommunityGuidelines
+router.get("/CompanyOverview", (req, res) => {
+  if (req.session.user) {
+    res.render("CompanyOverview", {
+      currentPage: "CompanyOverview",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/contact", (req, res) => {
+  if (req.session.user) {
+    res.render("contact", {
+      currentPage: "contact",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
 
 router.get("/home", (req, res) => {
   if (req.session.user) {
