@@ -3,215 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../public/User/User Css/Sidenavbar.css">
+    <link rel="stylesheet" type="text/css" href="/User/User Css/Sidenavbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>SoundSpot</title>
-    <link rel="icon" href="../public/User/photo/2.png" type="image/png">
-    <script src="../public/User/User js/playlistPage.js"></script>
-    <script src="../public/User/User js/Sidenavbar.js"></script>
-    <link rel="stylesheet" href="../public/User/User CSS/SongPlaying.css">
-    <link rel="stylesheet" href="../public/User/User CSS/playlistPage.css">
-    <script src="../public/User/User js/SongPlaying.js"></script>
+    <link rel="icon" href="/photo/2.png" type="image/png">
+    <script src="/User/User js/playlistPage.js"></script>
+    <script src="/User/User js/Sidenavbar.js"></script>
+    <link rel="stylesheet" href="/User/User CSS/SongPlaying.css">
+    <link rel="stylesheet" href="/User/User CSS/playlistPage.css">
+    <script src="/User/User js/SongPlaying.js"></script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
 
 </head>
 <body>
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="426af94c-e0f5-41fe-890a-0a360c3921f5";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
-  <div class = "sidebar">
-        <button onclick="changeLogo()" id="custom-sidebar-toggle"> 
-            <img id="custom-sidebar-img" src="../public/User/photo/menu.png"  class="dark-mode-img" alt="Button Image">
-            <img id="custom-sidebar-img" src="../public/User/photo/menu (1).png"  class="light-mode-img" alt="Button Image">
-        </button>
-
-        <a href="Userhomepage.html" id="trial">
-            <img id="trial-img" src="../public/User/photo/output-onlinepngtools.png" alt="SoundSpot Logo">
-        </a>
-
-        <a class="text-a" href="Songs.html">
-            <i class="fa-solid fa-music icons"></i>
-              <span class="t">Songs</span>
-        </a>
-
-        <a class="text-a" href="ManagePlaylists.html">
-            <i class="fa-solid fa-list"></i>
-            <span class="t">Playlists</span>
-        </a>
-
-        <a class="text-a" href="Plans.html">
-            <i class="fa-solid fa-wallet icons"></i>
-          <span class="t">Plans</span>
-        </a>
-
-        <a class="text-a" href="recap.html">
-            <i class="fa-solid fa-repeat"></i>
-           <span class="t">Recap</span> 
-        </a>
-
-        <a class="text-a" href="history.html">
-            <i class="fa-solid fa-clock-rotate-left"></i>
-            <span class="t">History</span>
-        </a>
-        
-        <a class="text-a" href="CommunityGuidelines.html">
-            <i class="fa-regular fa-newspaper icons"></i>
-            <span class="t">Community Guidelines</span>
-        </a>
-
-        <a class="text-a" href="contact.html">
-            <i class="fas fa-phone dark-mode-img icons"></i>
-            <span class="t">Contacts</span>
-        </a>
-    </div>
-
-    <div class="navbar">
-
-      <div class="search-bar" id="searchBar" style="display: none;">
-          <input type="text" placeholder="Search...">
-          <i class="fas fa-search search-icon"></i>
-          <button id="mic-button" class="navbar-icons"> <i class="fa-solid fa-microphone"></i> </button>   
-          
-      </div>
-
-      
-      <div class="navbar-icons">
-        <button id="search-button" class="search-button"> <i class="fa-solid fa-search"></i> </button>
-        <div class="navbar-icons">
-          <a href="Game/land.html">
-              <button>
-                  <i class="fa-solid fa-gamepad" id="game"></i>
-              </button>
-          </a>
-        </div>
-        <div id="badges" class="navbar-icons">
-          <i class="fa-solid fa-certificate"></i>
-          <div class="badges-dropdown">
-              <nav>
-                  <div class="menu-item">
-                    <i class="fas fa-certificate" style="color:#0c907a;"></i>
-                      <a href="#">Badge 1</a>
-                  </div>
-                  <div class="menu-item">
-                    <i class="fas fa-trophy"style=" color: #ffcc00;"></i>
-                      <a href="#">Badge 2</a>
-                  </div>
-                  <div class="menu-item">
-                    <i class="fas fa-medal"style="color:#CD7F32;"></i>
-                      <a href="#">Badge 3</a>
-                  </div>
-              </nav>
-          </div>
-      </div> 
-      <div id="profile">
-        <img id="profile-icon" src="../public/User/photo/cat.jpg">
-        <div class="profile_dropDownMenu">
-            <nav>
-                <div class="menu-item">
-                    <i class="fa-solid fa-user"></i>
-                    <a href="#">Profile</a>
-                </div>
-                <div class="menu-item">
-                    <i class="fa-regular fa-eye"></i>
-                    <a href="#">View as</a>
-                </div>
-                <div class="menu-item">
-                    <i class="fa-solid fa-gear"></i>
-                    <a href="#" id="settings-button">Settings</a>
-
-                </div>
-                <div class="menu-item">
-                    <i class="fa-regular fa-sun"></i>
-                    <a href="#">Light Mode</a>
-                    <button id="toggle-light-mode"></button>
-                </div>
-                <div class="menu-item">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <a href="Login form/Index.html">Log Out</a>
-                </div>
-            </nav>
-        </div>
-    </div>
-          <div class="settings-popup-container">
-            <div class="settings-popup">
-                <h3>Settings</h3>
-    
-                <h4>Change Language</h4> 
-            <div id="google_translate_element"></div>
-          
-        
-       
-            <div class="button-group">
-                <button id="save-button">Save</button>
-                <button id="cancel-button">Cancel</button>
-            </div>
-            </div>
-        </div>
-                    
-          <div id="micModal" class="mod">
-            <div class="mod-content">
-                <span id="closeButton" class="close">&times;</span>
-                <div id="micDetection">
-                    <i id="micIcon" class="fa-solid fa-ear-listen"></i><br><br>
-                    <h2 id="micIcon" style="font-size: 40px;">Listening..</h2>
-                </div>
-            </div>
-        </div>
-          
-        <div id="edit-window" class="modal">
-          <div class="edit-content">
-            <h2 id="modalHeader">Edit Profile</h2>
-            <label>New Username:</label>
-            <input type="text" id="newUsername" placeholder="New Username"><br>
-            <label>New Profile Picture:</label>
-            <input type="file" id="newProfilePic" placeholder="New Profile Picture" accept="image/*">
-            <br>
-            <label>Account Status:</label><br>
-            <input type="radio" id="activate" name="account-status" value="activate" name="accStat">
-            <label for="activate">Activate</label><br>
-            <input type="radio" id="deactivate" name="account-status" value="deactivate" name="accStat">
-            <label for="deactivate">Deactivate</label>
-            <br>
-            <label>Conatct Admin:</label>
-              <input type="email" placeholder="example@gmail.com">
-              <br>
-              <label>Website Language:<div id="google_translate_element"></div></label>
-              <br> 
-            <button type="submit">Save</button>
-            <button type="button" id="cancel-edit">Cancel</button>
-          </div>
-      </div>
-          </div>
-      </div>
-  </div>
-
-    
-          
-
+    <%- include('includes/sidenav&navbars.ejs')%>
   <div class="container">
     <h1>Liked Songs</h1>
     <ul>
         <li>
             <div class="song">
-                <img src="../public/User/photo/sherry.png" id="imggg" alt="Song Image"  onclick="toggleAudio()">
+                <img src="/photo/sherry.png" id="imggg" alt="Song Image"  onclick="toggleAudio()">
                 <div class="song-info">
                     <div class="song-title" id="sing1" onclick="toggleAudio()">Kalam Eineh</div>
                     <div class="artist">Sherine</div>
-                    <audio id="audioPlayer" src="../public/User/audio/Sherine - Kalam Eineh _ شيرين - كلام عينيه (320).mp3"></audio>
+                    <audio id="audioPlayer" src="/audio/Sherine - Kalam Eineh _ شيرين - كلام عينيه (320).mp3"></audio>
                 </div>
             </div>
         </li>
         <li>
             <div class="song">
-                <img src="../public/User/photo/Say_You_Wont_Let_Go.jpg" alt="Song Image" onclick="two()">
+                <img src="/photo/Say_You_Wont_Let_Go.jpg" alt="Song Image" onclick="two()">
                 <div class="song-info">
                     <div class = "song-title" id="sing">Say you wont let go</div>
                     <div class = "artist">James Arthur</div>
-                    <audio id="audioPlayer" src="../public/User/audio/James Arthur - Say You Wont Let Go.mp3"></audio>
+                    <audio id="audioPlayer" src="/audio/James Arthur - Say You Wont Let Go.mp3"></audio>
                 </div>
             </div>
         </li>
         <li>
             <div class="song">
-                <img src="../public/User/photo/blindinglights.jpeg" alt="Song Image" onclick="toggleAudio()">
+                <img src="/photo/blindinglights.jpeg" alt="Song Image" onclick="toggleAudio()">
                 <div class="song-info">
                     <div class="song-title" id="sing">Blinding Lights</div>
                     <div class="artist">The Weekend</div>
@@ -220,7 +51,7 @@
         </li>
         <li>
             <div class="song">
-                <img src="../public/User/photo/goldenhour.png" alt="Song Image" onclick="toggleAudio()">
+                <img src="/photo/goldenhour.png" alt="Song Image" onclick="toggleAudio()">
                 <div class="song-info">
                     <div class="song-title" id="sing">Golden Hour</div>
                     <div class="artist">JVKE</div>
@@ -229,7 +60,7 @@
         </li>
         <li>
             <div class="song">
-                <img src="../public/User/photo/turky.jpg" id="imgggg" alt="Song Image" onclick="toggleAudio()">
+                <img src="/photo/turky.jpg" id="imgggg" alt="Song Image" onclick="toggleAudio()">
                 <div class="song-info">
                     <div class="song-title" id="sing">Gökçe</div>
                     <div class="artist" id="artist">Tuttu Fırlattı</div>
@@ -239,7 +70,7 @@
         </li>
         <li>
             <div class="song">
-                <img src="../public/User/photo/eth.jpeg" alt="Song Image" onclick="toggleAudio()">
+                <img src="/photo/eth.jpeg" alt="Song Image" onclick="toggleAudio()">
                 <div class="song-info">
                     <div class="song-title" id="sing">Ethereal</div>
                     <div class="artist">Txmy</div>
@@ -248,7 +79,7 @@
         </li>
         <li>
             <div class="song">
-                <img src="../public/User/photo/nourelein.jpeg" alt="Song Image" onclick="toggleAudio()">
+                <img src="/photo/nourelein.jpeg" alt="Song Image" onclick="toggleAudio()">
                 <div class="song-info">
                     <div class="song-title" id="sing">Nour ElEin</div>
                     <div class="artist">Amr Diab</div>
@@ -257,7 +88,7 @@
         </li>
         <li>
             <div class="song">
-                <img src="../public/User/photo/nefsyahebek.png" alt="Song Image" onclick="toggleAudio()">
+                <img src="/photo/nefsyahebek.png" alt="Song Image" onclick="toggleAudio()">
                 <div class="song-info">
                     <div class="song-title" id="sing">Nefsy Ahebek</div>
                     <div class="artist">Cairokee</div>
@@ -266,7 +97,7 @@
         </li>
         <li>
             <div class="song">
-                <img src="../public/User/photo/maxresdefault.jpg" alt="Song Image" onclick="toggleAudio()">
+                <img src="/photo/maxresdefault.jpg" alt="Song Image" onclick="toggleAudio()">
                 <div class="song-info">
                     <div class="song-title" id="sing">детство</div>
                     <div class="artist">Rauf Faik</div>
@@ -275,7 +106,7 @@
         </li>
         <li>
             <div class="song">
-                <img src="../public/User/photo/fayroz.jpg" alt="Song Image" onclick="toggleAudio()">
+                <img src="/photo/fayroz.jpg" alt="Song Image" onclick="toggleAudio()">
                 <div class="song-info">
                     <div class="song-title">Nasam alayna el hawa</div>
                     <div class="artist">Fayrouz</div>
@@ -289,13 +120,13 @@
         <i class="fa-sharp fa-solid fa-up-right-and-down-left-from-center" id="icons"></i>
         <span class="tooltipptext">Exit Full Screen</span>
     </button>
-    <img id="pic" src="../public/User/photo/sherry.png">
+    <img id="pic" src="/photo/sherry.png">
     <h1 id="songh1">Kalam Eineh</h1>
     <h3 id="songh3">Sherine</h3>
 </div>
 
 <div class="minimizedsongcontainer">
-    <img id="songpic" src="../public/User/photo/sherry.png">
+    <img id="songpic" src="/photo/sherry.png">
     <div class="songinfo">
         <h1 id="songname">Kalam Eineh<i id="sing" class="fa-solid fa-headphones-simple fa-beat" style="--fa-animation-duration: 0.5s;"></i></h1><br>
         <h3 id="artistname">Sherine</h3>
@@ -324,7 +155,7 @@
             <span id="duration">00:00</span>
         </div>
     </div>
-    <audio id="audioPlayer" src="../public/User/audio/Sherine - Kalam Eineh _ شيرين - كلام عينيه (320).mp3"></audio>
+    <audio id="audioPlayer" src="/audio/Sherine - Kalam Eineh _ شيرين - كلام عينيه (320).mp3"></audio>
 </div>
 </body>
 </html>
