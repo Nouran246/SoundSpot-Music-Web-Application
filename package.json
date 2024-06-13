@@ -1,12 +1,15 @@
 {
   "dependencies": {
+    "-": "^0.0.1",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
     "express-validator": "^7.1.0",
+    "g": "^2.0.1",
     "mongodb": "^6.7.0",
-    "mongoose": "^8.4.0"
+    "mongoose": "^8.4.0",
+    "nodemon": "^3.1.3"
   }
 }
