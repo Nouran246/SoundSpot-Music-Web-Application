@@ -42,8 +42,7 @@ h1{
     width: 17%;
     height: 440px;
     border: 2px solid rgb(50, 50, 50); /* Add white outline border */
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
-}
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;}
 .card:hover {
     transform: scale(1.1); /* Zoom in by 10% */
     transition: transform 0.3s ease; /* Add smooth transition */
