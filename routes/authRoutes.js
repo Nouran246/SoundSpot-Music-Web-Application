@@ -77,8 +77,6 @@ router.get("/CommunityGuidelinesAdmin", (req, res) => {
     res.redirect("/");
   }
 });
-
-
 // CommunityGuidelines
 router.get("/CompanyOverview", (req, res) => {
   if (req.session.user) {
@@ -142,11 +140,88 @@ router.get("/Plans", (req, res) => {
     res.redirect("/");
   }
 });
-// Songs
+
 router.get("/Songs", (req, res) => {
   if (req.session.user) {
     res.render("Songs", {
       currentPage: "Songs",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.get("/Subscription", (req, res) => {
+  if (req.session.user) {
+    res.render("Subscription", {
+      currentPage: "Subscription",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.get("/Song", (req, res) => {
+  if (req.session.user) {
+    res.render("SongPlaying", {
+      currentPage: "SongPlaying",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.get("/ManagePlaylists", (req, res) => {
+  if (req.session.user) {
+    res.render("ManagePlaylists", {
+      currentPage: "ManagePlaylists",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.get("/Recap", (req, res) => {
+  if (req.session.user) {
+    res.render("Recap", {
+      currentPage: "Recap",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.get("/contact", (req, res) => {
+  if (req.session.user) {
+    res.render("Contact", {
+      currentPage: "Contact",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.get("/playlistPage", (req, res) => {
+  if (req.session.user) {
+    res.render("playlistPage", {
+      currentPage: "playlistPage",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+router.get("/History", (req, res) => {
+  if (req.session.user) {
+    res.render("History", {
+      currentPage: "History",
       user: req.session.user,
     });
   } else {
