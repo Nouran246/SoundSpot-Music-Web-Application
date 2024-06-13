@@ -56,10 +56,10 @@ router.get("/home", (req, res) => {
   }
 });
 
-router.get("/plan", (req, res) => {
+router.get("/Plans", (req, res) => {
   if (req.session.user) {
-    res.render("plan", {
-      currentPage: "plan",
+    res.render("Plans", {
+      currentPage: "Plans",
       user: req.session.user,
     });
   } else {
