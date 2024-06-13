@@ -77,8 +77,6 @@ router.get("/CommunityGuidelinesAdmin", (req, res) => {
     res.redirect("/");
   }
 });
-
-
 // CommunityGuidelines
 router.get("/CompanyOverview", (req, res) => {
   if (req.session.user) {
@@ -142,7 +140,7 @@ router.get("/Plans", (req, res) => {
     res.redirect("/");
   }
 });
-// Songs
+
 router.get("/Songs", (req, res) => {
   if (req.session.user) {
     res.render("Songs", {
@@ -153,7 +151,7 @@ router.get("/Songs", (req, res) => {
     res.redirect("/");
   }
 });
-// subscribtion
+
 router.get("/Subscription", (req, res) => {
   if (req.session.user) {
     res.render("Subscription", {
@@ -164,7 +162,7 @@ router.get("/Subscription", (req, res) => {
     res.redirect("/");
   }
 });
-// Song palying
+
 router.get("/Song", (req, res) => {
   if (req.session.user) {
     res.render("SongPlaying", {
@@ -175,7 +173,7 @@ router.get("/Song", (req, res) => {
     res.redirect("/");
   }
 });
-// Song palying
+
 router.get("/ManagePlaylists", (req, res) => {
   if (req.session.user) {
     res.render("ManagePlaylists", {
@@ -186,7 +184,7 @@ router.get("/ManagePlaylists", (req, res) => {
     res.redirect("/");
   }
 });
-// Song palying
+
 router.get("/Recap", (req, res) => {
   if (req.session.user) {
     res.render("Recap", {
@@ -197,7 +195,7 @@ router.get("/Recap", (req, res) => {
     res.redirect("/");
   }
 });
-// Contact
+
 router.get("/contact", (req, res) => {
   if (req.session.user) {
     res.render("Contact", {
@@ -208,7 +206,18 @@ router.get("/contact", (req, res) => {
     res.redirect("/");
   }
 });
-// history
+
+router.get("/playlistPage", (req, res) => {
+  if (req.session.user) {
+    res.render("playlistPage", {
+      currentPage: "playlistPage",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
 router.get("/History", (req, res) => {
   if (req.session.user) {
     res.render("History", {
