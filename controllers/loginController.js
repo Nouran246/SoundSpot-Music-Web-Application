@@ -1,4 +1,3 @@
-// controllers/loginController.js
 const User = require("../models/Users.js");
 const bcrypt = require("bcrypt");
 
@@ -11,16 +10,19 @@ const loginProcess = async (req, res) => {
       return res.status(401).send("Invalid email or password");
     }
 
+    if (!user.isVerified) {
+      return res.status(401).send("Please verify your email before logging in");
+    }
+
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(401).send("Invalid email or password");
     }
 
     req.session.user = user;
-    if(user.type == "user"){
+    if (user.type === "user") {
       res.redirect("/auth/user-home");
-    }
-    else if(user.type == "admin"){
+    } else if (user.type === "admin") {
       res.redirect("/auth/home");
     }
   } catch (error) {
@@ -28,6 +30,7 @@ const loginProcess = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
+
 
 module.exports = {
   loginProcess,

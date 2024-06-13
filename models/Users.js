@@ -1,3 +1,4 @@
+// models/Users.js
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
@@ -43,6 +44,13 @@ const userSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
+  },
+  verificationToken: {
+    type: String,
+  },
+  isVerified: {
+    type: Boolean,
+    default: false,
   },
 });
 
