@@ -55,6 +55,17 @@ router.get("/home", (req, res) => {
     res.redirect("/");
   }
 });
+
+router.get("/plan", (req, res) => {
+  if (req.session.user) {
+    res.render("plan", {
+      currentPage: "plan",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
 // Process login
 router.post("/login", loginController.loginProcess);
 
