@@ -3,7 +3,7 @@ const express = require("express");
 const loginController = require("../controllers/loginController");
 const signupController = require("../controllers/signupController");
 const CommunityGuidelines = require("../models/Communityguidelinesschema");
-const Companies = require("../models/company");
+const CompanyOverviewModel = require("../models/company");
 const router = express.Router();
 
 // Home page
@@ -82,7 +82,7 @@ router.get("/contact", async (req, res) => {
   if (req.session.user) {
     try {
       // Fetch community guidelines from the database
-      const companying = await CommunityGuidelines.findOne();
+      const companying = await CompanyOverviewModel.findOne();
 
       if (!companying) {
         return res.render("contact", {
