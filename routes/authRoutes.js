@@ -2,6 +2,8 @@
 const express = require("express");
 const loginController = require("../controllers/loginController");
 const signupController = require("../controllers/signupController");
+const CommunityGuidelines = require("../models/Communityguidelinesschema");
+const CompanyOverviewModel = require("../models/company");
 const router = express.Router();
 
 // Home page
@@ -23,13 +25,44 @@ router.get("/user-home", (req, res) => {
     res.redirect("/");
   }
 });
-// CommunityGuidelines
-router.get("/CommunityGuidelines", (req, res) => {
+
+router.get("/ManageUsers", (req, res) => {
   if (req.session.user) {
-    res.render("CommunityGuidelines", {
-      currentPage: "CommunityGuidelines",
+    res.render("ManageUsers", {
+      currentPage: "ManageUsers",
       user: req.session.user,
     });
+  } else {
+    res.redirect("/");
+  }
+});
+
+// CommunityGuidelines
+router.get("/CommunityGuidelines", async (req, res) => {
+  if (req.session.user) {
+    try {
+      // Fetch community guidelines from the database
+      const communityGuidelines = await CommunityGuidelines.findOne();
+
+      if (!communityGuidelines) {
+        return res.render("CommunityGuidelines", {
+          currentPage: "CommunityGuidelines",
+          error: "No community guidelines found.",
+          Comguide: null, // Pass null or appropriate default value
+          user: req.session.user,
+        });
+      }
+
+      // Render the page with retrieved guidelines
+      res.render("CommunityGuidelines", {
+        currentPage: "CommunityGuidelines",
+        Comguide: communityGuidelines.Comguide, // Ensure Comguide is passed here
+        user: req.session.user,
+      });
+    } catch (error) {
+      console.error('Error fetching community guidelines:', error);
+      res.status(500).send("Internal Server Error");
+    }
   } else {
     res.redirect("/");
   }
@@ -44,6 +77,49 @@ router.get("/CommunityGuidelinesAdmin", (req, res) => {
     res.redirect("/");
   }
 });
+
+
+// CommunityGuidelines
+router.get("/CompanyOverview", (req, res) => {
+  if (req.session.user) {
+    res.render("CompanyOverview", {
+      currentPage: "CompanyOverview",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/contact", async (req, res) => {
+  if (req.session.user) {
+    try {
+      // Fetch community guidelines from the database
+      const companying = await CompanyOverviewModel.findOne();
+
+      if (!companying) {
+        return res.render("contact", {
+          currentPage: "contact",
+          error: "No community guidelines found.",
+          COMPOVER: null, // Pass null or appropriate default value
+          user: req.session.user,
+        });
+      }
+
+      // Render the page with retrieved guidelines
+      res.render("contact", {
+        currentPage: "contact",
+        COMPOVER: companying.COMPOVER, // Ensure Comguide is passed here
+        user: req.session.user,
+      });
+    } catch (error) {
+      console.error('Error fetching community guidelines:', error);
+      res.status(500).send("Internal Server Error");
+    }
+  } else {
+    res.redirect("/");
+  }
+});
+
 
 router.get("/home", (req, res) => {
   if (req.session.user) {

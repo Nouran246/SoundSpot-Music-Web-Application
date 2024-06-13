@@ -1,41 +1,58 @@
-// controllers/loginController.js
-const User = require("../models/company.js");
-const bcrypt = require("bcrypt");
+// CompanyController.js
+const CompanyOverviewModel = require("../models/company.js");
 
-const companyProcess = async (req, res) => {
+const companyprocess = async (req, res) => {
   try {
-    const { companyoverview } = req.body;
+    const { COMPOVER } = req.body;
 
-    // Check if Comguide is empty or null
-    if (!companyoverview) {
-      return res.render("company", {
-        currentPage: "company",
+    // Check if COMPOVER is empty or null
+    if (!COMPOVER) {
+      return res.render("CompanyOverview", {
+        currentPage: "CompanyOverview",
         error: "Text cannot be empty.",
-        companyoverview: null,
+        COMPOVER: null,
       });
     }
 
-    const communityGuidelines = await Communityguidlines.findOne({ companyoverview });
-    if (!communityGuidelines) {
-      return res.render("company", {
-        currentPage: "company",
-        error: "company overview not found.",
-        Comguide: null,
-      });
+    // Find existing company overview or create a new one
+    let companyOverview = await CompanyOverviewModel.findOne();
+    if (!companyOverview) {
+      // Create new company overview if none exist
+      companyOverview = new CompanyOverviewModel({ COMPOVER });
+    } else {
+      // Update existing company overview
+      companyOverview.COMPOVER = COMPOVER;
     }
 
-    // Compare input Comguide with the hashed value from the database
-    const isMatch = await bcrypt.compare(companyoverview, communityGuidelines.companyoverview);
-    if (!isMatch) {
-      return res.render("community", {
-        currentPage: "community",
-        error: "You have entered the same thing; nothing can be changed.",
-        companyoverview: null,
-      });
-    }
+    // Save the updated company overview
+    await companyOverview.save();
 
-    req.session.user = communityGuidelines;
+    // Redirect to home page or appropriate route
     res.redirect("/");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+const displaycompany = async (req, res) => {
+  try {
+    // Retrieve the company overview from the database
+    const companyOverview = await CompanyOverviewModel.findOne();
+
+    // Check if data exists
+    if (!companyOverview) {
+      return res.render("CompanyOverview", {
+        currentPage: "CompanyOverview",
+        error: "No company overview found.",
+        COMPOVER: null,
+      });
+    }
+
+    // Render the page with the retrieved data
+    res.render("CompanyOverview", {
+      currentPage: "CompanyOverview",
+      COMPOVER: companyOverview.COMPOVER,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
@@ -43,6 +60,6 @@ const companyProcess = async (req, res) => {
 };
 
 module.exports = {
-    companyProcess,
-  };
-  
+  companyprocess,
+  displaycompany
+};

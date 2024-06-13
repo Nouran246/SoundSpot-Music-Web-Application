@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
 
-const company = new mongoose.Schema({
-  companyoverview: {
+const companySchema = new mongoose.Schema({
+  COMPOVER: {
     type: String,
     required: true,
   },
 });
 
-// Optionally, you can create a model from the schema:
-const companyover = mongoose.model('Company Overview', Company);
+const CompanyOverviewModel = mongoose.model('companyoverviews', companySchema);
 
-module.exports = companyover;
+module.exports = CompanyOverviewModel;
