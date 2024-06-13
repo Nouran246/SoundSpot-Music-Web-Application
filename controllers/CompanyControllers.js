@@ -34,7 +34,32 @@ const companyprocess = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
+const displaycompany = async (req, res) => {
+  try {
+    // Retrieve the company overview from the database
+    const companyOverview = await CompanyOverviewModel.findOne();
+
+    // Check if data exists
+    if (!companyOverview) {
+      return res.render("CompanyOverview", {
+        currentPage: "CompanyOverview",
+        error: "No company overview found.",
+        COMPOVER: null,
+      });
+    }
+
+    // Render the page with the retrieved data
+    res.render("CompanyOverview", {
+      currentPage: "CompanyOverview",
+      COMPOVER: companyOverview.COMPOVER,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+};
 
 module.exports = {
   companyprocess,
+  displaycompany
 };
