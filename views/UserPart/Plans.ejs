@@ -17,7 +17,7 @@
 <body>
     <%- include('../includes/sidenav&navbars.ejs')%>           
     <div class="Plan">
-        <h1>Premium Subscription</h1>
+        <h1>Premium Subscriptions </h1>
         <div class="three-buttons">
             <div>
                 <span id="pay1" onclick="section()">Pay by card</span>
@@ -35,7 +35,7 @@
                 <h1>$1.49 <span id="mon">monthly</span></h1>
                 <button onclick="redirectToSubscription()">Subscribe</button>
             </div>
-            <div class="card">
+            <div class="card" id="card2">
                 <h2>Individual Plan</h2>
                 <br>
                 <p>Enjoy music streaming for one person</p>
@@ -43,7 +43,7 @@
                 <h1>$2.4 <span id="mon">monthly</span></h1>
                 <button onclick="redirectToSubscription()">Subscribe</button>
             </div>
-            <div class="card">
+            <div class="card" id="card3">
                 <h2>Family Plan</h2>
                 <br>
                 <p>Share music with your family members</p>
@@ -55,7 +55,7 @@
          <!-- section 2  -->
         <div class="plan-cards" id="planCards1">
             <div class="card" id="card1">
-                <img src="/photo/etisilat.png" id="et-vod-or">
+                <img src="../photo/etisilat.png" id="et-vod-or">
                 <h2>Etisilat Offer</h2>
                 <br>
                 <p>Enjoy music streaming with Etisilat</p>
@@ -63,8 +63,8 @@
                 <h1>$2 <span id="mon">monthly</span></h1>
                 <button onclick="redirectToSubscription()">Subscribe</button>
             </div>
-            <div class="card">
-                <img src="/photo/vodafone.jpeg" id="et-vod-or">
+            <div class="card" id="card2">
+                <img src="../photo/vodafone.jpeg" id="et-vod-or" >
                 <h2>Vodafone Offer</h2>
                 <br>
                 <p>Enjoy music streaming with Vodafone</p>
@@ -72,8 +72,8 @@
                 <h1>$2 <span id="mon">monthly</span></h1>
                 <button onclick="redirectToSubscription()">Subscribe</button>
             </div>
-            <div class="card">
-                <img src="/photo/orange.png" id="et-vod-or">
+            <div class="card" id="card3">
+                <img src="../photo/orange.png" id="et-vod-or" >
                 <h2>Orange Offer</h2>
                 <br>
                 <p>Enjoy music streaming with Orange</p>
@@ -85,7 +85,7 @@
          <!-- section 3  -->
         <div class="plan-cards" id="planCards2">
             <div class="card">
-                <img src="/photo/fawry.png" id="et-vod-or">
+                <img src="../photo/fawry.png" id="et-vod-or">
                 <h2>Fawry</h2>
                 <br>
                 <h1>Free</h1>
@@ -93,8 +93,16 @@
             </div>
         </div>
     </div>
+
+
+      
+    
 </body>
 </html>
+
+
+
+
 
 
 
