@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 // User home page
 router.get("/user-home", (req, res) => {
   if (req.session.user) {
-    res.render("UserHomePage", {
+    res.render("UserPart/UserHomePage", {
       currentPage: "UserHomePage",
       user: req.session.user,
     });
@@ -45,7 +45,7 @@ router.get("/CommunityGuidelines", async (req, res) => {
       const communityGuidelines = await CommunityGuidelines.findOne();
 
       if (!communityGuidelines) {
-        return res.render("CommunityGuidelines", {
+        return res.render("UserPart/CommunityGuidelines", {
           currentPage: "CommunityGuidelines",
           error: "No community guidelines found.",
           Comguide: null, // Pass null or appropriate default value
@@ -54,7 +54,7 @@ router.get("/CommunityGuidelines", async (req, res) => {
       }
 
       // Render the page with retrieved guidelines
-      res.render("CommunityGuidelines", {
+      res.render("UserPart/CommunityGuidelines", {
         currentPage: "CommunityGuidelines",
         Comguide: communityGuidelines.Comguide, // Ensure Comguide is passed here
         user: req.session.user,
@@ -95,7 +95,7 @@ router.get("/contact", async (req, res) => {
       const companying = await CompanyOverviewModel.findOne();
 
       if (!companying) {
-        return res.render("contact", {
+        return res.render("UserPart/contact", {
           currentPage: "contact",
           error: "No community guidelines found.",
           COMPOVER: null, // Pass null or appropriate default value
@@ -104,7 +104,7 @@ router.get("/contact", async (req, res) => {
       }
 
       // Render the page with retrieved guidelines
-      res.render("contact", {
+      res.render("UserPart/contact", {
         currentPage: "contact",
         COMPOVER: companying.COMPOVER, // Ensure Comguide is passed here
         user: req.session.user,
@@ -132,7 +132,7 @@ router.get("/home", (req, res) => {
 
 router.get("/Plans", (req, res) => {
   if (req.session.user) {
-    res.render("Plans", {
+    res.render("UserPart/Plans", {
       currentPage: "Plans",
       user: req.session.user,
     });
@@ -140,10 +140,19 @@ router.get("/Plans", (req, res) => {
     res.redirect("/");
   }
 });
-
+router.get("/Subscription", (req, res) => {
+  if (req.session.user) {
+    res.render("UserPart/Subscription", {
+      currentPage: "Subscription",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
 router.get("/Songs", (req, res) => {
   if (req.session.user) {
-    res.render("Songs", {
+    res.render("UserPart/Songs", {
       currentPage: "Songs",
       user: req.session.user,
     });
@@ -152,20 +161,10 @@ router.get("/Songs", (req, res) => {
   }
 });
 
-router.get("/Subscription", (req, res) => {
-  if (req.session.user) {
-    res.render("Subscription", {
-      currentPage: "Subscription",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
-});
 
 router.get("/Song", (req, res) => {
   if (req.session.user) {
-    res.render("SongPlaying", {
+    res.render("UserPart/SongPlaying", {
       currentPage: "SongPlaying",
       user: req.session.user,
     });
@@ -176,7 +175,7 @@ router.get("/Song", (req, res) => {
 
 router.get("/ManagePlaylists", (req, res) => {
   if (req.session.user) {
-    res.render("ManagePlaylists", {
+    res.render("UserPart/ManagePlaylists", {
       currentPage: "ManagePlaylists",
       user: req.session.user,
     });
@@ -187,8 +186,18 @@ router.get("/ManagePlaylists", (req, res) => {
 
 router.get("/Recap", (req, res) => {
   if (req.session.user) {
-    res.render("Recap", {
+    res.render("UserPart/Recap", {
       currentPage: "Recap",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/Report", (req, res) => {
+  if (req.session.user) {
+    res.render("UserPart/Report", {
+      currentPage: "Report",
       user: req.session.user,
     });
   } else {
@@ -198,7 +207,7 @@ router.get("/Recap", (req, res) => {
 
 router.get("/contact", (req, res) => {
   if (req.session.user) {
-    res.render("Contact", {
+    res.render("UserPart/Contact", {
       currentPage: "Contact",
       user: req.session.user,
     });
@@ -209,7 +218,7 @@ router.get("/contact", (req, res) => {
 
 router.get("/playlistPage", (req, res) => {
   if (req.session.user) {
-    res.render("playlistPage", {
+    res.render("UserPart/playlistPage", {
       currentPage: "playlistPage",
       user: req.session.user,
     });
@@ -220,7 +229,7 @@ router.get("/playlistPage", (req, res) => {
 
 router.get("/History", (req, res) => {
   if (req.session.user) {
-    res.render("History", {
+    res.render("UserPart/History", {
       currentPage: "History",
       user: req.session.user,
     });
