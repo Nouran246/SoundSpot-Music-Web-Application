@@ -153,10 +153,10 @@ function toggleLogo() {
     logoFlag = (logoFlag === 0) ? 1 : 0;
 
     if (logoFlag === 1) {
-        logoImg.src = "photo/1(2).png";
+        logoImg.src = "/photo/1(2).png";
         logoImg.classList.add("minimized");
     } else {
-        logoImg.src = "photo/output-onlinepngtools.png";
+        logoImg.src = "/photo/output-onlinepngtools.png";
         logoImg.classList.remove("minimized");
     }
 }

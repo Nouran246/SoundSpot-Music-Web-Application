@@ -20,142 +20,90 @@
 
 <body>
     <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
-    <h1 class="title9">Premium Subscription</h1>
+   
+
+    <h1 class="title9">Subscription Packages</h1>
 
 
     <div class="container">
-        <textarea id="resizable-textarea-2" ></textarea>
-        <br>
-        <button id="save-button-2">Save</button>
-    
-
-
-
-      <h1 class="title10">Premium Subscription details</h1>
-      <button id="addPlanButton">Add Plan</button>
+      <button id="addPlanButton">+</button>
 
       <div id="dynamicPlansContainer"></div>
 
       <!-- Popup form for adding a new plan -->
       <div id="popupForm" class="popup">
-          <h2>Add Plan</h2>
-          <form id="planForm"onsubmit="return validateForm()">
-              <label for="title">Title:</label>
-              <input type="text" id="title" name="title" placeholder="Enter title" ><br>
-      
-              <label for="features">Features:</label>
-              <input type="text" id="features" name="features" placeholder="Enter features" ><br>
-      
-              <label for="price">Price:</label>
-              <input type="text" id="price" name="price" placeholder="Enter price" ><br>
-      
-              <button type="submit">Save</button>
-              <button type="button" onclick="hidePopupForm()">Cancel</button>
-          </form>
-          <div id="message" style="display: none;">Data saved successfully!</div>
-      </div>
-    
-    <!-- Premium Plan Details -->
-    <table class="plan" style="display: none;">
-        <thead>
-            <tr>
-                <th colspan="2" id="premium-details">Premium Subscription Details</th>
-            </tr>
-        </thead>
-        <tbody id="premium-subscription-details"></tbody>
-    </table>
-    <div class="edit-container" style="display: none;">
-        <button class="edit-button" onclick="editPlan('premium')">Edit</button>
-        <button class="delete-button" onclick="deletePlan('premium')">Delete</button>
-    </div>
-    
+    <h2>Add Plan</h2>
+    <form id="planForm" onsubmit="return validateForm()">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter title"><br>
 
-    
-      
-      <table class="plan">
-        <thead>
-            <tr>
-                <th colspan="2" id="details">Students Subscription Details</th>
-            </tr>
-        </thead>
-        <tbody id="premium-plan-details"></tbody>
-    </table>
-    <div class="edit-container" >
-        <button class="edit-button" onclick="editPlan('premium')">Edit</button>
-        <button class="delete-button" onclick="deletePlan('premium')">Delete</button>
-    </div>
+        <label>Features:</label><br>
+        <input type="checkbox" id="feature1" name="features" value="Ads-Free">
+        <label for="feature1">Ads-Free</label><br>
+        <input type="checkbox" id="feature2" name="features" value="Pop-ups Free">
+        <label for="feature2">Pop-ups Free</label><br>
+        <input type="checkbox" id="feature3" name="features" value="Free plan">
+        <label for="feature3">Free plan</label><br>
 
-    <!-- Family Plan -->
-    <table class="plan">
-        <thead>
-            <tr>
-                <th colspan="2" id="details">Family Plan Details</th>
-            </tr>
-        </thead>
-        <tbody id="family-plan-details"></tbody>
-    </table>
-    <div class="edit-container" >
-        <button class="edit-button" onclick="editPlan('family')">Edit</button>
-        <button class="delete-button" onclick="deletePlan('family')">Delete</button>
-    </div>
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" placeholder="Enter price"><br>
 
-    <!-- Individual Plan -->
-    <table class="plan">
-        <thead>
-            <tr>
-                <th colspan="2" id="details">Individual Plan Details</th>
-            </tr>
-        </thead>
-        <tbody id="individual-plan-details"></tbody>
-    </table>
-    <div class="edit-container" >
-        <button class="edit-button" onclick="editPlan('individual')">Edit</button>
-        <button class="delete-button" onclick="deletePlan('individual')">Delete</button>
-    </div>
+        <label for="duration">Duration:</label>
+        <select id="duration" name="duration">
+            <option value="Free plan">Free plan</option>
+            <option value="2 weeks">1 month</option>
+            <option value="1 month">3 month</option>
+            <option value="3 months">6 months</option>
+            <option value="1 year">1 year</option>
+        </select><br>
 
-    <!-- Etisalat Offer -->
-    <table class="plan">
-        <thead>
-            <tr>
-                <th colspan="2" id="details">Etisalat Offer Details</th>
-            </tr>
-        </thead>
-        <tbody id="etisalat-offer-details"></tbody>
-    </table>
-    <div class="edit-container">
-        <button class="edit-button" onclick="editPlan('etisalat')">Edit</button>
-        <button class="delete-button" onclick="deletePlan('etisalat')">Delete</button>
-    </div>
+        <label for="adsVideo">Upload Ads Video (Optional):</label>
+        <input type="file" id="adsVideo" name="adsVideo" accept="video/mp4,video/webm"><br>
 
-    <!-- Vodafone Offer -->
-    <table class="plan">
-        <thead>
-            <tr>
-                <th colspan="2" id="details">Vodafone Offer Details</th>
-            </tr>
-        </thead>
-        <tbody id="vodafone-offer-details"></tbody>
-    </table>
-    <div class="edit-container" >
-        <button class="edit-button" onclick="editPlan('vodafone')">Edit</button>
-        <button class="delete-button" onclick="deletePlan('vodafone')">Delete</button>
-    </div>
+        <label for="popupImage">Upload Popup Image (Optional):</label>
+        <input type="file" id="popupImage" name="popupImage" accept="image/jpeg,image/png"><br>
 
-    <!-- Orange Offer -->
-    <table class="plan">
-        <thead>
-            <tr>
-                <th colspan="2" id="details">Orange Offer Details</th>
-            </tr>
-        </thead>
-        <tbody id="orange-offer-details"></tbody>
-    </table>
-    <div class="edit-container" >
-        <button class="edit-button" onclick="editPlan('orange')">Edit</button>
-        <button class="delete-button" onclick="deletePlan('orange')">Delete</button>
-    </div>
+        <button type="submit">Save</button>
+        <button type="button" onclick="hidePopupForm()">Cancel</button>
+    </form>
+    <div id="message" style="display: none;">Data saved successfully!</div>
+</div>
+    <div id="editPopupForm" style="display: none;">
+        <form id="editPlanForm">
+            <label for="editTitle">Title:</label>
+            <input type="text" id="editTitle" name="editTitle">
+        
+            <label for="editPrice">Price:</label>
+            <input type="text" id="editPrice" name="editPrice">
+        
+            <label for="editDuration">Duration:</label>
+            <select id="editDuration" name="editDuration">
+                <option value="">Select duration</option>
+                <option value="1 month">1 month</option>
+                <option value="3 months">3 months</option>
+                <option value="6 months">6 months</option>
+                <option value="1 year">1 year</option>
+            </select>
+        
+            <fieldset>
+                <legend>Features:</legend>
+                <input type="checkbox" id="editFeature1" class="editFeatureCheckbox" name="editFeatures" value="Ads-free">
+                <label for="editFeature1">Ads-free</label><br>
+                <input type="checkbox" id="editFeature2" class="editFeatureCheckbox" name="editFeatures" value="Pop-up free">
+                <label for="editFeature2">Pop-up free</label><br>
+                <!-- Add more features as needed -->
+            </fieldset>
+        
+            <input type="hidden" id="editPlanTitle" name="editPlanTitle">
+        
+            <button type="submit" id="editSaveButton">Save</button>
+            <button type="button" id="editCancelButton">Cancel</button>
+        </form>
     </div>
     
+    
+    
+    <input type="hidden" id="planTitle" name="planTitle">
     <div class="settings-popup-container">
         <div class="settings-popup">
             <h3>Settings</h3>

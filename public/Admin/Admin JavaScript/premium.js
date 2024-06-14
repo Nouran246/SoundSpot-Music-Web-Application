@@ -1,376 +1,368 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const textarea2 = document.getElementById('resizable-textarea-2');
-    const saveButton2 = document.getElementById('save-button-2');
-
-    // Retrieve saved text from localStorage when the page loads
-    const savedText2 = localStorage.getItem('savedText2');
-    if (savedText2) {
-        textarea2.value = savedText2;
-    }
-
-    saveButton2.addEventListener('click', function() {
-        const text = textarea2.value.trim();
-
-        if (text === '') {
-            alert('Textarea is empty. Please enter some text before saving.');
-        } else {
-            // Save text to localStorage
-            localStorage.setItem('savedText2', text);
-            alert('Text saved: ' + text);
-        }
-    });
-
-    const premiumPlanDetails = document.getElementById('premium-plan-details');
-    const familyPlanDetails = document.getElementById('family-plan-details');
-    const individualPlanDetails = document.getElementById('individual-plan-details');
-    const etisalatOfferDetails = document.getElementById('etisalat-offer-details');
-    const vodafoneOfferDetails = document.getElementById('vodafone-offer-details');
-    const orangeOfferDetails = document.getElementById('orange-offer-details');
-
-    // Premium plan details
-    const premiumPlan = {
-        price: '$9.99/month',
-        features: [
-            'Unlimited access to songs',
-            'Priority support',
-            'Ad-free experience'
-        ]
-    };
-
-    // Family plan details
-    const familyPlan = {
-        price: '$14.99/month',
-        features: [
-            'Unlimited access to songs for family members',
-            'Priority support',
-            'Ad-free experience for family members'
-        ]
-    };
-
-    // Individual plan details
-    const individualPlan = {
-        price: '$6.99/month',
-        features: [
-            'Access to songs for one user',
-            'Standard support',
-            'Ad-supported experience'
-        ]
-    };
-
-    // Etisalat offer details
-    const etisalatOffer = {
-        price: '$7.99/month',
-        features: [
-            'Discounted access to songs',
-            'Special support for Etisalat users',
-            'Ad-free experience'
-        ]
-    };
-
-    // Vodafone offer details
-    const vodafoneOffer = {
-        price: '$8.49/month',
-        features: [
-            'Exclusive access to curated playlists',
-            'Priority support for Vodafone users',
-            'Ad-free experience'
-        ]
-    };
-
-    // Orange offer details
-    const orangeOffer = {
-        price: '$8.99/month',
-        features: [
-            'Orange subscribers get bonus tracks',
-            'Dedicated support for Orange users',
-            'Ad-free experience'
-        ]
-    };
-
-    displayPlanDetails(premiumPlan, premiumPlanDetails);
-    displayPlanDetails(familyPlan, familyPlanDetails);
-    displayPlanDetails(individualPlan, individualPlanDetails);
-    displayPlanDetails(etisalatOffer, etisalatOfferDetails);
-    displayPlanDetails(vodafoneOffer, vodafoneOfferDetails);
-    displayPlanDetails(orangeOffer, orangeOfferDetails);
-});
-
-function displayPlanDetails(plan, element) {
-    const detailsHTML = `
-        <p class="price"><strong>Price:</strong> ${plan.price}</p>
-        <p><strong>Features:</strong></p>
-        <ul>
-            ${plan.features.map(feature => `<li>${feature}</li>`).join('')}
-        </ul>
-    `;
-    element.innerHTML = detailsHTML;
-}
-
-function editPlan(planType) {
-    console.log('Editing plan:', planType);
-    const planDetails = document.getElementById(`${planType}-plan-details`);
-    const editButton = document.querySelector(`#${planType}-edit-button`);
-
-    // Check if the plan details are currently editable
-    const isEditable = planDetails.getAttribute('contenteditable') === 'true';
-
-    if (isEditable) {
-        planDetails.setAttribute('contenteditable', 'false');
-        editButton.textContent = 'Edit';
-        saveChanges(planType);
-    } else {
-        planDetails.setAttribute('contenteditable', 'true');
-        editButton.textContent = 'Save';
-    }
-}
-
-
-
-function saveChanges(planType) {
-    console.log('Saving changes for:', planType);
-    const planDetails = document.getElementById(`${planType}-plan-details`);
-    const newPrice = planDetails.querySelector('.price').textContent.trim();
-    const newFeatures = Array.from(planDetails.querySelectorAll('ul li')).map(li => li.textContent.trim());
-
-    const newDetails = {
-        price: newPrice.replace('Price: ', ''),
-        features: newFeatures
-    };
-
-    // Update the saved details in local storage
-    localStorage.setItem(`${planType}PlanDetails`, JSON.stringify(newDetails));
-    alert('Changes saved for ' + planType);
-}
-
-function editPlanPrice(planType) {
-    const newPrice = prompt(`Enter the new price for the ${planType} plan:`);
-    if (newPrice !== null && newPrice !== "") {
-        const planDetails = document.getElementById(`${planType}-plan-details`);
-        const priceElement = planDetails.querySelector('p.price');
-        if (priceElement) {
-            priceElement.textContent = "Price: " + newPrice;
-        }
-        // Update the saved price in local storage
-        const storedDetails = JSON.parse(localStorage.getItem(`${planType}PlanDetails`));
-        storedDetails.price = newPrice;
-        localStorage.setItem(`${planType}PlanDetails`, JSON.stringify(storedDetails));
-        alert(`Price updated for ${planType}: ${newPrice}`);
-    }
-}
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the textarea and save button
+    // Function to handle form submission
+    document.getElementById('planForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
     
-    const textarea2 = document.getElementById('resizable-textarea-2');
-    const saveButton2 = document.getElementById('save-button-2');
-
-    // Create an error message element for each input
-    const titleError = document.createElement('span');
-    const featuresError = document.createElement('span');
-    const priceError = document.createElement('span');
-
-    titleError.classList.add('error-message');
-    featuresError.classList.add('error-message');
-    priceError.classList.add('error-message');
-
-    // Append the error message elements under the respective input labels
-    document.getElementById('title').parentNode.appendChild(titleError);
-    document.getElementById('features').parentNode.appendChild(featuresError);
-    document.getElementById('price').parentNode.appendChild(priceError);
-
-    // Add event listener to the save button
-    saveButton2.addEventListener('click', function() {
-        // Get the text from the textarea
-        const text = textarea2.value.trim();
-
-        // Check if the textarea is empty
-        if (text === '') {
-            // If empty, display an error message
-            displayErrorMessage(textarea2, 'Textarea is empty. Please enter some text before saving.');
+        // Get form inputs
+        const title = document.getElementById('title').value.trim();
+        const features = getSelectedFeatures();
+        const price = document.getElementById('price').value.trim();
+        const duration = document.getElementById('duration').value;
+        const planTitle = document.getElementById('planTitle').value.trim();
+    
+        // Validate form inputs
+        if (!validateForm(title, features, price, duration)) {
+            return; // Stop further execution if validation fails
+        }
+    
+        // Create new plan details object
+        const newPlan = {
+            title: title,
+            features: features,
+            price: price,
+            duration: duration
+        };
+    
+        // Display plan details dynamically
+        if (planTitle) {
+            // Update existing plan details
+            updatePlanDetails(planTitle, newPlan);
         } else {
-            // If not empty, clear any existing error message
-            clearErrorMessage(textarea2);
+            // Add new plan details
+            displayPlanDetails(newPlan);
+    
+            // Optional: Save to localStorage
+            savePlanToLocalStorage(newPlan);
+        }
+    
+        // Hide pop-up form
+        hidePopupForm();
+    });
+    
+    function getSelectedFeatures() {
+        const checkboxes = document.getElementsByName('features');
+        const selectedFeatures = [];
 
-            // Save the text to localStorage
-            localStorage.setItem('savedText2', text);
-            // Show an alert indicating the text has been saved
-            alert('Text saved: ' + text);
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedFeatures.push(checkbox.value);
+            }
+        });
+
+        return selectedFeatures;
+    }
+
+    function validateForm(title, features, price, duration) {
+        var isValid = true;
+
+        // Validate title
+        const titleField = document.getElementById('title');
+        if (title === "") {
+            displayErrorMessage(titleField, "Please enter a title for the plan", 'title-error');
+            isValid = false;
+        } else {
+            clearErrorMessage(titleField);
+        }
+
+        // Validate features
+        const featuresField = document.getElementsByName('features');
+        if (features.length === 0) {
+            displayErrorMessage(featuresField[0], "Please select at least one feature", 'features-error');
+            isValid = false;
+        } else {
+            clearErrorMessage(featuresField[0]);
+        }
+
+        // Validate price
+        const priceField = document.getElementById('price');
+        if (price === "" || isNaN(price) || parseFloat(price) <= 0) {
+            displayErrorMessage(priceField, "Please enter a valid price", 'price-error');
+            isValid = false;
+        } else {
+            clearErrorMessage(priceField);
+        }
+
+        // Validate duration
+        const durationField = document.getElementById('duration');
+        if (duration === "") {
+            displayErrorMessage(durationField, "Please select a duration", 'duration-error');
+            isValid = false;
+        } else {
+            clearErrorMessage(durationField);
+        }
+
+        return isValid;
+    }
+
+    function displayPlanDetails(plan) {
+        const planDetailsDiv = document.createElement('div');
+        planDetailsDiv.classList.add('plan');
+        planDetailsDiv.id = `${plan.title}-plan-details`;
+        planDetailsDiv.innerHTML = `
+    <div class="plan-details">
+        <h3>${plan.title} Subscription Details</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <td><strong>Price:</strong></td>
+                    <td>${plan.price}</td>
+                
+                    <td><strong>Features:</strong></td>
+                    <td>
+                        <ul>
+                            ${plan.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </td>
+                
+                    <td><strong>Duration:</strong></td>
+                    <td>${plan.duration}</td>
+                
+                    <td class="plan-actions">
+                        <button class="edit-button" data-plan-title="${plan.title}">Edit</button>
+                        <button class="delete-button" data-plan-title="${plan.title}">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+`;
+    
+    
+    
+    
+
+        // Append plan details div to container
+        document.getElementById('dynamicPlansContainer').appendChild(planDetailsDiv);
+    }
+
+    function savePlanToLocalStorage(plan) {
+        // Save plan details to localStorage
+        localStorage.setItem(`${plan.title}PlanDetails`, JSON.stringify(plan));
+    }
+document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('edit-button')) {
+            const planTitle = event.target.getAttribute('data-plan-title');
+            editPlan(planTitle);
+        } else if (event.target.classList.contains('delete-button')) {
+            const planTitle = event.target.getAttribute('data-plan-title');
+            deletePlan(planTitle);
         }
     });
 
-    // Function to display an error message
-    function displayErrorMessage(inputElement, message) {
-        const errorMessage = inputElement.parentNode.querySelector('.error-message');
-        errorMessage.textContent = message; // Set the text content of the error message
-        errorMessage.style.color = 'red'; // Set the color of the error message to red
+    // Function to handle editing a plan
+    function editPlan(planTitle) {
+        // Retrieve plan details from localStorage
+        const storedPlan = JSON.parse(localStorage.getItem(`${planTitle}PlanDetails`));
+        if (!storedPlan) {
+            console.log('Plan details not found in localStorage');
+            return;
+        }
+
+        // Populate form fields with stored plan details for editing
+        document.getElementById('editTitle').value = storedPlan.title;
+        document.getElementById('editPrice').value = storedPlan.price;
+        document.getElementById('editDuration').value = storedPlan.duration;
+
+        // Check feature checkboxes based on stored plan features
+        const checkboxes = document.querySelectorAll('.editFeatureCheckbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = storedPlan.features.includes(checkbox.value);
+        });
+
+        // Store the plan title being edited in a hidden input field
+        document.getElementById('editPlanTitle').value = planTitle;
+
+        // Display the edit popup form
+        document.getElementById('editPopupForm').style.display = 'block';
     }
 
-    // Function to clear the error message
-    function clearErrorMessage(inputElement) {
-        const errorMessage = inputElement.parentNode.querySelector('.error-message');
-        errorMessage.textContent = ''; // Clear the text content of the error message
-    }
+    // Event listener for Save button in the edit popup form
+    document.getElementById('editSaveButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent form submission
 
+        // Get form inputs from the edit popup form
+        const title = document.getElementById('editTitle').value.trim();
+        const price = document.getElementById('editPrice').value.trim();
+        const duration = document.getElementById('editDuration').value;
+        const features = getSelectedEditFeatures(); // Get selected features
+        const planTitle = document.getElementById('editPlanTitle').value.trim();
 
+        // Retrieve existing plan details from localStorage
+        let storedPlan = JSON.parse(localStorage.getItem(`${planTitle}PlanDetails`));
+        if (!storedPlan) {
+            console.log('Plan details not found in localStorage');
+            return;
+        }
 
-    const addPlanButton = document.getElementById('addPlanButton');
-    const popupForm = document.getElementById('popupForm');
-    const planForm = document.getElementById('planForm');
-    const planDetailsContainer = document.getElementById('dynamicPlansContainer');
+        // Update only the fields that were changed
+        storedPlan.title = title !== '' ? title : storedPlan.title;
+        storedPlan.price = price !== '' ? price : storedPlan.price;
+        storedPlan.duration = duration !== '' ? duration : storedPlan.duration;
+        storedPlan.features = features.length > 0 ? features : storedPlan.features;
 
-    // Function to show the pop-up form
-    addPlanButton.addEventListener('click', function() {
-        popupForm.style.display = 'block';
+        // Update plan details in localStorage
+        localStorage.setItem(`${planTitle}PlanDetails`, JSON.stringify(storedPlan));
+
+        // Update plan details in the UI
+        updatePlanDetails(planTitle, storedPlan);
+
+        // Hide the edit popup form
+        document.getElementById('editPopupForm').style.display = 'none';
     });
+
+    // Event listener for Cancel button in the edit popup form
+    document.getElementById('editCancelButton').addEventListener('click', function() {
+        // Hide the edit popup form
+        document.getElementById('editPopupForm').style.display = 'none';
+    });
+
+    // Function to get selected features from the edit popup form
+    function getSelectedEditFeatures() {
+        const checkboxes = document.querySelectorAll('.editFeatureCheckbox');
+        const selectedFeatures = [];
+
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedFeatures.push(checkbox.value);
+            }
+        });
+
+        return selectedFeatures;
+    }
+
+    // Function to update plan details in the UI
+    function updatePlanDetails(planTitle, updatedPlan) {
+        // Update plan details in the UI
+        const planContainer = document.getElementById(`${planTitle}-plan-details`);
+        if (planContainer) {
+            planContainer.innerHTML = `
+            <div class="plan-details">
+                <h3>${updatedPlan.title} Subscription Details</h3>        <table>
+            <tbody>
+                <tr>
+                    <td><strong>Price:</strong></td>
+                    <td>${updatedPlan.price}</td>
+                
+                    <td><strong>Features:</strong></td>
+                    <td>
+                        <ul>
+                        ${updatedPlan.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </td>
+                
+                    <td><strong>Duration:</strong></td>
+                    <td>${updatedPlan.duration}</td>
+                
+                    <td class="plan-actions">
+                         <button class="edit-button" data-plan-title="${updatedPlan.title}">Edit</button>
+                       <button class="delete-button" data-plan-title="${updatedPlan.title}">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+`;
+    
+        
+        
+        }
+    }
+
+    // Function to delete a plan
+    function deletePlan(planTitle) {
+        console.log('Deleting plan:', planTitle);
+        // Remove plan details from localStorage
+        localStorage.removeItem(`${planTitle}PlanDetails`);
+
+        // Remove plan details from the UI
+        const planContainer = document.getElementById(`${planTitle}-plan-details`);
+        if (planContainer) {
+            planContainer.parentNode.removeChild(planContainer); // Remove the plan container from its parent
+            alert('Plan deleted: ' + planTitle);
+        } else {
+            console.log('Plan container not found');
+        }
+    }
+    
+
+    function displayErrorMessage(field, message, id) {
+        const errorMessage = document.createElement('div');
+        errorMessage.textContent = message;
+        errorMessage.classList.add('error-message');
+        errorMessage.id = id;
+        field.parentNode.insertBefore(errorMessage, field.nextSibling);
+        errorMessage.style.color = 'red';
+    }
+
+    function clearErrorMessage(field) {
+        const errorMessage = field.parentNode.querySelector('.error-message');
+        if (errorMessage) {
+            errorMessage.remove();
+        }
+    }
 
     // Function to hide the pop-up form
     function hidePopupForm() {
         document.getElementById('popupForm').style.display = 'none';
+
+        // Reset form fields and error messages
+        document.getElementById('planForm').reset();
+        const errorMessages = document.querySelectorAll('.error-message');
+        errorMessages.forEach(errorMessage => {
+            errorMessage.remove();
+        });
+
+        // Reset submit button text to 'Save'
+        document.querySelector('#planForm button[type="submit"]').textContent = 'Save';
     }
 
-    // Function to handle form submission
-    planForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
+    const addPlanButton = document.getElementById('addPlanButton');
+    addPlanButton.addEventListener('click', function() {
+        // Display the pop-up form
+        document.getElementById('popupForm').style.display = 'block';
+    });
+});
 
-        // Get form inputs
-        const title = document.getElementById('title').value.trim();
-        const features = document.getElementById('features').value.trim();
-        const price = document.getElementById('price').value.trim();
-
-        // Validate form inputs
-        if (!validateForm(title, features, price)) {
-            return; // Stop further execution if validation fails
-        }
-
-        // Create new plan details div
-        const planDetailsDiv = document.createElement('div');
-        planDetailsDiv.classList.add('plan');
-        planDetailsDiv.innerHTML = `
+function updatePlanDetails(planTitle, updatedPlan) {
+    // Update plan details in the UI
+    const planContainer = document.getElementById(`${planTitle}-plan-details`);
+    if (planContainer) {
+        planContainer.innerHTML = `
             <table>
                 <thead>
                     <tr>
-                        <th colspan="2" id="details">${title} Subscription Details</th>
+                        <th colspan="2" id="details">${updatedPlan.title} Subscription Details</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Price:</td>
-                        <td>${price}</td>
-                    </tr>
-                    <tr>
+                        <td>${updatedPlan.price}</td>
+                  
                         <td>Features:</td>
-                        <td>${features}</td>
+                        <td>
+                            <ul>
+                                ${updatedPlan.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                        </td>
+                   
+                        <td>Duration:</td>
+                        <td>${updatedPlan.duration}</td>
+
                     </tr>
                 </tbody>
             </table>
         `;
-
-        // Append plan details div to container
-        planDetailsContainer.appendChild(planDetailsDiv);
-
-        // Hide pop-up form
-        hidePopupForm();
-    });
-
-    function validateForm(title, features, price) {
-    var isValid = true;
-
-    // Validate title
-    const titleField = document.getElementById('title');
-    const titleErrorMessage = document.getElementById('title-error');
-    if (title === "") {
-        if (!titleErrorMessage) {
-            displayErrorMessage(titleField, "Please enter a title for the plan.", 'title-error');
-        }
-        isValid = false;
-    } else {
-        clearErrorMessage(titleField);
-        if (titleErrorMessage) {
-            titleErrorMessage.remove();
-        }
     }
 
-    // Validate features
-    const featuresField = document.getElementById('features');
-    const featuresErrorMessage = document.getElementById('features-error');
-    if (features === "") {
-        if (!featuresErrorMessage) {
-            displayErrorMessage(featuresField, "Please enter features for the plan.", 'features-error');
-        }
-        isValid = false;
-    } else {
-        clearErrorMessage(featuresField);
-        if (featuresErrorMessage) {
-            featuresErrorMessage.remove();
-        }
-    }
-
-    // Validate price
-    const priceField = document.getElementById('price');
-    const priceErrorMessage = document.getElementById('price-error');
-    if (price === "") {
-        if (!priceErrorMessage) {
-            displayErrorMessage(priceField, "Please enter price for the plan.", 'price-error');
-        }
-        isValid = false;
-    } else if (isNaN(price) || parseFloat(price) <= 0) {
-        if (!priceErrorMessage) {
-            displayErrorMessage(priceField, "Price must be a positive numeric value.", 'price-error');
-        }
-        isValid = false;
-    } else {
-        clearErrorMessage(priceField);
-        if (priceErrorMessage) {
-            priceErrorMessage.remove();
-        }
-    }
-
-    return isValid;
+    // Update plan details in localStorage
+    localStorage.setItem(`${planTitle}PlanDetails`, JSON.stringify(updatedPlan));
 }
 
-function displayErrorMessage(field, message, id) {
-    const errorMessage = document.createElement('div');
-    errorMessage.textContent = message;
-    errorMessage.classList.add('error-message');
-    errorMessage.id = id;
-    field.parentNode.insertBefore(errorMessage, field.nextSibling);
-    errorMessage.style.color = 'red';
-}
-
-function clearErrorMessage(field) {
-    const errorMessage = field.nextElementSibling;
-    if (errorMessage && errorMessage.classList.contains('error-message')) {
-        errorMessage.remove();
-    }
-}
-
-
+document.getElementById('cancelButton').addEventListener('click', function() {
+    hidePopupForm();
 });
 
 function hidePopupForm() {
     document.getElementById('popupForm').style.display = 'none';
-}
-function deletePlan(planType) {
-    console.log('Deleting plan:', planType);
-    const planContainer = document.querySelector(`#${planType}-plan-details`).closest('.plan');
-    if (planContainer) {
-        planContainer.remove();
-
-        // Hide the corresponding edit button
-        const editButtons = document.querySelectorAll(`.edit-button[onclick="editPlan('${planType}')"]`);
-        editButtons.forEach(button => {
-            button.style.display = 'none';
-        });
-
-        // Hide the corresponding delete button
-        const deleteButtons = document.querySelectorAll(`.delete-button[onclick="deletePlan('${planType}')"]`);
-        deleteButtons.forEach(button => {
-            button.style.display = 'none';
-        });
-
-        // Remove details from local storage
-        localStorage.removeItem(`${planType}PlanDetails`);
-        alert('Plan deleted: ' + planType);
-    } else {
-        console.log('Plan container not found');
-    }
 }

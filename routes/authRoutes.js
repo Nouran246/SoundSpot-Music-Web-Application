@@ -145,7 +145,7 @@ router.get("/Songs", (req, res) => {
 });
 
 
-router.get("/Song", (req, res) => {
+router.get("/SongPlaying", (req, res) => {
   if (req.session.user) {
     res.render("UserPart/SongPlaying", {
       currentPage: "SongPlaying",
@@ -237,22 +237,20 @@ router.get("/logout", (req, res) => {
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
 router.get("/ManageUsers", (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/ManageUsers", {
       currentPage: "ManageUsers",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/managePlaylist", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/managePlaylist", {
+      currentPage: "managePlaylist",
       user: req.session.user,
     });
   } else {
@@ -272,7 +270,7 @@ router.get("/addplaylist", (req, res) => {
 router.get("/addsong", (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/addsong", {
-      currentPage: "addsongt",
+      currentPage: "addsong",
       user: req.session.user,
     });
   } else {
@@ -329,16 +327,6 @@ router.get("/ManageUsers", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/plansAdmin", (req, res) => {
-  if (req.session.user) {
-    res.render("AdminPart/plansAdmin", {
-      currentPage: "plansAdmin",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
-});
 router.get("/premium", (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/premium", {
@@ -359,10 +347,10 @@ router.get("/Reports", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/songs", (req, res) => {
+router.get("/song", (req, res) => {
   if (req.session.user) {
-    res.render("AdminPart/songs", {
-      currentPage: "songs",
+    res.render("AdminPart/song", {
+      currentPage: "song",
       user: req.session.user,
     });
   } else {
