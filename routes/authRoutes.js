@@ -327,16 +327,6 @@ router.get("/ManageUsers", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/plansAdmin", (req, res) => {
-  if (req.session.user) {
-    res.render("AdminPart/plansAdmin", {
-      currentPage: "plansAdmin",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
-});
 router.get("/premium", (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/premium", {

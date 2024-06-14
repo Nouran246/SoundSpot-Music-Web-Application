@@ -14,7 +14,6 @@
       <script src="/Admin/Admin%20JavaScript/addsong.js"></script>
       <script src="/Admin/Admin%20JavaScript/german.js"></script>
       <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
-
 </head>
 <body>
     <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
@@ -24,9 +23,6 @@
                 <label for="song-name">Playlist Name:</label>
                 <input type="text" id="song-name" placeholder="Enter song name" required oninput="validateInput('song-name')">
                 <div id="song-name-error" class="error-message"></div>
-                
-                
-                
                 <label for="genre">Genre:</label>
                 <select id="genre" onchange="checkOther(this.value)" required>                
                     <optgroup label="Genre">
