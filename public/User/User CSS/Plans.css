@@ -3,6 +3,11 @@ h1{
     
 }
 
+body {
+    background-image: url("User/photo/3129941.jpg");
+}
+
+
 
 .three-buttons {
     display: inline-block; 
@@ -42,7 +47,8 @@ h1{
     width: 17%;
     height: 440px;
     border: 2px solid rgb(50, 50, 50); /* Add white outline border */
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;}
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
 .card:hover {
     transform: scale(1.1); /* Zoom in by 10% */
     transition: transform 0.3s ease; /* Add smooth transition */
@@ -120,4 +126,61 @@ h1{
 }
 .light-mode h1 #mon{
     color: black; 
+}
+@media (max-width: 576px) {
+    .card {
+        width: 90%;
+    }
+
+    .card h2, .card h1, .card p {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+
+    .card button {
+        margin: 20px 0;
+        padding: 8px 16px;
+    }
+
+    .three-buttons {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: center;
+    }
+}
+@media (max-width: 480px) {
+    .plan-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%; /* Ensure all cards have equal width */
+        margin: 10px 0;
+    }
+
+    .card h2, .card h1, .card p {
+        font-size: 0.9rem; /* Further adjust font size for smallest screens */
+    }
+
+    .card button {
+        margin: 20px 0;
+        padding: 8px 16px;
+    }
+
+    .three-buttons {
+        width: 50%;
+        margin: 20px auto;
+        text-align: center;
+        margin-left:225px;
+    }
+    #card1,#card2,#card3{
+        width:250px;
+    }
+    #card1{
+        margin-right:40px;
+    }
+    #card2,#card3{
+      margin-left:215px;
+    }
 }
