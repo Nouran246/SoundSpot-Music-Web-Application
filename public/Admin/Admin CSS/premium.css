@@ -12,57 +12,91 @@
   
  
 }
+.plan-actions {
+    display: inline-block; /* Ensures buttons are displayed in the same line */
+}
+
+.plan-actions button {
+    margin-right: 5px; /* Adjust margin between buttons as needed */
+}
+
 .popup {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #222; /* Dark background color */
-    color: white; /* White text color */
-    border: 2px solid #800080; /* Border color */
-    padding: 40px; /* Increased padding for bigger size */
+    background-color: #222;
+    color: white;
+    border: 2px solid #800080;
+    padding: 20px 40px; /* Reduced padding */
     z-index: 9999;
-    display: none; /* Initially hide the pop-up */
+    display: none;
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Limit maximum width for larger screens */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+    border-radius: 8px; /* Rounded corners */
 }
 
 .popup h2 {
-    font-size: 24px; /* Larger font size for titles */
-    margin-bottom: 20px; /* Add some space below titles */
+    font-size: 24px;
+    margin-bottom: 10px; /* Reduced space below title */
+    text-align: center; /* Center align the title */
 }
 
-.popup input[type="text"] {
-    background-color: #5a555a; /* Purple button color */
-    color: white; /* White text color */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.popup button[type="submit"] {
-    background-color: #800080; /* Purple button color */
-    color: white; /* White text color */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.popup input[type="text"] {
+.popup input[type="text"],
+.popup select,
+.popup button {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 8px; /* Reduced padding */
+    margin-bottom: 10px; /* Reduced margin */
+    border: none;
+    border-radius: 5px;
+    background-color: #5a555a;
+    color: white;
+    transition: background-color 0.3s ease;
 }
 
 .popup input[type="text"]::placeholder {
-    color: #ccc; /* Placeholder text color */
+    color: #ccc;
 }
 
-.popup button[type="submit"]:hover {
-    background-color: #6a006a; /* Darker shade of purple on hover */
+.popup button[type="submit"],
+.popup button[type="button"] {
+    background-color: #800080;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup button[type="submit"]:hover,
+.popup button[type="button"]:hover {
+    background-color: #6a006a;
+}
+
+.popup input[type="file"] {
+    display: block;
+    margin-top: 10px;
+    padding: 8px; /* Reduced padding */
+    border: none;
+    border-radius: 5px;
+    background-color: #5a555a;
+    color: white;
+}
+
+.popup input[type="file"]::file-selector-button {
+    padding: 5px 15px;
+    background-color: #800080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.title9, .title10 {
+    text-align: center;
+    color: white;
+    font-family: cursive;
+    margin: 20px auto; /* Center align and provide vertical spacing */
 }
 
 
@@ -109,15 +143,23 @@ body.light-mode .plan {
 .edit-container {
     text-align: right;
 }
+.edit-button{
+    margin-left:250px;
+}
 
-.edit-button {
+.edit-button,
+.delete-button {
+    padding: 5px 10px;
+    margin-right: 10px; /* Adjust spacing between buttons */
     background-color: #800080;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+    background-color: #4e0f45;
 }
 
 .edit-button:hover {
@@ -136,6 +178,9 @@ body.light-mode .plan {
 
 .popup button[type="button"]:hover {
     background-color: #6a006a; /* Darker shade of purple on hover */
+}
+.title9{
+    text-align:center;
 }
 
 /* Responsive Styles */
@@ -181,3 +226,71 @@ body.light-mode .plan {
                     margin-left: 0; /* Ensure no left margin */
                     margin-right: 0; /* Ensure no right margin */
                 }}
+
+                #editPopupForm {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #222;
+                    color:white;
+                    border: 1px solid #ccc;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    padding: 20px;
+                    z-index: 1000; /* Ensure the popup is on top */
+                    display: none; /* Initially hidden */
+                    max-width: 400px; /* Adjust as needed */
+                }
+                
+                #editPopupForm label {
+                    display: block;
+                    margin-bottom: 5px;
+                    font-weight: bold;
+                    color:white;
+                }
+                
+                #editPopupForm input[type="text"],
+                #editPopupForm select {
+                    width: 100%;
+                    padding: 8px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                }
+                
+                #editPopupForm fieldset {
+                    border: none;
+                    margin-bottom: 15px;
+                }
+                
+                #editPopupForm legend {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                
+                #editPopupForm .editFeatureCheckbox {
+                    margin-right: 5px;
+                }
+                
+                #editPopupForm button {
+                    padding: 10px 20px;
+                    border: none;
+                    background-color: #4CAF50;
+                    color: #fff;
+                    cursor: pointer;
+                    margin-right: 10px;
+                }
+                
+                #editPopupForm button:hover {
+                    background-color: #45a049;
+                }
+                
+                #editPopupForm #editCancelButton {
+                    background-color: #f44336;
+                }
+                
+                #editPopupForm #editCancelButton:hover {
+                    background-color: #da190b;
+                }
+                
