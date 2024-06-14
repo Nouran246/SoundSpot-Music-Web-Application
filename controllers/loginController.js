@@ -21,7 +21,7 @@ const loginProcess = async (req, res) => {
 
     req.session.user = user;
     if (user.type === "user") {
-      res.redirect("/auth/user-home");
+      res.redirect("/auth/UserHomePage");
     } else if (user.type === "admin") {
       res.redirect("/auth/home");
     }

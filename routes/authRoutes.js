@@ -94,7 +94,7 @@ router.get("/Subscription", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/user-home", (req, res) => {
+router.get("/UserHomePage", (req, res) => {
   if (req.session.user) {
     res.render("UserPart/UserHomePage", {
       currentPage: "UserHomePage",
