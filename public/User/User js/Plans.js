@@ -20,5 +20,5 @@ function section2() {
 }
 
 function redirectToSubscription() {
-    window.location.href = 'Subscription.html';
+    window.location.href = "/Subscription";
 }

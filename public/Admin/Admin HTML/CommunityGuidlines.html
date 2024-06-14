@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/Admin/Admin%20CSS/Sidenavbar.css">
+    <link rel="stylesheet" type="text/css" href="../Admin%20CSS/Sidenavbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>SoundSpot</title>
     <link rel="icon" href="photo/2.png" type="image/png">
-    <link rel="stylesheet" href="/Admin/Admin%20CSS/free.css">
-    <script src="/Admin/Admin%20JavaScript/Sidenavbar.js"></script>
-    <link rel="stylesheet" href="/Admin/Admin%20CSS/CommunityGuidlines .css">
-    <script src="/Admin/Admin%20JavaScript/CommunityGuidlines.js"></script>
+    <link rel="stylesheet" href="../Admin%20CSS/free.css">
+    <script src="../Admin%20JavaScript/Sidenavbar.js"></script>
+    <link rel="stylesheet" href="../Admin%20CSS/CommunityGuidlines .css">
+    <script src="../Admin%20JavaScript/CommunityGuidlines.js"></script>
     <link rel="stylesheet" href="../Admin%20CSS/ManageSongs.css">
-    <script src="/Admin/Admin%20JavaScript/german.js"></script>
+    <script src="../Admin%20JavaScript/german.js"></script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
 
 </head>
@@ -21,12 +21,12 @@
 <body>
     <div class="sidebar">
         <button onclick="changeLogo()" id="custom-sidebar-toggle"> 
-            <img id="custom-sidebar-img" src="/photo/menu.png"  class="dark-mode-img" alt="Button Image">
-            <img id="custom-sidebar-img" src="/photo/menu (1).png"  class="light-mode-img" alt="Button Image">
+            <img id="custom-sidebar-img" src="photo\menu.png"  class="dark-mode-img" alt="Button Image">
+            <img id="custom-sidebar-img" src="photo\menu (1).png"  class="light-mode-img" alt="Button Image">
         </button>
 
         <a href="home.html" id="trial">
-            <img id="trial-img" src="/photo/output-onlinepngtools.png" alt="SoundSpot Logo">
+            <img id="trial-img" src="photo\output-onlinepngtools.png" alt="SoundSpot Logo">
         </a>
         <a class="text-a" href="ManageUsers.html">
             <i class="fas fa-users dark-mode-img  icons"></i>
@@ -48,7 +48,7 @@
             <i class="fa-regular fa-newspaper icons"></i>
             <span class="t">Company Overview</span>
         </a>
-        <a class="text-a" href="CommunityGuidelinesAdmin">
+        <a class="text-a" href="CommunityGuidlines.html">
             <i class="fa-solid fa-file-signature icons"></i>
             <span class="t">Community Guidelines</span>
         </a>
@@ -69,37 +69,37 @@
             <button id="search-button" class="search-button"></button>
          
             <a href="https://app.crisp.chat/website/426af94c-e0f5-41fe-890a-0a360c3921f5/inbox/" target="_blank">
-                <img id="chat-icon" src="/photo/chat.png" alt="Chat Icon">
+                <img id="chat-icon" src="photo/chat.png" alt="Chat Icon">
             </a>
             <div id="profile">
-                <img id="profile-icon" src="/photo/cat.jpg">
+                <img id="profile-icon" src="photo/cat.jpg">
                 <div class="profile_dropDownMenu">
                     <nav>
                         <div class="menu-item">
-                            <img src="/photo/user.png" alt="Profile Icon" class="dark-mode-img"> 
-                            <img src="/photo/user (2).png" alt="Profile Icon" class="light-mode-img"> 
+                            <img src="photo\user.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\user (2).png" alt="Profile Icon" class="light-mode-img"> 
                             <a href="#">Profile</a>
                         </div>
                         
                         <div class="menu-item">
-                            <img src="/photo/view.png" alt="Profile Icon" class="dark-mode-img"> 
-                            <img src="/photo/eye.png" alt="Profile Icon" class="light-mode-img"> 
+                            <img src="photo\view.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\eye.png" alt="Profile Icon" class="light-mode-img"> 
                             <a href="#">Views as</a>
                         </div>
                         <div class="menu-item"> 
-                            <img src="/photo/settings-gear-icon.png" alt="Profile Icon" class="dark-mode-img"> 
-                            <img src="/photo/settings.png" alt="Profile Icon" class="light-mode-img"> 
+                            <img src="photo\settings-gear-icon.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\settings.png" alt="Profile Icon" class="light-mode-img"> 
                             <a href="#" id="settings-button">Settings</a>
                         </div>
                         <div class="menu-item">
-                            <img src="/photo/brightness.png" alt="Profile Icon" class="dark-mode-img"> 
-                            <img src="/photo/brightness (2).png" alt="Profile Icon" class="light-mode-img"> 
+                            <img src="photo\brightness.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\brightness (2).png" alt="Profile Icon" class="light-mode-img"> 
                             <a href="#">Light Mode</a>
                             <button id="toggle-light-mode"></button>
                         </div>
                         <div class="menu-item">
-                            <img src="/photo/exit.png" alt="Profile Icon" class="dark-mode-img"> 
-                            <img src="/photo/exit (2).png" alt="Profile Icon" class="light-mode-img">
+                            <img src="photo\exit.png" alt="Profile Icon" class="dark-mode-img"> 
+                            <img src="photo\exit (2).png" alt="Profile Icon" class="light-mode-img">
                             <a href="../../Login form/Index.html">Log Out</a>
                         </div>
                     </nav>
@@ -129,16 +129,11 @@
     <h1 class="title4">Community Guidlines</h1>
 
 
-    <!-- community.html or wherever your form is -->
-    <form action="/community/process" method="POST">
-        <div class="container">
-          <textarea id="resizable-textarea-4" name="Comguide"> </textarea>
-          <br>
-          <button id="save-button-4" type="submit">Save</button>
-        </div>
-    </form>
-    
-  
+    <div class="container">
+        <textarea id="resizable-textarea-4" ></textarea>
+        <br>
+        <button id="save-button-4">Save</button>
+    </div>
 
 
     <footer>
@@ -148,9 +143,9 @@
                 <p>&copy; 2024 SoundSpot. All rights reserved.</p>
             </div>
             <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img src="/photo/facebook.png"></a>
-                <a href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="/photo/instagram.png"></a>
-                <a href="mailto:emailsspamm101@gmail.com"><img src="/photo/gmail.png"></a>
+                <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img src="photo\facebook.png"></a>
+                <a href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="photo\instagram.png"></a>
+                <a href="mailto:emailsspamm101@gmail.com"><img src="photo\gmail.png"></a>
             </div>
         </div>
 

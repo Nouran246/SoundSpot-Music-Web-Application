@@ -16,95 +16,7 @@
 
 
 <body>
-    <div class="sidebar">
-        <button onclick="changeLogo()" id="custom-sidebar-toggle">
-            <img id="custom-sidebar-img" src="/photo/menu.png" class="dark-mode-img" alt="Button Image">
-            <img id="custom-sidebar-img" src="/photo/menu (1).png" class="light-mode-img" alt="Button Image">
-        </button>
-        <a href="home" id="trial">
-            <img id="trial-img" src="/photo/output-onlinepngtools" alt="SoundSpot Logo">
-        </a>
-        <a class="text-a" href="ManageUsers">
-            <i class="fas fa-users dark-mode-img icons"></i>
-            <span class="t">Manage Users</span>
-        </a>
-        <a class="text-a" href="ManageSongs.html">
-            <i class="fa-solid fa-music icons"></i>
-            <span class="t">Manage Songs</span>
-        </a>
-        <a class="text-a" href="Reports.html">
-            <i class="fa-solid fa-chart-column icons"></i>
-            <span class="t">Reports</span>
-        </a>
-        <a class="text-a" href="plansAdmin">
-            <i class="fa-solid fa-wallet icons"></i>
-            <span class="t">Plans</span>
-        </a>
-        <a class="text-a" href="CompanyOverview">
-            <i class="fa-regular fa-newspaper icons"></i>
-            <span class="t">Company Overview</span>
-        </a>
-        <a class="text-a" href="CommunityGuidelinesAdmin">
-            <i class="fa-solid fa-file-signature icons"></i>
-            <span class="t">Community Guidelines</span>
-        </a>
-        <a class="text-a" href="Badges.html">
-            <i class="fa-solid fa-ribbon"></i>
-            <span class="t">Badges</span>
-        </a>
-    </div>
-    
-    <div class="navbar">
-        <div class="search-bar" id="searchBar" style="display: none;">
-            <input type="text" placeholder="Search...">
-            <i class="fas fa-search search-icon"></i>
-        </div>
-        <div class="navbar-icons">
-            <button id="search-button" class="search-button"></button>
-            <a href="https://app.crisp.chat/website/426af94c-e0f5-41fe-890a-0a360c3921f5/inbox/" target="_blank">
-                <i class="fa-solid fa-comment-dots chat-icon"></i>
-            </a>
-            <div id="profile">
-                <img id="profile-icon" src="/photo/cat.jpg">
-                <div class="profile_dropDownMenu">
-                    <nav>
-                        <div class="menu-item">
-                            <i class="fa-solid fa-user"></i>
-                            <a href="#">Profile</a>
-                        </div>
-                        <div class="menu-item">
-                            <i class="fa-regular fa-eye"></i>
-                            <a href="#">View as</a>
-                        </div>
-                        <div class="menu-item">
-                            <i class="fa-solid fa-gear"></i>
-                            <a href="#" id="settings-button">Settings</a>
-                        </div>
-                        <div class="menu-item">
-                            <i class="fa-regular fa-sun"></i>
-                            <a href="#">Light Mode</a>
-                            <button id="toggle-light-mode"></button>
-                        </div>
-                        <div class="menu-item">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                            <a href="/Login%20form/Index.html">Log Out</a>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="settings-popup-container">
-        <div class="settings-popup">
-            <h3>Settings</h3>
-            <h4>Change Language</h4>
-            <div id="google_translate_element"></div>
-            <div class="button-group">
-                <button id="save-button">Save</button>
-                <button id="cancel-button">Cancel</button>
-            </div>
-        </div>
-    </div>
+    <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
     <!--User profiles list -->
 
     <div class=" main-content">
@@ -312,21 +224,6 @@
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
     </nav>
-
-    <footer>
-        <div class="footer-content">
-            <div class="text-center">
-                <p>&copy; 2024 SoundSpot. All rights reserved.</p>
-            </div>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img
-                        src="photo\facebook.png"></a>
-                <a
-                    href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img
-                        src="photo\instagram.png"></a>
-                <a href="mailto:emailsspamm101@gmail.com"><img src="photo\gmail.png"></a>
-            </div>
-        </div>
 </body>
 
 </html>

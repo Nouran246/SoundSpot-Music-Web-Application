@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../Admin%20CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="icon" href="photo/2.png" type="image/png">
+
+    <script src="../Admin%20JavaScript/Sidenavbar.js"></script>
+    <link rel="stylesheet" href="../Admin%20CSS/ManageUsers.css">
+    <script src="../Admin%20JavaScript/ManageUsers.js"></script>
+</head>
+
+
+<body>
+    <div class="sidebar">
+        <button onclick="changeLogo()" id="custom-sidebar-toggle">
+            <img id="custom-sidebar-img" src="photo\menu.png" class="dark-mode-img" alt="Button Image">
+            <img id="custom-sidebar-img" src="photo\menu (1).png" class="light-mode-img" alt="Button Image">
+        </button>
+        <a href="home.html" id="trial">
+            <img id="trial-img" src="photo\output-onlinepngtools.png" alt="SoundSpot Logo">
+        </a>
+        <a class="text-a" href="ManageUsers.html">
+            <i class="fas fa-users dark-mode-img  icons"></i>
+            <span class="t">Manage Users</span>
+        </a>
+        <a class="text-a" href="ManageSongs.html">
+            <i class="fa-solid fa-music icons"></i>
+            <span class="t">Manage Songs</span>
+        </a>
+        <a class="text-a" href="Reports.html">
+            <i class="fa-solid fa-chart-column  icons"></i>
+            <span class="t">Reports</span>
+        </a>
+        <a class="text-a" href="plansAdmin">
+            <i class="fa-solid fa-wallet icons"></i>
+            <span class="t">Plans</span>
+        </a>
+        <a class="text-a" href="CopanyOverview.html">
+            <i class="fa-regular fa-newspaper icons"></i>
+            <span class="t">Company Overview</span>
+        </a>
+        <a class="text-a" href="CommunityGuidlines.html">
+            <i class="fa-solid fa-file-signature icons"></i>
+            <span class="t">Community Guidelines</span>
+        </a>
+        <a class="text-a" href="Badges.html">
+            <i class="fa-solid fa-ribbon"></i>
+            <span class="t">Badges</span>
+        </a>
+    </div>
+
+    <div class="navbar">
+        <div class="search-bar" id="searchBar" style="display: none;">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="navbar-icons">
+            <button id="search-button" class="search-button"></button>
+            <a href="https://app.crisp.chat/website/ae50a009-d1c9-47fb-b54d-be8104b05ac3/inbox/" target="_blank">
+                <i class="fa-solid fa-comment-dots chat-icon"></i> </a>
+            <div id="profile">
+                <img id="profile-icon" src="photo/avatar_2633291.png">
+                <div class="profile_dropDownMenu">
+                    <nav>
+                        <div class="menu-item">
+                            <i class="fa-solid fa-user"></i>
+                            <a href="#">Profile</a>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-regular fa-eye"></i>
+                            <a href="#">View as</a>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-solid fa-gear"></i>
+                            <a href="#">Settings</a>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-regular fa-sun"></i>
+                            <a href="#">Light Mode</a>
+                            <button id="toggle-light-mode"></button>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <a href="#">Log Out</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--User profiles list -->
+
+    <div class=" main-content">
+        <!--      <div class="options">
+        <i class="fa-solid fa-bars" id="list-option" title="List view"></i>
+        <i class="fa-solid fa-grip" id="grid-option" title="Grid view"></i>
+    </div> -->
+        <div class="top-content">
+            <!--<button class="btn" id="del-log" onclick="showPopup()">Log </button>-->
+            <i class="fa-solid fa-plus" id="plus" title="Add User"></i>
+
+            <div class="top-texts">
+                <div class="top-text">Name</div>
+                <div class="top-text">Username</div>
+                <div class="top-text">Last Access</div>
+            </div>
+            <div class="actions">
+                <div class="checkbox" id="selectAllCheckbox1">
+                    <input type="checkbox" id="topCheckbox1" class="checkbox-input" />
+                    <span class="checkbox-custom"></span>
+                </div>
+                <i class="fa-solid fa-sort"></i>
+                <i class="fa-solid fa-envelope" title="Send E-mail"></i>
+                <i class="fa-solid fa-trash" title="Delete" id="delete-icon1"></i>
+            </div>
+        </div>
+        <div class="list-container">
+            <div class="list-item">
+                <div class="content">
+                    <img src="#">
+                    <div class="text"></div>
+                    <div class="text"></div>
+                    <div class="text"></div>
+                    <div class="list-checkbox">
+                        <input type="checkbox" id="userCheckbox_${user.username}" class="checkbox-input" />
+                        <span class="list-checkbox-custom"></span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right" id="see-more"></i>
+                </div>
+            </div>
+            <div class="user-info-container">
+
+                <div class="user-info">
+                    <div class="user-icons">
+                        <img src="photo/information.png" id="info">
+                        <img src="photo/contact-mail.png" id="info">
+                        <img src="photo/subscription.png" id="info">
+                        <img src="photo/log.png" id="info">
+                        <img src="photo/verified.png" id="info">
+                    </div>
+                    <div class="actual-content">
+                        <div class="personal-info-content" id="personalInfoContent" style="display: block;">
+                            <div class="user-content" style="display: none;">
+                                <div class="general-content">
+                                    <div class="info-item">
+                                        <label>Date of Birth</label>
+                                        <span>1985-07-15</span>
+                                        <label>ID</label>
+                                        <span>#64628</span>
+                                        <label>Billing Information</label>
+                                        <span>Visa **** **** **** 1234</span>
+                                        <label>Language</label><span> English</span>
+                                        <label>Theme</label><span> Dark Mode</span>
+                                        <label>Role</label><span> User</span>
+                                        <label>Permissions</label><span> Limited access</span>
+                                    </div>
+                                </div>
+                                <div class="contact-content">
+                                    <div class="info-item">
+                                        <label>Contact Information</label>
+                                        <label>Email</label><span> example@example.com</span>
+                                        <label>Phone Number</label><span> +1234567890</span>
+                                        <label>LinkedIn </label><span>linkedin.com/in/example</span>
+                                        <label>Twitter </label><span>twitter.com/example</span>
+                                        <label>Facebook </label><span>facebook.com/example</span>
+                                    </div>
+
+                                </div>
+                                <div class="plan-content">
+                                    <div class="info-item">
+                                        <label>Plan Type:</label><span> Basic</span>
+                                        <label>Start Date:</label><span> January 1, 2024</span>
+                                        <label>Renewal Date:</label><span> January 1, 2025</span>
+                                        <label>Subscription Status:</label><span> Active</span>
+                                        <label>Payment Method:</label><span> Credit Card</span>
+                                        <label>Next Payment Amount:</label><span> $9.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-log-content">
+                            <div class="info-item">
+                                <label>Total Listening Time</label>
+                                <span>3,240 minutes</span>
+                                <label>Playlists Created</label>
+                                <span>5 playlists</span>
+                                <label>Songs Uploaded</label>
+                                <span>20 songs</span>
+                                <label>Followers</label>
+                                <span>500 followers</span>
+                                <label>Following</label>
+                                <span>250 users</span>
+                                <label>Liked Songs</label>
+                                <span>100 songs</span>
+                            </div>
+                        </div>
+
+                        <div class="security-content">
+
+                            <div>
+                                <label>Password Strength:</label><span> Strong</span>
+                            </div>
+                            <div>
+                                <label>Password Last Updated:</label><span> April 25, 2024</span>
+                            </div>
+                            <div>
+                                <label>Account Status:</label><span> Active</span>
+                            </div>
+                            <div>
+                                <label>Two-Factor Authentication:</label><span> Enabled</span>
+                            </div>
+                            <div>
+                                <label>Security Questions Set:</label><span> Yes</span>
+                            </div>
+                            <div>
+                                <label>Last Login:</label><span> April 30, 2024</span>
+                            </div>
+                            <div>
+                                <label>IP Address of Last Login:</label><span> 192.168.1.10</span>
+                            </div>
+                            <div>
+                                <label>Device of Last Login:</label><span> Chrome on Windows 10</span>
+                            </div>
+                            <div>
+                                <label>Recent Password Changes:</label><span> None</span>
+                            </div>
+                            <div>
+                                <label>Failed Login Attempts:</label><span> 0</span>
+                            </div>
+                            <div>
+                                <label>Accessed from New Device:</label><span> No</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+    </div>
+
+
+    <div class="settings-popup-container">
+        <div class="settings-popup">
+            <h3>Settings</h3>
+
+            <div class="language-selection">
+                <label for="language-select">Change Language:</label>
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="gm">German (Deutsch)</option>
+
+                </select>
+            </div>
+            <div class="button-group">
+                <button id="save-button">Save</button>
+                <button id="cancel-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="delete-popup" id="delete-popup">
+        <h2>Confirm Deletion</h2>
+        <p>Are you sure you want to delete this item?</p>
+        <button id="ok-delete" class="btn">OK</button>
+        <button id="cancel-delete" class="btn">CANCEL</button>
+    </div>
+
+    <div class="select-item-popup">
+        <div class="popup-content" id="one-edit">
+            <h2>Please select one user at a time</h2>
+        </div>
+    </div>
+    <div class="select-item-popup">
+        <div class="popup-content" id="select-item">
+            <h2>No Users</h2>
+        </div>
+    </div>
+    <div class="select-item-popup">
+        <div class="popup-content" id="select-item-popup">
+            <h2>Please select an item</h2>
+        </div>
+    </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
+
+    <footer>
+        <div class="footer-content">
+            <div class="text-center">
+                <p>&copy; 2024 SoundSpot. All rights reserved.</p>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61558330435298&mibextid=ZbWKwL"><img
+                        src="photo\facebook.png"></a>
+                <a
+                    href="https://www.instagram.com/_soundspot_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img
+                        src="photo\instagram.png"></a>
+                <a href="mailto:emailsspamm101@gmail.com"><img src="photo\gmail.png"></a>
+            </div>
+        </div>
+</body>
+
+</html>

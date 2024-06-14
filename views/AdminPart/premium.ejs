@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/Admin/Admin%20CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="icon" href="/photo/2.png" type="image/png">
+    <link rel="stylesheet" href="/Admin/Admin%20CSS/ManageSongs.css">
+    <link rel="stylesheet" href="/Admin/Admin%20CSS/premium.css">
+    <script src="/Admin/Admin%20JavaScript/Sidenavbar.js"></script>
+    <link rel="stylesheet" href="/Admin/Admin%20CSS/free.css">
+    <script src="/Admin/Admin%20JavaScript/premium.js"></script>
+    <script src="/Admin/Admin%20JavaScript/german.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+
+</head>
+
+
+<body>
+    <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
+    <h1 class="title9">Premium Subscription</h1>
+
+
+    <div class="container">
+        <textarea id="resizable-textarea-2" ></textarea>
+        <br>
+        <button id="save-button-2">Save</button>
+    
+
+
+
+      <h1 class="title10">Premium Subscription details</h1>
+      <button id="addPlanButton">Add Plan</button>
+
+      <div id="dynamicPlansContainer"></div>
+
+      <!-- Popup form for adding a new plan -->
+      <div id="popupForm" class="popup">
+          <h2>Add Plan</h2>
+          <form id="planForm"onsubmit="return validateForm()">
+              <label for="title">Title:</label>
+              <input type="text" id="title" name="title" placeholder="Enter title" ><br>
+      
+              <label for="features">Features:</label>
+              <input type="text" id="features" name="features" placeholder="Enter features" ><br>
+      
+              <label for="price">Price:</label>
+              <input type="text" id="price" name="price" placeholder="Enter price" ><br>
+      
+              <button type="submit">Save</button>
+              <button type="button" onclick="hidePopupForm()">Cancel</button>
+          </form>
+          <div id="message" style="display: none;">Data saved successfully!</div>
+      </div>
+    
+    <!-- Premium Plan Details -->
+    <table class="plan" style="display: none;">
+        <thead>
+            <tr>
+                <th colspan="2" id="premium-details">Premium Subscription Details</th>
+            </tr>
+        </thead>
+        <tbody id="premium-subscription-details"></tbody>
+    </table>
+    <div class="edit-container" style="display: none;">
+        <button class="edit-button" onclick="editPlan('premium')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('premium')">Delete</button>
+    </div>
+    
+
+    
+      
+      <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Students Subscription Details</th>
+            </tr>
+        </thead>
+        <tbody id="premium-plan-details"></tbody>
+    </table>
+    <div class="edit-container" >
+        <button class="edit-button" onclick="editPlan('premium')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('premium')">Delete</button>
+    </div>
+
+    <!-- Family Plan -->
+    <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Family Plan Details</th>
+            </tr>
+        </thead>
+        <tbody id="family-plan-details"></tbody>
+    </table>
+    <div class="edit-container" >
+        <button class="edit-button" onclick="editPlan('family')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('family')">Delete</button>
+    </div>
+
+    <!-- Individual Plan -->
+    <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Individual Plan Details</th>
+            </tr>
+        </thead>
+        <tbody id="individual-plan-details"></tbody>
+    </table>
+    <div class="edit-container" >
+        <button class="edit-button" onclick="editPlan('individual')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('individual')">Delete</button>
+    </div>
+
+    <!-- Etisalat Offer -->
+    <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Etisalat Offer Details</th>
+            </tr>
+        </thead>
+        <tbody id="etisalat-offer-details"></tbody>
+    </table>
+    <div class="edit-container">
+        <button class="edit-button" onclick="editPlan('etisalat')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('etisalat')">Delete</button>
+    </div>
+
+    <!-- Vodafone Offer -->
+    <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Vodafone Offer Details</th>
+            </tr>
+        </thead>
+        <tbody id="vodafone-offer-details"></tbody>
+    </table>
+    <div class="edit-container" >
+        <button class="edit-button" onclick="editPlan('vodafone')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('vodafone')">Delete</button>
+    </div>
+
+    <!-- Orange Offer -->
+    <table class="plan">
+        <thead>
+            <tr>
+                <th colspan="2" id="details">Orange Offer Details</th>
+            </tr>
+        </thead>
+        <tbody id="orange-offer-details"></tbody>
+    </table>
+    <div class="edit-container" >
+        <button class="edit-button" onclick="editPlan('orange')">Edit</button>
+        <button class="delete-button" onclick="deletePlan('orange')">Delete</button>
+    </div>
+    </div>
+    
+    <div class="settings-popup-container">
+        <div class="settings-popup">
+            <h3>Settings</h3>
+
+ 
+            <h4>Change Language</h4> 
+        <div id="google_translate_element"></div>
+      
+    
+   
+        <div class="button-group">
+            <button id="save-button">Save</button>
+            <button id="cancel-button">Cancel</button>
+        </div>
+        </div>
+    </div>
+    
+</body>
+</html>

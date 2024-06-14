@@ -8,68 +8,25 @@ const router = express.Router();
 
 // Home page
 router.get("/", (req, res) => {
-  res.render("index", {
+  res.render("/index", {
     currentPage: "index",
     user: req.session.user || "",
   });
 });
 
-// User home page
-router.get("/user-home", (req, res) => {
+router.get("/home", (req, res) => {
   if (req.session.user) {
-    res.render("UserPart/UserHomePage", {
-      currentPage: "UserHomePage",
+    res.render("AdminPart/home", {
+      currentPage: "home",
       user: req.session.user,
     });
-  } else {
-    res.redirect("/");
-  }
-});
-
-router.get("/ManageUsers", (req, res) => {
-  if (req.session.user) {
-    res.render("ManageUsers", {
-      currentPage: "ManageUsers",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
-});
-
-// CommunityGuidelines
-router.get("/CommunityGuidelines", async (req, res) => {
-  if (req.session.user) {
-    try {
-      // Fetch community guidelines from the database
-      const communityGuidelines = await CommunityGuidelines.findOne();
-
-      if (!communityGuidelines) {
-        return res.render("UserPart/CommunityGuidelines", {
-          currentPage: "CommunityGuidelines",
-          error: "No community guidelines found.",
-          Comguide: null, // Pass null or appropriate default value
-          user: req.session.user,
-        });
-      }
-
-      // Render the page with retrieved guidelines
-      res.render("UserPart/CommunityGuidelines", {
-        currentPage: "CommunityGuidelines",
-        Comguide: communityGuidelines.Comguide, // Ensure Comguide is passed here
-        user: req.session.user,
-      });
-    } catch (error) {
-      console.error('Error fetching community guidelines:', error);
-      res.status(500).send("Internal Server Error");
-    }
   } else {
     res.redirect("/");
   }
 });
 router.get("/CommunityGuidelinesAdmin", (req, res) => {
   if (req.session.user) {
-    res.render("CommunityGuidelinesAdmin", {
+    res.render("AdminPart/CommunityGuidelinesAdmin", {
       currentPage: "CommunityGuidelinesAdmin",
       user: req.session.user,
     });
@@ -77,10 +34,9 @@ router.get("/CommunityGuidelinesAdmin", (req, res) => {
     res.redirect("/");
   }
 });
-// CommunityGuidelines
 router.get("/CompanyOverview", (req, res) => {
   if (req.session.user) {
-    res.render("CompanyOverview", {
+    res.render("AdminPart/CompanyOverview", {
       currentPage: "CompanyOverview",
       user: req.session.user,
     });
@@ -118,18 +74,6 @@ router.get("/contact", async (req, res) => {
   }
 });
 
-
-router.get("/home", (req, res) => {
-  if (req.session.user) {
-    res.render("home", {
-      currentPage: "home",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
-});
-
 router.get("/Plans", (req, res) => {
   if (req.session.user) {
     res.render("UserPart/Plans", {
@@ -146,6 +90,45 @@ router.get("/Subscription", (req, res) => {
       currentPage: "Subscription",
       user: req.session.user,
     });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/user-home", (req, res) => {
+  if (req.session.user) {
+    res.render("UserPart/UserHomePage", {
+      currentPage: "UserHomePage",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/CommunityGuidelines", async (req, res) => {
+  if (req.session.user) {
+    try {
+      // Fetch community guidelines from the database
+      const communityGuidelines = await CommunityGuidelines.findOne();
+
+      if (!communityGuidelines) {
+        return res.render("UserPart/CommunityGuidelines", {
+          currentPage: "CommunityGuidelines",
+          error: "No community guidelines found.",
+          Comguide: null, // Pass null or appropriate default value
+          user: req.session.user,
+        });
+      }
+
+      // Render the page with retrieved guidelines
+      res.render("UserPart/CommunityGuidelines", {
+        currentPage: "CommunityGuidelines",
+        Comguide: communityGuidelines.Comguide, // Ensure Comguide is passed here
+        user: req.session.user,
+      });
+    } catch (error) {
+      console.error('Error fetching community guidelines:', error);
+      res.status(500).send("Internal Server Error");
+    }
   } else {
     res.redirect("/");
   }
@@ -253,5 +236,149 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.get("/ManageUsers", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/ManageUsers", {
+      currentPage: "ManageUsers",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/addplaylist", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/addplaylist", {
+      currentPage: "addplaylist",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/addsong", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/addsong", {
+      currentPage: "addsongt",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/Badges", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/Badges", {
+      currentPage: "Badges",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/contactAdmin", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/contactAdmin", {
+      currentPage: "contactAdmin",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/free", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/free", {
+      currentPage: "free",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/ManageSongs", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/ManageSongs", {
+      currentPage: "ManageSongs",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/ManageUsers", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/ManageUsers", {
+      currentPage: "ManageUsers",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/plansAdmin", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/plansAdmin", {
+      currentPage: "plansAdmin",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/premium", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/premium", {
+      currentPage: "premium",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/Reports", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/Reports", {
+      currentPage: "Reports",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/songs", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/songs", {
+      currentPage: "songs",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+router.get("/userProfile", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/userProfile", {
+      currentPage: "userProfile",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
 
 module.exports = router;
