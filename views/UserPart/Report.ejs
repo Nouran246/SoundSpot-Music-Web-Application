@@ -15,7 +15,7 @@
 <body>
     <%- include('../includes/sidenav&navbarsUSER.ejs')%>
     <br><br> 
-      <div class="container">
+    <div class="container">
         <header>
             <h1 style="color: magenta;">You are reporting an issue at SoundSpot</h1>
         </header>
@@ -24,23 +24,22 @@
             <form id="issue-report-form">
                 <div class="checkbox-group">
                     <div>
-                        <input type="checkbox" id="images" name="problem_type">
+                        <input type="checkbox" id="images" name="problem_type" value="Missing/Broken images">
                         <label for="images">Missing/Broken images</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="spelling" name="problem_type">
-                        <label for="spelling">Missspelling</label>
+                        <input type="checkbox" id="spelling" name="problem_type" value="Misspelling">
+                        <label for="spelling">Misspelling</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="links" name="problem_type">
+                        <input type="checkbox" id="links" name="problem_type" value="Broken link(s)">
                         <label for="links">Broken link(s)</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="info" name="problem_type">
+                        <input type="checkbox" id="info" name="problem_type" value="Outdated or incorrect information">
                         <label for="info">Outdated or incorrect information</label>
                     </div>
                 </div>
-                <div>
                 <div class="email-section">
                     <div class="email-input">
                         <label for="email">Your email:</label>
@@ -64,4 +63,3 @@
     <script src="/User/User/User js/Report.js"></script>
 </body>
 </html>
-

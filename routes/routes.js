@@ -5,6 +5,7 @@ const indexRoutes = require("./indexRoutes");
 const communityController = require("../controllers/CommunityControllers");
 const { verifyEmail } = require("../controllers/verifyController");
 const companyController = require("../controllers/CompanyControllers");
+const { reportIssue } = require("../controllers/reportController");
 
 function setupRoutes(app) {
   app.use("/", indexRoutes);
@@ -17,6 +18,9 @@ function setupRoutes(app) {
 
   // Route for email verification
   app.get("/auth/verify-email", verifyEmail);
+
+  // Route for issue reporting
+  app.post("/report/issue", reportIssue);
 
   app.use((req, res, next) => {
     res.render("404", {
