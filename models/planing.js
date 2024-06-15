@@ -4,20 +4,18 @@ const planSchema = new mongoose.Schema({
   Title: {
     type: String,
     required: true,
+    unique:true,
   },
   Features: {
-    type: [String],
+    type: [String], // Assuming Features is an array of strings
     validate: {
-      validator: function(v) {
-        if (v.length === 0) {
-          return false;
-        }
-        const acceptableValues = ['ads-free', 'pop-upfree', 'freeplan'];
-        return v.every(value => acceptableValues.includes(value));
+      validator: function(value) {
+        // Check if the array contains at least one valid problem type
+        return value && value.length > 0;
       },
-      message: props => `At least one valid problem type must be selected!`
+      message: 'At least one valid problem type must be selected!'
     },
-    required: true,
+    required:true,
   },
   price: {
     type: String,
@@ -32,6 +30,6 @@ const planSchema = new mongoose.Schema({
   photoFileId: mongoose.Schema.Types.ObjectId,
 });
 
-const Plan = mongoose.model('plans', planSchema);
+const Plan = mongoose.model('Plan', planSchema);
 
 module.exports = Plan;

@@ -1,16 +1,15 @@
-// controllers/planController.js
 const Plan = require("../models/planing");
 
 // GET all plans
 exports.getAllPlans = async (req, res) => {
-    try {
-      const plans = await Plan.find();
-      res.render("plans/index", { plans, user: req.session.user });
-    } catch (error) {
-      console.error("Error fetching plans:", error);
-      res.status(500).send("Internal Server Error");
-    }
-  };
+  try {
+    const plans = await Plan.find();
+    res.render("plans/index", { plans, user: req.session.user });
+  } catch (error) {
+    console.error("Error fetching plans:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};
 
 // GET plan by ID
 exports.getPlanById = async (req, res) => {
@@ -30,34 +29,34 @@ exports.getPlanById = async (req, res) => {
 // Create a new plan
 exports.createPlan = async (req, res) => {
   const { title, features, price, duration } = req.body;
-  const { adsVideo, popupImage } = req.files; // Assuming multer middleware is used for file uploads
+  const adsVideo = req.files.adsVideo ? req.files.adsVideo[0] : null;
+  const popupImage = req.files.popupImage ? req.files.popupImage[0] : null;
 
   try {
-      const newPlan = await Plan.create({
-          Title: title,
-          Features: features ? Array.isArray(features) ? features : [features] : [],
-          price: price,
-          Duration: duration,
-          videoFileId: adsVideo ? adsVideo.id : null,
-          photoFileId: popupImage ? popupImage.id : null,
-      });
-
-      res.status(201).redirect(`/plans/${newPlan._id}`);
+    const newPlan = new Plan({
+      Title: title,
+      Features: Array.isArray(features) ? features : [features],
+      price,
+      Duration: duration,
+      videoFileId: adsVideo ? adsVideo.filename : null,
+      photoFileId: popupImage ? popupImage.filename : null,
+    });
+    const savedPlan = await newPlan.save();
+    res.status(201).json(savedPlan);
   } catch (error) {
-      console.error("Error creating plan:", error);
-      res.status(500).send("Internal Server Error");
+    console.error("Error creating plan:", error);
+    res.status(500).send("Internal Server Error");
   }
 };
-
 
 // Update an existing plan
 exports.updatePlan = async (req, res) => {
   const { id } = req.params;
-  const { Title, Features, price, Duration } = req.body;
+  const { title, features, price, duration } = req.body;
   try {
     const updatedPlan = await Plan.findByIdAndUpdate(
       id,
-      { Title, Features, price, Duration },
+      { Title: title, Features: Array.isArray(features) ? features : [features], price, Duration: duration },
       { new: true }
     );
     if (!updatedPlan) {
@@ -84,4 +83,3 @@ exports.deletePlan = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
-
