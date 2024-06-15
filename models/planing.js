@@ -5,7 +5,20 @@ const planSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Features: [String],
+  Features: {
+    type: [String],
+    validate: {
+      validator: function(v) {
+        if (v.length === 0) {
+          return false;
+        }
+        const acceptableValues = ['ads-free', 'pop-upfree', 'freeplan'];
+        return v.every(value => acceptableValues.includes(value));
+      },
+      message: props => `At least one valid problem type must be selected!`
+    },
+    required: true,
+  },
   price: {
     type: String,
     required: true,
