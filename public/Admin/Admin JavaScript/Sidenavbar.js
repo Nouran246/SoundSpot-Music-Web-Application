@@ -168,7 +168,7 @@ function minimizeSidebar() {
     const logoImg = document.getElementById("trial-img");
 
     sidebar.classList.add("sidebar-minimized");
-    logoImg.src = "photo/1(2).png";
+    logoImg.src = "/photo/1(2).png";
     logoImg.classList.add("minimized");
 }
 
@@ -180,7 +180,7 @@ function restoreSidebar() {
     if (sidebar) {
         sidebar.classList.remove("sidebar-minimized");
 
-        logoImg.src = "photo/output-onlinepngtools.png";
+        logoImg.src = "/photo/output-onlinepngtools.png";
         logoImg.classList.remove("minimized");
     } else {
         console.error("Sidebar element not found");
