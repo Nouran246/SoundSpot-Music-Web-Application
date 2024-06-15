@@ -14,6 +14,7 @@ function setupRoutes(app) {
   app.use("/auth", authRoutes);
   app.use("/user", userRoutes);
 
+  
   // Route for processing community guidelines form submission
   app.post("/community/process", communityController.communityProcess);
   app.post("/company/process", companyController.companyprocess);
