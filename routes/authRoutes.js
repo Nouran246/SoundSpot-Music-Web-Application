@@ -74,20 +74,20 @@ router.get("/contact", async (req, res) => {
   }
 });
 
-router.get("/Plans", (req, res) => {
+router.get("/premium", (req, res) => {
   if (req.session.user) {
-    res.render("UserPart/Plans", {
-      currentPage: "Plans",
+    res.render("AdminPart/premium", {
+      currentPage: "premium",
       user: req.session.user,
     });
   } else {
     res.redirect("/");
   }
 });
-router.get("/Subscription", (req, res) => {
+router.get("/Plans", (req, res) => {
   if (req.session.user) {
-    res.render("UserPart/Subscription", {
-      currentPage: "Subscription",
+    res.render("UserPart/Plans", {
+      currentPage: "Plans",
       user: req.session.user,
     });
   } else {

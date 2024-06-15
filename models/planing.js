@@ -1,13 +1,11 @@
-
 const mongoose = require("mongoose");
 
 const planSchema = new mongoose.Schema({
   Title: {
     type: String,
     required: true,
-   
   },
-  Features:{
+  Features: {
     type: [String],
   },
   price: {
@@ -16,21 +14,17 @@ const planSchema = new mongoose.Schema({
   },
   Duration: {
     type: String,
-    enum: ["Free plan",'1 month', '3 months', '6 months', '1 year'], // Example durations
+    enum: ["Free plan",'1 month', '3 months', '6 months', '1 year'],
     required: true,
-
-    
   },
-  uploadvid: {
-    type: String,
-   
+  videoFileId: {
+    type: mongoose.Schema.Types.ObjectId,  // Store GridFS file ID for video
   },
-  uploadpopup: {
-    type: String,
+  photoFileId: {
+    type: mongoose.Schema.Types.ObjectId,  // Store GridFS file ID for photo
   }
-  
 });
 
-const plans = mongoose.model('plans', planSchema);
+const Plan = mongoose.model('Plan', planSchema);
 
-module.exports = plans;
+module.exports = Plan;
