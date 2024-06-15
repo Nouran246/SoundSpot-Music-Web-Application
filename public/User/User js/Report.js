@@ -1,51 +1,61 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("issue-report-form");
-    const checkboxes = document.querySelectorAll("input[type='checkbox'][name='problem_type']");
-    const email = document.getElementById("email");
-    const confirmEmail = document.getElementById("confirm-email");
-    const comment = document.getElementById("comment");
-    const errorMessage = document.createElement("div");
-    errorMessage.style.color = "red";
-    errorMessage.style.display = "none";
-    errorMessage.style.marginTop = "10px";
-    form.appendChild(errorMessage);
+function validateReportForm(event, form) {
+    event.preventDefault(); // Prevent form from submitting
 
-    form.addEventListener("submit", function(event) {
-        let isChecked = false;
-        let errors = [];
+    // Retrieving the values of form elements 
+    var email = form.email.value;
+    var confirmEmail = form.confirm_email.value;
+    var comment = form.comment.value;
+    var problemTypes = form.querySelectorAll('input[name="problem_type"]:checked');
 
-        // Check if any checkbox is checked
-        checkboxes.forEach(function(checkbox) {
-            if (checkbox.checked) {
-                isChecked = true;
-            }
-        });
+    // Defining error variables with a default value
+    var emailErr = confirmEmailErr = commentErr = problemTypeErr = false;
 
-        if (!isChecked) {
-            errors.push("Please check at least one box.");
-        }
-
-        // Check if email is entered
-        if (!email.value) {
-            errors.push("Email is required.");
-        }
-
-        // Check if emails match
-        if (email.value !== confirmEmail.value) {
-            errors.push("Emails do not match.");
-        }
-
-        // Check if comment is not empty
-        if (!comment.value.trim()) {
-            errors.push("Comment cannot be empty.");
-        }
-
-        if (errors.length > 0) {
-            event.preventDefault();
-            errorMessage.innerHTML = errors.join("<br>");
-            errorMessage.style.display = "block";
+    // Validate email address
+    if (email === "") {
+        document.getElementById("emailErr").innerText = "Please enter your email address";
+        emailErr = true;
+    } else {
+        // Regular expression for basic email validation
+        var regex = /^\S+@\S+\.\S+$/;
+        if (regex.test(email) === false) {
+            document.getElementById("emailErr").innerText = "Please enter a valid email address";
+            emailErr = true;
         } else {
-            errorMessage.style.display = "none";
+            document.getElementById("emailErr").innerText = "";
         }
-    });
-});
+    }
+
+    // Validate confirm email address
+    if (confirmEmail === "") {
+        document.getElementById("confirmEmailErr").innerText = "Please confirm your email address";
+        confirmEmailErr = true;
+    } else if (confirmEmail !== email) {
+        document.getElementById("confirmEmailErr").innerText = "Email addresses do not match";
+        confirmEmailErr = true;
+    } else {
+        document.getElementById("confirmEmailErr").innerText = "";
+    }
+
+    // Validate problem types
+    if (problemTypes.length === 0) {
+        document.getElementById("problemTypeErr").innerText = "Please select at least one problem type";
+        problemTypeErr = true;
+    } else {
+        document.getElementById("problemTypeErr").innerText = "";
+    }
+
+    // Validate comment
+    if (comment === "") {
+        document.getElementById("commentErr").innerText = "Please enter a comment";
+        commentErr = true;
+    } else {
+        document.getElementById("commentErr").innerText = "";
+    }
+
+    // Prevent the form from being submitted if there are any errors
+    if (emailErr || confirmEmailErr || problemTypeErr || commentErr) {
+        return false;
+    } else {
+        form.submit();
+    }
+}

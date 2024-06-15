@@ -4,12 +4,15 @@ const mongoose = require("mongoose");
 const issueReportSchema = new mongoose.Schema({
   problemTypes: {
     type: [String],
-    enum: ['images', 'spelling', 'links', 'info'],
     validate: {
       validator: function(v) {
-        return v.length > 0;
+        if (v.length === 0) {
+          return false;
+        }
+        const acceptableValues = ['images', 'spelling', 'links', 'info'];
+        return v.every(value => acceptableValues.includes(value));
       },
-      message: props => `At least one problem type must be selected!`
+      message: props => `At least one valid problem type must be selected!`
     },
     required: true,
   },
