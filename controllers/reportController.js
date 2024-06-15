@@ -17,8 +17,16 @@ const reportIssue = async (req, res) => {
       return res.status(400).send("Emails do not match");
     }
 
-    // Check if problem_type is an array and has values
-    if (!Array.isArray(problem_type) || problem_type.length === 0) {
+    // Ensure problem_type is an array
+    let problemTypes = [];
+    if (typeof problem_type === 'string') {
+      problemTypes = [problem_type]; // Convert single value to an array
+    } else if (Array.isArray(problem_type)) {
+      problemTypes = problem_type;
+    }
+
+    // Check if problemTypes has values
+    if (problemTypes.length === 0) {
       return res.status(400).send("At least one problem type must be selected");
     }
 
@@ -27,7 +35,7 @@ const reportIssue = async (req, res) => {
       email,
       confirmEmail: confirm_email,
       comment,
-      problemTypes: problem_type, // Add problemTypes field
+      problemTypes, // Use problemTypes array
     });
 
     await newIssueReport.save();
