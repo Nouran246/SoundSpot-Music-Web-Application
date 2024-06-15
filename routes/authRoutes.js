@@ -226,6 +226,8 @@ router.post("/login", loginController.loginProcess);
 // Process signup
 router.post("/signup", signupController.registrationProcess);
 
+
+
 // Logout route
 router.get("/logout", (req, res) => {
   req.session.destroy((err) => {
@@ -367,6 +369,29 @@ router.get("/userProfile", (req, res) => {
     res.redirect("/");
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 module.exports = router;

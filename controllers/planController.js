@@ -29,15 +29,24 @@ exports.getPlanById = async (req, res) => {
 
 // Create a new plan
 exports.createPlan = async (req, res) => {
-  const { Title, Features, price, Duration } = req.body;
-  try {
-    const newPlan = await Plan.create({ Title, Features, price, Duration });
-    res.status(201).redirect(`/plans/${newPlan._id}`);
-  } catch (error) {
-    console.error("Error creating plan:", error);
-    res.status(500).send("Internal Server Error");
-  }
-};
+    const { title, features, price, duration } = req.body;
+    const { adsVideo, popupImage } = req.files; // Handle file uploads if necessary
+  
+    try {
+      const newPlan = await Plan.create({
+        Title: title,
+        Features: features ? Array.isArray(features) ? features : [features] : [],
+        price: price,
+        Duration: duration,
+        videoFileId: adsVideo ? adsVideo.id : null,
+        photoFileId: popupImage ? popupImage.id : null,
+      });
+      res.status(201).redirect(`/plans/${newPlan._id}`);
+    } catch (error) {
+      console.error("Error creating plan:", error);
+      res.status(500).send("Internal Server Error");
+    }
+  };
 
 // Update an existing plan
 exports.updatePlan = async (req, res) => {
@@ -73,3 +82,4 @@ exports.deletePlan = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
+
