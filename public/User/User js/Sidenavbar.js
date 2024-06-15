@@ -295,7 +295,6 @@ function googleTranslateElementInit() {
         'google_translate_element'
     );
 } 
-
 document.addEventListener("DOMContentLoaded", function() {
     var badgesIcon = document.querySelector("#badges .fa-certificate");
     var badgesDropdown = document.querySelector(".badges-dropdown");
