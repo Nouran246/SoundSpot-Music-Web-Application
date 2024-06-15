@@ -23,11 +23,7 @@ function setupRoutes(app) {
 
   // Route for issue reporting
   app.post("/report/issue", reportIssue);
-  router.get("/plans", planController.getAllPlans);           // Show all plans
-router.get("/plans/:id", planController.getPlanById);      // Show a specific plan
-router.post("/plans", planController.createPlan);           // Create a new plan
-router.put("/plans/:id", planController.updatePlan);        // Update a plan
-router.delete("/plans/:id", planController.deletePlan); 
+  router.post('/plans/process', planController.createPlan);
 
   app.use((req, res, next) => {
     res.render("404", {
