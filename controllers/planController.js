@@ -29,24 +29,26 @@ exports.getPlanById = async (req, res) => {
 
 // Create a new plan
 exports.createPlan = async (req, res) => {
-    const { title, features, price, duration } = req.body;
-    const { adsVideo, popupImage } = req.files; // Handle file uploads if necessary
-  
-    try {
+  const { title, features, price, duration } = req.body;
+  const { adsVideo, popupImage } = req.files; // Assuming multer middleware is used for file uploads
+
+  try {
       const newPlan = await Plan.create({
-        Title: title,
-        Features: features ? Array.isArray(features) ? features : [features] : [],
-        price: price,
-        Duration: duration,
-        videoFileId: adsVideo ? adsVideo.id : null,
-        photoFileId: popupImage ? popupImage.id : null,
+          Title: title,
+          Features: features ? Array.isArray(features) ? features : [features] : [],
+          price: price,
+          Duration: duration,
+          videoFileId: adsVideo ? adsVideo.id : null,
+          photoFileId: popupImage ? popupImage.id : null,
       });
+
       res.status(201).redirect(`/plans/${newPlan._id}`);
-    } catch (error) {
+  } catch (error) {
       console.error("Error creating plan:", error);
       res.status(500).send("Internal Server Error");
-    }
-  };
+  }
+};
+
 
 // Update an existing plan
 exports.updatePlan = async (req, res) => {

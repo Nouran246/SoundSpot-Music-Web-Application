@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to handle form submission
     document.getElementById('planForm').addEventListener('submit', async function(event) {
         event.preventDefault(); // Prevent form submission
-    
+
         // Get form inputs
         const title = document.getElementById('title').value.trim();
         const features = getSelectedFeatures();
@@ -10,16 +10,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const duration = document.getElementById('duration').value;
         const adsVideo = document.getElementById('adsVideo').files[0];
         const popupImage = document.getElementById('popupImage').files[0];
-    
+
         // Validate form inputs
         if (!validateForm(title, features, price, duration)) {
             return; // Stop further execution if validation fails
         }
-    
+
         // Create a FormData object to send data
         const formData = new FormData();
         formData.append('title', title);
-        formData.append('features', features);
+        formData.append('features', JSON.stringify(features)); // Convert features array to JSON string
         formData.append('price', price);
         formData.append('duration', duration);
         if (adsVideo) {
@@ -28,14 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (popupImage) {
             formData.append('popupImage', popupImage);
         }
-    
+
         // Send the form data to the server using fetch
         try {
             const response = await fetch('http://localhost:3000/plans/process', {
                 method: 'POST',
                 body: formData,
             });
-    
+
             if (response.ok) {
                 const newPlan = await response.json();
                 // Display plan details dynamically
@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
         document.getElementById('dynamicPlansContainer').appendChild(planDetailsDiv);
+        savePlanToLocalStorage(plan); // Save plan to localStorage after displaying it
     }
 
     function savePlanToLocalStorage(plan) {
@@ -288,46 +289,3 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('popupForm').style.display = 'block';
     });
 });
-function updatePlanDetails(planTitle, updatedPlan) {
-    // Update plan details in the UI
-    const planContainer = document.getElementById(`${planTitle}-plan-details`);
-    if (planContainer) {
-        planContainer.innerHTML = `
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2" id="details">${updatedPlan.title} Subscription Details</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Price:</td>
-                        <td>${updatedPlan.price}</td>
-                  
-                        <td>Features:</td>
-                        <td>
-                            <ul>
-                                ${updatedPlan.features.map(feature => `<li>${feature}</li>`).join('')}
-                            </ul>
-                        </td>
-                   
-                        <td>Duration:</td>
-                        <td>${updatedPlan.duration}</td>
-
-                    </tr>
-                </tbody>
-            </table>
-        `;
-    }
-
-    // Update plan details in localStorage
-    localStorage.setItem(`${planTitle}PlanDetails`, JSON.stringify(updatedPlan));
-}
-
-document.getElementById('cancelButton').addEventListener('click', function() {
-    hidePopupForm();
-});
-
-function hidePopupForm() {
-    document.getElementById('popupForm').style.display = 'none';
-}
