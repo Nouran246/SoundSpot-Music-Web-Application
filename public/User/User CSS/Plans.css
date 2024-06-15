@@ -243,8 +243,17 @@ button:hover {
     display: block;
     border: 1px solid #333;
     border-radius: 4px;
+    background-color: #333;
+    color:white;
 }
-.modal-content p{
-    align-items: center;
-    margin-right:30px;
+
+    .modal-content p {
+        text-align: center; /* Center the text */
+        margin-right:1000px;
+    }
+
+.error {
+    color: red;
+    margin-top: 10px;
+    display: none;
 }
