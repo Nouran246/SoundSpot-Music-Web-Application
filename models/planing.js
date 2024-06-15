@@ -19,6 +19,6 @@ const planSchema = new mongoose.Schema({
   photoFileId: mongoose.Schema.Types.ObjectId,
 });
 
-const Plan = mongoose.model('Plan', planSchema);
+const Plan = mongoose.model('plans', planSchema);
 
 module.exports = Plan;

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to handle form submission
     document.getElementById('planForm').addEventListener('submit', async function(event) {
         event.preventDefault(); // Prevent form submission
-
+    
         // Get form inputs
         const title = document.getElementById('title').value.trim();
         const features = getSelectedFeatures();
@@ -10,9 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const duration = document.getElementById('duration').value;
         const adsVideo = document.getElementById('adsVideo').files[0];
         const popupImage = document.getElementById('popupImage').files[0];
-
+    
+        // Log form inputs for debugging
+        console.log('Title:', title);
+        console.log('Features:', features);
+        console.log('Price:', price);
+        console.log('Duration:', duration);
+        console.log('Ads Video File:', adsVideo);
+        console.log('Popup Image File:', popupImage);
+    
         // Validate form inputs
         if (!validateForm(title, features, price, duration)) {
+            console.log('Form validation failed.');
             return; // Stop further execution if validation fails
         }
 
@@ -35,12 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 method: 'POST',
                 body: formData,
             });
-
+        
             if (response.ok) {
                 const newPlan = await response.json();
-                // Display plan details dynamically
                 displayPlanDetails(newPlan);
-                // Hide pop-up form
                 hidePopupForm();
             } else {
                 const errorText = await response.text();
@@ -48,9 +55,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Failed to create plan. Please try again.');
             }
         } catch (error) {
-            console.error('Error creating plan:', error);
-            alert('An error occurred. Please try again.');
+            const errorText = await response.text();
+            console.error('Error creating plan:', response.status, response.statusText, errorText);
+            // Log the errorText to identify JSON parsing issues
+            console.log(errorText);
+            alert('Failed to create plan. Please try again.');
         }
+        
+        
     });
 
     function getSelectedFeatures() {
@@ -289,3 +301,4 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('popupForm').style.display = 'block';
     });
 });
+
