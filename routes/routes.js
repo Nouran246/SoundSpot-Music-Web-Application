@@ -10,7 +10,18 @@ const { reportIssue, getAllReports } = require("../controllers/reportController"
 const planController = require("../controllers/planController");
 const multer = require('multer'); // For handling file uploads
 const bodyParser = require('body-parser');
+const path = require('path');
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/'); // Ensure the 'uploads' directory exists
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, uniqueSuffix + path.extname(file.originalname)); // Add original extension
+  }
+});
+const upload = multer({ dest: 'uploads/' }); // Ensure the 'uploads' directory exists
 const router = express.Router();
 
 function setupRoutes(app) {
@@ -21,7 +32,6 @@ function setupRoutes(app) {
   app.use("/auth", authRoutes);
   app.use("/user", userRoutes);
 
-  const upload = multer({ dest: 'uploads/' });
 
   // Route for processing plan creation with file uploads
   app.post('/plans/process', upload.fields([{ name: 'adsVideo', maxCount: 1 }, { name: 'popupImage', maxCount: 1 }]), planController.createPlan);

@@ -41,11 +41,12 @@ exports.createPlan = async (req, res) => {
       videoFileId: adsVideo ? adsVideo.filename : null,
       photoFileId: popupImage ? popupImage.filename : null,
     });
+
     const savedPlan = await newPlan.save();
     res.status(201).json(savedPlan);
   } catch (error) {
-    console.error("Error creating plan:", error);
-    res.status(500).send("Internal Server Error");
+    console.error('Error creating plan:', error);
+    res.status(500).send('Internal Server Error');
   }
 };
 

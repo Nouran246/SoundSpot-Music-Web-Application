@@ -26,8 +26,8 @@ const planSchema = new mongoose.Schema({
     enum: ['Free plan', '1 month', '3 months', '6 months', '1 year'],
     required: true,
   },
-  videoFileId: mongoose.Schema.Types.ObjectId,
-  photoFileId: mongoose.Schema.Types.ObjectId,
+  videoFileId: { type: String, default: null }, // String to store filename
+  photoFileId: { type: String, default: null }, // String to store filename
 });
 
 const Plan = mongoose.model('Plan', planSchema);
