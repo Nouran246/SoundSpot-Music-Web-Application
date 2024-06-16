@@ -36,6 +36,7 @@ const reportIssue = async (req, res) => {
       confirmEmail: confirm_email,
       comment,
       problemTypes, // Use problemTypes array
+      status: 'unresolved', // Set default status
     });
 
     await newIssueReport.save();
@@ -48,7 +49,7 @@ const reportIssue = async (req, res) => {
   }
 };
 
-//new partttttttttttttttttttt
+// Fetch all reports
 const getAllReports = async (req, res) => {
   try {
     const reports = await IssueReport.find();
@@ -63,4 +64,3 @@ module.exports = {
   reportIssue,
   getAllReports,
 };
-//new partttttttttttttttttttt

@@ -40,6 +40,11 @@ const issueReportSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  status: {
+    type: String,
+    enum: ['resolved', 'unresolved'],
+    default: 'unresolved',
+  }
 }, {
   timestamps: true,
 });

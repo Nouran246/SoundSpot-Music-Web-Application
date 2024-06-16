@@ -7,14 +7,20 @@ const CompanyOverviewModel = require("../models/company");
 const authMiddleware = require("../controllers/authMiddleware");
 const router = express.Router();
 
-// Home page
+// Home page (landing page)
 router.get("/", (req, res) => {
-  res.render("/index", {
-    currentPage: "index",
+  res.render("landing", {
+    currentPage: "landing",
     user: req.session.user || "",
   });
 });
 
+router.get("/index", (req, res) => {
+  res.render("index", {
+    currentPage: "index",
+    user: req.session.user || "",
+  });
+});
 router.get("/home", authMiddleware,(req, res) => {
   if (req.session.user) {
     res.render("AdminPart/home", {

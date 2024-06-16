@@ -6,7 +6,7 @@ const indexRoutes = require("./indexRoutes");
 const communityController = require("../controllers/CommunityControllers");
 const { verifyEmail } = require("../controllers/verifyController");
 const companyController = require("../controllers/CompanyControllers");
-const { reportIssue } = require("../controllers/reportController");
+const { reportIssue, getAllReports } = require("../controllers/reportController");
 const planController = require("../controllers/planController");
 const multer = require('multer'); // For handling file uploads
 const bodyParser = require('body-parser');
@@ -36,11 +36,12 @@ function setupRoutes(app) {
   // Route for issue reporting
   app.post("/report/issue", reportIssue);
 
-  // new partttttttttttttttttttttttttt
-  const { getAllReports } = require("../controllers/reportController");
+  // Fetch all reports
   app.get("/report/issue", getAllReports);
+
+  // Default route to landing page
   
-// new partttttttttttttttttttttttttt
+
   app.use((req, res, next) => {
     res.render("404", {
       currentPage: "404",
