@@ -36,6 +36,11 @@ function setupRoutes(app) {
   // Route for issue reporting
   app.post("/report/issue", reportIssue);
 
+  // new partttttttttttttttttttttttttt
+  const { getAllReports } = require("../controllers/reportController");
+  app.get("/report/issue", getAllReports);
+  
+// new partttttttttttttttttttttttttt
   app.use((req, res, next) => {
     res.render("404", {
       currentPage: "404",
