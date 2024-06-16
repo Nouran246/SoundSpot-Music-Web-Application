@@ -48,6 +48,19 @@ const reportIssue = async (req, res) => {
   }
 };
 
+//new partttttttttttttttttttt
+const getAllReports = async (req, res) => {
+  try {
+    const reports = await IssueReport.find();
+    res.render('AdminPart/Report', { reports }); // Ensure correct path and data passing
+  } catch (error) {
+    console.error("Error fetching reports:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
 module.exports = {
   reportIssue,
+  getAllReports,
 };
+//new partttttttttttttttttttt
