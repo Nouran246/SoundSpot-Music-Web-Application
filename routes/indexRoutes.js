@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const authMiddleware = require("../controllers/authMiddleware");
 
 app.get("/", (req, res) => {
   res.render("landing", {
@@ -7,7 +8,7 @@ app.get("/", (req, res) => {
     user: req.session.user === undefined ? "" : req.session.user,
   });
 });
-app.get("/index", (req, res) => {
+app.get("/index",(req, res) => {
   res.render("index", {
     currentPage: "index",
     user: req.session.user === undefined ? "" : req.session.user,

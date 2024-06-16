@@ -259,10 +259,10 @@ router.post("/signup", signupController.registrationProcess);
 router.get("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
-      return res.redirect("/");
+      return res.redirect("/index");
     }
     res.clearCookie("connect.sid");
-    res.redirect("/");
+    res.redirect("/index");
   });
 });
 
