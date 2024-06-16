@@ -4,6 +4,7 @@ const loginController = require("../controllers/loginController");
 const signupController = require("../controllers/signupController");
 const CommunityGuidelines = require("../models/Communityguidelinesschema");
 const CompanyOverviewModel = require("../models/company");
+const authMiddleware = require("../controllers/authMiddleware");
 const router = express.Router();
 
 // Home page
@@ -14,7 +15,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/home", (req, res) => {
+router.get("/home", authMiddleware,(req, res) => {
   if (req.session.user) {
     res.render("AdminPart/home", {
       currentPage: "home",
@@ -24,7 +25,7 @@ router.get("/home", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/CommunityGuidelinesAdmin", (req, res) => {
+router.get("/CommunityGuidelinesAdmin", authMiddleware,(req, res) => {
   if (req.session.user) {
     res.render("AdminPart/CommunityGuidelinesAdmin", {
       currentPage: "CommunityGuidelinesAdmin",
@@ -34,7 +35,7 @@ router.get("/CommunityGuidelinesAdmin", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/CompanyOverview", (req, res) => {
+router.get("/CompanyOverview", authMiddleware,(req, res) => {
   if (req.session.user) {
     res.render("AdminPart/CompanyOverview", {
       currentPage: "CompanyOverview",
@@ -74,7 +75,7 @@ router.get("/contact", async (req, res) => {
   }
 });
 
-router.get("/premium", (req, res) => {
+router.get("/premium", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/premium", {
       currentPage: "premium",
@@ -230,7 +231,7 @@ router.get("/History", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/addsong", (req, res) => {
+router.get("/addsong", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/addsong", {
       currentPage: "addsong",
@@ -259,7 +260,7 @@ router.get("/logout", (req, res) => {
   });
 });
 
-router.get("/ManageUsers", (req, res) => {
+router.get("/ManageUsers", authMiddleware,(req, res) => {
   if (req.session.user) {
     res.render("AdminPart/ManageUsers", {
       currentPage: "ManageUsers",
@@ -269,7 +270,7 @@ router.get("/ManageUsers", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/managePlaylist", (req, res) => {
+router.get("/managePlaylist", authMiddleware,(req, res) => {
   if (req.session.user) {
     res.render("AdminPart/managePlaylist", {
       currentPage: "managePlaylist",
@@ -279,7 +280,7 @@ router.get("/managePlaylist", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/addplaylist", (req, res) => {
+router.get("/addplaylist", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/addplaylist", {
       currentPage: "addplaylist",
@@ -289,7 +290,7 @@ router.get("/addplaylist", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/Badges", (req, res) => {
+router.get("/Badges", authMiddleware,(req, res) => {
   if (req.session.user) {
     res.render("AdminPart/Badges", {
       currentPage: "Badges",
@@ -299,7 +300,7 @@ router.get("/Badges", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/contactAdmin", (req, res) => {
+router.get("/contactAdmin",authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/contactAdmin", {
       currentPage: "contactAdmin",
@@ -309,7 +310,7 @@ router.get("/contactAdmin", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/free", (req, res) => {
+router.get("/free",authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/free", {
       currentPage: "free",
@@ -319,7 +320,7 @@ router.get("/free", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/ManageSongs", (req, res) => {
+router.get("/ManageSongs",authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/ManageSongs", {
       currentPage: "ManageSongs",
@@ -329,7 +330,7 @@ router.get("/ManageSongs", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/ManageUsers", (req, res) => {
+router.get("/ManageUsers",authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/ManageUsers", {
       currentPage: "ManageUsers",
@@ -340,7 +341,7 @@ router.get("/ManageUsers", (req, res) => {
   }
 });
 
-router.get("/Reports", (req, res) => {
+router.get("/Reports", authMiddleware,(req, res) => {
   if (req.session.user) {
     res.render("AdminPart/Reports", {
       currentPage: "Reports",
@@ -350,7 +351,7 @@ router.get("/Reports", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/song", (req, res) => {
+router.get("/song", authMiddleware,(req, res) => {
   if (req.session.user) {
     res.render("AdminPart/song", {
       currentPage: "song",
@@ -360,7 +361,7 @@ router.get("/song", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/userProfile", (req, res) => {
+router.get("/userProfile", authMiddleware,(req, res) => {
   if (req.session.user) {
     res.render("AdminPart/userProfile", {
       currentPage: "userProfile",
