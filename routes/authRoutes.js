@@ -94,6 +94,16 @@ router.get("/Plans", (req, res) => {
     res.redirect("/");
   }
 });
+router.get("/Subscription", (req, res) => {
+  if (req.session.user) {
+    res.render("UserPart/Subscription", {
+      currentPage: "Subscription",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
 router.get("/UserHomePage", (req, res) => {
   if (req.session.user) {
     res.render("UserPart/UserHomePage", {
@@ -220,6 +230,16 @@ router.get("/History", (req, res) => {
     res.redirect("/");
   }
 });
+router.get("/addsong", (req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/addsong", {
+      currentPage: "addsong",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
 // Process login
 router.post("/login", loginController.loginProcess);
 
@@ -263,16 +283,6 @@ router.get("/addplaylist", (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/addplaylist", {
       currentPage: "addplaylist",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
-});
-router.get("/addsong", (req, res) => {
-  if (req.session.user) {
-    res.render("AdminPart/addsong", {
-      currentPage: "addsong",
       user: req.session.user,
     });
   } else {
@@ -360,28 +370,6 @@ router.get("/userProfile", (req, res) => {
     res.redirect("/");
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

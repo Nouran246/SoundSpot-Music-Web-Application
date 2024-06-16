@@ -602,7 +602,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var add_icon = document.getElementById('plus');
     add_icon.addEventListener('click', function () {
-        window.location.href = 'addplaylist.html';
+        window.location.href = 'addplaylist';
     });
 
     window.addEventListener("DOMContentLoaded", adjustSidebar);

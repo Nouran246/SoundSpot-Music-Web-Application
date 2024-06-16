@@ -100,7 +100,7 @@ let songs = [
 document.addEventListener('DOMContentLoaded', function () {
     console.log("Dom content loaded");
     console.log(window.innerWidth);
-    console.log("songshtml Checkboxes:", userCheckboxes);
+    console.log("songs Checkboxes:", userCheckboxes);
 
     /* Pagination Var */
     var PerPage = 10;
@@ -617,7 +617,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     var add_icon = document.getElementById('plus');
     add_icon.addEventListener('click', function () {
-        window.location.href = 'addsong.html';
+        window.location.href = 'addsong';
     });
 
 

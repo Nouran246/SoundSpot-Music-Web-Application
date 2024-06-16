@@ -692,7 +692,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var add_icon = document.getElementById('plus');
     add_icon.addEventListener('click', function () {
-        window.location.href = 'addsong.html';
+        window.location.href = 'song';
     });
 
 

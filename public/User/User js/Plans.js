@@ -20,23 +20,6 @@ function section2() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize the default section
     section();
