@@ -417,7 +417,7 @@ function fetchPlans() {
                     <tbody>
                         <tr>
                             <td><strong>Price:</strong></td>
-                            <td>${Plan.Price}</td>
+                            <td>${Plan.price}</td>
                             <td><strong>Features:</strong></td>
                             <td>
                                 <ul>
