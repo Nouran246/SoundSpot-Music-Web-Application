@@ -20,7 +20,7 @@ app.get("/users" ,async (req, res) => {
     try {
       const users = await User.find();
       console.log(users);
-      res.render("AdminPart/ManageUsers", {
+      res.render("/ManageUsers", {
         users
       })
   
