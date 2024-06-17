@@ -20,6 +20,12 @@ app.get('/uploads/:file', (req, res) => {
   res.type('image/jpeg');
   res.sendFile(filePath);
 });
+app.get('/uploads/:file', (req, res) => {
+  const file = req.params.file;
+  const filePath = path.join(__dirname, 'uploads', file);
+  res.type('audio/mpeg');
+  res.sendFile(filePath);
+});
 // Set view engine
 app.set('view engine', 'ejs');
 
