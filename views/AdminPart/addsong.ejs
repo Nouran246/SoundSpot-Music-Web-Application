@@ -19,7 +19,7 @@
     <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
     <h1 class="title2">Add a new song</h1>
     <div class="form-container">
-        <form id="add-song-form">
+        <form id="add-song-form" action="/songs/upload" name="add-song-form" method="POST" enctype="multipart/form-data">
             <label for="song-names">Song Name:</label>
             <input type="text" id="song-name" placeholder="Enter song name" required oninput="validateInput('song-name')">
             <div id="song-name-error" class="error-message"></div>
