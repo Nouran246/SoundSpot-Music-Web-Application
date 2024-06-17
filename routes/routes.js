@@ -36,14 +36,6 @@ function setupRoutes(app) {
   app.use("/auth", authRoutes);
   app.use("/user", userRoutes);
 
-<<<<<<< Updated upstream
-=======
-  // Adjust the field names to match those in the form
-  app.post('/songs/upload', upload.fields([
-    { name: 'songFileId', maxCount: 1 },
-    { name: 'imageFileId', maxCount: 1 }
-  ]), songController.uploadSong);
->>>>>>> Stashed changes
 
   // Route for processing plan creation with file uploads
   app.post('/plans/process', upload.fields([{ name: 'adsVideo', maxCount: 1 }, { name: 'popupImage', maxCount: 1 }]), planController.createPlan);
