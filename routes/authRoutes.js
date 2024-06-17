@@ -88,12 +88,10 @@ router.get("/contact", async (req, res) => {
 router.get("/premium", authMiddleware, async(req, res) => {
   if (req.session.user) {
     const plans = await plan.find();
-   
-   
     res.render("AdminPart/premium", {
       currentPage: "premium",
       user: req.session.user,
-      plans
+      plans: plans,
     }
   );
  
@@ -101,8 +99,6 @@ router.get("/premium", authMiddleware, async(req, res) => {
     res.redirect("/");
   }
 });
-
-
 
 router.get('/plans', async (req, res) => {
   try {
@@ -114,8 +110,6 @@ router.get('/plans', async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-
-
 
 router.get("/Plans", (req, res) => {
   if (req.session.user) {

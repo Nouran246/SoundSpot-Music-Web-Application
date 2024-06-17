@@ -65,7 +65,7 @@ router.get('/plans', async (req, res) => {
       const plans = await plan.find();
       console.log(plans);
       res.render("/premium", {
-        plans
+        plans: plans,
       })
 
       // res.json(plans);
