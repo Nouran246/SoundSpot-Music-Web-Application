@@ -1,18 +1,18 @@
-<div class="maximizedsongcontainer">
+<div class="maximizedsongcontainer" style="display: none;">
     <button id="page" onclick="minimizePage()" class="tool">
         <i class="fa-sharp fa-solid fa-up-right-and-down-left-from-center" id="icons"></i>
         <span class="tooltipptext">Exit Full Screen</span>
     </button>
-    <img id="pic" src="/photo/sherry.png">
-    <h1 id="songh1">Kalam Eineh</h1>
-    <h3 id="songh3">Sherine</h3>
+    <img id="pic" src="" alt="Song Image">
+    <h1 id="songh1">Song Title</h1>
+    <h3 id="songh3">Artist Name</h3>
 </div>
 
-<div class="minimizedsongcontainer">
-    <img id="songpic" src="/photo/sherry.png">
+<div class="minimizedsongcontainer" style="display: none;">
+    <img id="songpic" src="" alt="Song Image">
     <div class="songinfo">
-        <h1 id="songname">Kalam Eineh<i id="sing" class="fa-solid fa-headphones-simple fa-beat" style="--fa-animation-duration: 0.5s;"></i></h1><br>
-        <h3 id="artistname">Sherine</h3>
+        <h1 id="songname">Song Title<i id="sing" class="fa-solid fa-headphones-simple fa-beat" style="--fa-animation-duration: 0.5s;"></i></h1><br>
+        <h3 id="artistname">Artist Name</h3>
     </div>
     <div class="player-bar" id="player-bar">
         <button id="likes"><i class="fa-solid fa-heart" id="icons"></i></button>
@@ -34,16 +34,13 @@
         </button>            
         <div class="time-display">
             <span id="current-time">00:00</span>
-            <input type="range" id="volumeControl" class="accent" value="0" min="0" max="1" step="0.0000001" oninput="seekTo(this.value)" >               
+            <input type="range" id="volumeControl" class="accent" value="0" min="0" max="1" step="0.01" oninput="seekTo(this.value)" >               
             <span id="duration">00:00</span>
         </div>
     </div>
-    <audio id="audioPlayer" src="/audio/Sherine - Kalam Eineh _ شيرين - كلام عينيه (320).mp3"></audio>
+    <audio id="audioPlayer" src=""></audio>
+    
 </div>
-</body>
-</html>
-
-
 
 
 

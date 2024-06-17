@@ -55,28 +55,39 @@
     <div class="row">
       <h2>New Releases</h2>
       <% songs.reverse().forEach(song => { %>
-        <div class="card">
-          <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
-          <div class="content">
-            <h3><%= song.artistName %></h3>
-            <p><%= song.songName %></p>
-          </div>
+        <div class="card" 
+             data-song="/audio/<%= song.audioFileId %>" 
+             data-artist="<%= song.artistName %>" 
+             data-title="<%= song.songName %>" 
+             data-image="/uploads/<%= song.imageFileId %>">
+            <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
+            <div class="content">
+                <h3><%= song.artistName %></h3>
+                <p><%= song.songName %></p>
+            </div>
         </div>
-      <% }) %>
-    </div>
+    <% }) %>
+</div>
+    
     
     <div class="row">
       <h2>You might also like</h2>
       <% songs.reverse().forEach(song => { %>
-        <div class="card">
-          <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
-          <div class="content">
-            <h3><%= song.artistName %></h3>
-            <p><%= song.songName %></p>
-          </div>
+        <div class="card" 
+             data-song="/audio/<%= song.audioFileId %>" 
+             data-artist="<%= song.artistName %>" 
+             data-title="<%= song.songName %>" 
+             data-image="/uploads/<%= song.imageFileId %>">
+            <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
+            <div class="content">
+                <h3><%= song.artistName %></h3>
+                <p><%= song.songName %></p>
+            </div>
         </div>
-      <% }) %>
-    </div>
+    <% }) %>
+</div>
+
+    
   </div>
   <%- include('../includes/SongPlaying.ejs')%>
 
