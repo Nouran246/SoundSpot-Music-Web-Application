@@ -6,6 +6,7 @@ const signupController = require("../controllers/signupController");
 const CommunityGuidelines = require("../models/Communityguidelinesschema");
 const CompanyOverviewModel = require("../models/company");
 const authMiddleware = require("../controllers/authMiddleware");
+const plan = require("../models/planing");
 const router = express.Router();
 
 // Home page (landing page)
@@ -82,16 +83,37 @@ router.get("/contact", async (req, res) => {
   }
 });
 
-router.get("/premium", authMiddleware, (req, res) => {
+router.get("/premium", authMiddleware, async(req, res) => {
   if (req.session.user) {
+    const plans = await plan.find();
+   
+   
     res.render("AdminPart/premium", {
       currentPage: "premium",
       user: req.session.user,
-    });
+      plans
+    }
+  );
+ 
   } else {
     res.redirect("/");
   }
 });
+
+
+
+router.get('/plans', async (req, res) => {
+  try {
+    const plans = await plan.find();
+    console.log(plans);
+    res.json(plans);
+  } catch (error) {
+    console.error('Error fetching plans:', error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+
 router.get("/Plans", (req, res) => {
   if (req.session.user) {
     res.render("UserPart/Plans", {

@@ -28,7 +28,37 @@
     <div class="container">
       <button id="addPlanButton">+</button>
 
-      <div id="dynamicPlansContainer"></div>
+      <div id="dynamicPlansContainer">
+        <% plans.forEach(plan => { %>
+            <div class="plan" id="<%= `${plan.Title}-plan-details` %>">
+                <div class="plan-details">
+                    <h3><%= `${plan.Title} Subscription Details` %></h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><strong>Price:</strong></td>
+                                <td><%= plan.price %></td>
+                                <td><strong>Features:</strong></td>
+                                <td>
+                                    <ul>
+                                        <% plan.Features.forEach(feature => { %>
+                                            <li><%= feature %></li>
+                                        <% }) %>
+                                    </ul>
+                                </td>
+                                <td><strong>Duration:</strong></td>
+                                <td><%= plan.Duration %></td>
+                                <td class="plan-actions">
+                                    <button class="edit-button" data-plan-title="<%= plan.Title %>">Edit</button>
+                                    <button class="delete-button" data-plan-title="<%= plan.Title %>">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <% }) %>
+    </div>
 
       <!-- Popup form for adding a new plan -->
       <div id="popupForm" class="popup">

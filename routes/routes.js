@@ -8,8 +8,10 @@ const { verifyEmail } = require("../controllers/verifyController");
 const companyController = require("../controllers/CompanyControllers");
 const { reportIssue, getAllReports } = require("../controllers/reportController");
 const planController = require("../controllers/planController");
+const plan = require("../models/planing");
 const multer = require('multer'); // For handling file uploads
 const bodyParser = require('body-parser');
+
 const path = require('path');
 
 const storage = multer.diskStorage({
@@ -35,7 +37,27 @@ function setupRoutes(app) {
 
   // Route for processing plan creation with file uploads
   app.post('/plans/process', upload.fields([{ name: 'adsVideo', maxCount: 1 }, { name: 'popupImage', maxCount: 1 }]), planController.createPlan);
+  app.put('/plans/:id', planController.updatePlan);
+  app.delete('/plans/:id', planController.deletePlan);
 
+ router.get('/plans', async (req, res) => {
+    try {
+        
+      const plans = await plan.find();
+      console.log(plans);
+      res.render("/premium", {
+        plans
+      })
+
+      // res.json(plans);
+    } catch (error) {
+      console.error('Error fetching plans:', error);
+      res.status(500).send("Internal Server Error");
+    }
+  });
+
+
+  app.get('/plans/:id', planController.getPlanById);
   // Route for processing community guidelines form submission
   app.post("/community/process", communityController.communityProcess);
   app.post("/company/process", companyController.companyprocess);
@@ -45,6 +67,7 @@ function setupRoutes(app) {
 
   // Route for issue reporting
   app.post("/report/issue", reportIssue);
+  
 
   // Fetch all reports
   app.get("/report/issue", getAllReports);
