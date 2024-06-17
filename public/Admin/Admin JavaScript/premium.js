@@ -2,19 +2,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to handle form submission
     document.getElementById('planForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
-    
+
         // Get form inputs
         const title = document.getElementById('title').value.trim();
         const features = getSelectedFeatures();
         const price = document.getElementById('price').value.trim();
         const duration = document.getElementById('duration').value;
         const planTitle = document.getElementById('planTitle').value.trim();
-    
+
         // Validate form inputs
         if (!validateForm(title, features, price, duration)) {
             return; // Stop further execution if validation fails
         }
-    
+
         // Create new plan details object
         const newPlan = {
             title: title,
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             price: price,
             duration: duration
         };
-    
+
         // Display plan details dynamically
         if (planTitle) {
             // Update existing plan details
@@ -30,14 +30,29 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // Add new plan details
             displayPlanDetails(newPlan);
-    
+
             // Optional: Save to localStorage
             savePlanToLocalStorage(newPlan);
         }
-    
+
         // Hide pop-up form
         hidePopupForm();
     });
+
+    // Fetch plans on page load
+    fetchPlans();
+
+    // Event listener for edit and delete buttons
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('edit-button')) {
+            const planTitle = event.target.getAttribute('data-plan-title');
+            editPlan(planTitle);
+        } else if (event.target.classList.contains('delete-button')) {
+            const planTitle = event.target.getAttribute('data-plan-title');
+            deletePlan(planTitle);
+        }
+    });
+
     
     function getSelectedFeatures() {
         const checkboxes = document.getElementsByName('features');
@@ -193,7 +208,6 @@ document.addEventListener('click', function(event) {
             console.log('Plan details not found in localStorage');
             return;
         }
-
         // Update only the fields that were changed
         storedPlan.title = title !== '' ? title : storedPlan.title;
         storedPlan.price = price !== '' ? price : storedPlan.price;
@@ -366,3 +380,84 @@ document.getElementById('cancelButton').addEventListener('click', function() {
 function hidePopupForm() {
     document.getElementById('popupForm').style.display = 'none';
 }
+
+function fetchPlans() {
+    fetch('/plans')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(plans => {
+            if (plans && plans.length > 0) {
+                plans.forEach(plan => {
+                    displayPlanDetails(plan);
+                });
+            } else {
+                document.getElementById('dynamicPlansContainer').innerHTML = '<p>No plans available.</p>';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching plans:', error);
+            document.getElementById('dynamicPlansContainer').innerHTML = '<p>Failed to fetch plans. Please try again later.</p>';
+        });
+}
+
+  
+    // Function to display plan details
+    function displayPlanDetails(Plan) {
+        const planDetailsDiv = document.createElement('div');
+        planDetailsDiv.classList.add('Plan');
+        planDetailsDiv.id = `${Plan.Title}-plan-details`; // Ensure Title matches the case sent by backend
+        planDetailsDiv.innerHTML = `
+            <div class="plan-details">
+                <h3>${Plan.Title} Subscription Details</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><strong>Price:</strong></td>
+                            <td>${Plan.Price}</td>
+                            <td><strong>Features:</strong></td>
+                            <td>
+                                <ul>
+                                    ${Plan.Features.map(feature => `<li>${feature}</li>`).join('')}
+                                </ul>
+                            </td>
+                            <td><strong>Duration:</strong></td>
+                            <td>${Plan.Duration}</td>
+                            <td class="plan-actions">
+                                <button class="edit-button" data-plan-title="${Plan.Title}">Edit</button>
+                                <button class="delete-button" data-plan-title="${Plan.Title}">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        `;
+        document.getElementById('dynamicPlansContainer').appendChild(planDetailsDiv);
+    }
+    fetchPlans();
+  
+    // Fetch plans on page load
+  
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Document loaded, fetching plans...');
+        fetch('/plans')
+          .then(response => {
+            console.log('Response received:', response);
+            return response.json();
+          })
+          .then(plans => {
+            console.log('Plans data:', plans);
+            if (plans && plans.length > 0) {
+              plans.forEach(plan => {
+                displayPlanDetails(plan);
+              });
+            } else {
+              document.getElementById('dynamicPlansContainer').innerHTML = '<p>No plans available.</p>';
+            }
+          })
+          .catch(error => console.error('Error fetching plans:', error));
+      });
+      

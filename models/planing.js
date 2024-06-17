@@ -30,6 +30,6 @@ const planSchema = new mongoose.Schema({
   photoFileId: { type: String, default: null }, // String to store filename
 });
 
-const Plan = mongoose.model('Plan', planSchema);
+const Plan = mongoose.model('plans', planSchema);
 
 module.exports = Plan;

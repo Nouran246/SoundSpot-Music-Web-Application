@@ -4,7 +4,8 @@ const Plan = require("../models/planing");
 exports.getAllPlans = async (req, res) => {
   try {
     const plans = await Plan.find();
-    res.render("plans/index", { plans, user: req.session.user });
+    console.log(plans);
+    //res.render("plans/index", { plans, user: req.session.user });
   } catch (error) {
     console.error("Error fetching plans:", error);
     res.status(500).send("Internal Server Error");
