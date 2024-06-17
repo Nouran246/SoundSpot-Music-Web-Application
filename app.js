@@ -6,14 +6,20 @@ const session = require('express-session');
 const { connectToMongoDB } = require('./config/mongo.js');
 const { setupRoutes } = require('./routes/routes.js');
 const app = express();
-
+const path = require('path');
+app.use(express.static(path.join(__dirname,  'uploads')));
 // Serve static files
 app.use(express.static('public', { maxAge: '7d' }));
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.get('/uploads/:file', (req, res) => {
+  const file = req.params.file;
+  const filePath = path.join(__dirname, 'uploads', file);
+  res.type('image/jpeg');
+  res.sendFile(filePath);
+});
 // Set view engine
 app.set('view engine', 'ejs');
 
