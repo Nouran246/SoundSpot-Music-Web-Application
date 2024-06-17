@@ -1,118 +1,133 @@
+document.addEventListener("DOMContentLoaded", () => {
+    let tl = gsap.timeline({ delay: 0 });
 
-
-//entrance
-let tl=gsap.timeline({delay:0}); // I made a gsap timeline makes the animation start immediately
-tl.to(".col",{
-    top:0,
-    
-    duration:3,
-    ease:"power4.inOut"
-})
-
-tl.to(".c-1 .item",{
-    top:0,
-    stagger:0.25, //hatebda2 el animation b3d el 2blaha be 0.25 sec
-    duration:3,
-    ease:"power4.inOut"
-},"-=2"); //tebda2 b3d 2d eh men el timeline el 7atenah fo2
-tl.to(".c-2 .item",{
-    top:0,
-    stagger:-0.25, //hatebda2o m3 2wel wa7da
-    duration:3,
-    ease:"power4.inOut"
-},"-=4");
-tl.to(".c-3 .item",{
-    top:0,
-    stagger:0.25, //hatebda2o m3 tany wa7da
-    duration:3,
-    ease:"power4.inOut"
-},"-=4");
-tl.to(".c-4 .item",{
-    top:0,
-    stagger:-0.25, //2wel
-    duration:3,
-    ease:"power4.inOut"
-},"-=4");
-tl.to(".c-5 .item",{
-    top:0,
-    stagger:0.25, //tany
-    duration:3,
-    ease:"power4.inOut"
-},"-=4");
-
-tl.to(".containers",{
-    scale:6, //enlarge 6 times
-    duration:4, // el animation y23od 4 sec
-    ease:"power4.inOut"
-},"-=2");
-
-
-tl.to(".nav-item a, .title p, .slide-num p, .preview img", {
-    top: 0,
-    stagger: 0.075,
-    duration: 1,
-    ease: "power3.out"
-}, "-=1.5");
-
-tl.to(".section", {
-    opacity: 0,
-    stagger: 0.075,
-    duration: 1,
-    ease: "power3.out"
-}, "-=1.5");
-
-
-
-
-
-
-
-
-const elementsToHide = document.querySelectorAll('.containers');
-
-setTimeout(() => {
-    gsap.to(elementsToHide, {
+    // Initial fade-out of the loader
+    tl.to(".loader-bg", {
         opacity: 0,
-        duration: 1,
+        duration: 1.5,
         ease: "power2.out",
         onComplete: () => {
-          
-            elementsToHide.forEach(element => {
-                element.style.display = 'none';
-               
-            });
+            document.querySelector('.loader-bg').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Allow scrolling again
         }
     });
-}, 6000);
+
+    // Animation for elements
+    tl.to(".col", {
+        top: 0,
+        opacity: 1,
+        duration: 3,
+        ease: "power4.inOut"
+    });
+
+    tl.to(".c-1 .item", {
+        top: 0,
+        opacity: 1,
+        stagger: 0.25, // Starts each item animation 0.25 sec after the previous one
+        duration: 3,
+        ease: "power4.inOut"
+    }, "-=2"); // Starts 2 seconds before the previous animation ends
+
+    tl.to(".c-2 .item", {
+        top: 0,
+        opacity: 1,
+        stagger: -0.25, // Starts at the same time as the first item
+        duration: 3,
+        ease: "power4.inOut"
+    }, "-=4");
+
+    tl.to(".c-3 .item", {
+        top: 0,
+        opacity: 1,
+        stagger: 0.25, // Starts after the second item
+        duration: 3,
+        ease: "power4.inOut"
+    }, "-=4");
+
+    tl.to(".c-4 .item", {
+        top: 0,
+        opacity: 1,
+        stagger: -0.25, // Starts at the same time as the third item
+        duration: 3,
+        ease: "power4.inOut"
+    }, "-=4");
+
+    tl.to(".c-5 .item", {
+        top: 0,
+        opacity: 1,
+        stagger: 0.25, // Starts after the fourth item
+        duration: 3,
+        ease: "power4.inOut"
+    }, "-=4");
+
+    tl.to(".containers", {
+        scale: 6, // Enlarge 6 times
+        duration: 4, // Animation lasts 4 seconds
+        ease: "power4.inOut"
+    }, "-=2");
+
+    tl.to(".nav-item a, .title p, .slide-num p, .preview img", {
+        top: 0,
+        opacity: 1,
+        stagger: 0.075,
+        duration: 1,
+        ease: "power3.out"
+    }, "-=1.5");
+
+    tl.to(".section", {
+        opacity: 0,
+        stagger: 0.075,
+        duration: 1,
+        ease: "power3.out"
+    }, "-=1.5");
+
+    const elementsToHide = document.querySelectorAll('.containers');
+
+    setTimeout(() => {
+        gsap.to(elementsToHide, {
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            onComplete: () => {
+                elementsToHide.forEach(element => {
+                    element.style.display = 'none';
+                });
+            }
+        });
+    }, 7000);
+
+    const firstSection = document.querySelector('#first');
+    const lastSection = document.querySelector('#last');
+    const secSection = document.querySelector('#second');
+
+    firstSection.style.opacity = "0";
+    lastSection.style.opacity = "0";
+    secSection.style.opacity = "0";
+
+    // Show the first and last sections after 6000ms
+    setTimeout(function() {
+        firstSection.style.opacity = "1";
+        lastSection.style.opacity = "1";
+        secSection.style.opacity = "1";
+    }, 7000);
+
+    document.body.style.background = "#141414";
+
+    // After 6000ms it reverts the background color back to its original color
+    setTimeout(function() {
+        document.body.style.background = ""; 
+    }, 7000);
 
 
-
-
-
-const firstSection = document.querySelector('#first');
-const lastSection = document.querySelector('#last');
-const secSection = document.querySelector('#second');
-
-firstSection.style.opacity = "0";
-lastSection.style.opacity = "0";
-secSection.style.opacity = "0";
-
-// Show the first and last sections after 6000ms
-setTimeout(function() {
-    firstSection.style.opacity = "1";
-    lastSection.style.opacity = "1";
-    secSection.style.opacity = "1";
-
-}, 6000);
 
 document.body.style.background = "#141414";
 
 // After 6000ms it reverts the background color back to its original color
 setTimeout(function() {
     document.body.style.background = ""; 
-}, 6000);
+}, 7000);
 
-
+});
 
 //Matter library allows us to use physics and physical body (3lshan 3yzeen ne3amel el pictures dih 3la 2naha bodies ytaba2 3leha kawa3ed el physics)
 //engine --> simluation managments and updates
