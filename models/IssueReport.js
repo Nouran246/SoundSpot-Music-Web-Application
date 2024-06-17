@@ -9,7 +9,7 @@ const issueReportSchema = new mongoose.Schema({
         if (v.length === 0) {
           return false;
         }
-        const acceptableValues = ['images', 'spelling', 'links', 'info'];
+        const acceptableValues = ['images', 'spelling', 'links', 'info', 'request song'];
         return v.every(value => acceptableValues.includes(value));
       },
       message: props => `At least one valid problem type must be selected!`
