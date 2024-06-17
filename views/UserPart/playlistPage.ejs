@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="/User/User Css/Sidenavbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>SoundSpot</title>
+    <link rel="stylesheet" href="/User/User CSS/SongPlaying.css">
+    <script src="/User/User js/SongPlaying.js"></script>
+
     <link rel="icon" href="/photo/2.png" type="image/png">
     <script src="/User/User js/playlistPage.js"></script>
     <script src="/User/User js/Sidenavbar.js"></script>
@@ -115,52 +118,4 @@
         </li>
         </ul>
 </div>
-<div class="maximizedsongcontainer">
-    <button id="page" onclick="minimizePage()" class="tool">
-        <i class="fa-sharp fa-solid fa-up-right-and-down-left-from-center" id="icons"></i>
-        <span class="tooltipptext">Exit Full Screen</span>
-    </button>
-    <img id="pic" src="/photo/sherry.png">
-    <h1 id="songh1">Kalam Eineh</h1>
-    <h3 id="songh3">Sherine</h3>
-</div>
-
-<div class="minimizedsongcontainer">
-    <img id="songpic" src="/photo/sherry.png">
-    <div class="songinfo">
-        <h1 id="songname">Kalam Eineh<i id="sing" class="fa-solid fa-headphones-simple fa-beat" style="--fa-animation-duration: 0.5s;"></i></h1><br>
-        <h3 id="artistname">Sherine</h3>
-    </div>
-    <div class="player-bar" id="player-bar">
-        <button id="likes"><i class="fa-solid fa-heart" id="icons"></i></button>
-        <button id="shuffle" class="tooltip">
-            <i class="fa-solid fa-shuffle" id="icons"></i>
-            <span class="tooltiptext">Shuffle</span>
-        </button>
-        <button id="backward" onclick="backwardAudio()"><i class="fa-solid fa-backward" id="icons"></i></button>
-        <button id="play" onclick="toggleAudio()"><i class="fa-solid fa-play" id="icons"></i></button>
-        <button id="forward"><i class="fa-solid fa-forward" id="icons"></i></button>
-        <button id="high"><i class="fa-solid fa-volume-high" id="icons"></i></button>
-        <button id="lyrics" class="tooltip">
-            <i class="fa-solid fa-pen" id="icons"></i>
-            <span class="tooltiptext">Lyrics</span>
-        </button>
-        <button id="maxpage" onclick="maximizePage()" class="tooltip">
-            <i class="fa-sharp fa-solid fa-up-right-and-down-left-from-center" id="icons"></i>
-            <span class="tooltiptext">Full Screen</span>
-        </button>            
-        <div class="time-display">
-            <span id="current-time">00:00</span>
-            <input type="range" id="volumeControl" class="accent" value="0" min="0" max="1" step="0.0000001" oninput="seekTo(this.value)" >               
-            <span id="duration">00:00</span>
-        </div>
-    </div>
-    <audio id="audioPlayer" src="/audio/Sherine - Kalam Eineh _ شيرين - كلام عينيه (320).mp3"></audio>
-</div>
-</body>
-</html>
-
-
-
-
-
+<%- include('../includes/SongPlaying.ejs')%>
