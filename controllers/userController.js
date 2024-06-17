@@ -2,19 +2,20 @@ const User = require("../models/Users.js");
 const bcrypt = require('bcrypt');
 
 // Display all users
-const displayAllUsers = async (req, res) => {
-  try {
-    const users = await User.find({});
-    res.render("displayusers", {
-      users,
-      currentPage: "display",
-      user: req.session.user || null,
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
-};
+// const displayAllUsers = async (req, res) => {
+//   try {
+
+//     const users = await User.find();
+//     console.log(users);
+//     res.render("AdminPart/ManageUsers", {
+//       users
+//     })
+
+//   } catch (error) {
+//     console.error('Error fetching users:', error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// };
 
 // Add a new user
 const addUser = async (req, res) => {
@@ -77,7 +78,6 @@ const editUser = async (req, res) => {
 };
 
 module.exports = {
-  displayAllUsers,
   addUser,
   deleteUser,
   editUser,
