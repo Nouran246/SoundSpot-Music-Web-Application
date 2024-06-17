@@ -283,20 +283,31 @@ document.addEventListener('click', function(event) {
     }
 
     // Function to delete a plan
-    function deletePlan(planTitle) {
-        console.log('Deleting plan:', planTitle);
-        // Remove plan details from localStorage
-        localStorage.removeItem(`${planTitle}PlanDetails`);
-
-        // Remove plan details from the UI
+   // Frontend code where deletePlan function is implemented
+   function deletePlan(planTitle) {
+    fetch(`/api/plans/${planTitle}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Failed to delete plan: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Plan deleted successfully:', data);
         const planContainer = document.getElementById(`${planTitle}-plan-details`);
         if (planContainer) {
-            planContainer.parentNode.removeChild(planContainer); // Remove the plan container from its parent
-            alert('Plan deleted: ' + planTitle);
-        } else {
-            console.log('Plan container not found');
+            planContainer.remove();
         }
-    }
+        alert('Plan deleted successfully');
+    })
+    .catch(error => {
+        console.error('Error deleting plan:', error);
+        alert('Failed to delete plan. Please try again later.');
+    });
+}
+
     
 
     function displayErrorMessage(field, message, id) {

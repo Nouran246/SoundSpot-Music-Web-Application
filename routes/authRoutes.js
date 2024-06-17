@@ -115,6 +115,7 @@ router.get('/plans', async (req, res) => {
 });
 
 
+
 router.get("/Plans", (req, res) => {
   if (req.session.user) {
     res.render("UserPart/Plans", {

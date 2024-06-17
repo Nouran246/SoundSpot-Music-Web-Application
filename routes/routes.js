@@ -38,9 +38,20 @@ function setupRoutes(app) {
   // Route for processing plan creation with file uploads
   app.post('/plans/process', upload.fields([{ name: 'adsVideo', maxCount: 1 }, { name: 'popupImage', maxCount: 1 }]), planController.createPlan);
   app.put('/plans/:id', planController.updatePlan);
-  app.delete('/plans/:id', planController.deletePlan);
-
- router.get('/plans', async (req, res) => {
+  router.delete('plans/:id', async (req, res) => {
+    try {
+        const planId = req.params.id;
+        const plan = await Plan.findByIdAndDelete(planId);
+        if (!plan) {
+            return res.status(404).json({ message: 'Plan not found' });
+        }
+        res.json({ message: 'Plan deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting plan:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+}); 
+router.get('/plans', async (req, res) => {
     try {
         
       const plans = await plan.find();
@@ -55,6 +66,8 @@ function setupRoutes(app) {
       res.status(500).send("Internal Server Error");
     }
   });
+
+
 
 
   app.get('/plans/:id', planController.getPlanById);

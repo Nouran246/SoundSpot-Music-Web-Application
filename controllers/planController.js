@@ -73,15 +73,15 @@ exports.updatePlan = async (req, res) => {
 
 // Delete a plan
 exports.deletePlan = async (req, res) => {
-  const { id } = req.params;
   try {
-    const deletedPlan = await Plan.findByIdAndDelete(id);
-    if (!deletedPlan) {
-      return res.status(404).render("404", { currentPage: "404", user: req.session.user });
-    }
-    res.redirect("/plans");
+      const planId = req.params.id;
+      const plan = await Plan.findByIdAndDelete(planId);
+      if (!plan) {
+          return res.status(404).json({ message: 'Plan not found' });
+      }
+      res.json({ message: 'Plan deleted successfully' });
   } catch (error) {
-    console.error(`Error deleting plan with ID ${id}:`, error);
-    res.status(500).send("Internal Server Error");
+      console.error('Error deleting plan:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
   }
 };
