@@ -8,8 +8,8 @@ const songSchema = new mongoose.Schema({
     genre: { type: String, required: true },
     albumName: { type: String, required: true },
     releaseDate: { type: Date, required: true },
-/*     keywords: { type: [String], required: true },
- */    lyrics: { type: String },
+     keywords: { type: [String], required: true },
+     lyrics: { type: String },
     songFileId: { type: String, required: true },
     imageFileId: { type: String, required: true },
 });

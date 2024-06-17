@@ -24,7 +24,9 @@ const storage = multer.diskStorage({
     cb(null, uniqueSuffix + path.extname(file.originalname)); // Add original extension
   }
 });
-const upload = multer({ dest: 'uploads/' }); // Ensure the 'uploads' directory exists
+
+const upload = multer({ storage: storage });
+
 const router = express.Router();
 
 function setupRoutes(app) {

@@ -21,11 +21,11 @@
     <div class="form-container">
         <form id="add-song-form" action="/songs/upload" name="add-song-form" method="POST" enctype="multipart/form-data">
             <label for="song-names">Song Name:</label>
-            <input type="text" id="song-name" placeholder="Enter song name" required oninput="validateInput('song-name')">
+            <input type="text" id="song-name" placeholder="Enter song name" required oninput="validateInput('song-name')" name = "songName" >
             <div id="song-name-error" class="error-message"></div>
             
             <label for="artist-name">Artist Name:</label>
-            <select id="artist-name" required onchange="checkOtherArtist(this.value)">        
+            <select id="artist-name" required onchange="checkOtherArtist(this.value)" name = "artistName">        
                     <option value="" selected disabled hidden>Select Artist</option>
                 <!-- Arabic Artists -->
                 <optgroup label="Arabic Artists">
@@ -67,7 +67,7 @@
             
             
             <label for="genre">Genre:</label>
-            <select id="genre" onchange="checkOther(this.value)" required>                
+            <select id="genre" onchange="checkOther(this.value)" required name = "genre">                
                 <optgroup label="Genre">
                     <option value="" selected disabled hidden>Select Genre</option>
                 <option value="Alternative">Alternative</option>
@@ -97,15 +97,15 @@
         <div id="genre-error" class="error-message"></div> <!-- Add this line -->
             
             <label for="album-name">Album Name:</label>
-            <input type="text" id="album-name" placeholder="Enter album name" required oninput="validateInput('album-name')">
+            <input type="text" id="album-name" placeholder="Enter album name" required oninput="validateInput('album-name')" name = "albumName">
             <div id="album-name-error" class="error-message"></div>
             
             <label for="release-date">Release Date:</label>
-            <input type="date" id="release-date" required oninput="validateInput('release-date')">
+            <input type="date" id="release-date" required oninput="validateInput('release-date')" name = "releaseDate">
             <div id="release-date-error" class="error-message"></div>
             
             <label for="keywords">Keywords:</label>
-            <input type="text" id="keywords" placeholder="Enter keywords" required oninput="validateInput('keywords')">
+            <input type="text" id="keywords" placeholder="Enter keywords" required oninput="validateInput('keywords')" name = "keywords">
             <div id="keywords-error" class="error-message"></div>
             
             <input type="checkbox" id="lyrics-checkbox" onchange="toggleLyricsSection()">
@@ -113,7 +113,7 @@
             
             <div id="lyrics-section" style="display: none;">
                 <label for="lyrics">Lyrics:</label>
-                <textarea id="lyrics" placeholder="Enter lyrics"></textarea>
+                <textarea id="lyrics" placeholder="Enter lyrics" name = "lyrics"></textarea>
             </div>
             <div>
                 <label for="privacy-settings">Privacy Settings:</label>
@@ -124,22 +124,22 @@
                 </select>
             </div>
             
-            <label for="song-file">Upload Song (MP3 / wav / ogg / aac / m4a"):</label>
-            <div class="file-upload">
-                <input type="file" id="song-file" accept=".mp3, .wav, .ogg, .aac, .m4a" required>       
-                         <div id="song-file-error" class="error-message"></div>
-                <label for="song-file">Drag and drop or click to upload</label>
-            </div>
-            
-            <label for="image-file">Upload Image (JPEG, PNG):</label>
-            <div class="file-upload">
-                <input type="file" id="image-file" accept="image/*" required>
-                <div id="image-file-error" class="error-message"></div>
-                <label for="image-file">Click to upload</label>
-            </div>
-            
-            <button type="button" id="save-button" onclick="validateForm()">Save</button>
-        </form>
+            <label for="song-file">Upload Song (MP3 / wav / ogg / aac / m4a):</label>
+    <div class="file-upload">
+        <input type="file" id="song-file" accept=".mp3, .wav, .ogg, .aac, .m4a" required name="songFileId">
+        <div id="song-file-error" class="error-message"></div>
+        <label for="song-file">Drag and drop or click to upload</label>
+    </div>
+    
+    <label for="image-file">Upload Image (JPEG, PNG):</label>
+    <div class="file-upload">
+        <input type="file" id="image-file" accept="image/*" required name="imageFileId">
+        <div id="image-file-error" class="error-message"></div>
+        <label for="image-file">Click to upload</label>
+    </div>
+    
+    <button type="button" id="save-button" onclick="validateForm()">Save</button>
+</form>
     </div>
 </body>
 </html>
