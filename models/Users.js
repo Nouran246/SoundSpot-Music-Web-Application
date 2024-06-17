@@ -1,5 +1,4 @@
-// models/Users.js
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -52,8 +51,91 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  dob: {
+    type: Date,
+  },
+  role: {
+    type: String,
+  },
+  planType: {
+    type: String,
+  },
+  planStartDate: {
+    type: Date,
+  },
+  planRenewalDate: {
+    type: Date,
+  },
+  billingInfo: {
+    type: String,
+  },
+  paymentMethod: {
+    type: String,
+  },
+  totalListeningTime: {
+    type: Number,
+  },
+  playlistsCreated: {
+    type: Number,
+  },
+  songsUploaded: {
+    type: Number,
+  },
+  followers: {
+    type: Number,
+  },
+  following: {
+    type: Number,
+  },
+  likedSongs: {
+    type: Number,
+  },
+  recentlyPlayedSong: {
+    type: String,
+  },
+  mostPlayedPlaylist: {
+    type: String,
+  },
+  topGenre: {
+    type: String,
+  },
+  lastSongFavorited: {
+    type: String,
+  },
+  passwordStrength: {
+    type: String,
+  },
+  passwordLastUpdated: {
+    type: Date,
+  },
+  accountStatus: {
+    type: String,
+  },
+  twoFactorAuth: {
+    type: Boolean,
+    default: false,
+  },
+  lastLogin: {
+    type: Date,
+  },
+  lastLoginIp: {
+    type: String,
+  },
+  lastLoginDevice: {
+    type: String,
+  },
+  recentPasswordChanges: {
+    type: Array,
+  },
+  failedLoginAttempts: {
+    type: Number,
+  },
+  accessedFromNewDevice: {
+    type: Boolean,
+  },
+  lastAccess: {
+    type: Date,
+  }
 });
 
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
+module.exports = mongoose.model('User', userSchema);

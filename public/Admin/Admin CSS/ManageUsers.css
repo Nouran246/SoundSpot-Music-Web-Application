@@ -20,6 +20,15 @@
     width: 1040px;
 }
 
+.list-container-dynamic {
+    margin-left: 350px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 1040px;
+}
+
 .list-item,
 .top-content {
     display: flex;

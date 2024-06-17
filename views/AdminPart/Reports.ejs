@@ -166,21 +166,19 @@
                 <li><a href="#" onclick="sortReportsByDate()">Sort by Date</a></li>
             </ul>
         </nav>
-        <div id="report-container">
-            <% reports.forEach(report => { %>
-                <div class="report">
-                    <h3>User: <%= report.email.split('@')[0] %></h3>
-                    <p>Email: <%= report.email %></p>
-                    <p>Issue: <%= report.problemTypes.join(', ') %></p>
-                    <p>Date: <%= new Date(report.createdAt).toLocaleDateString() %></p>
-                    <p>Status: <span class="status">Pending</span></p>
-                    <p>Details:</p>
-                    <p><%= report.comment %></p>
-                    <button onclick="resolveIssue('<%= report._id %>')">Mark as Resolved</button>
-                    <button onclick="emailUser('<%= report.email %>')">Email User</button>
-                </div>
-            <% }) %>
-        </div>
+        <% reports.forEach(function(report) { %>
+          <div class="report">
+              <p>Issue: <%= report.problemTypes.join(', ') %></p>
+              <h3>User: <%= report.email.split('@')[0] %></h3>
+              <p>Email: <%= report.confirmEmail %></p>
+              <p><%= report.comment %></p>
+              <p>Date: <%= new Date(report.createdAt).toLocaleDateString() %></p>
+              <p>Status: <span class="status"><%= report.status %></span></p>
+              <p>Details:</p>
+              <button onclick="resolveIssue('<%= report._id %>')">Mark as Resolved</button>
+              <button onclick="emailUser('<%= report.email %>')">Email User</button>
+          </div>
+      <% }); %>
     </section>
     <section id="app-statistics">
         <h2>Application Statistics</h2>

@@ -14,18 +14,11 @@
     <script src="/Admin/Admin%20JavaScript/ManageUsers.js"></script>
 </head>
 
-
 <body>
-    <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
-    <!--User profiles list -->
-
-    <div class=" main-content">
-        <!--      <div class="options">
-        <i class="fa-solid fa-bars" id="list-option" title="List view"></i>
-        <i class="fa-solid fa-grip" id="grid-option" title="Grid view"></i>
-    </div> -->
+    <%- include('../includes/sidenav&navbarsADMIN.ejs') %>
+    <!-- User profiles list -->
+    <div class="main-content">
         <div class="top-content">
-            <!--<button class="btn" id="del-log" onclick="showPopup()">Log </button>-->
             <i class="fa-solid fa-plus" id="plus" title="Add User"></i>
 
             <div class="top-texts">
@@ -43,146 +36,88 @@
                 <i class="fa-solid fa-trash" title="Delete" id="delete-icon1"></i>
             </div>
         </div>
-        <div class="list-container">
-            <div class="list-item">
-                <div class="content">
-                    <img src="#">
-                    <div class="text"></div>
-                    <div class="text"></div>
-                    <div class="text"></div>
-                    <div class="list-checkbox">
-                        <input type="checkbox" id="userCheckbox_${user.username}" class="checkbox-input" />
-                        <span class="list-checkbox-custom"></span>
+        <div class="list-container-dy">
+            <% users.forEach(user => { %>
+                <div class="list-item">
+                    <div class="content">
+                        <img src="\public\photo\sherry.png">
+                        <div class="text"><%= user.username %></div>
+                        <div class="text"><%= user.fullName %></div>
+                        <div class="text">Yesterday</div>
+                        <input class="custom-checkbox" type="checkbox" id="userCheckbox_<%= user.username %>"
+                            data-username="<%= user.username %>">
+                        <i class="fa-solid fa-chevron-right"></i>
                     </div>
-                    <i class="fa-solid fa-chevron-right" id="see-more"></i>
                 </div>
-            </div>
-            <div class="user-info-container">
-
-                <div class="user-info">
-                    <div class="user-icons">
-                        <img src="/photo/information.png" id="info">
-                        <img src="/photo/contact-mail.png" id="info">
-                        <img src="/photo/subscription.png" id="info">
-                        <img src="/photo/log.png" id="info">
-                        <img src="/photo/verified.png" id="info">
-                    </div>
-                    <div class="actual-content">
-                        <div class="personal-info-content" id="personalInfoContent" style="display: block;">
-                            <div class="user-content" style="display: none;">
-                                <div class="general-content">
-                                    <div class="info-item">
-                                        <label>Date of Birth</label>
-                                        <span>1985-07-15</span>
-                                        <label>ID</label>
-                                        <span>#64628</span>
-                                        <label>Billing Information</label>
-                                        <span>Visa **** **** **** 1234</span>
-                                        <label>Language</label><span> English</span>
-                                        <label>Theme</label><span> Dark Mode</span>
-                                        <label>Role</label><span> User</span>
-                                        <label>Permissions</label><span> Limited access</span>
-                                    </div>
-                                </div>
-                                <div class="contact-content">
-                                    <div class="info-item">
-                                        <label>Contact Information</label>
-                                        <label>Email</label><span> example@example.com</span>
-                                        <label>Phone Number</label><span> +1234567890</span>
-                                        <label>LinkedIn </label><span>linkedin.com/in/example</span>
-                                        <label>Twitter </label><span>twitter.com/example</span>
-                                        <label>Facebook </label><span>facebook.com/example</span>
-                                    </div>
-
-                                </div>
-                                <div class="plan-content">
-                                    <div class="info-item">
-                                        <label>Plan Type:</label><span> Basic</span>
-                                        <label>Start Date:</label><span> January 1, 2024</span>
-                                        <label>Renewal Date:</label><span> January 1, 2025</span>
-                                        <label>Subscription Status:</label><span> Active</span>
-                                        <label>Payment Method:</label><span> Credit Card</span>
-                                        <label>Next Payment Amount:</label><span> $9.99</span>
-                                    </div>
-                                </div>
-                            </div>
+        
+                <!-- User Info Container -->
+                <div class="user-info-container">
+                    <div class="user-info">
+                        <div class="user-icons">
+                            <!-- Your icon elements here -->
                         </div>
-                        <div class="activity-log-content">
-                            <div class="info-item">
-                                <label>Total Listening Time</label>
-                                <span>3,240 minutes</span>
-                                <label>Playlists Created</label>
-                                <span>5 playlists</span>
-                                <label>Songs Uploaded</label>
-                                <span>20 songs</span>
-                                <label>Followers</label>
-                                <span>500 followers</span>
-                                <label>Following</label>
-                                <span>250 users</span>
-                                <label>Liked Songs</label>
-                                <span>100 songs</span>
+                        <div class="general-content">
+                            <div class="first-sec">
+                                <div>
+                                    <label>Date of Birth</label>
+                                    <span><%= user.dateOfBirth %></span>
+                                </div>
+                                <div>
+                                    <label>Country</label>
+                                    <span><%= user.country %></span>
+                                </div>
+                                <div>
+                                    <label>Email</label>
+                                    <span><%= user.email %></span>
+                                </div>
+                                <div>
+                                    <label>Phone Number</label>
+                                    <span><%= user.phone %></span>
+                                </div>
+                                <div>
+                                    <label>Role</label>
+                                    <span><%= user.role %></span>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="security-content">
-
-                            <div>
-                                <label>Password Strength:</label><span> Strong</span>
+                            <div class="second-sec">
+                                <div>
+                                    <label>Plan Type</label>
+                                    <span><%= user.planType %></span>
+                                </div>
+                                <div>
+                                    <label>Start Date</label>
+                                    <span><%= user.startDate %></span>
+                                </div>
+                                <div>
+                                    <label>Renewal Date</label>
+                                    <span><%= user.renewalDate %></span>
+                                </div>
+                                <div>
+                                    <label>Billing Information</label>
+                                    <span><%= user.billingInfo %></span>
+                                </div>
+                                <div>
+                                    <label>Payment Method</label>
+                                    <span><%= user.paymentMethod %></span>
+                                </div>
                             </div>
-                            <div>
-                                <label>Password Last Updated:</label><span> April 25, 2024</span>
-                            </div>
-                            <div>
-                                <label>Account Status:</label><span> Active</span>
-                            </div>
-                            <div>
-                                <label>Two-Factor Authentication:</label><span> Enabled</span>
-                            </div>
-                            <div>
-                                <label>Security Questions Set:</label><span> Yes</span>
-                            </div>
-                            <div>
-                                <label>Last Login:</label><span> April 30, 2024</span>
-                            </div>
-                            <div>
-                                <label>IP Address of Last Login:</label><span> 192.168.1.10</span>
-                            </div>
-                            <div>
-                                <label>Device of Last Login:</label><span> Chrome on Windows 10</span>
-                            </div>
-                            <div>
-                                <label>Recent Password Changes:</label><span> None</span>
-                            </div>
-                            <div>
-                                <label>Failed Login Attempts:</label><span> 0</span>
-                            </div>
-                            <div>
-                                <label>Accessed from New Device:</label><span> No</span>
-                            </div>
-
                         </div>
                     </div>
                 </div>
-            </div>
-
+            <% }) %>
         </div>
+        
 
     </div>
-
-    </div>
-    </div>
-
 
     <div class="settings-popup-container">
         <div class="settings-popup">
             <h3>Settings</h3>
-
             <div class="language-selection">
                 <label for="language-select">Change Language:</label>
                 <select id="language-select">
                     <option value="en">English</option>
                     <option value="gm">German (Deutsch)</option>
-
                 </select>
             </div>
             <div class="button-group">

@@ -1,11 +1,14 @@
 // routes/authRoutes.js
+const IssueReport = require("../models/IssueReport.js");
 const express = require("express");
 const loginController = require("../controllers/loginController");
 const signupController = require("../controllers/signupController");
 const CommunityGuidelines = require("../models/Communityguidelinesschema");
 const CompanyOverviewModel = require("../models/company");
 const authMiddleware = require("../controllers/authMiddleware");
+const plan = require("../models/planing");
 const router = express.Router();
+const User = require("../models/Users.js");
 
 // Home page (landing page)
 router.get("/", (req, res) => {
@@ -81,16 +84,38 @@ router.get("/contact", async (req, res) => {
   }
 });
 
-router.get("/premium", authMiddleware, (req, res) => {
+router.get("/premium", authMiddleware, async(req, res) => {
   if (req.session.user) {
+    const plans = await plan.find();
+   
+   
     res.render("AdminPart/premium", {
       currentPage: "premium",
       user: req.session.user,
-    });
+      plans
+    }
+  );
+ 
   } else {
     res.redirect("/");
   }
 });
+
+
+
+router.get('/plans', async (req, res) => {
+  try {
+    const plans = await plan.find();
+    console.log(plans);
+    res.json(plans);
+  } catch (error) {
+    console.error('Error fetching plans:', error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+
+
 router.get("/Plans", (req, res) => {
   if (req.session.user) {
     res.render("UserPart/Plans", {
@@ -265,12 +290,13 @@ router.get("/logout", (req, res) => {
     res.redirect("/index");
   });
 });
-
-router.get("/ManageUsers", authMiddleware,(req, res) => {
+router.get("/ManageUsers", authMiddleware, async(req, res) => {
   if (req.session.user) {
+    const users = await User.find();
     res.render("AdminPart/ManageUsers", {
       currentPage: "ManageUsers",
       user: req.session.user,
+      users: users,
     });
   } else {
     res.redirect("/");
@@ -336,22 +362,14 @@ router.get("/ManageSongs",authMiddleware, (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/ManageUsers",authMiddleware, (req, res) => {
-  if (req.session.user) {
-    res.render("AdminPart/ManageUsers", {
-      currentPage: "ManageUsers",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
-});
 
-router.get("/Reports", authMiddleware,(req, res) => {
+router.get("/Reports", authMiddleware, async(req, res) => {
   if (req.session.user) {
+    const reports = await IssueReport.find();
     res.render("AdminPart/Reports", {
       currentPage: "Reports",
       user: req.session.user,
+      reports: reports,
     });
   } else {
     res.redirect("/");
@@ -377,7 +395,4 @@ router.get("/userProfile", authMiddleware,(req, res) => {
     res.redirect("/");
   }
 });
-
-
-
 module.exports = router;
