@@ -15,6 +15,7 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream
     <%- include('../includes/sidenav&navbarsADMIN.ejs') %>
     <!-- User profiles list -->
     <div class="main-content">
@@ -37,6 +38,22 @@
             </div>
         </div>
         <div class="list-container-dy">
+=======
+    <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
+    <h1>User List</h1>
+    <% if (users.length > 0) { %>
+      
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>phone</th>
+                <th>Email</th>
+                <th>gender</th>
+            </tr>
+        </thead>
+        <tbody>
+>>>>>>> Stashed changes
             <% users.forEach(user => { %>
                 <div class="list-item">
                     <div class="content">
