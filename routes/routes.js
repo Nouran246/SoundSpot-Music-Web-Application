@@ -6,13 +6,12 @@ const indexRoutes = require("./indexRoutes");
 const communityController = require("../controllers/CommunityControllers");
 const { verifyEmail } = require("../controllers/verifyController");
 const companyController = require("../controllers/CompanyControllers");
-const songController = require("../controllers/songController");
 const { reportIssue, getAllReports } = require("../controllers/reportController");
 const planController = require("../controllers/planController");
 const plan = require("../models/planing");
 const multer = require('multer'); // For handling file uploads
 const bodyParser = require('body-parser');
-
+songController = require("../controllers/songController");
 const path = require('path');
 
 const storage = multer.diskStorage({
@@ -36,9 +35,12 @@ function setupRoutes(app) {
   app.use("/", indexRoutes);
   app.use("/auth", authRoutes);
   app.use("/user", userRoutes);
+  app.post('/songs/upload', upload.fields([
+    { name: 'songFileId', maxCount: 1 },
+    { name: 'imageFileId', maxCount: 1 }
+  ]), songController.uploadSong);
 
 
-  app.post('/songs/upload', upload.fields([{ name: 'song-file', maxCount: 1 }, { name: 'image-file', maxCount: 1 }]), songController.uploadSong);
 
   // Route for processing plan creation with file uploads
   app.post('/plans/process', upload.fields([{ name: 'adsVideo', maxCount: 1 }, { name: 'popupImage', maxCount: 1 }]), planController.createPlan);
@@ -73,6 +75,8 @@ router.get('/plans', async (req, res) => {
   });
 
 
+
+
   app.get('/plans/:id', planController.getPlanById);
   // Route for processing community guidelines form submission
   app.post("/community/process", communityController.communityProcess);
@@ -84,7 +88,6 @@ router.get('/plans', async (req, res) => {
   // Route for issue reporting
   app.post("/report/issue", reportIssue);
   
-
 
   // Fetch all reports
   app.get("/report/issue", getAllReports);
