@@ -50,8 +50,6 @@ function setupRoutes(app) {
   app.get("/report/issue", getAllReports);
 
   // Default route to landing page
-  
-
   app.use((req, res, next) => {
     res.render("404", {
       currentPage: "404",
@@ -59,5 +57,4 @@ function setupRoutes(app) {
     });
   });
 }
-
 module.exports = { setupRoutes };

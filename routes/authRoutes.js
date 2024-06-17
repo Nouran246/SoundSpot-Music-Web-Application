@@ -1,4 +1,5 @@
 // routes/authRoutes.js
+const IssueReport = require("../models/IssueReport.js");
 const express = require("express");
 const loginController = require("../controllers/loginController");
 const signupController = require("../controllers/signupController");
@@ -347,11 +348,13 @@ router.get("/ManageUsers",authMiddleware, (req, res) => {
   }
 });
 
-router.get("/Reports", authMiddleware,(req, res) => {
+router.get("/Reports", authMiddleware, async(req, res) => {
   if (req.session.user) {
+    const reports = await IssueReport.find();
     res.render("AdminPart/Reports", {
       currentPage: "Reports",
       user: req.session.user,
+      reports: reports,
     });
   } else {
     res.redirect("/");
@@ -377,7 +380,4 @@ router.get("/userProfile", authMiddleware,(req, res) => {
     res.redirect("/");
   }
 });
-
-
-
 module.exports = router;
