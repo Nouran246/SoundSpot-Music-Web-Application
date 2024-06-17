@@ -9,6 +9,7 @@ const authMiddleware = require("../controllers/authMiddleware");
 const plan = require("../models/planing");
 const router = express.Router();
 const User = require("../models/Users.js");
+const song = require("../models/song"); 
 
 // Home page (landing page)
 router.get("/", (req, res) => {
@@ -136,14 +137,21 @@ router.get("/Subscription", (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/UserHomePage", (req, res) => {
-  if (req.session.user) {
-    res.render("UserPart/UserHomePage", {
-      currentPage: "UserHomePage",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
+router.get("/UserHomePage", async (req, res) => {
+  try {
+    const songs = await song.find(); // Fetch songs from the database
+    if (req.session.user) {
+      res.render("UserPart/UserHomePage", {
+        currentPage: "UserHomePage",
+        user: req.session.user,
+        songs: songs  // Pass songs to the template context
+      });
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.error('Error fetching songs:', error);
+    res.status(500).send("Internal Server Error");
   }
 });
 router.get("/CommunityGuidelines", async (req, res) => {
@@ -175,16 +183,24 @@ router.get("/CommunityGuidelines", async (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/Songs", (req, res) => {
-  if (req.session.user) {
-    res.render("UserPart/Songs", {
-      currentPage: "Songs",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
+router.get("/Songs", async (req, res) => {
+  try {
+    const songs = await song.find(); // Fetch songs from the database
+    if (req.session.user) {
+      res.render("UserPart/Songs", {
+        currentPage: "Songs",
+        user: req.session.user,
+        songs: songs  // Pass songs to the template context
+      });
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.error('Error fetching songs:', error);
+    res.status(500).send("Internal Server Error");
   }
 });
+
 
 
 router.get("/SongPlaying", (req, res) => {

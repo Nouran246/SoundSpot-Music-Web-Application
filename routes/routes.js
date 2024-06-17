@@ -9,6 +9,7 @@ const companyController = require("../controllers/CompanyControllers");
 const { reportIssue, getAllReports } = require("../controllers/reportController");
 const planController = require("../controllers/planController");
 const plan = require("../models/planing");
+const song = require("../models/song");
 const multer = require('multer'); // For handling file uploads
 const bodyParser = require('body-parser');
 songController = require("../controllers/songController");
@@ -65,6 +66,21 @@ router.get('/plans', async (req, res) => {
       console.log(plans);
       res.render("/premium", {
         plans
+      })
+
+      // res.json(plans);
+    } catch (error) {
+      console.error('Error fetching plans:', error);
+      res.status(500).send("Internal Server Error");
+    }
+  });
+  router.get('/songs', async (req, res) => {
+    try {
+        
+      const songs = await song.find();
+      console.log(songs);
+      res.render("/UserHomePage", {
+       songs
       })
 
       // res.json(plans);
