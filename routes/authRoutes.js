@@ -8,6 +8,7 @@ const CompanyOverviewModel = require("../models/company");
 const authMiddleware = require("../controllers/authMiddleware");
 const plan = require("../models/planing");
 const router = express.Router();
+const User = require("../models/Users.js");
 
 // Home page (landing page)
 router.get("/", (req, res) => {
@@ -288,12 +289,13 @@ router.get("/logout", (req, res) => {
     res.redirect("/index");
   });
 });
-
-router.get("/ManageUsers", authMiddleware,(req, res) => {
+router.get("/ManageUsers", authMiddleware, async(req, res) => {
   if (req.session.user) {
+    const users = await User.find();
     res.render("AdminPart/ManageUsers", {
       currentPage: "ManageUsers",
       user: req.session.user,
+      users: users,
     });
   } else {
     res.redirect("/");
@@ -353,16 +355,6 @@ router.get("/ManageSongs",authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/ManageSongs", {
       currentPage: "ManageSongs",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
-});
-router.get("/ManageUsers",authMiddleware, (req, res) => {
-  if (req.session.user) {
-    res.render("AdminPart/ManageUsers", {
-      currentPage: "ManageUsers",
       user: req.session.user,
     });
   } else {
