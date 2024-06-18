@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,134 +13,205 @@
     <script src="/Admin/Admin%20JavaScript/Sidenavbar.js"></script>
     <script src="/Admin/Admin%20JavaScript/addsong.js"></script>
     <script src="/Admin/Admin%20JavaScript/german.js"></script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
 
 </head>
 <body>
     <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
-    <h1 class="title2">Add a new song</h1>
-    <div class="form-container">
-        <form id="add-song-form" action="/songs/upload" name="add-song-form" method="POST" enctype="multipart/form-data">
-            <label for="song-names">Song Name:</label>
-            <input type="text" id="song-name" placeholder="Enter song name" required oninput="validateInput('song-name')" name = "songName" >
-            <div id="song-name-error" class="error-message"></div>
-            
-            <label for="artist-name">Artist Name:</label>
-            <select id="artist-name" required onchange="checkOtherArtist(this.value)" name = "artistName">        
+        <h1 class="title2">Add a new song</h1>
+        <div class="form-container">
+            <form id="add-song-form" action="/songs/upload" name="add-song-form" method="POST"
+                enctype="multipart/form-data">
+                <label for="song-names">Song Name:</label>
+                <input type="text" id="song-name" placeholder="Enter song name" required
+                    oninput="validateInput('song-name')" name="songName">
+                <div id="song-name-error" class="error-message"></div>
+
+                <label for="artist-name">Artist Name:</label>
+                <select id="artist-name" required onchange="checkOtherArtist(this.value)" name="artistName">
                     <option value="" selected disabled hidden>Select Artist</option>
-                <!-- Arabic Artists -->
-                <optgroup label="Arabic Artists">
-                    <option value="Amr Diab">Amr Diab</option>
-                    <option value="Nancy Ajram">Nancy Ajram</option>
-                    <option value="Fairouz">Fairouz</option>
-                    <option value="Tamer Hosny">Tamer Hosny</option>
-                    <option value="Umm Kulthum">Umm Kulthum</option>
-                    <option value="Mohammed Abdu">Mohammed Abdu</option>
-                    <option value="Cheb Khaled">Cheb Khaled</option>
-                    <option value="Warda">Warda</option>
-                    <option value="Fadel Shaker">Fadel Shaker</option>
-                    <option value="Haifa Wehbe">Haifa Wehbe</option>
-                    <option value="Kazem Al Saher">Kazem Al Saher</option>
-                    <option value="Elissa">Elissa</option>
-                </optgroup>
-                <!-- English Artists -->
-                <optgroup label="English Artists">
-                    <option value="Beyoncé">Beyoncé</option>
-                    <option value="Ed Sheeran">Ed Sheeran</option>
-                    <option value="Adele">Adele</option>
-                    <option value="Drake">Drake</option>
-                    <option value="Taylor Swift">Taylor Swift</option>
-                    <option value="Justin Bieber">Justin Bieber</option>
-                    <option value="Rihanna">Rihanna</option>
-                    <option value="Katy Perry">Katy Perry</option>
-                    <option value="Bruno Mars">Bruno Mars</option>
-                    <option value="Ariana Grande">Ariana Grande</option>
-                    <option value="Lady Gaga">Lady Gaga</option>
-                    <option value="Shawn Mendes">Shawn Mendes</option>
-                </optgroup>
-                <!-- Other Artists -->
-                <optgroup label="Other">
-                    <option value="Other">Other</option>
-                </optgroup>
-            </select>
-            <input type="text" id="other-artist-input" placeholder="Enter artist name" style="display: none;">
-            <div id="artist-name-error" class="error-message"></div>             
-            
-            
-            <label for="genre">Genre:</label>
-            <select id="genre" onchange="checkOther(this.value)" required name = "genre">                
-                <optgroup label="Genre">
-                    <option value="" selected disabled hidden>Select Genre</option>
-                <option value="Alternative">Alternative</option>
-                <option value="Arab/Middle Eastern">Arab/Middle Eastern</option>
-                <option value="Blues">Blues</option>
-                <option value="Classical">Classical</option>
-                <option value="Country">Country</option>
-                <option value="Dance">Dance</option>
-                <option value="Electronic">Electronic</option>
-                <option value="Folk">Folk</option>
-                <option value="Hip Hop">Hip Hop</option>
-                <option value="Indie">Indie</option>
-                <option value="Jazz">Jazz</option>
-                <option value="Metal">Metal</option>
-                <option value="Pop">Pop</option>
-                <option value="Punk">Punk</option>
-                <option value="R&B">R&B</option>
-                <option value="Reggae">Reggae</option>
-                <option value="Rock">Rock</option>
-                <option value="Soul">Soul</option>
-                <option value="Techno">Techno</option>
-                <option value="Trance">Trance</option>
-            </optgroup>
-            <option value="Other">Other</option>
-        </select>
-        <input type="text" id="other-genre-input" placeholder="Enter genre" style="display: none;">
-        <div id="genre-error" class="error-message"></div> <!-- Add this line -->
-            
-            <label for="album-name">Album Name:</label>
-            <input type="text" id="album-name" placeholder="Enter album name" required oninput="validateInput('album-name')" name = "albumName">
-            <div id="album-name-error" class="error-message"></div>
-            
-            <label for="release-date">Release Date:</label>
-            <input type="date" id="release-date" required oninput="validateInput('release-date')" name = "releaseDate">
-            <div id="release-date-error" class="error-message"></div>
-            
-            <label for="keywords">Keywords:</label>
-            <input type="text" id="keywords" placeholder="Enter keywords" required oninput="validateInput('keywords')" name = "keywords">
-            <div id="keywords-error" class="error-message"></div>
-            
-            <input type="checkbox" id="lyrics-checkbox" onchange="toggleLyricsSection()">
-            <label for="lyrics-checkbox">Add Lyrics</label>
-            
-            <div id="lyrics-section" style="display: none;">
-                <label for="lyrics">Lyrics:</label>
-                <textarea id="lyrics" placeholder="Enter lyrics" name = "lyrics"></textarea>
-            </div>
-            <div>
-                <label for="privacy-settings">Privacy Settings:</label>
-                <select id="privacy-settings">
-                    <option value="public">Public</option>
-                    <option value="private">Private</option>
-                    <option value="hidden">Hidden</option>
+                    <!-- Arabic Artists -->
+                    <optgroup label="Arabic Artists">
+                        <option value="Amr Diab">Amr Diab</option>
+                        <option value="Nancy Ajram">Nancy Ajram</option>
+                        <option value="Fairouz">Fairouz</option>
+                        <option value="Tamer Hosny">Tamer Hosny</option>
+                        <option value="Umm Kulthum">Umm Kulthum</option>
+                        <option value="Mohammed Abdu">Mohammed Abdu</option>
+                        <option value="Cheb Khaled">Cheb Khaled</option>
+                        <option value="Warda">Warda</option>
+                        <option value="Fadel Shaker">Fadel Shaker</option>
+                        <option value="Haifa Wehbe">Haifa Wehbe</option>
+                        <option value="Kazem Al Saher">Kazem Al Saher</option>
+                        <option value="Elissa">Elissa</option>
+                    </optgroup>
+                    <!-- English Artists -->
+                    <optgroup label="English Artists">
+                        <option value="Beyoncé">Beyoncé</option>
+                        <option value="Ed Sheeran">Ed Sheeran</option>
+                        <option value="Adele">Adele</option>
+                        <option value="Drake">Drake</option>
+                        <option value="Taylor Swift">Taylor Swift</option>
+                        <option value="Justin Bieber">Justin Bieber</option>
+                        <option value="Rihanna">Rihanna</option>
+                        <option value="Katy Perry">Katy Perry</option>
+                        <option value="Bruno Mars">Bruno Mars</option>
+                        <option value="Ariana Grande">Ariana Grande</option>
+                        <option value="Lady Gaga">Lady Gaga</option>
+                        <option value="Shawn Mendes">Shawn Mendes</option>
+                    </optgroup>
+                    <!-- Other Artists -->
+                    <optgroup label="Other">
+                        <option value="Other">Other</option>
+                    </optgroup>
                 </select>
-            </div>
-            
-            <label for="song-file">Upload Song (MP3 / wav / ogg / aac / m4a):</label>
-    <div class="file-upload">
-        <input type="file" id="song-file" accept=".mp3, .wav, .ogg, .aac, .m4a" required name="songFileId">
-        <div id="song-file-error" class="error-message"></div>
-        <label for="song-file">Drag and drop or click to upload</label>
-    </div>
-    
-    <label for="image-file">Upload Image (JPEG, PNG):</label>
-    <div class="file-upload">
-        <input type="file" id="image-file" accept="image/*" required name="imageFileId">
-        <div id="image-file-error" class="error-message"></div>
-        <label for="image-file">Click to upload</label>
-    </div>
-    
-    <button type="button" id="save-button" onclick="validateForm()">Save</button>
-</form>
-    </div>
+                <input type="text" id="other-artist-input" placeholder="Enter artist name" style="display: none;">
+                <div id="artist-name-error" class="error-message"></div>
+
+
+                <label for="genre">Genre:</label>
+                <select id="genre" onchange="checkOther(this.value)" required name="genre">
+                    <optgroup label="Genre">
+                        <option value="" selected disabled hidden>Select Genre</option>
+                        <option value="Alternative">Alternative</option>
+                        <option value="Arab/Middle Eastern">Arab/Middle Eastern</option>
+                        <option value="Blues">Blues</option>
+                        <option value="Classical">Classical</option>
+                        <option value="Country">Country</option>
+                        <option value="Dance">Dance</option>
+                        <option value="Electronic">Electronic</option>
+                        <option value="Folk">Folk</option>
+                        <option value="Hip Hop">Hip Hop</option>
+                        <option value="Indie">Indie</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Punk">Punk</option>
+                        <option value="R&B">R&B</option>
+                        <option value="Reggae">Reggae</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Soul">Soul</option>
+                        <option value="Techno">Techno</option>
+                        <option value="Trance">Trance</option>
+                    </optgroup>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="text" id="other-genre-input" placeholder="Enter genre" style="display: none;">
+                <div id="genre-error" class="error-message"></div> <!-- Add this line -->
+
+                <label for="album-name">Album Name:</label>
+                <input type="text" id="album-name" placeholder="Enter album name" required
+                    oninput="validateInput('album-name')" name="albumName">
+                <div id="album-name-error" class="error-message"></div>
+
+                <label for="release-date">Release Date:</label>
+                <input type="date" id="release-date" required oninput="validateInput('release-date')"
+                    name="releaseDate">
+                <div id="release-date-error" class="error-message"></div>
+
+                <label for="keywords">Keywords:</label>
+                <input type="text" id="keywords" placeholder="Enter keywords" required
+                    oninput="validateInput('keywords')" name="keywords">
+                <div id="keywords-error" class="error-message"></div>
+
+                <label for="duration">Duration (format: 3:35):</label>
+                <input type="text" id="duration" placeholder="Enter duration (e.g., 3:35)" name="duration"
+                    pattern="\d{1,2}:\d{2}" title="Please enter a valid duration format (e.g., 3:35)" required>
+                    <div id="duration-error" class="error-message"></div>
+
+                <label for="record-label">Record Label:</label>
+                <select id="record-label" name="recordLabel" required>
+                    <option value="" selected disabled>Select Record Label</option>
+                    <option value="Universal Music Group">Universal Music Group</option>
+                    <option value="Sony Music Entertainment">Sony Music Entertainment</option>
+                    <option value="Warner Music Group">Warner Music Group</option>
+                    <option value="Atlantic Records">Atlantic Records</option>
+                    <option value="Capitol Records">Capitol Records</option>
+                    <option value="None">None</option>
+                </select>
+
+                <div id="record-label-error" class="error-message"></div>
+
+
+
+
+                <label for="songwriters">Songwriters:</label>
+                <input type="text" id="songwriters" placeholder="Enter songwriters (e.g., Ed Sheeran, Steve Mac)"
+                    name="songwriters" required>
+                    <div id="songwriters-error" class="error-message"></div>
+
+
+                <label for="producers">Producers:</label>
+                <input type="text" id="producers" placeholder="Enter producers (e.g., Ed Sheeran, Steve Mac)"
+                    name="producers" required>
+                    <div id="producers-error" class="error-message"></div>
+
+
+                <label for="composer">Composer:</label>
+                <input type="text" id="composer" placeholder="Enter composer (e.g., John Doe)" name="composer" required>
+                <div id="composer-error" class="error-message"></div>
+
+                <label for="release-type">Release Type:</label>
+                <select id="release-type" name="releaseType"required>
+                    <option value="" selected disabled>Select Release Type</option>
+                    <option value="Single">Single</option>
+                    <option value="Album">Album</option>
+                    <option value="EP">EP</option>
+                    <option value="Mixtape">Mixtape</option>
+                    <option value="Compilation">Compilation</option>
+                    <option value="Other">Other</option>
+                </select>
+                <div id="release-type-error" class="error-message"></div>
+
+                <label for="collaborations">Collaborations:</label>
+                <select id="collaborations" name="collaborations" required>
+                    <option value="" selected disabled>Select collaborations</option>
+                    <option value="None">None</option>
+                    <option value="Duet">Duet</option>
+                    <option value="Group">Group</option>
+                </select>
+                <div id="collaborations-error" class="error-message"></div>
+
+
+                <label for="featured-artists">Featured artists:</label>
+                <input type="text" id="featured-artists" placeholder="Enter featured artists (e.g., None)"
+                    name="featuredArtists" required>
+                    <div id="featured-artists-error" class="error-message"></div>
+
+
+                <input type="checkbox" id="lyrics-checkbox" onchange="toggleLyricsSection()">
+                <label for="lyrics-checkbox">Add Lyrics</label>
+
+                <div id="lyrics-section" style="display: none;">
+                    <label for="lyrics">Lyrics:</label>
+                    <textarea id="lyrics" placeholder="Enter lyrics" name="lyrics"></textarea>
+                </div>
+                <div>
+                    <label for="privacy-settings">Privacy Settings:</label>
+                    <select id="privacy-settings">
+                        <option value="public">Public</option>
+                        <option value="private">Private</option>
+                        <option value="hidden">Hidden</option>
+                    </select>
+                </div>
+
+                <label for="song-file">Upload Song (MP3 / wav / ogg / aac / m4a):</label>
+                <div class="file-upload">
+                    <input type="file" id="song-file" accept=".mp3, .wav, .ogg, .aac, .m4a" required name="songFileId">
+                    <div id="song-file-error" class="error-message"></div>
+                    <label for="song-file">Drag and drop or click to upload</label>
+                </div>
+
+                <label for="image-file">Upload Image (JPEG, PNG):</label>
+                <div class="file-upload">
+                    <input type="file" id="image-file" accept="image/*" required name="imageFileId">
+                    <div id="image-file-error" class="error-message"></div>
+                    <label for="image-file">Click to upload</label>
+                </div>
+                <button type="button" id="save-button" onclick="validateForm()">Save</button>
+            </form>
+        </div>
 </body>
+
 </html>

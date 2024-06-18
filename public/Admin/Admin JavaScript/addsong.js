@@ -13,13 +13,13 @@ function toggleLyricsSection() {
 function validateInput(inputId) {
     var input = document.getElementById(inputId);
     var errorDiv = document.getElementById(inputId + '-error');
-    
+
     // Check if input and errorDiv exist
     if (!input || !errorDiv) {
         console.error("Input or error message element not found:", inputId);
         return;
     }
-    
+
     if (!input.value.trim()) {
         input.classList.add('error');
         errorDiv.textContent = 'This field is required';
@@ -63,10 +63,11 @@ function checkOtherArtist(value) {
 // Function to validate the entire form
 function validateForm() {
     var isValid = true;
-    var fields = ['song-name', 'artist-name', 'genre', 'album-name', 'release-date', 'keywords'];
+    var fields = ['song-name', 'artist-name', 'genre', 'album-name', 'release-date', 'keywords', 'duration',
+        'songwriters', 'producers', 'composer', 'release-type', 'collaborations', 'featured-artists'];
     var otherFields = ['other-genre-input', 'other-artist-input'];
 
-    fields.forEach(function(field) {
+    fields.forEach(function (field) {
         validateInput(field);
         if (document.getElementById(field).classList.contains('error')) {
             isValid = false;
@@ -74,7 +75,7 @@ function validateForm() {
     });
 
     // Validate "Other" text fields
-    otherFields.forEach(function(field) {
+    otherFields.forEach(function (field) {
         var otherInput = document.getElementById(field);
         if (otherInput && otherInput.style.display !== 'none') {
             validateInput(field);

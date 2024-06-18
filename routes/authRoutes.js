@@ -148,6 +148,25 @@ router.get("/UserHomePage", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+// roaa
+router.get("/song", async (req, res) => {
+  try {
+    const songs = await song.find(); 
+    if (req.session.user) {
+      res.render("AdminPart/song", {
+        currentPage: "song",
+        user: req.session.user,
+        songs: songs  
+      });
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.error('Error fetching songs:', error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 router.get("/CommunityGuidelines", async (req, res) => {
   if (req.session.user) {
     try {
@@ -194,6 +213,7 @@ router.get("/Songs", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
 
 
 
@@ -373,6 +393,18 @@ router.get("/ManageSongs",authMiddleware, (req, res) => {
   }
 });
 
+/* 
+ router.get("/song", authMiddleware,(req, res) => {
+  if (req.session.user) {
+    res.render("AdminPart/song", {
+      currentPage: "song",
+      user: req.session.user,
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+  */
 router.get("/Reports", authMiddleware, async(req, res) => {
   if (req.session.user) {
     const reports = await IssueReport.find();
@@ -385,16 +417,7 @@ router.get("/Reports", authMiddleware, async(req, res) => {
     res.redirect("/");
   }
 });
-router.get("/song", authMiddleware,(req, res) => {
-  if (req.session.user) {
-    res.render("AdminPart/song", {
-      currentPage: "song",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
-});
+
 router.get("/userProfile", authMiddleware,(req, res) => {
   if (req.session.user) {
     res.render("AdminPart/userProfile", {
