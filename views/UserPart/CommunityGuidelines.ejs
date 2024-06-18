@@ -1,3 +1,43 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/User/User CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="/User/User CSS/CommunityGuidlines.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="stylesheet" href="/User/User CSS/SongPlaying.css">
+    <script src="/User/User js/SongPlaying.js"></script>
+
+    <link rel="icon" href="/public/photo/2.png" type="image/png">
+    <script src="/User/User js/Sidenavbar.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+</head>
+<body>
+  
+    <h1 class="cursive-titling">COMMUNITY GUIDELINES</h1>
+  
+    <div class="conrs">
+
+        <div class="text">
+            <h2>SoundSpot Community Guidelines 🎵🎉</h2>
+            <div class="commguide">
+                
+              </div>
+            
+       
+        </div>
+        <img class="comphoto" src="/photo/logo.png" alt="Community Guidelines">
+
+    </div>
+
+
+
+</body>
+</html> -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,23 +56,71 @@
 </head>
 <body>
     <%- include('../includes/sidenav&navbarsUSER.ejs')%>
-    <h1 class="cursive-titling">COMMUNITY GUIDELINES</h1>
-  
-    <div class="conrs">
 
-        <div class="text">
-            <h2>SoundSpot Community Guidelines 🎵🎉</h2>
-            <div class="commguide">
-                <%= Comguide %>
-              </div>
-            
-       
-        </div>
-        <img class="comphoto" src="/photo/logo.png" alt="Community Guidelines">
-
+    <div class="containers">
+        <h1>SoundSpot Community Guidelines</h1>
+        <h2>Welcome to SoundSpot – the ultimate music streaming platform for music lovers worldwide. 
+            To ensure that SoundSpot remains a vibrant and inclusive community for all, we've put together 
+            these guidelines to help you understand the expectations and standards we uphold:</h2>
+        <p class="commguide" style="font-family: Arial, sans-serif;"> <%= Comguide %></p>
     </div>
+<style>
+   /* Base styles that apply when no specific media query condition is met */
+.communityguide {
+    margin-top: -4%;
+}
 
-    <%- include('../includes/SongPlaying.ejs')%>
+h1, h2 {
+    color: darkmagenta; 
+    margin-left: 20px; /* Reduced margin for better mobile view */
+}
+
+h2 {
+    color: grey;
+}
+
+.commguide {
+    border-style: solid;
+    padding: 20px; /* Reduced padding for smaller screens */
+    border-color: #222;
+    color: white;
+    margin-left: 20px; /* Reduced margin for better mobile view */
+    margin-right: 20px;
+    background-color: #333;
+    overflow: auto;
+}
+
+.light-mode .commguide {
+    background-color: white;
+    color: black;
+    border-color: #c9c9c9;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+    h1, h2 {
+        margin-left: 260px; /* Original margin for larger screens */
+    }
+
+    .commguide {
+        padding: 40px; /* Original padding for larger screens */
+        margin-left: 260px; /* Original margin for larger screens */
+    }
+}
+
+/* Additional media query for very small screens */
+@media (max-width: 480px) {
+    h1, h2 {
+        margin-left: 10px; /* Even smaller margin for very small devices */
+    }
+
+    .commguide {
+        padding: 10px; /* Smaller padding for very small devices */
+        margin-left: 10px; /* Smaller margin for very small devices */
+    }
+}
+
+</style>
 
 
 </body>
