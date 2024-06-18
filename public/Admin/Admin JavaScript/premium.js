@@ -472,3 +472,15 @@ function fetchPlans() {
           .catch(error => console.error('Error fetching plans:', error));
       });
       
+
+
+
+
+
+
+
+
+
+
+
+      

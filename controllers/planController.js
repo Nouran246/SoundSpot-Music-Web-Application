@@ -37,7 +37,7 @@ exports.createPlan = async (req, res) => {
     const newPlan = new Plan({
       Title: title,
       Features: Array.isArray(features) ? features : [features],
-      price:price,
+      price: price,
       Duration: duration,
       videoFileId: adsVideo ? adsVideo.filename : null,
       photoFileId: popupImage ? popupImage.filename : null,

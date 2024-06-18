@@ -37,7 +37,7 @@
                         <tbody>
                             <tr>
                                 <td><strong>Price:</strong></td>
-                                <td><%= plan.price %></td>
+                                <td><%= plan.Price %></td>
                                 <td><strong>Features:</strong></td>
                                 <td>
                                     <ul>
@@ -50,7 +50,7 @@
                                 <td><%= plan.Duration %></td>
                                 <td class="plan-actions">
                                     <button class="edit-button" data-plan-title="<%= plan.Title %>">Edit</button>
-                                    <button class="delete-button" onclick="deletePlan('planId')" data-plan-title="<%= plan.Title %>">Delete</button>
+                                    <button class="delete-button" data-plan-title="<%= plan.Title %>">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -59,7 +59,6 @@
             </div>
         <% }) %>
     </div>
-
       <!-- Popup form for adding a new plan -->
       <div id="popupForm" class="popup">
     <h2>Add Plan</h2>
