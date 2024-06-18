@@ -1,4 +1,3 @@
-// controllers/signupController.js
 const User = require("../models/Users.js");
 const bcrypt = require("bcrypt");
 const crypto = require('crypto');
@@ -8,29 +7,45 @@ const registrationProcess = async (req, res) => {
   try {
     const { firstname, email, password, confirmPassword, phone_number, gender, country, type } = req.body;
 
-    // Validate required fields
-    if (!firstname || !email || !password || !confirmPassword || !phone_number || !gender || !country || !type) {
-      return res.status(400).send("All fields are required");
-    }
+    const errors = {};
 
-    // Check if passwords match
+    if (!firstname) {
+      errors.name = 'Please enter your name';
+    }
+    if (!email) {
+      errors.email = 'Please enter your email address';
+    }
+    if (!password) {
+      errors.password = 'Please enter your password';
+    }
     if (password !== confirmPassword) {
-      return res.status(400).send("Passwords do not match");
+      errors.confirmPassword = 'Passwords do not match';
+    }
+    if (!phone_number) {
+      errors.phone_number = 'Please enter your mobile number';
+    }
+    if (!gender) {
+      errors.gender = 'Please select your gender';
+    }
+    if (country === 'Select') {
+      errors.country = 'Please select your country';
+    }
+    if (!type) {
+      errors.type = 'User type is required';
     }
 
-    // Check if user already exists
+    if (Object.keys(errors).length > 0) {
+      return res.status(400).json({ success: false, errors });
+    }
+
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).send("User with this email already exists");
+      return res.status(400).json({ success: false, errors: { email: 'Email already in use' } });
     }
 
-    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Generate verification token
     const verificationToken = crypto.randomBytes(32).toString('hex');
 
-    // Create new user with isVerified set to false
     const newUser = new User({
       username: firstname,
       password: hashedPassword,
@@ -40,24 +55,19 @@ const registrationProcess = async (req, res) => {
       country,
       type,
       verificationToken,
-      isVerified: false, // Ensure user starts as unverified
+      isVerified: false,
     });
 
     await newUser.save();
 
-    // Send verification email
     await sendVerificationEmail(email, verificationToken);
 
-    // Do not set session user here
-
-    // Redirect to a page informing the user to check their email for verification
-    res.status(200).send("Registration successful. Please check your email to verify your account.");
+    res.status(200).json({ success: true, message: "Registration successful. Please check your email to verify your account." });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).json({ success: false, errors: { general: 'Internal Server Error' } });
   }
 };
-
 
 module.exports = {
   registrationProcess,
