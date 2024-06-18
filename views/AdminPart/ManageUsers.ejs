@@ -16,99 +16,187 @@
 
 <body>
     <%- include('../includes/sidenav&navbarsADMIN.ejs') %>
-    <!-- User profiles list -->
-    <div class="main-content">
-        <div class="top-content">
-            <i class="fa-solid fa-plus" id="plus" title="Add User"></i>
+  <!--User profiles list -->
+  <div class=" main-content">
+    <div class="top-content">
+        <i class="fa-solid fa-pen" id="plus" title="Add User"></i>
 
-            <div class="top-texts">
-                <div class="top-text">Name</div>
-                <div class="top-text">Username</div>
-                <div class="top-text">Last Access</div>
+        <div class="top-texts">
+            <div class="top-text">Name</div>
+            <div class="top-text">Role</div>
+            <div class="top-text">Last Access</div>
+        </div>
+        <div class="actions">
+            <div class="checkbox" id="selectAllCheckbox1">
+                <input type="checkbox" id="topCheckbox1" class="checkbox-input" />
+                <span class="checkbox-custom"></span>
             </div>
-            <div class="actions">
-                <div class="checkbox" id="selectAllCheckbox1">
-                    <input type="checkbox" id="topCheckbox1" class="checkbox-input" />
-                    <span class="checkbox-custom"></span>
-                </div>
-                <i class="fa-solid fa-sort"></i>
-                <i class="fa-solid fa-envelope" title="Send E-mail"></i>
-                <i class="fa-solid fa-trash" title="Delete" id="delete-icon1"></i>
+            <i class="fa-solid fa-sort"></i>
+            <a href="mailto:recipient@example.com?subject=Subject%20of%20the%20email&body=Body%20of%20the%20email">
+            <i class="fa-solid fa-envelope" title="Send E-mail" id="email" style="color:#ddd;"></i>
+            </a>
+            <i class="fa-solid fa-trash" title="Delete" id="delete-icon1"></i>
+        </div>
+    </div>
+    <div class="list-container">
+        <% users.forEach(user => { %>
+        <div class="list-item">
+            <div class="content">
+                <img src="#">
+                <div class="text"><%= user.username %></div>
+                <div class="text"><%= user.type %></div>
+                <div class="text"><%= user.lastAccess %></div>
+                <input class="custom-checkbox" type="checkbox" id="userCheckbox_<%= user.username %>"
+                data-username="<%= user.username %>">
+            <i class="fa-solid fa-chevron-right"></i>
             </div>
         </div>
-        <div class="list-container">
-            <% users.forEach(user => { %>
-                <div class="list-item">
-                    <div class="content">
-                        <img src="\public\photo\sherry.png">
-                        <div class="text"><%= user.username %></div>
-                        <div class="text"><%= user.username %></div>
-                        <div class="text">Yesterday</div>
-                        <input class="custom-checkbox" type="checkbox" id="userCheckbox_<%= user.username %>"
-                            data-username="<%= user.username %>">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
+
+        <div class="user-info-container">
+            <div class="user-info">
+                <div class="user-icons">
+                    <i class="fa-solid fa-info info-icon" data-section="personal" title="Personal Info"
+                        style="color: #800080;"></i>
+                    <i class="fa-solid fa-clock-rotate-left info-icon" data-section="activity-log-sec"
+                        title="Activity Log"></i>
+                    <i class="fa-solid fa-user-shield info-icon" data-section="security-log-sec"
+                        title="Security"></i>
                 </div>
-        
-                <!-- User Info Container -->
-                <div class="user-info-container">
-                    <div class="user-info">
-                        <div class="user-icons">
-                            <!-- Your icon elements here -->
+                <div class="general-content">
+                    <div class="first-sec">
+                        <div>
+                            <label>Role</label>
+                            <span><%= user.type %></span>
                         </div>
-                        <div class="general-content">
-                            <div class="first-sec">
-                                <div>
-                                    <label>Date of Birth</label>
-                                    <span><%= user.dateOfBirth %></span>
-                                </div>
-                                <div>
-                                    <label>Country</label>
-                                    <span><%= user.country %></span>
-                                </div>
-                                <div>
-                                    <label>Email</label>
-                                    <span><%= user.email %></span>
-                                </div>
-                                <div>
-                                    <label>Phone Number</label>
-                                    <span><%= user.phone %></span>
-                                </div>
-                                <div>
-                                    <label>Role</label>
-                                    <span><%= user.role %></span>
-                                </div>
-                            </div>
-                            <div class="second-sec">
-                                <div>
-                                    <label>Plan Type</label>
-                                    <span><%= user.planType %></span>
-                                </div>
-                                <div>
-                                    <label>Start Date</label>
-                                    <span><%= user.startDate %></span>
-                                </div>
-                                <div>
-                                    <label>Renewal Date</label>
-                                    <span><%= user.renewalDate %></span>
-                                </div>
-                                <div>
-                                    <label>Billing Information</label>
-                                    <span><%= user.billingInfo %></span>
-                                </div>
-                                <div>
-                                    <label>Payment Method</label>
-                                    <span><%= user.paymentMethod %></span>
-                                </div>
-                            </div>
+                        <div>
+                            <label>Country</label>
+                            <span><%= user.country %></span>
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <span><%= user.email %></span>
+                        </div>
+                        <div>
+                            <label>Phone Number</label>
+                            <span><%= user.phone %></span>
+                        </div>
+                        <div>
+                            <label>Gender</label>
+                            <span><%= user.gender %></span>
+                        </div>
+                    </div>
+                    <div class="second-sec">
+                        <div>
+                            <label>Plan Type</label>
+                            <span><%= user.planType %></span>
+                        </div>
+                        <div>
+                            <label>Start Date</label>
+                            <span><%= user.startDate %></span>
+                        </div>
+                        <div>
+                            <label>Renewal Date</label>
+                            <span><%= user.renewalDate %></span>
+                        </div>
+                        <div>
+                            <label>Billing Information</label>
+                            <span><%= user.billingInfo %></span>
+                        </div>
+                        <div>
+                            <label>Payment Method</label>
+                            <span><%= user.paymentMethod %></span>
                         </div>
                     </div>
                 </div>
+                    <div class="activity-log-content" id="activityLogContent" style="display:none;">
+                        <div class="first-sec">
+                            <div>
+                                <label>Total Listening Time</label>
+                                <span>3,240 minutes</span>
+                            </div>
+                            <div>
+                                <label>Playlists Created</label>
+                                <span>5 playlists</span>
+                            </div>
+                            <div>
+                                <label>Songs Uploaded</label>
+                                <span>20 songs</span>
+                            </div>
+                            <div>
+                                <label>Followers</label>
+                                <span>500 followers</span>
+                            </div>
+                            <div>
+                                <label>Following</label>
+                                <span>250 users</span>
+                            </div>
+                        </div>
+                        <div class="second-sec">
+                            <div>
+                                <label>Liked Songs</label>
+                                <span>100 songs</span>
+                            </div>
+                            <div>
+                                <label>Recently Played Song</label>
+                                <span>"Song Title" by Artist</span>
+                            </div>
+                            <div>
+                                <label>Most Played Playlist</label>
+                                <span>"Playlist Title"</span>
+                            </div>
+                            <div>
+                                <label>Top Genre</label>
+                                <span>Rock</span>
+                            </div>
+                            <div>
+                                <label>Last Song Favorited</label>
+                                <span>"Song Title" by Artist</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="security-content" id="securityContent" style="display:none;">
+                        <div class="first-sec">
+                            <div>
+                                <label>Password Strength</label><span> Strong</span>
+                            </div>
+                            <div>
+                                <label>Password Last Updated</label><span> April 25, 2024</span>
+                            </div>
+                            <div>
+                                <label>Account Status</label><span> Active</span>
+                            </div>
+                            <div>
+                                <label>Two-Factor Authentication</label><span> Enabled</span>
+                            </div>
+                            <div>
+                                <label>Last Login</label><span> April 30, 2024</span>
+                            </div>
+
+                        </div>
+                        <div class="second-sec">
+
+                            <div>
+                                <label>IP Address of Last Login</label><span> 192.168.1.10</span>
+                            </div>
+                            <div>
+                                <label>Device of Last Login</label><span> Chrome on Windows 10</span>
+                            </div>
+                            <div>
+                                <label>Recent Password Changes</label><span> None</span>
+                            </div>
+                            <div>
+                                <label>Failed Login Attempts</label><span> 0</span>
+                            </div>
+                            <div>
+                                <label>Accessed from New Device</label><span> No</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <% }) %>
         </div>
-        
 
-    </div>
 
     <div class="settings-popup-container">
         <div class="settings-popup">

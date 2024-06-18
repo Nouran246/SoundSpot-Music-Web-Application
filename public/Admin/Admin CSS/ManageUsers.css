@@ -3,6 +3,7 @@
         scroll-behavior: smooth
     }
 }
+
 .main-content {
     margin-top: 0px;
     transition: transform 0.5s ease;
@@ -12,15 +13,6 @@
 }
 
 .list-container {
-    margin-left: 350px;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 1040px;
-}
-
-.list-container-dynamic {
     margin-left: 350px;
     margin-top: 30px;
     display: flex;
@@ -45,6 +37,7 @@
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
 }
 
 .top-content {
@@ -57,17 +50,22 @@
     margin-top: -7px;
     margin-left: 12px;
     border-radius: 50%;
+    margin-right: 80px;
 }
 
 .content div {
     text-decoration: none;
     display: flex;
     align-items: center;
-    width: 1000px;
+    width: 190px;
     margin-right: 0px;
-    text-align: start;
-    gap: 90px;
+    margin-left: 5px;
     margin-top: -5px;
+}
+
+.content {
+    display: flex;
+
 }
 
 #plus {
@@ -79,12 +77,12 @@
 .list-item .fa-chevron-right {
     color: #ddd;
     font-size: 18px;
-    margin-left: 19px;
+    margin-left: 90px;
     margin-top: 2px;
 }
 
 .text {
-    color: #ddd;
+    color: #660066;
     font-size: 18px;
     text-overflow: ellipsis;
     padding: 5px;
@@ -139,7 +137,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 1000px;
+    width: 1000 px;
     height: 30px;
     border-radius: 19px;
     background-color: #1a1a1a;
@@ -287,11 +285,13 @@ body.light-mode .list-item:hover {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     border: 2px solid #800080;
     border-radius: 4px;
     position: relative;
+    margin-left: 88px;
+
 }
 
 .custom-checkbox::after {
@@ -465,10 +465,9 @@ body.light-mode .red-text {
 .list-item .fa-chevron-down {
     color: #ddd;
     font-size: 18px;
-    margin-left: 19px;
+    margin-left: 90px;
     margin-top: 2px;
 }
-
 .see-more {
     display: none;
     width: 1040px;
@@ -491,20 +490,10 @@ body.light-mode .red-text {
 
 .list-item {
     display: inline-block;
-    /* Change display property */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.list-item {
     cursor: pointer;
     transition: background-color 0.3s ease, height 0.3s ease;
-    /* Added height transition */
     height: 20px;
-    /* Set initial height */
     overflow: hidden;
-    /* Hide overflow content */
-
 }
 
 @keyframes fadeIn {
@@ -947,7 +936,7 @@ i.hovered {
 
     .user-info-container {
         width: 710px;
-        height:350px;
+        height: 350px;
     }
 
 
@@ -1099,7 +1088,7 @@ i.hovered {
     position: fixed;
     z-index: 1000;
     top: 57%;
-    left:58%;
+    left: 58%;
     transform: translate(-50%, -50%);
     display: none;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -1123,15 +1112,17 @@ i.hovered {
     padding: 5px;
     border-bottom: #800080 groove;
     font-size: 20px;
-    margin-bottom: 15px;;
+    margin-bottom: 15px;
+    ;
 }
 
-.editpopup-labels label.active{
+.editpopup-labels label.active {
     background-color: #333;
     border-radius: 5px;
 }
+
 .add-playlist-div:active,
-.delete-playlist-div:active{
+.delete-playlist-div:active {
     background-color: #333;
     border-radius: 5px;
 }
@@ -1145,11 +1136,11 @@ i.hovered {
 .delete-playlist-div {
     color: #ddd;
     margin-bottom: 0px;
-    margin-left: 50px;   
+    margin-left: 50px;
 }
-.playlist-display
-{
-    height:179px;
+
+.playlist-display {
+    height: 179px;
     overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: #1a1a1a #999;
@@ -1160,7 +1151,8 @@ i.hovered {
     margin: 0px;
     width: 770px;
     margin-top: 5px;
-    margin-left: -25px;}
+    margin-left: -25px;
+}
 
 #edit-popup .generalContent-header,
 #edit-popup .generalContent-header {
