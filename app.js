@@ -1,4 +1,3 @@
-// app.js
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -7,25 +6,35 @@ const { connectToMongoDB } = require('./config/mongo.js');
 const { setupRoutes } = require('./routes/routes.js');
 const app = express();
 const path = require('path');
-app.use(express.static(path.join(__dirname,  'uploads')));
+
 // Serve static files
+app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(express.static('public', { maxAge: '7d' }));
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Route to serve uploaded files
 app.get('/uploads/:file', (req, res) => {
   const file = req.params.file;
   const filePath = path.join(__dirname, 'uploads', file);
-  res.type('image/jpeg');
-  res.sendFile(filePath);
+
+  if (file.endsWith('.jpg') || file.endsWith('.jpeg') || file.endsWith('.png')) {
+    res.type('image/jpeg');
+  } else if (file.endsWith('.mp3') || file.endsWith('.mpeg')) {
+    res.type('audio/mpeg');
+  } else {
+    return res.status(400).send('File type not supported');
+  }
+
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      res.status(404).send('File not found');
+    }
+  });
 });
-app.get('/uploads/:file', (req, res) => {
-  const file = req.params.file;
-  const filePath = path.join(__dirname, 'uploads', file);
-  res.type('audio/mpeg');
-  res.sendFile(filePath);
-});
+
 // Set view engine
 app.set('view engine', 'ejs');
 
