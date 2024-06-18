@@ -1,41 +1,41 @@
-/*---------------- Database--------------------- */
-let users = [
-    { username: "beebee_m123", name: "beeebees", lastAccess: "2024-04-25T10:30:00" },
-    { username: "jane_smith", name: "Jane Smith", lastAccess: "2024-04-26T14:45:00" },
-    { username: "alice_johnson789", name: "Alice Johnson", lastAccess: "2024-04-01T08:20:00" },
-    { username: "sara_williams321", name: "Sara Williams", lastAccess: "2024-04-24T08:20:00" },
-    { username: "peter_parker567", name: "Peter Parker", lastAccess: "2024-04-18T14:45:00" },
-    { username: "mark_johnson234", name: "Mark Johnson", lastAccess: "2024-04-17T08:20:00" },
-    { username: "emma_doe", name: "Emma Doe", lastAccess: "2024-04-17T08:20:00" },
-    { username: "john_adams", name: "John Adams", lastAccess: "2024-04-18T14:45:00" },
-    { username: "sophia_smith456", name: "Sophia Smith", lastAccess: "2024-04-17T08:20:00" },
-    { username: "william_jackson", name: "William Jackson", lastAccess: "2024-04-17T08:20:00" },
-    { username: "lucy_brown123", name: "Lucy Brown", lastAccess: "2024-04-19T09:15:00" },
+// /*---------------- Database--------------------- */
+// let users = [
+//     { username: "beebee_m123", name: "beeebees", lastAccess: "2024-04-25T10:30:00" },
+//     { username: "jane_smith", name: "Jane Smith", lastAccess: "2024-04-26T14:45:00" },
+//     { username: "alice_johnson789", name: "Alice Johnson", lastAccess: "2024-04-01T08:20:00" },
+//     { username: "sara_williams321", name: "Sara Williams", lastAccess: "2024-04-24T08:20:00" },
+//     { username: "peter_parker567", name: "Peter Parker", lastAccess: "2024-04-18T14:45:00" },
+//     { username: "mark_johnson234", name: "Mark Johnson", lastAccess: "2024-04-17T08:20:00" },
+//     { username: "emma_doe", name: "Emma Doe", lastAccess: "2024-04-17T08:20:00" },
+//     { username: "john_adams", name: "John Adams", lastAccess: "2024-04-18T14:45:00" },
+//     { username: "sophia_smith456", name: "Sophia Smith", lastAccess: "2024-04-17T08:20:00" },
+//     { username: "william_jackson", name: "William Jackson", lastAccess: "2024-04-17T08:20:00" },
+//     { username: "lucy_brown123", name: "Lucy Brown", lastAccess: "2024-04-19T09:15:00" },
 
-    { username: "michael_lee", name: "Michael Lee", lastAccess: "2024-04-18T12:30:00" },
-    { username: "olivia_clark", name: "Olivia Clark", lastAccess: "2024-04-17T10:20:00" },
-    { username: "ryan_miller789", name: "Ryan Miller", lastAccess: "2024-04-16T08:00:00" },
-    { username: "hannah_white", name: "Hannah White", lastAccess: "2024-04-15T14:45:00" },
-    { username: "david_robinson", name: "David Robinson", lastAccess: "2024-04-16T08:20:00" },
-    { username: "lily_harris", name: "Lily Harris", lastAccess: "2024-04-18T11:00:00" },
-    { username: "ethan_thompson", name: "Ethan Thompson", lastAccess: "2024-04-18T10:30:00" },
-    { username: "zoey_carter", name: "Zoey Carter", lastAccess: "2024-04-19T08:20:00" },
-    { username: "nathan_adams", name: "Nathan Adams", lastAccess: "2024-04-17T07:45:00" },
-    { username: "madison_morris", name: "Madison Morris", lastAccess: "2024-04-19T13:20:00" },
-    { username: "chloe_jackson", name: "Chloe Jackson", lastAccess: "2024-04-18T15:00:00" }
-];
+//     { username: "michael_lee", name: "Michael Lee", lastAccess: "2024-04-18T12:30:00" },
+//     { username: "olivia_clark", name: "Olivia Clark", lastAccess: "2024-04-17T10:20:00" },
+//     { username: "ryan_miller789", name: "Ryan Miller", lastAccess: "2024-04-16T08:00:00" },
+//     { username: "hannah_white", name: "Hannah White", lastAccess: "2024-04-15T14:45:00" },
+//     { username: "david_robinson", name: "David Robinson", lastAccess: "2024-04-16T08:20:00" },
+//     { username: "lily_harris", name: "Lily Harris", lastAccess: "2024-04-18T11:00:00" },
+//     { username: "ethan_thompson", name: "Ethan Thompson", lastAccess: "2024-04-18T10:30:00" },
+//     { username: "zoey_carter", name: "Zoey Carter", lastAccess: "2024-04-19T08:20:00" },
+//     { username: "nathan_adams", name: "Nathan Adams", lastAccess: "2024-04-17T07:45:00" },
+//     { username: "madison_morris", name: "Madison Morris", lastAccess: "2024-04-19T13:20:00" },
+//     { username: "chloe_jackson", name: "Chloe Jackson", lastAccess: "2024-04-18T15:00:00" }
+// ];
 
-/*----------------Avatars for users--------------- */
-// Array of photo URLs
-const photoURLs = [
-    "photo/avatar_2633291.png",
-    "photo/joker_2730970.png",
-    "photo/mummy_3529406.png",
-    "photo/avatar_14369435.png",
-    "photo/avatar_2633288.png",
-    "photo/alien_10651194.png",
-    "photo/avatar_2633280.png"
-];
+// /*----------------Avatars for users--------------- */
+// // Array of photo URLs
+// const photoURLs = [
+//     "photo/avatar_2633291.png",
+//     "photo/joker_2730970.png",
+//     "photo/mummy_3529406.png",
+//     "photo/avatar_14369435.png",
+//     "photo/avatar_2633288.png",
+//     "photo/alien_10651194.png",
+//     "photo/avatar_2633280.png"
+// ];
 
 function getRandomPhotoURL() {
     return photoURLs[Math.floor(Math.random() * photoURLs.length)];

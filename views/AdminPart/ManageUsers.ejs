@@ -15,7 +15,6 @@
 </head>
 
 <body>
-<<<<<<< Updated upstream
     <%- include('../includes/sidenav&navbarsADMIN.ejs') %>
     <!-- User profiles list -->
     <div class="main-content">
@@ -37,29 +36,13 @@
                 <i class="fa-solid fa-trash" title="Delete" id="delete-icon1"></i>
             </div>
         </div>
-        <div class="list-container-dy">
-=======
-    <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
-    <h1>User List</h1>
-    <% if (users.length > 0) { %>
-      
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>phone</th>
-                <th>Email</th>
-                <th>gender</th>
-            </tr>
-        </thead>
-        <tbody>
->>>>>>> Stashed changes
+        <div class="list-container">
             <% users.forEach(user => { %>
                 <div class="list-item">
                     <div class="content">
                         <img src="\public\photo\sherry.png">
                         <div class="text"><%= user.username %></div>
-                        <div class="text"><%= user.fullName %></div>
+                        <div class="text"><%= user.username %></div>
                         <div class="text">Yesterday</div>
                         <input class="custom-checkbox" type="checkbox" id="userCheckbox_<%= user.username %>"
                             data-username="<%= user.username %>">
