@@ -56,7 +56,7 @@
       <h2>New Releases</h2>
       <% songs.reverse().forEach(song => { %>
         <div class="card" 
-             data-song="/audio/<%= song.audioFileId %>" 
+             data-song="/uploads/<%= song.songFileId %>" 
              data-artist="<%= song.artistName %>" 
              data-title="<%= song.songName %>" 
              data-image="/uploads/<%= song.imageFileId %>">
@@ -74,7 +74,7 @@
       <h2>You might also like</h2>
       <% songs.reverse().forEach(song => { %>
         <div class="card" 
-             data-song="/audio/<%= song.audioFileId %>" 
+             data-song="/uploads/<%= song.songFileId %>" 
              data-artist="<%= song.artistName %>" 
              data-title="<%= song.songName %>" 
              data-image="/uploads/<%= song.imageFileId %>">
