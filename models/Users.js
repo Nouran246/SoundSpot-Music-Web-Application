@@ -5,10 +5,17 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    validate: {
+      validator: function(v) {
+        return /^[a-zA-Z ]+$/.test(v); // Only allows alphabets and spaces
+      },
+      message: props => `${props.value} is not a valid name (only alphabets and spaces allowed)`
+    },
   },
   password: {
     type: String,
     required: true,
+    minlength: [3, 'Password must be at least 3 characters long'],
   },
   email: {
     type: String,
@@ -137,5 +144,6 @@ const userSchema = new mongoose.Schema({
     type: Date,
   }
 });
+
 
 module.exports = mongoose.model('User', userSchema);

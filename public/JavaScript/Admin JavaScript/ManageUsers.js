@@ -156,12 +156,11 @@ function toggleIcon(icon, userInfoContainer, contentClass) {
     });
 }
 
-
 // Function to handle user deletion
 function handleUserDeletion() {
     var deleteIcon = document.getElementById('delete-icon1');
     var deletePopup = document.getElementById('delete-popup');
-    var selectItemPopup = document.getElementById('select-item-popup'); // Corrected ID
+    var selectItemPopup = document.getElementById('select-item-popup');
     var checkboxes = document.querySelectorAll('.custom-checkbox');
     var okButton = document.getElementById('ok-delete');
     var cancelButton = document.getElementById('cancel-delete');
@@ -186,8 +185,11 @@ function handleUserDeletion() {
     });
 
     okButton.addEventListener('click', function () {
+        var selectedUserIds = [];
+
         checkboxes.forEach(function (checkbox) {
             if (checkbox.checked) {
+                selectedUserIds.push(checkbox.getAttribute('data-userid')); // Adjust as per your data attribute
                 var listItem = checkbox.closest('.list-item');
                 var userInfoContainer = listItem.nextElementSibling;
                 listItem.remove(); // Remove the list item (user) from the DOM
@@ -195,6 +197,25 @@ function handleUserDeletion() {
                     userInfoContainer.style.display = 'none'; // Hide corresponding user info container
                 }
             }
+        });
+
+        // Make an AJAX request to delete selected users from the database
+        fetch('/auth/delete-users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ userIds: selectedUserIds })
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Users deleted successfully');
+            } else {
+                console.error('Failed to delete users');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
         });
 
         deletePopup.style.display = 'none'; // Hide delete popup after deletion
@@ -208,9 +229,24 @@ function handleUserDeletion() {
     });
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    var topCheckbox = document.getElementById('topCheckbox1');
+    topCheckbox.addEventListener('change', function () {
+        var isChecked = this.checked;
+        var listItemCheckboxes = document.querySelectorAll('.list-item .custom-checkbox');
+        listItemCheckboxes.forEach(function (checkbox) {
+            checkbox.checked = isChecked;
+        });
+    });
+
+    User_Info();
+    setupSearch();
+    adjustSidebar();
+    handleUserDeletion();
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
-
     var topCheckbox = document.getElementById('topCheckbox1');
     topCheckbox.addEventListener('change', function () {
         var isChecked = this.checked;

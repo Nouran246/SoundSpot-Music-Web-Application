@@ -39,15 +39,17 @@ const addUser = async (req, res) => {
   }
 };
 
+
+
 // Delete a user
 const deleteUser = async (req, res) => {
   try {
-    const { id } = req.params;
-    await User.findByIdAndDelete(id);
-    res.status(200).send('User deleted successfully');
+      const { userIds } = req.body;
+      await User.deleteMany({ _id: { $in: userIds } }); // Use _id for MongoDB ObjectId
+      res.status(200).send('Users deleted successfully');
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
+      console.error(error);
+      res.status(500).send('Internal Server Error');
   }
 };
 
