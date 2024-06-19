@@ -14,6 +14,7 @@
 
 .player-bar {
     flex-direction: column;
+   
 }
 
 .player-bar button {
@@ -27,6 +28,7 @@
     margin: 20px;
     width: 40px;
     height: 40px;
+    
 }
 
 .player-bar #maxpage {
@@ -140,6 +142,8 @@ input[type="range"] {
     align-items: center;
     justify-content: space-between;
     margin-top: 5px;
+    margin-right:90px;
+    width:900px;
 }
 
 #current-time,
@@ -251,6 +255,7 @@ input[type="range"] {
 
 /* Styling for the liked button */
 #likes {
+    margin-left:250px;
     color: white;
     font-size: 20px;
     cursor: pointer;
