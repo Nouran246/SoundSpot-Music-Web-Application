@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('planForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
         // Get form inputs
-        const title = document.getElementById('title').value.trim();
+        const title = document.getElementById('Title').value.trim();
         const features = getSelectedFeatures();
         const price = document.getElementById('price').value.trim();
-        const duration = document.getElementById('duration').value;
-        const planTitle = document.getElementById('planTitle').value.trim();
+        const duration = document.getElementById('Duration').value;
+        const planTitle = document.getElementById('Title').value.trim();
         // Validate form inputs
         if (!validateForm(title, features, price, duration)) {
             return; // Stop further execution if validation fails
