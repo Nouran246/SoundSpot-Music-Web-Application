@@ -13,8 +13,9 @@
         <button id="backward" onclick="backwardAudio()"><i class="fa-solid fa-backward" id="icons"></i></button>
         <button id="play" onclick="toggleAudio()"><i class="fa-solid fa-play" id="icons"></i></button>
         <button id="forward"><i class="fa-solid fa-forward" id="icons"></i></button>
-        <button id="high"><i class="fa-solid fa-volume-high" id="icons"></i></button>
-        <button id="lyrics" class="tooltip">
+  <button id="volumeIcon" onclick="toggleVolumeControl()"><i class="fa-solid fa-volume-high" id="icons"></i></button>
+        <!-- Volume control slider -->
+        <input type="range" id="volumeControl" class="accent" value="100" min="0" max="100" step="1" onchange="adjustVolume(this.value)" style="display: none;">        <button id="lyrics" class="tooltip">
             <i class="fa-solid fa-pen" id="icons"></i>
             <span class="tooltiptext">Lyrics</span>
         </button>

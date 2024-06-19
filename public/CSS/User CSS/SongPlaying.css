@@ -269,3 +269,73 @@ input[type="range"] {
 #likes.liked .fa-heart {
     color: darkmagenta; /* Change to purple when liked */
 }
+/* Styles for the volume control slider */
+/* Styles for the volume control slider */
+.volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%; /* Set the width to 100% of its container */
+    height: 8px; /* Adjust height as needed */
+    background: #ccc; /* Background color of the slider track */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove default focus outline */
+    opacity: 0.7; /* Opacity of the slider track */
+    transition: opacity 0.15s ease-in-out; /* Smooth transition for opacity change */
+}
+
+/* Style for the slider thumb (handle) */
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px; /* Width of the slider thumb */
+    height: 16px; /* Height of the slider thumb */
+    background: #333; /* Color of the slider thumb */
+    border-radius: 50%; /* Rounded shape */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.15s ease-in-out; /* Smooth transition for background color change */
+}
+
+/* Style for the slider track (bar behind the thumb) */
+.volume-slider::-webkit-slider-runnable-track {
+    width: 100%; /* Width of the slider track */
+    height: 8px; /* Height of the slider track */
+    background: #ccc; /* Background color of the slider track */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Style for the slider thumb when active (hovered or dragged) */
+.volume-slider:hover::-webkit-slider-thumb,
+.volume-slider:focus::-webkit-slider-thumb {
+    background: #555; /* Color change on hover or focus */
+}
+
+/* Adjust styles for other browsers (Firefox, etc.) */
+.volume-slider::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume-slider::-ms-track {
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.volume-slider::-ms-thumb {
+    width: 16px;
+    height: 16px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}

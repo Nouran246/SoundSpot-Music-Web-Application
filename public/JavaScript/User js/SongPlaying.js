@@ -9,9 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentTimeDisplay = document.getElementById('current-time');
   const durationDisplay = document.getElementById('duration');
   const likeButton = document.getElementById('likes'); // Select the like button
+  const volumeIcon = document.getElementById('volumeIcon'); // Select volume icon element
 
   let currentSongIndex = 0;
-  let shuffledIndexes = [];
+  let currentVolume = 1; // Initial volume level (1 is max, 0 is mute)
 
   // Function to play the song based on card index
   const playSongByIndex = (index) => {
@@ -44,6 +45,32 @@ document.addEventListener('DOMContentLoaded', () => {
   likeButton.addEventListener('click', () => {
       likeButton.classList.toggle('liked'); // Toggle the 'liked' class
   });
+
+  // Function to toggle volume levels and update icon
+  const toggleVolume = () => {
+      if (audioPlayer.volume === 0) {
+          // If muted, toggle to 50% volume
+          audioPlayer.volume = 0.5;
+          volumeIcon.classList.remove('fa-volume-mute', 'fa-volume-low', 'fa-volume-medium');
+          volumeIcon.classList.add('fa-volume-half');
+          currentVolume = 0.5;
+      } else if (audioPlayer.volume === 0.5) {
+          // If 50% volume, toggle to 100% volume
+          audioPlayer.volume = 1;
+          volumeIcon.classList.remove('fa-volume-mute', 'fa-volume-half', 'fa-volume-medium');
+          volumeIcon.classList.add('fa-volume-high');
+          currentVolume = 1;
+      } else if (audioPlayer.volume === 1) {
+          // If 100% volume, toggle to muted
+          audioPlayer.volume = 0;
+          volumeIcon.classList.remove('fa-volume-high', 'fa-volume-half', 'fa-volume-medium');
+          volumeIcon.classList.add('fa-volume-mute');
+          currentVolume = 0;
+      }
+  };
+
+  // Event listener for volume button
+  volumeIcon.addEventListener('click', toggleVolume);
 
   // Function to play the next song
   const playNextSong = () => {
