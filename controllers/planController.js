@@ -1,3 +1,4 @@
+// planController.js
 const Plan = require("../models/planing");
 // GET all plans
 exports.getAllPlans = async (req, res) => {
