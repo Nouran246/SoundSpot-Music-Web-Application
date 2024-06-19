@@ -39,7 +39,7 @@ exports.uploadSong = async (req, res) => {
   }
 };
 
-exports.getAdminSongs = async (req, res) => {
+exports.getSongs = async (req, res) => {
   try {
     const songs = await Song.find();
     if (req.session.user) {
@@ -54,5 +54,19 @@ exports.getAdminSongs = async (req, res) => {
   } catch (error) {
     console.error('Error fetching songs:', error);
     res.status(500).send("Internal Server Error");
+  }
+};
+ 
+exports.deleteSong = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const songId = ObjectId(id);
+    const deletedSong = await Song.findOneAndRemove({ _id: songId });
+    console.log(deletedSong); 
+    console.log('Deleted song:', deletedSong);
+    res.status(200).json({ message: 'Song deleted successfully', deletedSong });
+  } catch (err) {
+    console.error('Error deleting song:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };

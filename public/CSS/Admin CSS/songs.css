@@ -49,7 +49,7 @@
     margin-top:-4px;
     margin-left: 9px;
     border-radius: 50%;
-    margin-right: 80px;
+    margin-right: 60px;
 }
 
 .content div {
@@ -64,7 +64,7 @@
 
 .content {
     display: flex;
-
+    gap:30px;
 }
 
 #plus {
@@ -81,8 +81,8 @@
 }
 
 .text {
-    color: #660066;
-    font-size: 18px;
+    color: #ddd;
+    font-size: 17px;
     text-overflow: ellipsis;
     padding: 5px;
     margin: 0;
@@ -600,6 +600,7 @@ i.hovered {
     float: left;
     width: 350px;
     height: 250px;
+    margin-left: 50px;;
 }
 
 .first-sec div,
@@ -614,9 +615,10 @@ i.hovered {
 }
 
 .second-sec {
-    float: right;
+    float:inline-end;
     width: 350px;
     height: 250px;
+    margin-left: 10px;;
 }
 
 .second-sec span {
@@ -1206,4 +1208,59 @@ body.light-mode .editpopup-labels label.active {
 
 body.light-mode .editpopup-labels label:hover {
     background-color: #333;
+}/* Delete button style */
+.delete-song-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.delete-song-btn:hover {
+    background-color: #c0392b;
+}
+
+.delete-song-btn:focus {
+    outline: none;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+/* Delete button style */
+.delete-song-btn {
+    display: inline-block;
+    padding: 6px 10px; 
+    color: #800080;
+    font-size: 14px; 
+    text-transform:none;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid #800080; 
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.delete-song-btn:hover {
+    background-color: #800080;
+    color: #ffffff; 
+}
+.user-info-container {
+    display: none;
+}
+
+.fa-chevron-down {
+    display: none;
+}
+
+.list-item .fa-solid {
+    cursor: pointer;
 }

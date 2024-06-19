@@ -17,6 +17,7 @@
     <script type="text/javascript"
         src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
 </head>
+
 <body>
     <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
         <div class=" main-content">
@@ -33,48 +34,55 @@
                         <input type="checkbox" id="topCheckbox" class="checkbox-input" />
                         <span class="checkbox-custom"></span>
                     </div>
-                    <i class="fa-solid fa-trash" title="Delete" id="delete-trash"></i>
                     <i class="fa-solid fa-pen"></i>
                 </div>
             </div>
             <div class="list-container">
                 <%songs.forEach(song=>{%>
                     <div class="list-item">
-                    <div class="content">
-                        <i class="fa-solid fa-music"></i>
-                      
-                        <div class="text"><%=song.songName%></div>
-                        <div class="text"><%=song.artistName%></div>
-                        <div class="text"><%=song.albumName%></div>
-                        <div class="text"><%=song.releaseDate.toDateString() %></div>
-                        <input class="custom-checkbox" type="checkbox" id="<%=song._id%>" data-username="<%=song.artistName%>">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                </div>
+                        <div class="content">
+                            <i class="fa-solid fa-music"></i>
 
-                <div class="user-info-container">
-                    <div class="user-info">
-                        <div class="user-icons">
-                            <i class="fa-solid fa-info info-icon" data-section="personal" title="Personal Info"
-                                style="color: #800080;"></i>
-                            <i class="fa-solid fa-clock-rotate-left info-icon" data-section="activity-log-sec"
-                                title="Activity Log"></i>
-                            <i class="fa-solid fa-user-shield info-icon" data-section="security-log-sec"
-                                title="Security"></i>
+                            <div class="text">
+                                <%=song.songName%>
+                            </div>
+                            <div class="text">
+                                <%=song.artistName%>
+                            </div>
+                            <div class="text">
+                                <%=song.albumName%>
+                            </div>
+                            <div class="text">
+                                <%=song.releaseDate.toDateString() %>
+                            </div>
+                            <form id="deleteForm_<%= song._id %>">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="delete-song-btn" type="button" data-song-id="<%= song._id %>">Delete</button>
+                            </form>
+                            <i class="fa-solid fa-chevron-right toggle-info"></i>
                         </div>
+                    </div>
+
+                    <div class="user-info-container">
                         <div class="general-content">
                             <div class="first-sec">
                                 <div>
                                     <label>Genre</label>
-                                    <span><%=song.genre%></span>
+                                    <span>
+                                        <%=song.genre%>
+                                    </span>
                                 </div>
                                 <div>
                                     <label>Duration</label>
-                                    <span><%= song.duration%></span>
+                                    <span>
+                                        <%= song.duration%>
+                                    </span>
                                 </div>
                                 <div>
                                     <label>Record label</label>
-                                    <span><%= song.recordLabel %></span>
+                                    <span>
+                                        <%= song.recordLabel %>
+                                    </span>
                                 </div>
                                 <div>
                                     <label>Songwriters</label>
@@ -82,51 +90,59 @@
                                 </div>
                                 <div>
                                     <label>Producers</label>
-                                    <span><%= song.producers%></span>
+                                    <span>
+                                        <%= song.producers%>
+                                    </span>
                                 </div>
                             </div>
                             <div class="second-sec">
                                 <div>
                                     <label>Composer</label>
-                                    <span><%= song.composer %></span>
+                                    <span>
+                                        <%= song.composer %>
+                                    </span>
                                 </div>
                                 <div>
                                     <label>Release type</label>
-                                    <span><%= song.releaseType %></span>
+                                    <span>
+                                        <%= song.releaseType %>
+                                    </span>
                                 </div>
                                 <div>
                                     <label>Songwriters</label>
-                                    <span><%= song.Songwriters %></span>
+                                    <span>
+                                        <%= song.Songwriters %>
+                                    </span>
                                 </div>
                                 <div>
                                     <label>Collaborations</label>
-                                    <span><%= song.collaborations %></span>
+                                    <span>
+                                        <%= song.collaborations %>
+                                    </span>
                                 </div>
                                 <div>
                                     <label>Featured artists</label>
-                                    <span><%= song.featuredArtists %></span>
+                                    <span>
+                                        <%= song.featuredArtists %>
+                                    </span>
                                 </div>
                             </div>
                         </div>
+                        <!--                     </div>
+ -->
                     </div>
-                </div>
-                <% }) %>
+                    <% }) %>
             </div>
         </div>
         </div>
 
-        <div class="delete-popup" id="delete-popup">
+        <div class="delete-popup" id="delete-popup" style="display: none;">
             <h2>Confirm Deletion</h2>
-            <p>Are you sure you want to delete this item?</p>
+            <p>Are you sure you want to delete the selected item(s)?</p>
             <button id="ok-delete" class="btn">OK</button>
             <button id="cancel-delete" class="btn">CANCEL</button>
         </div>
 
-        <div class="select-item-popup">
-            <div class="popup-content" id="one-edit">
-                <h2>Please select one playlist at a time</h2>
-            </div>
-        </div>
 
         <div class="select-item-popup">
             <div class="popup-content" id="select-item">
@@ -135,7 +151,7 @@
         </div>
 
         <div class="select-item-popup">
-            <div class="popup-content" id="select-item-popup">
+            <div class="popup-content" id="select-item-popup" style="display: none;">
                 <h2>Please select an item</h2>
             </div>
         </div>
@@ -150,4 +166,5 @@
             </ul>
         </nav>
 </body>
+
 </html>
