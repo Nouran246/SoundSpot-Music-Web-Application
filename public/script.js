@@ -19,29 +19,42 @@ async function validateForm(event, form) {
     const formData = new FormData(form);
     const formObj = Object.fromEntries(formData.entries());
 
+    // Example: Frontend validation
     const errors = {};
-
-    // Front-end validation for each field
     if (!formObj.firstname) {
         errors.name = 'Please enter your name';
+    } else if (!/^[a-zA-Z ]+$/.test(formObj.firstname)) {
+        errors.name = 'Name should only contain alphabets and spaces';
     }
+
     if (!formObj.email) {
         errors.email = 'Please enter your email address';
+    } else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(formObj.email)) {
+        errors.email = 'Please enter a valid email address';
     }
+
     if (!formObj.password) {
         errors.password = 'Please enter your password';
+    } else if (formObj.password.length < 3) {
+        errors.password = 'Password must be at least 3 characters long';
     }
+
     if (!formObj.confirmPassword) {
         errors.confirmPassword = 'Please confirm your password';
     } else if (formObj.password !== formObj.confirmPassword) {
         errors.confirmPassword = 'Passwords do not match';
     }
+
     if (!formObj.phone_number) {
         errors.phone_number = 'Please enter your mobile number';
+    } else if (!/^\d{10}$/.test(formObj.phone_number)) {
+        errors.phone_number = 'Please enter a valid 10-digit phone number';
     }
+
     if (!formObj.gender) {
         errors.gender = 'Please select your gender';
     }
+
     if (formObj.country === 'Select') {
         errors.country = 'Please select your country';
     }
@@ -53,21 +66,31 @@ async function validateForm(event, form) {
     }
 
     // Proceed with form submission if no errors
-    const response = await fetch(form.action, {
-        method: form.method,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formObj)
-    });
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formObj)
+        });
 
-    const result = await response.json();
+        const result = await response.json();
 
-    if (!result.success) {
-        displayErrors(result.errors);
-    } else {
-        alert(result.message);
-        form.reset();
+        if (!result.success) {
+            if (result.errors) {
+                displayErrors(result.errors);
+            } else {
+                displayErrors({ general: 'Registration failed' });
+            }
+        } else {
+            document.getElementById("generalErr").innerText = result.message;
+            document.getElementById("generalErr").style.color = "green";
+            form.reset();
+        }
+    } catch (error) {
+        console.error('Error during form submission:', error);
+        displayErrors({ general: 'Error during form submission. Please try again later.' });
     }
 }
 
@@ -111,6 +134,8 @@ function displayErrors(errors) {
         alert(errors.general); // or you can display it in a specific div
     }
 }
+
+
 
 async function validateLogin(event) {
     event.preventDefault();
