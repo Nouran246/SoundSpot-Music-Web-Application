@@ -171,7 +171,7 @@
               <p>Issue: <%= report.problemTypes.join(', ') %></p>
               <h3>User: <%= report.email.split('@')[0] %></h3>
               <p>Email: <%= report.confirmEmail %></p>
-              <p><%= report.comment %></p>
+              <p>Comments: <%= report.comment %></p>
               <p>Date: <%= new Date(report.createdAt).toLocaleDateString() %></p>
               <p>Status: <span class="status"><%= report.status %></span></p>
               <p>Details:</p>

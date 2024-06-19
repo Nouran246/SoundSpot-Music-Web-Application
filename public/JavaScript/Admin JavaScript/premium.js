@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hidePopupForm();
     });
     // Fetch plans on page load
-    fetchPlans();
+    // fetchPlans();
     // Event listener for edit and delete buttons
     document.addEventListener('click', function(event) {
         if (event.target.classList.contains('edit-button')) {
@@ -350,7 +350,7 @@ function fetchPlans() {
         })
         .catch(error => {
             console.error('Error fetching plans:', error);
-            document.getElementById('dynamicPlansContainer').innerHTML = '<p>Failed to fetch plans. Please try again later.</p>';
+            document.getElementById('dynamicPlansContainer').innerHTML = 'Failed to fetch plans. Please try again later.';
         });
 }
   

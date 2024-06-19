@@ -59,21 +59,21 @@ function setupRoutes(app) {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 }); 
-router.get('/plans', async (req, res) => {
-    try {
+// router.get('/plans', async (req, res) => {
+//     try {
         
-      const plans = await plan.find();
-      console.log(plans);
-      res.render("/premium", {
-        plans: plans,
-      })
+//       const plans = await plan.find();
+//       console.log(plans);
+//       res.render("/premium", {
+//         plans: plans,
+//       })
 
-      // res.json(plans);
-    } catch (error) {
-      console.error('Error fetching plans:', error);
-      res.status(500).send("Internal Server Error");
-    }
-  });
+//       // res.json(plans);
+//     } catch (error) {
+//       console.error('Error fetching plans:', error);
+//       res.status(500).send("Internal Server Error");
+//     }
+//   });
   router.get('/songs', async (req, res) => {
     try {
         
