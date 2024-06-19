@@ -9,28 +9,61 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentTimeDisplay = document.getElementById('current-time');
   const durationDisplay = document.getElementById('duration');
 
-  songCards.forEach(card => {
+  let currentSongIndex = 0;
+
+  // Function to play the song based on card index
+  const playSongByIndex = (index) => {
+      const card = songCards[index];
+      const songFile = card.getAttribute('data-song');
+      const artistName = card.getAttribute('data-artist');
+      const songName = card.getAttribute('data-title');
+      const imageSrc = card.getAttribute('data-image');
+
+      audioPlayer.src = songFile;
+      document.getElementById('songname').innerText = songName;
+      document.getElementById('artistname').innerText = artistName;
+      document.getElementById('songpic').src = imageSrc;
+      minimizedContainer.style.display = 'flex';
+      audioPlayer.play();
+      playButton.innerHTML = '<i class="fa-solid fa-pause"></i>';
+
+      // Update currentSongIndex
+      currentSongIndex = index;
+  };
+
+  // Play the song when a card is clicked
+  songCards.forEach((card, index) => {
       card.addEventListener('click', () => {
-          const songFile = card.getAttribute('data-song');
-          const artistName = card.getAttribute('data-artist');
-          const songName = card.getAttribute('data-title');
-          const imageSrc = card.getAttribute('data-image');
-
-          // Update the audio source
-          audioPlayer.src = songFile;
-
-          // Update the song details
-          document.getElementById('songname').innerText = songName;
-          document.getElementById('artistname').innerText = artistName;
-          document.getElementById('songpic').src = imageSrc;
-
-          // Ensure the container is visible
-          minimizedContainer.style.display = 'flex';
-
-          // Play the song
-          audioPlayer.play();
-          playButton.innerHTML = '<i class="fa-solid fa-pause"></i>';
+          playSongByIndex(index);
       });
+  });
+
+  // Function to play the next song
+  const playNextSong = () => {
+      currentSongIndex++;
+      if (currentSongIndex >= songCards.length) {
+          currentSongIndex = songCards.length - 1;
+      }
+      playSongByIndex(currentSongIndex);
+  };
+
+  // Function to play the previous song
+  const playPreviousSong = () => {
+      currentSongIndex--;
+      if (currentSongIndex < 0) {
+          currentSongIndex = 0;
+      }
+      playSongByIndex(currentSongIndex);
+  };
+
+  // Event listener for forward button
+  forwardButton.addEventListener('click', () => {
+      playNextSong();
+  });
+
+  // Event listener for backward button
+  backwardButton.addEventListener('click', () => {
+      playPreviousSong();
   });
 
   // Toggle Play/Pause functionality
@@ -42,21 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
           audioPlayer.pause();
           playButton.innerHTML = '<i class="fa-solid fa-play"></i>';
       }
-  };
-
-  // Skip backward functionality
-  window.backwardAudio = () => {
-      audioPlayer.currentTime -= 10; // Skip backward by 10 seconds
-  };
-
-  // Skip forward functionality
-  window.forwardAudio = () => {
-      audioPlayer.currentTime += 10; // Skip forward by 10 seconds
-  };
-
-  // Seek to a specific time
-  window.seekTo = (value) => {
-      audioPlayer.currentTime = value * audioPlayer.duration;
   };
 
   // Update time displays during playback
@@ -72,4 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const seconds = Math.floor(time % 60);
       return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
+
+  // Initial play of the first song (optional, depending on your UI/UX flow)
+  // playSongByIndex(0); 
+
 });
