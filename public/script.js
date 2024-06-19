@@ -10,6 +10,67 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 
+async function validateForm(event, form) {
+    event.preventDefault();
+
+    // Clear previous errors
+    displayErrors({});
+
+    const formData = new FormData(form);
+    const formObj = Object.fromEntries(formData.entries());
+
+    const errors = {};
+
+    // Front-end validation for each field
+    if (!formObj.firstname) {
+        errors.name = 'Please enter your name';
+    }
+    if (!formObj.email) {
+        errors.email = 'Please enter your email address';
+    }
+    if (!formObj.password) {
+        errors.password = 'Please enter your password';
+    }
+    if (!formObj.confirmPassword) {
+        errors.confirmPassword = 'Please confirm your password';
+    } else if (formObj.password !== formObj.confirmPassword) {
+        errors.confirmPassword = 'Passwords do not match';
+    }
+    if (!formObj.phone_number) {
+        errors.phone_number = 'Please enter your mobile number';
+    }
+    if (!formObj.gender) {
+        errors.gender = 'Please select your gender';
+    }
+    if (formObj.country === 'Select') {
+        errors.country = 'Please select your country';
+    }
+
+    // Display errors if any exist
+    if (Object.keys(errors).length > 0) {
+        displayErrors(errors);
+        return;
+    }
+
+    // Proceed with form submission if no errors
+    const response = await fetch(form.action, {
+        method: form.method,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formObj)
+    });
+
+    const result = await response.json();
+
+    if (!result.success) {
+        displayErrors(result.errors);
+    } else {
+        alert(result.message);
+        form.reset();
+    }
+}
+
 function displayErrors(errors) {
     if (errors.name) {
         document.getElementById("nameErr").innerText = errors.name;
@@ -51,15 +112,37 @@ function displayErrors(errors) {
     }
 }
 
-async function validateForm(event, form) {
+async function validateLogin(event) {
     event.preventDefault();
 
     // Clear previous errors
-    displayErrors({});
+    displayLoginErrors({});
 
+    const form = document.getElementById('loginForm');
     const formData = new FormData(form);
     const formObj = Object.fromEntries(formData.entries());
 
+    const errors = {};
+
+    // Front-end validation for each field
+    if (!formObj.loginemail && !formObj.password) {
+        errors.general = 'Please enter both email and password';
+    } else {
+        if (!formObj.loginemail) {
+            errors.loginemail = 'Please enter your email address';
+        }
+        if (!formObj.password) {
+            errors.password = 'Please enter your password';
+        }
+    }
+
+    // Display errors if any exist
+    if (Object.keys(errors).length > 0) {
+        displayLoginErrors(errors);
+        return;
+    }
+
+    // Proceed with form submission if no errors
     const response = await fetch(form.action, {
         method: form.method,
         headers: {
@@ -68,27 +151,25 @@ async function validateForm(event, form) {
         body: JSON.stringify(formObj)
     });
 
-    const result = await response.json();
-
-    if (!result.success) {
-        displayErrors(result.errors);
+    if (!response.ok) {
+        const result = await response.text();
+        displayLoginErrors({ general: result });
     } else {
-        alert(result.message);
-        form.reset();
+        form.submit();
     }
 }
 
-function validateLogin(event) {
-    event.preventDefault();
-    var form = document.getElementById('loginForm');
-    var email = form.loginemail.value;
-    var password = form.password.value;
-    
-    if (email === "" || password === "") {
-        document.getElementById("loginErr").innerText = "Please enter both email and password";
-        document.getElementById("loginErr").style.color = "red";  
-        return false;
+function displayLoginErrors(errors) {
+    if (errors.loginemail) {
+        document.getElementById("loginErr").innerText = errors.loginemail;
+        document.getElementById("loginErr").style.color = "red";
+    } else if (errors.password) {
+        document.getElementById("loginErr").innerText = errors.password;
+        document.getElementById("loginErr").style.color = "red";
+    } else if (errors.general) {
+        document.getElementById("loginErr").innerText = errors.general;
+        document.getElementById("loginErr").style.color = "red";
     } else {
-        form.submit();
+        document.getElementById("loginErr").innerText = "";
     }
 }
