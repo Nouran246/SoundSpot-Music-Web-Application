@@ -30,8 +30,9 @@ app.get("/users" ,async (req, res) => {
     }
   });
 
+  
+app.post('/auth/delete-users', userController.deleteUser);
 app.post("/users", userController.addUser);
-app.delete("/users/:id", userController.deleteUser);
 app.put("/users/:id", userController.editUser);
 
 module.exports = app;
