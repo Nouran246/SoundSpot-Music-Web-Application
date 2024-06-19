@@ -344,6 +344,7 @@ input[type="range"] {
     border-radius: 50%;
     cursor: pointer;
 }
+/* Modal styles */
 .modal {
     display: none;
     position: fixed;
@@ -357,26 +358,43 @@ input[type="range"] {
 }
 
 .modal-content {
-    background-color: #222;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    position: relative;
-    
+    background-color: transparent;
+    margin: 5% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+   
+    font-size: 28px; /* Increased font size */
+    line-height: 1.8; /* Increased line height */
 }
 
 .close {
     color: #aaa;
-    float: right;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    color: #333;
+}
+
+/* Optional: Add animation for modal appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    animation: fadeIn 0.3s ease-out;
 }
