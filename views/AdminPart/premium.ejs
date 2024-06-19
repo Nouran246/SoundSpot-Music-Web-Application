@@ -57,18 +57,18 @@
     <h2>Add Plan</h2>
     <form id="planForm" action="/plans/process" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" placeholder="Enter title"><br>
+        <input type="text" id="title" name="Title" placeholder="Enter title"><br>
         <label>Features:</label><br>
-        <input type="checkbox" id="feature1" name="features" value="Ads-Free">
+        <input type="checkbox" id="feature1" name="Features" value="Ads-Free">
         <label for="feature1">Ads-Free</label><br>
-        <input type="checkbox" id="feature2" name="features" value="Pop-ups Free">
+        <input type="checkbox" id="feature2" name="Features" value="Pop-ups Free">
         <label for="feature2">Pop-ups Free</label><br>
-        <input type="checkbox" id="feature3" name="features" value="Free plan">
+        <input type="checkbox" id="feature3" name="Features" value="Free plan">
         <label for="feature3">Free plan</label><br>
         <label for="price">Price:</label>
         <input type="text" id="price" name="price" placeholder="Enter price"><br>
         <label for="duration">Duration:</label>
-        <select id="duration" name="duration">
+        <select id="duration" name="Duration">
             <option value="Free plan">Free plan</option>
             <option value="1 month">1 month</option>
             <option value="3 months">3 month</option>
@@ -76,9 +76,9 @@
             <option value="1 year">1 year</option>
         </select><br>
         <label for="adsVideo">Upload Ads Video (Optional):</label>
-        <input type="file" id="adsVideo" name="adsVideo" accept="video/*"><br>
+        <input type="file" id="adsVideo" name="videoFileId" accept="video/*"><br>
         <label for="popupImage">Upload Popup Image (Optional):</label>
-        <input type="file" id="popupImage" name="popupImage" accept="image/*"><br>
+        <input type="file" id="popupImage" name="photoFileId" accept="image/*"><br>
         <button type="submit">Save</button>
         <button type="button" onclick="hidePopupForm()">Cancel</button>
     </form>
