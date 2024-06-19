@@ -58,7 +58,8 @@
           <div class="card" 
                data-song="/uploads/<%= song.songFileId %>" 
                data-artist="<%= song.artistName %>" 
-               data-title="<%= song.songName %>" 
+               data-title="<%= song.songName %>"
+               data-lyrics="<%= song.lyrics %>" 
                data-image="/uploads/<%= song.imageFileId %>">
               <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
               <div class="content">
@@ -75,6 +76,7 @@
                data-song="/uploads/<%= song.songFileId %>" 
                data-artist="<%= song.artistName %>" 
                data-title="<%= song.songName %>" 
+               data-lyrics="<%= song.lyrics %>" 
                data-image="/uploads/<%= song.imageFileId %>">
               <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
               <div class="content">

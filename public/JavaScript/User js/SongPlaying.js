@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBar = document.getElementById('progress-bar'); // Progress bar element
     const likeButton = document.getElementById('likes');
     const volumeIcon = document.getElementById('volumeIcon');
+    const lyricsButton = document.getElementById('lyricsButton'); // Changed from lyricsButtons to lyricsButton
+const lyricsModal = document.getElementById('lyricsModal'); // Changed from lyricsModals to lyricsModal
+const lyricsContent = document.getElementById('lyricsContent'); // Changed from lyricsContents to lyricsContent
 
     let currentSongIndex = 0;
     let currentVolume = 1;
@@ -119,4 +122,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const seconds = Math.floor(time % 60);
         return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
+    lyricsButton.addEventListener('click', () => {
+        lyricsModal.style.display = 'block';
+        const lyricsData = songCards[currentSongIndex].getAttribute('data-lyrics');
+        lyricsContent.innerHTML = `<pre>${lyricsData}</pre>`;
+    });
+    
+
+    // Function to close the lyrics modal
+    const closeButton = document.querySelector('.close');
+    closeButton.addEventListener('click', () => {
+        lyricsModal.style.display = 'none';
+    });
+    
+
+    // Close the lyrics modal when clicking outside of it
+    window.addEventListener('click', (event) => {
+        if (event.target === lyricsModal) {
+            lyricsModal.style.display = 'none';
+        }
+    });
+    
+
+    // Optional: Close modal when ESC key is pressed
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            lyricsModal.style.display = 'none';
+        }
+    });
+    
 });
