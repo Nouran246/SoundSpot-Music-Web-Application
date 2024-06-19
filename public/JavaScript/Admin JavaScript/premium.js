@@ -2,19 +2,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to handle form submission
     document.getElementById('planForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
-
         // Get form inputs
         const title = document.getElementById('title').value.trim();
         const features = getSelectedFeatures();
         const price = document.getElementById('price').value.trim();
         const duration = document.getElementById('duration').value;
         const planTitle = document.getElementById('planTitle').value.trim();
-
         // Validate form inputs
         if (!validateForm(title, features, price, duration)) {
             return; // Stop further execution if validation fails
         }
-
         // Create new plan details object
         const newPlan = {
             title: title,
@@ -22,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
             price: price,
             duration: duration
         };
-
         // Display plan details dynamically
         if (planTitle) {
             // Update existing plan details
@@ -30,18 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // Add new plan details
             displayPlanDetails(newPlan);
-
             // Optional: Save to localStorage
             savePlanToLocalStorage(newPlan);
         }
-
         // Hide pop-up form
         hidePopupForm();
     });
-
     // Fetch plans on page load
     fetchPlans();
-
     // Event listener for edit and delete buttons
     document.addEventListener('click', function(event) {
         if (event.target.classList.contains('edit-button')) {
@@ -52,24 +44,19 @@ document.addEventListener('DOMContentLoaded', function() {
             deletePlan(planTitle);
         }
     });
-
     
     function getSelectedFeatures() {
         const checkboxes = document.getElementsByName('features');
         const selectedFeatures = [];
-
         checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
                 selectedFeatures.push(checkbox.value);
             }
         });
-
         return selectedFeatures;
     }
-
     function validateForm(title, features, price, duration) {
         var isValid = true;
-
         // Validate title
         const titleField = document.getElementById('title');
         if (title === "") {
@@ -78,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             clearErrorMessage(titleField);
         }
-
         // Validate features
         const featuresField = document.getElementsByName('features');
         if (features.length === 0) {
@@ -87,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             clearErrorMessage(featuresField[0]);
         }
-
         // Validate price
         const priceField = document.getElementById('price');
         if (price === "" || isNaN(price) || parseFloat(price) <= 0) {
@@ -96,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             clearErrorMessage(priceField);
         }
-
         // Validate duration
         const durationField = document.getElementById('duration');
         if (duration === "") {
@@ -105,10 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             clearErrorMessage(durationField);
         }
-
         return isValid;
     }
-
     function displayPlanDetails(plan) {
         const planDetailsDiv = document.createElement('div');
         planDetailsDiv.classList.add('plan');
@@ -145,11 +127,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     
-
         // Append plan details div to container
         document.getElementById('dynamicPlansContainer').appendChild(planDetailsDiv);
     }
-
     function savePlanToLocalStorage(plan) {
         // Save plan details to localStorage
         localStorage.setItem(`${plan.title}PlanDetails`, JSON.stringify(plan));
@@ -163,7 +143,6 @@ document.addEventListener('click', function(event) {
             deletePlan(planTitle);
         }
     });
-
     // Function to handle editing a plan
     function editPlan(planTitle) {
         // Retrieve plan details from localStorage
@@ -172,36 +151,29 @@ document.addEventListener('click', function(event) {
             console.log('Plan details not found in localStorage');
             return;
         }
-
         // Populate form fields with stored plan details for editing
         document.getElementById('editTitle').value = storedPlan.title;
         document.getElementById('editPrice').value = storedPlan.price;
         document.getElementById('editDuration').value = storedPlan.duration;
-
         // Check feature checkboxes based on stored plan features
         const checkboxes = document.querySelectorAll('.editFeatureCheckbox');
         checkboxes.forEach(checkbox => {
             checkbox.checked = storedPlan.features.includes(checkbox.value);
         });
-
         // Store the plan title being edited in a hidden input field
         document.getElementById('editPlanTitle').value = planTitle;
-
         // Display the edit popup form
         document.getElementById('editPopupForm').style.display = 'block';
     }
-
     // Event listener for Save button in the edit popup form
     document.getElementById('editSaveButton').addEventListener('click', function(event) {
         event.preventDefault(); // Prevent form submission
-
         // Get form inputs from the edit popup form
         const title = document.getElementById('editTitle').value.trim();
         const price = document.getElementById('editPrice').value.trim();
         const duration = document.getElementById('editDuration').value;
         const features = getSelectedEditFeatures(); // Get selected features
         const planTitle = document.getElementById('editPlanTitle').value.trim();
-
         // Retrieve existing plan details from localStorage
         let storedPlan = JSON.parse(localStorage.getItem(`${planTitle}PlanDetails`));
         if (!storedPlan) {
@@ -213,37 +185,29 @@ document.addEventListener('click', function(event) {
         storedPlan.price = price !== '' ? price : storedPlan.price;
         storedPlan.duration = duration !== '' ? duration : storedPlan.duration;
         storedPlan.features = features.length > 0 ? features : storedPlan.features;
-
         // Update plan details in localStorage
         localStorage.setItem(`${planTitle}PlanDetails`, JSON.stringify(storedPlan));
-
         // Update plan details in the UI
         updatePlanDetails(planTitle, storedPlan);
-
         // Hide the edit popup form
         document.getElementById('editPopupForm').style.display = 'none';
     });
-
     // Event listener for Cancel button in the edit popup form
     document.getElementById('editCancelButton').addEventListener('click', function() {
         // Hide the edit popup form
         document.getElementById('editPopupForm').style.display = 'none';
     });
-
     // Function to get selected features from the edit popup form
     function getSelectedEditFeatures() {
         const checkboxes = document.querySelectorAll('.editFeatureCheckbox');
         const selectedFeatures = [];
-
         checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
                 selectedFeatures.push(checkbox.value);
             }
         });
-
         return selectedFeatures;
     }
-
     // Function to update plan details in the UI
     function updatePlanDetails(planTitle, updatedPlan) {
         // Update plan details in the UI
@@ -281,35 +245,21 @@ document.addEventListener('click', function(event) {
         
         }
     }
-
     // Function to delete a plan
-   // Frontend code where deletePlan function is implemented
-   function deletePlan(planTitle) {
-    fetch(`/api/plans/${planTitle}`, {
-        method: 'DELETE',
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Failed to delete plan: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Plan deleted successfully:', data);
+    function deletePlan(planTitle) {
+        console.log('Deleting plan:', planTitle);
+        // Remove plan details from localStorage
+        localStorage.removeItem(`${planTitle}PlanDetails`);
+        // Remove plan details from the UI
         const planContainer = document.getElementById(`${planTitle}-plan-details`);
         if (planContainer) {
-            planContainer.remove();
+            planContainer.parentNode.removeChild(planContainer); // Remove the plan container from its parent
+            alert('Plan deleted: ' + planTitle);
+        } else {
+            console.log('Plan container not found');
         }
-        alert('Plan deleted successfully');
-    })
-    .catch(error => {
-        console.error('Error deleting plan:', error);
-        alert('Failed to delete plan. Please try again later.');
-    });
-}
-
+    }
     
-
     function displayErrorMessage(field, message, id) {
         const errorMessage = document.createElement('div');
         errorMessage.textContent = message;
@@ -318,36 +268,30 @@ document.addEventListener('click', function(event) {
         field.parentNode.insertBefore(errorMessage, field.nextSibling);
         errorMessage.style.color = 'red';
     }
-
     function clearErrorMessage(field) {
         const errorMessage = field.parentNode.querySelector('.error-message');
         if (errorMessage) {
             errorMessage.remove();
         }
     }
-
     // Function to hide the pop-up form
     function hidePopupForm() {
         document.getElementById('popupForm').style.display = 'none';
-
         // Reset form fields and error messages
         document.getElementById('planForm').reset();
         const errorMessages = document.querySelectorAll('.error-message');
         errorMessages.forEach(errorMessage => {
             errorMessage.remove();
         });
-
         // Reset submit button text to 'Save'
         document.querySelector('#planForm button[type="submit"]').textContent = 'Save';
     }
-
     const addPlanButton = document.getElementById('addPlanButton');
     addPlanButton.addEventListener('click', function() {
         // Display the pop-up form
         document.getElementById('popupForm').style.display = 'block';
     });
 });
-
 function updatePlanDetails(planTitle, updatedPlan) {
     // Update plan details in the UI
     const planContainer = document.getElementById(`${planTitle}-plan-details`);
@@ -373,25 +317,20 @@ function updatePlanDetails(planTitle, updatedPlan) {
                    
                         <td>Duration:</td>
                         <td>${updatedPlan.duration}</td>
-
                     </tr>
                 </tbody>
             </table>
         `;
     }
-
     // Update plan details in localStorage
     localStorage.setItem(`${planTitle}PlanDetails`, JSON.stringify(updatedPlan));
 }
-
 document.getElementById('cancelButton').addEventListener('click', function() {
     hidePopupForm();
 });
-
 function hidePopupForm() {
     document.getElementById('popupForm').style.display = 'none';
 }
-
 function fetchPlans() {
     fetch('/plans')
         .then(response => {
@@ -414,7 +353,6 @@ function fetchPlans() {
             document.getElementById('dynamicPlansContainer').innerHTML = '<p>Failed to fetch plans. Please try again later.</p>';
         });
 }
-
   
     // Function to display plan details
     function displayPlanDetails(Plan) {
@@ -428,7 +366,7 @@ function fetchPlans() {
                     <tbody>
                         <tr>
                             <td><strong>Price:</strong></td>
-                            <td>${Plan.price}</td>
+                            <td>${Plan.Price}</td>
                             <td><strong>Features:</strong></td>
                             <td>
                                 <ul>
@@ -471,16 +409,3 @@ function fetchPlans() {
           })
           .catch(error => console.error('Error fetching plans:', error));
       });
-      
-
-
-
-
-
-
-
-
-
-
-
-      

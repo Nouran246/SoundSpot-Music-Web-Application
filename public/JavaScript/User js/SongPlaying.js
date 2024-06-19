@@ -137,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
             volumeControl.value = value;
             updateProgress(); // Update the time display
         });
-
     } else {
         audio.pause();
         document.getElementById("play").innerHTML = '<i class="fa-solid fa-play"></i>';

@@ -14,20 +14,13 @@
     <script src="/JavaScript/Admin%20JavaScript/premium.js"></script>
     <script src="/JavaScript/Admin%20JavaScript/german.js"></script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
-
 </head>
-
-
 <body>
     <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
    
-
     <h1 class="title9">Subscription Packages</h1>
-
-
     <div class="container">
       <button id="addPlanButton">+</button>
-
       <div id="dynamicPlansContainer">
         <% plans.forEach(plan => { %>
             <div class="plan" id="<%= `${plan.Title}-plan-details` %>">
@@ -65,7 +58,6 @@
     <form id="planForm" action="/plans/process" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" placeholder="Enter title"><br>
-
         <label>Features:</label><br>
         <input type="checkbox" id="feature1" name="features" value="Ads-Free">
         <label for="feature1">Ads-Free</label><br>
@@ -73,10 +65,8 @@
         <label for="feature2">Pop-ups Free</label><br>
         <input type="checkbox" id="feature3" name="features" value="Free plan">
         <label for="feature3">Free plan</label><br>
-
         <label for="price">Price:</label>
         <input type="text" id="price" name="price" placeholder="Enter price"><br>
-
         <label for="duration">Duration:</label>
         <select id="duration" name="duration">
             <option value="Free plan">Free plan</option>
@@ -85,13 +75,10 @@
             <option value="6 months">6 months</option>
             <option value="1 year">1 year</option>
         </select><br>
-
         <label for="adsVideo">Upload Ads Video (Optional):</label>
         <input type="file" id="adsVideo" name="adsVideo" accept="video/*"><br>
-
         <label for="popupImage">Upload Popup Image (Optional):</label>
         <input type="file" id="popupImage" name="popupImage" accept="image/*"><br>
-
         <button type="submit">Save</button>
         <button type="button" onclick="hidePopupForm()">Cancel</button>
     </form>
@@ -136,7 +123,6 @@
     <div class="settings-popup-container">
         <div class="settings-popup">
             <h3>Settings</h3>
-
  
             <h4>Change Language</h4> 
         <div id="google_translate_element"></div>

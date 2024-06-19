@@ -12,7 +12,7 @@ const plan = require("../models/planing");
 const song = require("../models/song");
 const multer = require('multer'); // For handling file uploads
 const bodyParser = require('body-parser');
-const songController = require("../controllers/songController");
+songController = require("../controllers/songController");
 const path = require('path');
 
 const storage = multer.diskStorage({
@@ -65,7 +65,7 @@ router.get('/plans', async (req, res) => {
       const plans = await plan.find();
       console.log(plans);
       res.render("/premium", {
-        plans
+        plans: plans,
       })
 
       // res.json(plans);
@@ -82,6 +82,8 @@ router.get('/plans', async (req, res) => {
       res.render("/UserHomePage", {
        songs
       })
+
+      // res.json(plans);
     } catch (error) {
       console.error('Error fetching plans:', error);
       res.status(500).send("Internal Server Error");
@@ -89,8 +91,6 @@ router.get('/plans', async (req, res) => {
   });
 
 
- // Song 
- app.get('/song', songController.getAdminSongs);
 
 
   app.get('/plans/:id', planController.getPlanById);
