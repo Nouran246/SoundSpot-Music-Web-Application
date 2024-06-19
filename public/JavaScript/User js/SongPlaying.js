@@ -8,8 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const volumeControl = document.getElementById('volumeControl');
   const currentTimeDisplay = document.getElementById('current-time');
   const durationDisplay = document.getElementById('duration');
+  const likeButton = document.getElementById('likes'); // Select the like button
 
   let currentSongIndex = 0;
+  let shuffledIndexes = [];
 
   // Function to play the song based on card index
   const playSongByIndex = (index) => {
@@ -36,6 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
       card.addEventListener('click', () => {
           playSongByIndex(index);
       });
+  });
+
+  // Like button click event
+  likeButton.addEventListener('click', () => {
+      likeButton.classList.toggle('liked'); // Toggle the 'liked' class
   });
 
   // Function to play the next song
@@ -92,6 +99,5 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Initial play of the first song (optional, depending on your UI/UX flow)
-  // playSongByIndex(0); 
-
+  // playSongByIndex(0);
 });
