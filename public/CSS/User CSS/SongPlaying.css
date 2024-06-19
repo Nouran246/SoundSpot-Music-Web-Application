@@ -4,7 +4,7 @@
     left: 0;
     height: 100px;
     width: 100%;
-    background-color: black;
+    background-color: #222;
     color: white;
     padding: 10px;
     display: flex;
@@ -12,7 +12,7 @@
     align-items: center;
     opacity: 0; /* Initially hidden */
     transition: opacity 0.5s ease-in-out; /* Smooth transition */
-    z-index: 1000; /* Adjust as needed */
+    z-index: 1; /* Adjust as needed */
 }
 .minimizedsongcontainer.show {
     opacity: 1; /* Show when .show class is added */
