@@ -90,7 +90,8 @@ router.get('/plans', async (req, res) => {
     }
   });
 
-
+  app.get('/song', songController.getSongs);
+  router.delete('/song/:id', songController.deleteSong);
   app.post('/createPlan', planController.createPlan);
 
   app.get('/plans/:id', planController.getPlanById);
