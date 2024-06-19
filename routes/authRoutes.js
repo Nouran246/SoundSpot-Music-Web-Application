@@ -5,11 +5,14 @@ const loginController = require("../controllers/loginController");
 const signupController = require("../controllers/signupController");
 const CommunityGuidelines = require("../models/Communityguidelinesschema");
 const CompanyOverviewModel = require("../models/company");
+const userController = require ("../controllers/userController");
 const authMiddleware = require("../controllers/authMiddleware");
 const plan = require("../models/planing");
 const router = express.Router();
 const User = require("../models/Users.js");
 const song = require("../models/song"); 
+
+router.post("/delete-users", userController.deleteUser);
 
 // Home page (landing page)
 router.get("/", (req, res) => {

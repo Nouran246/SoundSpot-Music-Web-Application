@@ -1,21 +1,4 @@
 const User = require("../models/Users.js");
-const bcrypt = require('bcrypt');
-
-// Display all users
-// const displayAllUsers = async (req, res) => {
-//   try {
-
-//     const users = await User.find();
-//     console.log(users);
-//     res.render("AdminPart/ManageUsers", {
-//       users
-//     })
-
-//   } catch (error) {
-//     console.error('Error fetching users:', error);
-//     res.status(500).send("Internal Server Error");
-//   }
-// };
 
 // Add a new user
 const addUser = async (req, res) => {
@@ -36,20 +19,6 @@ const addUser = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
-  }
-};
-
-
-
-// Delete a user
-const deleteUser = async (req, res) => {
-  try {
-      const { userIds } = req.body;
-      await User.deleteMany({ _id: { $in: userIds } }); // Use _id for MongoDB ObjectId
-      res.status(200).send('Users deleted successfully');
-  } catch (error) {
-      console.error(error);
-      res.status(500).send('Internal Server Error');
   }
 };
 
@@ -79,8 +48,24 @@ const editUser = async (req, res) => {
   }
 };
 
+// Delete a user
+const deleteUser = async (req, res) => {
+  try {
+      const { userIds } = req.body;
+      if (!userIds || !Array.isArray(userIds)) {
+          return res.status(400).send({ error: 'Invalid user IDs' });
+      }
+
+      await User.deleteMany({ _id: { $in: userIds } });
+      res.status(200).send({ message: 'Users deleted successfully' });
+  } catch (error) {
+      console.error('Error deleting users:', error);
+      res.status(500).send({ error: 'An error occurred while deleting users' });
+  }
+};
+
 module.exports = {
   addUser,
-  deleteUser,
   editUser,
+  deleteUser,
 };

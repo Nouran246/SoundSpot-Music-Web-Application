@@ -1,193 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/CSS/Admin%20CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="/CSS/Admin%20CSS/Sidenavbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>SoundSpot</title>
     <link rel="icon" href="/photo/2.png" type="image/png">
-
     <script src="/JavaScript/Admin%20JavaScript/Sidenavbar.js"></script>
     <link rel="stylesheet" href="/CSS/Admin%20CSS/ManageUsers.css">
     <script src="/JavaScript/Admin%20JavaScript/ManageUsers.js"></script>
 </head>
-
 <body>
     <%- include('../includes/sidenav&navbarsADMIN.ejs') %>
-  <!--User profiles list -->
-  <div class=" main-content">
-    <div class="top-content">
-        <i class="fa-solid fa-pen" id="plus" title="Add User"></i>
 
-        <div class="top-texts">
-            <div class="top-text">Name</div>
-            <div class="top-text">Role</div>
-            <div class="top-text">Last Access</div>
-        </div>
-        <div class="actions">
-            <div class="checkbox" id="selectAllCheckbox1">
-                <input type="checkbox" id="topCheckbox1" class="checkbox-input" />
-                <span class="checkbox-custom"></span>
+    <div class="main-content">
+        <div class="top-content">
+            <i class="fa-solid fa-pen" id="plus" title="Add User"></i>
+            <div class="top-texts">
+                <div class="top-text">Name</div>
+                <div class="top-text">Role</div>
+                <div class="top-text">Last Access</div>
             </div>
-            <i class="fa-solid fa-sort"></i>
-            <a href="mailto:recipient@example.com?subject=Subject%20of%20the%20email&body=Body%20of%20the%20email">
-            <i class="fa-solid fa-envelope" title="Send E-mail" id="email" style="color:#ddd;"></i>
-            </a>
-            <i class="fa-solid fa-trash" title="Delete" id="delete-icon1"></i>
-        </div>
-    </div>
-    <div class="list-container">
-        <% users.forEach(user => { %>
-        <div class="list-item">
-            <div class="content">
-                <div class="text"><%= user.username %></div>
-                <div class="text"><%= user.type %></div>
-                <div class="text"><%= user.lastAccess %></div>
-                <input class="custom-checkbox" type="checkbox" id="userCheckbox_<%= user.username %>"
-                data-username="<%= user.username %>">
-            <i class="fa-solid fa-chevron-right"></i>
+            <div class="actions">
+                <div class="checkbox" id="selectAllCheckbox1">
+                    <input type="checkbox" id="topCheckbox1" class="checkbox-input" />
+                    <span class="checkbox-custom"></span>
+                </div>
+                <i class="fa-solid fa-sort"></i>
+                <a href="mailto:recipient@example.com?subject=Subject%20of%20the%20email&body=Body%20of%20the%20email">
+                    <i class="fa-solid fa-envelope" title="Send E-mail" id="email" style="color:#ddd;"></i>
+                </a>
+                <i class="fa-solid fa-trash" title="Delete" id="delete-icon1"></i>
             </div>
         </div>
-        <div class="user-info-container">
-            <div class="user-info">
-                <div class="user-icons">
-                    <i class="fa-solid fa-info info-icon" data-section="personal" title="Personal Info"
-                        style="color: #800080;"></i>
-                    <i class="fa-solid fa-clock-rotate-left info-icon" data-section="activity-log-sec"
-                        title="Activity Log"></i>
-                    <i class="fa-solid fa-user-shield info-icon" data-section="security-log-sec"
-                        title="Security"></i>
+
+        <div class="list-container">
+            <% users.forEach(user => { %>
+            <div class="list-item">
+                <div class="content">
+                    <div class="text"><%= user.username %></div>
+                    <div class="text"><%= user.type %></div>
+                    <div class="text"><%= user.lastAccess %></div>
+                    <input class="custom-checkbox" type="checkbox" id="userCheckbox_<%= user._id %>" data-userid="<%= user._id %>">
+                    <i class="fa-solid fa-chevron-right"></i>
                 </div>
-                <div class="general-content">
-                    <div class="first-sec">
-                        <div>
-                            <label>Role</label>
-                            <span><%= user.type %></span>
-                        </div>
-                        <div>
-                            <label>Country</label>
-                            <span><%= user.country %></span>
-                        </div>
-                        <div>
-                            <label>Email</label>
-                            <span><%= user.email %></span>
-                        </div>
-                        <div>
-                            <label>Phone Number</label>
-                            <span><%= user.phone %></span>
-                        </div>
-                        <div>
-                            <label>Gender</label>
-                            <span><%= user.gender %></span>
-                        </div>
+            </div>
+            <div class="user-info-container">
+                <div class="user-info">
+                    <div class="user-icons">
+                        <i class="fa-solid fa-info info-icon" data-section="personal" title="Personal Info" style="color: #800080;"></i>
+                        <i class="fa-solid fa-clock-rotate-left info-icon" data-section="activity-log-sec" title="Activity Log"></i>
+                        <i class="fa-solid fa-user-shield info-icon" data-section="security-log-sec" title="Security"></i>
                     </div>
-                    <div class="second-sec">
-                        <div>
-                            <label>Plan Type</label>
-                            <span><%= user.planType %></span>
-                        </div>
-                        <div>
-                            <label>Start Date</label>
-                            <span><%= user.startDate %></span>
-                        </div>
-                        <div>
-                            <label>Renewal Date</label>
-                            <span><%= user.renewalDate %></span>
-                        </div>
-                        <div>
-                            <label>Billing Information</label>
-                            <span><%= user.billingInfo %></span>
-                        </div>
-                        <div>
-                            <label>Payment Method</label>
-                            <span><%= user.paymentMethod %></span>
-                        </div>
-                    </div>
-                </div>
-                    <div class="activity-log-content" id="activityLogContent" style="display:none;">
+                    <div class="general-content">
                         <div class="first-sec">
-                            <div>
-                                <label>Total Listening Time</label>
-                                <span>3,240 minutes</span>
-                            </div>
-                            <div>
-                                <label>Playlists Created</label>
-                                <span>5 playlists</span>
-                            </div>
-                            <div>
-                                <label>Songs Uploaded</label>
-                                <span>20 songs</span>
-                            </div>
-                            <div>
-                                <label>Followers</label>
-                                <span>500 followers</span>
-                            </div>
-                            <div>
-                                <label>Following</label>
-                                <span>250 users</span>
-                            </div>
+                            <div><label>Role</label><span><%= user.type %></span></div>
+                            <div><label>Country</label><span><%= user.country %></span></div>
+                            <div><label>Email</label><span><%= user.email %></span></div>
+                            <div><label>Phone Number</label><span><%= user.phone %></span></div>
+                            <div><label>Gender</label><span><%= user.gender %></span></div>
                         </div>
                         <div class="second-sec">
-                            <div>
-                                <label>Liked Songs</label>
-                                <span>100 songs</span>
-                            </div>
-                            <div>
-                                <label>Recently Played Song</label>
-                                <span>"Song Title" by Artist</span>
-                            </div>
-                            <div>
-                                <label>Most Played Playlist</label>
-                                <span>"Playlist Title"</span>
-                            </div>
-                            <div>
-                                <label>Top Genre</label>
-                                <span>Rock</span>
-                            </div>
-                            <div>
-                                <label>Last Song Favorited</label>
-                                <span>"Song Title" by Artist</span>
-                            </div>
+                            <div><label>Plan Type</label><span><%= user.planType %></span></div>
+                            <div><label>Start Date</label><span><%= user.startDate %></span></div>
+                            <div><label>Renewal Date</label><span><%= user.renewalDate %></span></div>
+                            <div><label>Billing Information</label><span><%= user.billingInfo %></span></div>
+                            <div><label>Payment Method</label><span><%= user.paymentMethod %></span></div>
+                        </div>
+                    </div>
+                    <div class="activity-log-content" id="activityLogContent" style="display:none;">
+                        <div class="first-sec">
+                            <div><label>Total Listening Time</label><span>3,240 minutes</span></div>
+                            <div><label>Playlists Created</label><span>5 playlists</span></div>
+                            <div><label>Songs Uploaded</label><span>20 songs</span></div>
+                            <div><label>Followers</label><span>500 followers</span></div>
+                            <div><label>Following</label><span>250 users</span></div>
+                        </div>
+                        <div class="second-sec">
+                            <div><label>Liked Songs</label><span>100 songs</span></div>
+                            <div><label>Recently Played Song</label><span>"Song Title" by Artist</span></div>
+                            <div><label>Most Played Playlist</label><span>"Playlist Title"</span></div>
+                            <div><label>Top Genre</label><span>Rock</span></div>
+                            <div><label>Last Song Favorited</label><span>"Song Title" by Artist</span></div>
                         </div>
                     </div>
                     <div class="security-content" id="securityContent" style="display:none;">
                         <div class="first-sec">
-                            <div>
-                                <label>Password Strength</label><span> Strong</span>
-                            </div>
-                            <div>
-                                <label>Password Last Updated</label><span> April 25, 2024</span>
-                            </div>
-                            <div>
-                                <label>Account Status</label><span> Active</span>
-                            </div>
-                            <div>
-                                <label>Two-Factor Authentication</label><span> Enabled</span>
-                            </div>
-                            <div>
-                                <label>Last Login</label><span> April 30, 2024</span>
-                            </div>
-
+                            <div><label>Password Strength</label><span> Strong</span></div>
+                            <div><label>Password Last Updated</label><span> April 25, 2024</span></div>
+                            <div><label>Account Status</label><span> Active</span></div>
+                            <div><label>Two-Factor Authentication</label><span> Enabled</span></div>
+                            <div><label>Last Login</label><span> April 30, 2024</span></div>
                         </div>
                         <div class="second-sec">
-
-                            <div>
-                                <label>IP Address of Last Login</label><span> 192.168.1.10</span>
-                            </div>
-                            <div>
-                                <label>Device of Last Login</label><span> Chrome on Windows 10</span>
-                            </div>
-                            <div>
-                                <label>Recent Password Changes</label><span> None</span>
-                            </div>
-                            <div>
-                                <label>Failed Login Attempts</label><span> 0</span>
-                            </div>
-                            <div>
-                                <label>Accessed from New Device</label><span> No</span>
-                            </div>
+                            <div><label>IP Address of Last Login</label><span> 192.168.1.10</span></div>
+                            <div><label>Device of Last Login</label><span> Chrome on Windows 10</span></div>
+                            <div><label>Recent Password Changes</label><span> None</span></div>
+                            <div><label>Failed Login Attempts</label><span> 0</span></div>
+                            <div><label>Accessed from New Device</label><span> No</span></div>
                         </div>
                     </div>
                 </div>
@@ -195,56 +106,45 @@
             <% }) %>
         </div>
 
-
-    <div class="settings-popup-container">
-        <div class="settings-popup">
-            <h3>Settings</h3>
-            <div class="language-selection">
-                <label for="language-select">Change Language:</label>
-                <select id="language-select">
-                    <option value="en">English</option>
-                    <option value="gm">German (Deutsch)</option>
-                </select>
+        <div class="settings-popup-container">
+            <div class="settings-popup">
+                <h3>Settings</h3>
+                <div class="language-selection">
+                    <label for="language-select">Change Language:</label>
+                    <select id="language-select">
+                        <option value="en">English</option>
+                        <option value="gm">German (Deutsch)</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button id="save-button">Save</button>
+                    <button id="cancel-button">Cancel</button>
+                </div>
             </div>
-            <div class="button-group">
-                <button id="save-button">Save</button>
-                <button id="cancel-button">Cancel</button>
+        </div>
+
+        <div class="delete-popup" id="delete-popup">
+            <h2>Confirm Deletion</h2>
+            <p>Are you sure you want to delete this item?</p>
+            <button id="ok-delete" class="btn">OK</button>
+            <button id="cancel-delete" class="btn">CANCEL</button>
+        </div>
+
+        <div class="select-item-popup">
+            <div class="popup-content" id="one-edit">
+                <h2>Please select one user at a time</h2>
+            </div>
+        </div>
+        <div class="select-item-popup">
+            <div class="popup-content" id="select-item">
+                <h2>No Users</h2>
+            </div>
+        </div>
+        <div class="select-item-popup">
+            <div class="popup-content" id="select-item1">
+                <h2>Please select one user at a time</h2>
             </div>
         </div>
     </div>
-
-    <div class="delete-popup" id="delete-popup">
-        <h2>Confirm Deletion</h2>
-        <p>Are you sure you want to delete this item?</p>
-        <button id="ok-delete" class="btn">OK</button>
-        <button id="cancel-delete" class="btn">CANCEL</button>
-    </div>
-
-    <div class="select-item-popup">
-        <div class="popup-content" id="one-edit">
-            <h2>Please select one user at a time</h2>
-        </div>
-    </div>
-    <div class="select-item-popup">
-        <div class="popup-content" id="select-item">
-            <h2>No Users</h2>
-        </div>
-    </div>
-    <div class="select-item-popup">
-        <div class="popup-content" id="select-item-popup">
-            <h2>Please select an item</h2>
-        </div>
-    </div>
-
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-    </nav>
 </body>
-
 </html>
