@@ -55,42 +55,37 @@
     <div class="row">
       <h2>New Releases</h2>
       <% songs.reverse().forEach(song => { %>
-        <div class="card" 
-             data-song="/uploads/<%= song.songFileId %>" 
-             data-artist="<%= song.artistName %>" 
-             data-title="<%= song.songName %>" 
-             data-image="/uploads/<%= song.imageFileId %>">
-            <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
-            <div class="content">
-                 <h3><%= song.songName %></h3>
-                <p><%= song.artistName %></p>
-            </div>
-        </div>
-    <% }) %>
-</div>
-    
-    
-    <div class="row">
+          <div class="card" 
+               data-song="/uploads/<%= song.songFileId %>" 
+               data-artist="<%= song.artistName %>" 
+               data-title="<%= song.songName %>" 
+               data-image="/uploads/<%= song.imageFileId %>">
+              <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
+              <div class="content">
+                  <h3><%= song.songName %></h3>
+                  <p><%= song.artistName %></p>
+              </div>
+          </div>
+      <% }) %>
+  </div>
+  <div class="row">
       <h2>You might also like</h2>
       <% songs.reverse().forEach(song => { %>
-        <div class="card" 
-             data-song="/uploads/<%= song.songFileId %>" 
-             data-artist="<%= song.artistName %>" 
-             data-title="<%= song.songName %>" 
-             data-image="/uploads/<%= song.imageFileId %>">
-            <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
-            <div class="content">
-              <h3><%= song.songName %></h3>
-              <p><%= song.artistName %></p>
-            </div>
-        </div>
-    <% }) %>
-</div>
-
-    
+          <div class="card" 
+               data-song="/uploads/<%= song.songFileId %>" 
+               data-artist="<%= song.artistName %>" 
+               data-title="<%= song.songName %>" 
+               data-image="/uploads/<%= song.imageFileId %>">
+              <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
+              <div class="content">
+                  <h3><%= song.songName %></h3>
+                  <p><%= song.artistName %></p>
+              </div>
+          </div>
+      <% }) %>
   </div>
-  <%- include('../includes/SongPlaying.ejs')%>
-
+</div>
+<%- include('../includes/SongPlaying.ejs') %>
 </body>
 </html>
   

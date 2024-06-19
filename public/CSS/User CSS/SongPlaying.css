@@ -1,6 +1,5 @@
 .minimizedsongcontainer {
     position: fixed;
-    /* bottom: 45px;  */ /*law 7ateet footer ha7oto*/
     bottom: 5px;
     left: 0;
     height: 100px;
@@ -11,24 +10,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition */
+    z-index: 1000; /* Adjust as needed */
+}
+.minimizedsongcontainer.show {
+    opacity: 1; /* Show when .show class is added */
 }
 
 .player-bar {
-    flex-direction: column; 
+    display: flex;
+    align-items: center;
 }
 .player-bar button {
-    position: relative;
     background-color: transparent;
     border: none;
     color: white;
     font-size: 20px;
     cursor: pointer;
-    left: 5%;    
-    border-radius: 50%;
-    margin: 20px; 
+    margin: 0 5px;
     width: 40px;
     height: 40px;
-    
 }
 
 .player-bar #maxpage{
@@ -54,21 +56,15 @@
     margin: 90px;
     padding-bottom: 40px;
 }
-#songname{
-    font-size: 17px;
-    position: absolute;
-    left: 320px;
+#songname, #artistname {
+    font-size: 14px;
+    margin-left: 10px;
 }
-#artistname{
-    font-size: 13px;
-    position: absolute;
-    left: 320px;
-}
-#songpic{
-    width: 55px;
-    height: 55px;
-    position: absolute;
-    left: 250px;
+
+#songpic {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
 }
 
 #artistname:hover, #songname:hover{
