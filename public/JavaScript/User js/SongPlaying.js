@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const durationDisplay = document.getElementById('duration');
   const likeButton = document.getElementById('likes'); // Select the like button
   const volumeIcon = document.getElementById('volumeIcon'); // Select volume icon element
+  const progressBar = document.getElementById('progress-bar');
 
   let currentSongIndex = 0;
   let currentVolume = 1; // Initial volume level (1 is max, 0 is mute)
@@ -112,19 +113,20 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Update time displays during playback
-  audioPlayer.addEventListener('timeupdate', () => {
-      currentTimeDisplay.innerText = formatTime(audioPlayer.currentTime);
-      durationDisplay.innerText = formatTime(audioPlayer.duration);
-      volumeControl.value = audioPlayer.currentTime / audioPlayer.duration;
-  });
-
-  // Format time helper function
-  const formatTime = (time) => {
-      const minutes = Math.floor(time / 60);
-      const seconds = Math.floor(time % 60);
-      return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  const seekTo = (value) => {
+    const seekTime = (value / 100) * audioPlayer.duration;
+    audioPlayer.currentTime = seekTime;
   };
 
-  // Initial play of the first song (optional, depending on your UI/UX flow)
-  // playSongByIndex(0);
+  audioPlayer.addEventListener('timeupdate', () => {
+    currentTimeDisplay.innerText = formatTime(audioPlayer.currentTime);
+    durationDisplay.innerText = formatTime(audioPlayer.duration);
+    progressBar.value = (audioPlayer.currentTime / audioPlayer.duration) * 100; // Update progress bar
+  });
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  };
 });
