@@ -170,17 +170,16 @@
     </div>
 
     <!-- JavaScript for voice recognition -->
-<script>
+    <script>
+        const texts = document.querySelector('.texts');
+
         // Check if SpeechRecognition is available and use appropriate prefix
         window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
         const recognition = new window.SpeechRecognition();
         recognition.interimResults = true;
 
-        // Add event listener to start recognition when micModal is clicked
-        document.getElementById('micModal').addEventListener('click', function() {
-            recognition.start();
-        });
+        let p = document.createElement('p');
 
         recognition.addEventListener('result', (e) => {
             const text = Array.from(e.results)
@@ -188,18 +187,34 @@
                 .map(result => result.transcript)
                 .join('');
 
-            console.log(text); // Log what is recognized to the console
+            p.innerText = text;
+            texts.appendChild(p);
 
-            // Reset recognition on final result
             if (e.results[0].isFinal) {
-                recognition.stop();
+                if (text.includes('I love you')) {
+                    p = document.createElement('p');
+                    p.classList.add('reply');
+                    p.innerText = 'I love you too';
+                    texts.appendChild(p);
+                }
+                if (text.includes('how are you')) {
+                    p = document.createElement('p');
+                    p.classList.add('reply');
+                    p.innerText = "I'm good, how are you";
+                    texts.appendChild(p);
+                }
+
+                p = document.createElement('p'); // Reset paragraph element
             }
+
+            console.log(e);
         });
 
         recognition.addEventListener('end', () => {
-            // Restart recognition when it ends
-            recognition.start();
+            recognition.start(); // Restart recognition when it ends
         });
+
+        recognition.start(); // Start speech recognition
     </script>
 </body>
 </html>
