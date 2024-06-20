@@ -1,4 +1,4 @@
 [[redirects]]
 from="/*"
-to="/index.html"
+to="/landing.ejs"
 status=200
