@@ -55,7 +55,7 @@
     <!-- Popup form for adding a new plan -->
     <div id="popupForm" class="popup">
         <h2>Add Plan</h2>
-        <form id="planForm" action="/plans/process" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <form id="planForm" name="planForm" action="/plans/process" method="POST" enctype="multipart/form-data" >
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" placeholder="Enter title"><br>
             <label>Features:</label><br>
@@ -79,7 +79,7 @@
             <input type="file" id="adsVideo" name="adsVideo" accept="video/*"><br>
             <label for="popupImage">Upload Popup Image (Optional):</label>
             <input type="file" id="popupImage" name="popupImage" accept="image/*"><br>
-            <button type="submit">Save</button>
+            <button type="submit" onclick="validateForm()">Save</button>
             <button type="button" onclick="hidePopupForm()">Cancel</button>
         </form>
         <div id="message" style="display: none;">Data saved successfully!</div>
