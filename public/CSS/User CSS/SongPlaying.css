@@ -11,6 +11,19 @@
     justify-content: center;
     align-items: center;
 }
+.light-mode .minimizedsongcontainer {
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background-color: white;
+   color:black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .player-bar {
     flex-direction: column;
@@ -22,6 +35,19 @@
     background-color: transparent;
     border: none;
     color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 20px;
+    width: 40px;
+    height: 40px;
+    
+}
+.light-mode .player-bar button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: rgb(175, 173, 173);
     font-size: 20px;
     cursor: pointer;
     border-radius: 50%;
@@ -270,6 +296,8 @@ input[type="range"] {
 #likes .fa-heart {
     color: white;
 }
+
+
 
 #likes.liked .fa-heart {
     color: darkmagenta; /* Change to purple when liked */
