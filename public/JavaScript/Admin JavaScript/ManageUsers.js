@@ -239,72 +239,101 @@ function adjustSidebar() {
         // Any other initializations can be added here
     });
     
-    document.addEventListener('DOMContentLoaded', function () {
-        var editIcon = document.getElementById('edit-icon');
-        var editPopup = document.getElementById('edit-popup');
-        var selectItemPopup = document.getElementById('select-item-popup');
-        var noUsers = document.getElementById('select-item');
-        var addEditLabel = document.getElementById('add-edit');
-        var saveButton = document.getElementById('save');
-        var cancelButton = document.getElementById('cancel');
+    function handleUserEditing() {
+        var editIcon = document.getElementById('edit-icon'); // Example of edit icon selector
+        var editPopup = document.getElementById('edit-popup'); // Example of edit popup selector
+        var selectItemPopup = document.getElementById('select-item-popup'); // Example of select item popup selector
+        var checkboxes = document.querySelectorAll('.custom-checkbox'); // Example of checkboxes selector
+        var saveButton = document.getElementById('save-edit'); // Example of save button selector
+        var cancelButton = document.getElementById('cancel-edit'); // Example of cancel button selector
     
+        // Event listener for edit icon click
         editIcon.addEventListener('click', function () {
-            var anyCheckboxChecked = false;
-            var checkedCheckboxes = document.querySelectorAll('.custom-checkbox:checked');
-            var checkboxes = document.querySelectorAll('.custom-checkbox');
+            var selectedUserId = null;
+    
             checkboxes.forEach(function (checkbox) {
                 if (checkbox.checked) {
-                    anyCheckboxChecked = true;
+                    selectedUserId = checkbox.getAttribute('data-userid');
+                    return; // Exit forEach loop early since only one checkbox should be checked for edit
                 }
             });
     
-            if (anyCheckboxChecked && checkedCheckboxes.length === 1) {
-                var userId = checkedCheckboxes[0].getAttribute('data-userid');
-                fetchUserData(userId);
-            } else if (checkedCheckboxes.length === 0) {
-                window.alert("Choose at least one user.");
-            } else if (checkedCheckboxes.length > 1) {
-                window.alert("Choose one user at a time.");
-            } else {
-                selectItemPopup.style.display = 'block';
-                setTimeout(function () {
-                    selectItemPopup.style.display = 'none';
-                }, 2000);
-            }
-        });
-    
-        function fetchUserData(userId) {
-            fetch('/api/user/' + userId)
+            if (selectedUserId) {
+                // Make AJAX request to fetch user data based on selectedUserId
+                fetch('/ManageUsers/' + userId)
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error('Failed to fetch user data');
+                        throw new Error('Failed to fetch user data for editing');
                     }
                     return response.json();
                 })
                 .then(user => {
+                    // Populate edit form fields with user data fetched
                     document.getElementById('userId').value = user.id;
                     document.getElementById('username').value = user.username;
                     document.getElementById('email').value = user.email;
-                    document.getElementById('phone').value = user.phone;
-                    document.getElementById('role').value = user.role;
-                    document.getElementById('gender').value = user.gender;
-                    document.getElementById('country').value = user.country;
+                    document.getElementById('phone').value = user.phone; // Example: Assuming you have a phone input
+                    document.querySelector(`input[name="role"][value="${user.role}"]`).checked = true; // Example: Radio button
+                    document.getElementById('gender').value = user.gender; // Example: Assuming gender is a select dropdown
+                    document.getElementById('country').value = user.country; // Example: Assuming country is a select dropdown
+                    document.querySelector(`input[name="state"][value="${user.state}"]`).checked = true; // Example: Radio button
     
-                    editPopup.style.display = 'block';
+                    editPopup.style.display = 'block'; // Display edit popup after fetching user data
                 })
                 .catch(error => {
-                    console.error('Error fetching user data:', error);
-                    window.alert('Failed to fetch user data. Please try again.');
+                    console.error('Error fetching user data for editing:', error);
+                    window.alert('Failed to fetch user data for editing. Please try again.');
                 });
-        }
+            } else {
+                selectItemPopup.style.display = 'block'; // Display select-item-popup if no checkboxes are checked
+                setTimeout(function () {
+                    selectItemPopup.style.display = 'none';
+                }, 2000); // Hide select-item-popup after 2 seconds
+            }
+        });
     
-        cancelButton.addEventListener('click', function () {
-            var checkboxes = document.querySelectorAll('.custom-checkbox:checked');
-            checkboxes.forEach(function (checkbox) {
-                checkbox.checked = false;
+        // Event listener for Save button in edit popup
+        saveButton.addEventListener('click', function () {
+            var userId = document.getElementById('userId').value;
+            var updatedUserData = {
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                role: document.querySelector('input[name="role"]:checked').value,
+                gender: document.getElementById('gender').value,
+                country: document.getElementById('country').value,
+                state: document.querySelector('input[name="state"]:checked').value
+            };
+    
+            // Make an AJAX request to update user data in the database
+            fetch('/ManageUsers/${userId}')
+            .then(response => {
+                if (response.ok) {
+                    console.log('User data updated successfully');
+                    window.location.reload(); // Refresh the page after update
+                } else {
+                    console.error('Failed to update user data');
+                }
+            })
+            .catch(error => {
+                console.error('Error updating user data:', error);
             });
     
-            editPopup.style.display = 'none';
+            editPopup.style.display = 'none'; // Hide edit popup after saving
         });
+    
+        // Event listener for Cancel button in edit popup
+        cancelButton.addEventListener('click', function () {
+            editPopup.style.display = 'none'; // Hide edit popup on cancel
+        });
+    }
+    
+    // Ensure the DOM content is loaded before initializing the function
+    document.addEventListener('DOMContentLoaded', function () {
+        adjustSidebar(); // Example: Ensure sidebar adjusts on page load
+        setupSearch(); // Example: Initialize search functionality
+        User_Info(); // Example: Initialize user info accordion
+        handleUserEditing(); // Initialize user editing handling
+        // Any other initializations can be added here
     });
     

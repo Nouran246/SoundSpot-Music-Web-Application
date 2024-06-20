@@ -22,32 +22,6 @@ const addUser = async (req, res) => {
   }
 };
 
-// Edit a user
-const editUser = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { username, password, email, phone, gender, country, type } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const updatedUser = await User.findByIdAndUpdate(
-      id,
-      {
-        username,
-        password: hashedPassword,
-        email,
-        phone,
-        gender,
-        country,
-        type,
-      },
-      { new: true }
-    );
-    res.status(200).send('User updated successfully');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
-};
-
 // Delete a user
 const deleteUser = async (req, res) => {
   try {
@@ -64,8 +38,44 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const updateUser = async (req, res) => {
+  const { id } = req.params;
+  const { username, email, role, phone, gender, country, state } = req.body;
+
+  try {
+      const updatedUser = await User.findByIdAndUpdate(
+          id,
+          { username, email, role, phone, gender, country, state },
+          { new: true, runValidators: true }
+      );
+
+      if (!updatedUser) {
+          return res.status(404).send('User not found');
+      }
+
+      res.json(updatedUser); // Optionally, send back the updated user object
+  } catch (error) {
+      console.error('Error updating user:', error);
+      res.status(500).send('Internal Server Error');
+  }
+};
+
+const getUserById = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+    res.json(user); // Send user data as JSON response
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
 module.exports = {
+  getUserById,
   addUser,
-  editUser,
+  updateUser,
   deleteUser,
 };

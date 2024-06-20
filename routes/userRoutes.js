@@ -29,10 +29,10 @@ app.get("/users" ,async (req, res) => {
       res.status(500).send("Internal Server Error");
     }
   });
+  
 
   
 app.post('/auth/delete-users', userController.deleteUser);
 app.post("/users", userController.addUser);
-app.put("/users/:id", userController.editUser);
 
 module.exports = app;
