@@ -426,3 +426,69 @@ input[type="range"] {
 .modal {
     animation: fadeIn 0.3s ease-out;
 }
+
+@media (max-width: 480px) {
+    .minimizedsongcontainer, .light-mode .minimizedsongcontainer {
+        height: 80px;
+        padding: 5px;
+    }
+
+    .player-bar button {
+        font-size: 16px;
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+    }
+
+    #songname, #artistname {
+        font-size: 14px;
+        left: 100px;
+        width: 120px;
+    }
+
+    #songpic {
+        left: 70px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .time-display {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    #current-time, #duration {
+        font-size: 8px;
+    }
+
+    #songh1 {
+        margin-left: 60%;
+    }
+
+    #songh3 {
+        margin-left: 65%;
+    }
+
+    .maximizedsongcontainer button {
+        margin-left: 85%;
+        margin-top: 10px;
+    }
+
+    #pic {
+        width: 90%;
+        height: auto;
+        margin-left: 5%;
+    }
+
+    .modal-content {
+        padding: 20px;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .close {
+        font-size: 24px;
+        top: 10px;
+        right: 10px;
+    }
+}
