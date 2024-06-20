@@ -1079,16 +1079,20 @@ i.hovered {
 
 .popup-content {
     text-align: center;
-    color: red;
-    font-size: 15px;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
     border: 2px groove #800080;
     background-color: #1a1a1a;
     width: 400px;
     height: 60px;
     position: fixed;
     z-index: 1000;
-    top: 57%;
-    left: 58%;
+    top: 47%;
+    left: 50%;
+    padding-top:2px;
+    padding-bottom:35px;
+    padding-left: 20px;
+    padding-right: 20px;
     transform: translate(-50%, -50%);
     display: none;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -1100,23 +1104,19 @@ i.hovered {
     margin-top: 7px;
 }
 
-.editpopup-labels {
-    display: flex;
+#edit-popup label {
+    display:inline-block;
     justify-content: center;
     margin-top: 15px;
     gap: 50px;
-}
-
-.editpopup-labels label {
     color: #ddd;
     padding: 5px;
     border-bottom: #800080 groove;
     font-size: 20px;
     margin-bottom: 15px;
-    ;
 }
 
-.editpopup-labels label.active {
+.edit-popup label.active {
     background-color: #333;
     border-radius: 5px;
 }
@@ -1162,7 +1162,7 @@ i.hovered {
     margin-left: -24px;
 }
 
-.editpopup-labels label:hover {
+.edit-popup label:hover {
     background-color: #333;
     border-radius: 5px;
 }
@@ -1202,16 +1202,15 @@ body.light-mode .playlist-display {
     scrollbar-color: #fff #999;
 }
 
-body.light-mode .editpopup-labels label {
+body.light-mode .edit-popup label {
     color: #000;
     border-bottom-color: #800080;
 }
 
-body.light-mode .editpopup-labels label.active {
+body.light-mode .edit-popup label.active {
     background-color: #333;
 }
 
-body.light-mode .editpopup-labels label:hover {
+body.light-mode .edit-popup label:hover {
     background-color: #333;
 }
-
