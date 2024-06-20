@@ -1,8 +1,8 @@
-[[redirects]]
-from = "/*"
-to = "/landing.ejs"
-status = 200
-
 [build]
   command = "npm run build"
   publish = "build"
+
+[[redirects]]
+  from = "/*"
+  to = "/landing.html"
+  status = 200
