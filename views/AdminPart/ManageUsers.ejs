@@ -16,7 +16,7 @@
 
     <div class="main-content">
         <div class="top-content">
-            <i class="fa-solid fa-pen" id="plus" title="Add User"></i>
+            <i class="fa-solid fa-pen" id="edit-icon" title="Add User"></i>
             <div class="top-texts">
                 <div class="top-text">Name</div>
                 <div class="top-text">Role</div>
@@ -145,6 +145,44 @@
                 <h2>Please select one user at a time</h2>
             </div>
         </div>
+
+                    <!-- Popup Modal -->
+                    <div class="select-item-popup">
+                        <div class="popup-content" id="edit-popup">
+                            <form>
+                                <!-- Form fields go here -->
+                                <input type="hidden" id="userId" name="userId">
+                                <label for="username">Username:</label>
+                                <input type="text" id="username" name="username"><br>
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email"><br>
+                                <label for="phone">Phone:</label>
+                                <input type="text" id="phone" name="phone"><br>
+                                <label for="role">Role:</label>
+                                <label for="admin">Admin</label><input type="radio" id="admin" name="role">
+                                <label for="user">User</label><input type="radio" id="user" name="role"><br>
+                                <label for="gender">Gender:</label>
+                                <select id="gender" name="gender" ><br>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select><br>
+                                <label for="country">Country:</label>
+                                <select id="country" name="country">
+                                    <option value="Select">Select</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="India">India</option>
+                                    <option value="United States">United States</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                </select><br>
+                                <!-- Add other fields as needed -->
+                                 <div>
+                                    <button id="save" class="btn">SAVE</button>
+                                    <button id="cancel" class="btn">CANCEL</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
     </div>
 </body>
+
 </html>

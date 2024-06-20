@@ -239,3 +239,72 @@ function adjustSidebar() {
         // Any other initializations can be added here
     });
     
+    document.addEventListener('DOMContentLoaded', function () {
+        var editIcon = document.getElementById('edit-icon');
+        var editPopup = document.getElementById('edit-popup');
+        var selectItemPopup = document.getElementById('select-item-popup');
+        var noUsers = document.getElementById('select-item');
+        var addEditLabel = document.getElementById('add-edit');
+        var saveButton = document.getElementById('save');
+        var cancelButton = document.getElementById('cancel');
+    
+        editIcon.addEventListener('click', function () {
+            var anyCheckboxChecked = false;
+            var checkedCheckboxes = document.querySelectorAll('.custom-checkbox:checked');
+            var checkboxes = document.querySelectorAll('.custom-checkbox');
+            checkboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    anyCheckboxChecked = true;
+                }
+            });
+    
+            if (anyCheckboxChecked && checkedCheckboxes.length === 1) {
+                var userId = checkedCheckboxes[0].getAttribute('data-userid');
+                fetchUserData(userId);
+            } else if (checkedCheckboxes.length === 0) {
+                window.alert("Choose at least one user.");
+            } else if (checkedCheckboxes.length > 1) {
+                window.alert("Choose one user at a time.");
+            } else {
+                selectItemPopup.style.display = 'block';
+                setTimeout(function () {
+                    selectItemPopup.style.display = 'none';
+                }, 2000);
+            }
+        });
+    
+        function fetchUserData(userId) {
+            fetch('/api/user/' + userId)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch user data');
+                    }
+                    return response.json();
+                })
+                .then(user => {
+                    document.getElementById('userId').value = user.id;
+                    document.getElementById('username').value = user.username;
+                    document.getElementById('email').value = user.email;
+                    document.getElementById('phone').value = user.phone;
+                    document.getElementById('role').value = user.role;
+                    document.getElementById('gender').value = user.gender;
+                    document.getElementById('country').value = user.country;
+    
+                    editPopup.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error fetching user data:', error);
+                    window.alert('Failed to fetch user data. Please try again.');
+                });
+        }
+    
+        cancelButton.addEventListener('click', function () {
+            var checkboxes = document.querySelectorAll('.custom-checkbox:checked');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = false;
+            });
+    
+            editPopup.style.display = 'none';
+        });
+    });
+    
