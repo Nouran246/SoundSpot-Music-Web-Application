@@ -40,6 +40,7 @@ function validateForm() {
             isValid = false;
         }
     });
+    
     // Validate that at least two songs are selected
     var selectedSongs = document.querySelectorAll('input[name="songIds"]:checked');
     var songIdsErrorDiv = document.getElementById('songIds-error');

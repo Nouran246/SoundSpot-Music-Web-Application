@@ -43,7 +43,7 @@ function setupRoutes(app) {
     { name: 'imageFileId', maxCount: 1 }
   ]), songController.uploadSong);
   app.post('/addplaylist/upload', upload.fields([
-    { name: 'imageFile', maxCount: 1 }
+    { name: 'imagePlaylist', maxCount: 1 }
   ]), playlistController.uploadPlaylist);
 
 
