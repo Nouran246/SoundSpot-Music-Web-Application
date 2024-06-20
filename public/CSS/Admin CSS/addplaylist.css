@@ -349,6 +349,9 @@ select:hover {
   /* Show the dropdown content when the dropdown button is clicked */
   .dropdown:hover .dropdown-content {
     display: block;
+    width:600px;
+    overflow-y: auto;
+    height:300px;
   }
   
   /* Change the background color of the dropdown button when the dropdown content is shown */

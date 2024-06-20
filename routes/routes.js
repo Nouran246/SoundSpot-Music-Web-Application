@@ -12,7 +12,9 @@ const plan = require("../models/planing");
 const song = require("../models/song");
 const multer = require('multer'); // For handling file uploads
 const bodyParser = require('body-parser');
-songController = require("../controllers/songController");
+const songController = require("../controllers/songController");
+const playlistController=require("../controllers/playlistController");
+
 const path = require('path');
 
 const storage = multer.diskStorage({
@@ -40,6 +42,9 @@ function setupRoutes(app) {
     { name: 'songFileId', maxCount: 1 },
     { name: 'imageFileId', maxCount: 1 }
   ]), songController.uploadSong);
+  app.post('/addplaylist/upload', upload.fields([
+    { name: 'imageFile', maxCount: 1 }
+  ]), playlistController.uploadPlaylist);
 
 
 
@@ -91,6 +96,19 @@ router.get('/plans', async (req, res) => {
   });
 
   app.get('/song', songController.getSongs);
+  router.get('/addplaylist', async (req, res) => {
+    try {
+        
+      const songs = await song.find();
+      console.log(songs);
+      res.render("/addplaylist", {
+       songs
+      })
+    } catch (error) {
+      console.error('Error fetching plans:', error);
+      res.status(500).send("Internal Server Error");
+    }
+  });
   router.delete('/song/:id', songController.deleteSong);
   app.post('/createPlan', planController.createPlan);
 

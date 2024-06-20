@@ -21,12 +21,14 @@
     <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
         <div class=" main-content">
             <div class="top-content">
-                <i class="fa-solid fa-plus" id="plus" title="Add User"></i>
+                <a href="/views/AdminPart/addplaylist" title="Add Playlist">
+                    <i class="fa-solid fa-plus" id="plus"></i>
+                </a>
                 <div class="top-texts">
                     <div class="top-text">Name</div>
                     <div class="top-text">Artist</div>
                     <div class="top-text">Duration</div>
-                    <div class="top-text">Creator</div> <!-- still written date does not change  -->
+                    <div class="top-text">Creator</div> 
                 </div>
                 <div class="actions">
                     <div class="checkbox" id="selectAllCheckbox">
@@ -223,4 +225,5 @@
                 </ul>
             </nav>
 </body>
+
 </html>

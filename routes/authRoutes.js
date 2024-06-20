@@ -168,6 +168,23 @@ router.get("/song", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+router.get("/addplaylist", async (req, res) => {
+  try {
+    const songs = await song.find(); 
+    if (req.session.user) {
+      res.render("AdminPart/addplaylist", {
+        currentPage: "addplaylist",
+        user: req.session.user,
+        songs: songs  
+      });
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.error('Error fetching songs:', error);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
 router.get("/CommunityGuidelines", async (req, res) => {
   if (req.session.user) {
