@@ -122,7 +122,6 @@ router.get('/plans', async (req, res) => {
 
   // Route for issue reporting
   app.post("/report/issue", reportIssue);
-  
 
   // Fetch all reports
   app.get("/report/issue", getAllReports);
@@ -135,4 +134,6 @@ router.get('/plans', async (req, res) => {
     });
   });
 }
+
+
 module.exports = { setupRoutes };

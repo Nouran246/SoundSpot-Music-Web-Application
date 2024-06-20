@@ -22,99 +22,25 @@
       <h1>Liked Songs</h1>
       <ul>
           <li>
-              <div class="song">
-                  <img src="/photo/sherry.png" id="imggg" alt="Song Image"  onclick="toggleAudio()">
-                  <div class="song-info">
-                      <div class="song-title" id="sing1" onclick="toggleAudio()">Kalam Eineh</div>
-                      <div class="artist">Sherine</div>
-                      <audio id="audioPlayer" src="/audio/Sherine - Kalam Eineh _ شيرين - كلام عينيه (320).mp3"></audio>
-                  </div>
-              </div>
+              <% songs.reverse().forEach(song => { %>
+                <div class="song">
+                <div class="card" 
+                     data-song="/uploads/<%= song.songFileId %>" 
+                     data-artist="<%= song.artistName %>" 
+                     data-title="<%= song.songName %>" 
+                     data-lyrics="<%= song.lyrics %>" 
+                     data-image="/uploads/<%= song.imageFileId %>">
+                    <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
+                    <div class="content">
+                        <h3><%= song.songName %></h3>
+                        <p><%= song.artistName %></p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <% }) %>
+    
           </li>
-          <li>
-              <div class="song">
-                  <img src="/photo/Say_You_Wont_Let_Go.jpg" alt="Song Image" onclick="two()">
-                  <div class="song-info">
-                      <div class = "song-title" id="sing">Say you wont let go</div>
-                      <div class = "artist">James Arthur</div>
-                      <audio id="audioPlayer" src="/audio/James Arthur - Say You Wont Let Go.mp3"></audio>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="song">
-                  <img src="/photo/blindinglights.jpeg" alt="Song Image" onclick="toggleAudio()">
-                  <div class="song-info">
-                      <div class="song-title" id="sing">Blinding Lights</div>
-                      <div class="artist">The Weekend</div>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="song">
-                  <img src="/photo/goldenhour.png" alt="Song Image" onclick="toggleAudio()">
-                  <div class="song-info">
-                      <div class="song-title" id="sing">Golden Hour</div>
-                      <div class="artist">JVKE</div>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="song">
-                  <img src="/photo/turky.jpg" id="imgggg" alt="Song Image" onclick="toggleAudio()">
-                  <div class="song-info">
-                      <div class="song-title" id="sing">Gökçe</div>
-                      <div class="artist" id="artist">Tuttu Fırlattı</div>
-                      <audio id="audioPlayer" src="../audio/Gökçe - Tuttu Fırlattı (320).mp3"></audio>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="song">
-                  <img src="/photo/eth.jpeg" alt="Song Image" onclick="toggleAudio()">
-                  <div class="song-info">
-                      <div class="song-title" id="sing">Ethereal</div>
-                      <div class="artist">Txmy</div>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="song">
-                  <img src="/photo/nourelein.jpeg" alt="Song Image" onclick="toggleAudio()">
-                  <div class="song-info">
-                      <div class="song-title" id="sing">Nour ElEin</div>
-                      <div class="artist">Amr Diab</div>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="song">
-                  <img src="/photo/nefsyahebek.png" alt="Song Image" onclick="toggleAudio()">
-                  <div class="song-info">
-                      <div class="song-title" id="sing">Nefsy Ahebek</div>
-                      <div class="artist">Cairokee</div>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="song">
-                  <img src="/photo/maxresdefault.jpg" alt="Song Image" onclick="toggleAudio()">
-                  <div class="song-info">
-                      <div class="song-title" id="sing">детство</div>
-                      <div class="artist">Rauf Faik</div>
-                  </div>
-              </div>
-          </li>
-          <li>
-              <div class="song">
-                  <img src="/photo/fayroz.jpg" alt="Song Image" onclick="toggleAudio()">
-                  <div class="song-info">
-                      <div class="song-title">Nasam alayna el hawa</div>
-                      <div class="artist">Fayrouz</div>
-                  </div>
-              </div>
-          </li>
-          </ul>
   </div>
   <%- include('../includes/SongPlaying.ejs')%>
 </body>

@@ -286,15 +286,22 @@ router.get("/contact", (req, res) => {
   }
 });
 
-router.get("/playlistPage", (req, res) => {
+router.get("/playlistPage", async (req, res) => {
+  try{
+    const songs = await song.find();
   if (req.session.user) {
     res.render("UserPart/playlistPage", {
       currentPage: "playlistPage",
       user: req.session.user,
+      songs: songs,
     });
   } else {
     res.redirect("/");
   }
+ }catch (error) {
+    console.error('Error fetching songs:', error);
+    res.status(500).send("Internal Server Error");
+} 
 });
 
 router.get("/History", (req, res) => {
