@@ -12,8 +12,8 @@
     <link rel="icon" href="/photo/2.png" type="image/png">
     <script src="/JavaScript/Admin%20JavaScript/Sidenavbar.js"></script>
     <script src="/JavaScript/Admin%20JavaScript/addplaylist.js"></script>
-    <script src="/JavaScript/Admin%20JavaScript/addsong.js"></script>
-    <script src="/JavaScript/Admin%20JavaScript/german.js"></script>
+<!--     <script src="/JavaScript/Admin%20JavaScript/addsong.js"></script>
+ -->    <script src="/JavaScript/Admin%20JavaScript/german.js"></script>
     <script type="text/javascript"
         src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
 </head>
@@ -22,13 +22,15 @@
     <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
         <h1 class="title1">Create a Playlist</h1>
         <div class="form-container">
-            <form id="add-playlist-form" name="add-playlist-form" enctype="multipart/form-data" method="post">
+            <form id="add-playlist-form" name="add-playlist-form" action="/addplaylist/upload" enctype="multipart/form-data" method="post">
+
                 <label for="playlist-name">Playlist Name</label>
-                <input type="text" name="playlistName" id="playlist-name" placeholder="Enter playlist name" required
-                    oninput="validateInput('playlist-name')">
-                <div id="playlistName-error" class="error-message"></div>
+                <input type="text" name="playlistName" id="playlist-name" placeholder="Enter playlist name" required oninput="validateInput('playlist-name')">
+
+                <div id="playlist-name-error" class="error-message"></div>
+                
                 <label for="genre">Genre</label>
-                <select id="genre" onchange="checkOther(this.value)" name="genre" required>
+                <select id="genre" name="genre" required>
                     <optgroup label="Genre">
                         <option value="" selected disabled hidden>Select Genre</option>
                         <option value="Alternative">Alternative</option>
@@ -52,10 +54,10 @@
                         <option value="Techno">Techno</option>
                         <option value="Trance">Trance</option>
                     </optgroup>
-                    <option value="Other">Other</option>
-                </select>
-                <input type="text" id="other-genre-input" placeholder="Enter genre" style="display: none;">
-                <div id="genre-error" class="error-message"></div> <!-- Add this line -->
+<!--                     <option value="Other">Other</option>
+ -->                </select>
+<!--                 <input type="text" id="other-genre-input" placeholder="Enter genre" style="display: none;">
+ -->                <div id="genre-error" class="error-message"></div> <!-- Add this line -->
 
                 <div class="dropdown" id="dropdown">
                     <button class="dropbtn">Select Songs</button>
@@ -71,18 +73,17 @@
                 <div id="songIds-error" class="error-message"></div>
 
                 <div id="alert-container"></div>
+                <div id="alert-container"></div>
                 <div id="privacy-settings">
                     <label for="privacy-settings">Privacy Settings</label><br><br><br>
-                    <select id="privacy-settings" name="PrivacySettings">
+                    <select id="privacy-settings" name="PrivacySettings" required>
                         <option value="" selected disabled hidden>Select Type</option>
-
                         <option value="public">Public</option>
                         <option value="private">Private</option>
                         <option value="hidden">Hidden</option>
                     </select>
                 </div>
-                <div id="PrivacySettings-error" class="error-message"></div>
-
+                <div id="privacy-settings-error" class="error-message"></div>
 
                 <label for="image-file">Upload Image (JPEG, PNG)</label>
                 <div class="file-upload" id="file-upload">

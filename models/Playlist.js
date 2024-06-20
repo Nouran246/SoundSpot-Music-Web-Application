@@ -9,12 +9,6 @@ const playlistSchema = new mongoose.Schema({
     genre: {
         type: String, required: true,
     },
-    album: {
-        type: [String], default: [],
-    },
-    artist: {
-        type: [String], default: [],
-    },
     privacy:
     {
         type: String, required: true,
@@ -26,10 +20,10 @@ const playlistSchema = new mongoose.Schema({
     }],
     imagePlaylist: { type: String, required: true },
 });
-
+/* 
 playlistSchema.path('songs').validate(function (songs) {
     return songs.length >= 2;
-}, 'A playlist must contain at least 2 songs.');
+}, 'A playlist must contain at least 2 songs.'); */
 
 const Playlist = mongoose.model('Playlist', playlistSchema);
 
