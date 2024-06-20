@@ -395,10 +395,17 @@ input[type="range"] {
     width: 90%;
     max-width: 800px;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
    
     font-size: 28px; /* Increased font size */
     line-height: 1.8; /* Increased line height */
+}
+.light-mode .modal{
+    background-color: rgba(255,255,255,0.9);
+}
+
+.light-mode .modal-content{ 
+ 
+    color:black;
 }
 
 .close {
