@@ -12,8 +12,8 @@
     <link rel="icon" href="/photo/2.png" type="image/png">
     <script src="/JavaScript/Admin%20JavaScript/Sidenavbar.js"></script>
     <script src="/JavaScript/Admin%20JavaScript/addplaylist.js"></script>
-<!--     <script src="/JavaScript/Admin%20JavaScript/addsong.js"></script>
- -->    <script src="/JavaScript/Admin%20JavaScript/german.js"></script>
+    <!--     <script src="/JavaScript/Admin%20JavaScript/addsong.js"></script>-->
+    <script src="/JavaScript/Admin%20JavaScript/german.js"></script>
     <script type="text/javascript"
         src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
 </head>
@@ -25,10 +25,9 @@
             <form id="add-playlist-form" name="add-playlist-form" action="/addplaylist/upload" enctype="multipart/form-data" method="post">
 
                 <label for="playlist-name">Playlist Name</label>
-                <input type="text" name="playlistName" id="playlist-name" placeholder="Enter playlist name" required oninput="validateInput('playlist-name')">
-
+                <input type="text" name="playlistName" id="playlist-name" placeholder="Enter playlist name" requiredoninput="validateInput('playlist-name')">
                 <div id="playlist-name-error" class="error-message"></div>
-                
+
                 <label for="genre">Genre</label>
                 <select id="genre" name="genre" required>
                     <optgroup label="Genre">
@@ -54,26 +53,20 @@
                         <option value="Techno">Techno</option>
                         <option value="Trance">Trance</option>
                     </optgroup>
-<!--                     <option value="Other">Other</option>
- -->                </select>
-<!--                 <input type="text" id="other-genre-input" placeholder="Enter genre" style="display: none;">
- -->                <div id="genre-error" class="error-message"></div> <!-- Add this line -->
+                </select>
+                <div id="genre-error" class="error-message"></div>
 
                 <div class="dropdown" id="dropdown">
                     <button class="dropbtn">Select Songs</button>
                     <div class="dropdown-content">
                         <% songs.forEach(song=> { %>
                             <input type="checkbox" id="<%= song._id %>" name="songIds" value="<%= song._id %>">
-                            <label for="<%= song._id %>">
-                                <%= song.songName %> - <%= song.artistName %>
-                            </label><br>
-                            <% }) %>
+                            <label for="<%= song._id %>"> <%= song.songName %> - <%= song.artistName %></label><br>
+                        <% }) %>
                     </div>
                 </div>
                 <div id="songIds-error" class="error-message"></div>
 
-                <div id="alert-container"></div>
-                <div id="alert-container"></div>
                 <label for="privacy-settings">Privacy Settings</label>
                 <select id="privacy-settings" name="PrivacySettings" required>
                     <option value="" selected disabled hidden>Select Type</option>
@@ -82,16 +75,14 @@
                     <option value="hidden">Hidden</option>
                 </select>
                 <div id="privacy-settings-error" class="error-message"></div>
-                
+
 
                 <label for="image-file">Upload Image (JPEG, PNG)</label>
                 <div class="file-upload" id="file-upload">
-                    <input type="file" id="image-file" accept="image/*" required name="imagePlaylist">
-                    <div id="image-file-error" class="error-message"></div>
+                    <input type="file" id="image-file" accept=".jpg,.jpeg,.png" required name="imagePlaylist">
+                    <div id="image-file-error" class="error-message"></div><br>
                     <label for="image-file">Click to upload</label>
                 </div>
-                <div id="imagePlaylist-error" class="error-message"></div>
-
 
                 <button type="button" id="save-button" onclick="validateForm()">Save</button>
             </form>
