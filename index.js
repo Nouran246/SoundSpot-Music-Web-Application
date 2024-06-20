@@ -7,6 +7,7 @@ const { setupRoutes } = require('./routes/routes.js');
 const app = express();
 const path = require('path');
 
+
 // Serve static files
 app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(express.static('public', { maxAge: '7d' }));
@@ -54,4 +55,7 @@ app.use(
 setupRoutes(app);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.listen(PORT,()=>{
+  console.log("server is running.............")
+})
