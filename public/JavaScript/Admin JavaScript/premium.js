@@ -1,10 +1,9 @@
-// premuim.js
 document.addEventListener('DOMContentLoaded', function() {
 
     const addPlanButton = document.getElementById('addPlanButton');
     const popupForm = document.getElementById('popupForm');
     const cancelButton = popupForm.querySelector('button[type="button"]');
-    const saveButton = document.getElementById('save-button'); // Updated to match HTML id attribute
+    const saveButton = document.getElementById('save-button');
 
     // Show popup form when clicking the "Add Plan" button
     addPlanButton.addEventListener('click', function() {
@@ -37,10 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
         isValid = validateField(duration, 'duration', 'Please select a duration') && isValid;
 
         if (isValid) {
-            // If all fields are valid, submit the form
-            document.getElementById('planForm').submit();
-            document.getElementById('message').style.display = 'block'; // Show success message
-            hidePopupForm(); // Hide the form after successful submission
+            // If all fields are valid, submit the form using Fetch API
+            submitForm(title, features, price, duration);
         }
     }
 
@@ -92,6 +89,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Function to submit the form data using Fetch API
+    function submitForm(title, features, price, duration) {
+        const data = {
+            title: title,
+            features: features,
+            price: price,
+            duration: duration
+        };
+
+        fetch('/submit-plan', { // Change this URL to match your backend endpoint
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Error submitting the form');
+            }
+        })
+        .then(data => {
+            document.getElementById('message').style.display = 'block'; // Show success message
+            hidePopupForm(); // Hide the form after successful submission
+            window.location.reload(); // Reload the page to show the new plan
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
     // Function to display error message for a field
     function displayErrorMessage(field, message, id) {
         let errorMessage = field.parentNode.querySelector(`#${id}`);
@@ -122,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
     handlePlanDeletion();
@@ -170,7 +201,8 @@ function deletePlan(planTitle) {
     var deletePopup = document.getElementById('delete-popup');
     deletePopup.style.display = 'none'; 
 }
-document.addEventListener('DOMContentLoaded', function () {
+
+
     function handlePlanEditing() {
         var editButtons = document.querySelectorAll('.edit-button');
         var editPopupForm = document.getElementById('editPopupForm');
@@ -181,7 +213,6 @@ document.addEventListener('DOMContentLoaded', function () {
         editButtons.forEach(function (button) {
             button.addEventListener('click', function () {
                 var selectedPlanTitle = button.getAttribute('data-plan-title');
-                
                 if (selectedPlanTitle) {
                     // Make AJAX request to fetch plan data based on selectedPlanTitle
                     fetch(`/plans/${selectedPlanTitle}`, {
@@ -242,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             // Make an AJAX request to update plan data in the database
-            fetch(`/plans/${planTitle}`, {
+            fetch(`/plans/${(planTitle)}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -277,113 +308,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    handlePlanEditing();
-});
-
-
-
-// function handleUserEditing() {
-//     var editIcon = document.getElementById('edit-icon');
-//     var editPopup = document.getElementById('edit-popup');
-//     var selectItemPopup = document.getElementById('select-item-popup');
-//     var checkboxes = document.querySelectorAll('.custom-checkbox');
-//     var saveButton = document.getElementById('save-edit');
-//     var cancelButton = document.getElementById('cancel-edit');
-
+    document.addEventListener('DOMContentLoaded', function () {
+        handlePlanEditing();
+    });
    
-    
-//     // Event listener for edit icon click
-//     editIcon.addEventListener('click', function () {
-//       var selectedUserId = null;
-  
-//       checkboxes.forEach(function (checkbox) {
-//         if (checkbox.checked) {
-//           selectedUserId = checkbox.getAttribute('data-userid');
-//           return; // Exit forEach loop early since only one checkbox should be checked for edit
-//         }
-//       });
-  
-//       if (selectedUserId) {
-//         // Make AJAX request to fetch user data based on selectedUserId
-//         fetch(`/auth/edit-user/${selectedUserId}`, {
-//           method: 'GET',
-//           headers: {
-//             'Content-Type': 'application/json'
-//           }
-//         })
-//         .then(response => {
-//           if (!response.ok) {
-//             throw new Error('Failed to fetch user data');
-//           }
-//           return response.json();
-//         })
-//         .then(user => {
-//           // Populate edit form fields with user data fetched
-//           document.getElementById('userId').value = user._id;
-//           document.getElementById('username').value = user.username;
-//           document.getElementById('Useremail').value = user.email;
-//           document.getElementById('phone').value = user.phone || '';
-//           document.getElementById('gender').value = user.gender || '';
-//           document.getElementById('country').value = user.country || '';
-//           document.getElementById('usertype').value = user.type || '';
-  
-//           editPopup.style.display = 'block'; // Display edit popup after fetching user data
-//         })
-//         .catch(error => {
-//           console.error('Error fetching user data for editing:', error);
-//           window.alert('Failed to fetch user data for editing. Please try again.');
-//         });
-//       } else {
-//         selectItemPopup.style.display = 'block'; // Display select-item-popup if no checkboxes are checked
-//         setTimeout(function () {
-//           selectItemPopup.style.display = 'none';
-//         }, 2000); // Hide select-item-popup after 2 seconds
-//       }
-//     });
-  
-//     // Event listener for Save button in edit popup
-//     saveButton.addEventListener('click', function () {
-//       var userId = document.getElementById('userId').value;
-//       var updatedUserData = {
-//         username: document.getElementById('username').value,
-//         email: document.getElementById('Useremail').value,
-//         phone: document.getElementById('phone').value || null,
-//         type: document.getElementById('usertype').value,
-//         gender: document.getElementById('gender').value || null,
-//         country: document.getElementById('country').value || null,
-//       };
-  
-//       // Make an AJAX request to update user data in the database
-//       fetch(`/auth/edit-user/${userId}`, {
-//         method: 'PUT',
-//         headers: {
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(updatedUserData)
-//       })
-//       .then(response => {
-//         if (response.ok) {
-//           console.log('User data updated successfully');
-//           return response.json();
-//         } else {
-//           throw new Error('Failed to update user data');
-//         }
-//       })
-//       .then(data => {
-//         console.log('Updated user data:', data);
-//         // Optionally update UI or show success message
-//         editPopup.style.display = 'none'; // Hide edit popup after saving
-//       })
-//       .catch(error => {
-//         console.error('Error updating user data:', error);
-//         // Handle error as needed
-//       });
-  
-//       editPopup.style.display = 'none'; // Hide edit popup after saving
-//     });
-  
-//     // Event listener for Cancel button in edit popup
-//     cancelButton.addEventListener('click', function () {
-//       editPopup.style.display = 'none'; // Hide edit popup on cancel
-//     });
-//   }
+
+

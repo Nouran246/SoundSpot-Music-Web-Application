@@ -122,40 +122,19 @@ function setupRoutes(app) {
     });
   });
 }
-
-router.get('/plans/:planTitle', async (req, res) => {
+router.get('/plans/:title', async (req, res) => {
+  const { title } = req.params;
   try {
-      const planTitle = req.params.planTitle;
-      console.log(`Fetching plan with title: ${planTitle}`); // Log the plan title being fetched
-      const plan = await Plan.findOne({ Title: planTitle }); // Adjust the query as per your schema
+      const plan = await Plan.findOne({ Title: title });
       if (!plan) {
-          console.error(`Plan not found: ${planTitle}`);
-          return res.status(404).json({ error: 'Plan not found' });
+          return res.status(404).send("Plan not found");
       }
       res.json(plan);
   } catch (error) {
-      console.error('Error fetching plan data:', error); // Log the error
-      res.status(500).json({ error: 'Failed to fetch plan data' });
+      console.error('Error fetching plan data:', error);
+      res.status(500).send("Internal Server Error");
   }
 });
 
-// Update plan data based on planTitle
-router.put('/auth/plans/:planTitle', async (req, res) => {
-  try {
-      const planTitle = req.params.planTitle;
-      const updatedPlanData = req.body;
-      
-      console.log(`Updating plan with title: ${planTitle}`); // Log the plan title being updated
-      const plan = await Plan.findOneAndUpdate({ Title: planTitle }, updatedPlanData, { new: true }); // Adjust the query as per your schema
-      if (!plan) {
-          console.error(`Plan not found: ${planTitle}`);
-          return res.status(404).json({ error: 'Plan not found' });
-      }
-      res.json(plan);
-  } catch (error) {
-      console.error('Error updating plan data:', error); // Log the error
-      res.status(500).json({ error: 'Failed to update plan data' });
-  }
-});
 
 module.exports = { setupRoutes };
