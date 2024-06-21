@@ -14,6 +14,7 @@ const corsConfig ={
   credential:true,
   methoud:["GET","POST","PUT","DELETE"]
   };
+  app.options("",cors(corsConfig));
 // Serve static files
 app.use(express.static(path.join(__dirname, 'uploads')));
 
