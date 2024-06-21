@@ -121,3 +121,51 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    handlePlanDeletion();
+});
+
+function handlePlanDeletion() {
+    var deleteButtons = document.querySelectorAll('.delete-button');
+    var deletePopup = document.getElementById('delete-popup');
+    var okButton = document.getElementById('ok-delete');
+    var cancelButton = document.getElementById('cancel-delete');
+
+    deleteButtons.forEach(function (deleteButton) {
+        deleteButton.addEventListener('click', function () {
+            deletePopup.style.display = 'block';
+            var plantitle = deleteButton.getAttribute('data-plan-title');
+            okButton.onclick = function () {
+                deletePlan(plantitle);
+            };
+        });
+    });
+
+    cancelButton.addEventListener('click', function () {
+        deletePopup.style.display = 'none';
+    });
+}
+
+function deletePlan(planTitle) {
+    fetch(`/auth/delete-plan/${planTitle}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Plan deleted successfully');
+            window.location.reload(); 
+        } else {
+            console.error('Failed to delete plan');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    var deletePopup = document.getElementById('delete-popup');
+    deletePopup.style.display = 'none'; 
+}
