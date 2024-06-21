@@ -6,7 +6,8 @@ const { connectToMongoDB } = require('./config/mongo.js');
 const { setupRoutes } = require('./routes/routes.js');
 const app = express();
 const path = require('path');
-
+const cors= require('cors');
+app.use(cors());
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'uploads')));
