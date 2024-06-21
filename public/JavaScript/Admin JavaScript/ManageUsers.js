@@ -237,7 +237,7 @@ function handleUserEditing() {
     var editPopup = document.getElementById('edit-popup');
     var selectItemPopup = document.getElementById('select-item-popup');
     var checkboxes = document.querySelectorAll('.custom-checkbox');
-    var saveButton = document.getElementById('save-edit');
+    var saveButton = document.getElementById('save-Edit-button');
     var cancelButton = document.getElementById('cancel-edit');
     var editForm = document.getElementById('edit-form'); // Assuming form ID is 'edit-form'
     
@@ -297,9 +297,9 @@ function handleUserEditing() {
     });
 
     // Event listener for Save button in edit popup
-    editForm.addEventListener('submit', function (event) {
+    saveButton.addEventListener('click', function(event) {
         event.preventDefault(); // Prevent the default form submission behavior
-
+    
         var userId = document.getElementById('userId').value;
         var updatedUserData = {
             username: document.getElementById('username').value,
@@ -309,7 +309,7 @@ function handleUserEditing() {
             gender: document.getElementById('gender').value || null,
             country: document.getElementById('country').value || null,
         };
-
+        window.location.reload(); // Refresh the page after deletion
         // Make an AJAX request to update user data in the database
         fetch(`/auth/edit-user/${userId}`, {
             method: 'PUT',
@@ -328,12 +328,13 @@ function handleUserEditing() {
         })
         .then(data => {
             console.log('Updated user data:', data);
-            editPopup.style.display = 'none'; // Hide edit popup after saving
+            editPopup.style.display = 'none'; // Hide edit popup on save
         })
         .catch(error => {
             console.error('Error updating user data:', error);
             // Handle error as needed
         });
+        
     });
 
     // Event listener for Cancel button in edit popup
