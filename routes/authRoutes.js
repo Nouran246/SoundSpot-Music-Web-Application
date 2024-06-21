@@ -14,7 +14,12 @@ const song = require("../models/song");
 const Playlist = require("../models/Playlist.js");
 
 router.post("/delete-users", userController.deleteUser);
-router.get('/users/:id', authMiddleware, userController.getUserById);
+
+// Route to fetch user data for editing
+router.get("/edit-user/:id", authMiddleware, userController.getUserForEdit);
+
+// Route to update user data
+router.put("/edit-user/:id", authMiddleware, userController.updateUser);
 
 // Home page (landing page)
 router.get("/", (req, res) => {
@@ -388,18 +393,6 @@ router.get("/ManageUsers", authMiddleware, async (req, res) => {
   }
 });
 
-router.get("/ManageUsers/:id", authMiddleware, async (req, res) => {
-  try {
-    const user = await User.findById(req.params.id);
-    if (!user) {
-      return res.status(404).send("User not found");
-    }
-    res.json(user); // Send user data as JSON response
-  } catch (error) {
-    console.error('Error fetching user data for editing:', error);
-    res.status(500).send("Internal Server Error");
-  }
-});
 
 router.get("/addplaylist", authMiddleware, (req, res) => {
   if (req.session.user) {
@@ -487,5 +480,4 @@ router.get("/userProfile", authMiddleware, (req, res) => {
     res.redirect("/");
   }
 });
-
 module.exports = router;
