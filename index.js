@@ -10,8 +10,7 @@ const path = require('path');
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'uploads')));
-app.use(express.static('public', { maxAge: '7d' }));
-app.use(express.static('public'));
+
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
