@@ -96,6 +96,7 @@ router.get('/plans', async (req, res) => {
   });
 
   app.get('/song', songController.getSongs);
+  app.get('/managePlaylist', playlistController.getPlaylist);
   router.get('/addplaylist', async (req, res) => {
     try {
         
