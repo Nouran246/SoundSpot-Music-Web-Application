@@ -23,7 +23,6 @@
     "npm": "^10.8.1",
     "request": "^2.88.2",
     "serverless-http": "^3.2.0"
-    
   },
   "scripts": {
     "start": "node index.js"
