@@ -12,8 +12,9 @@ const corsConfig ={
   origin: "https://sound-spot-music-web-application-1ud6ag6hz.vercel.app/",
   credential:true,
   methods:["GET","POST","PUT","DELETE"],
+  allowedHeaders: ['Content-Type'],
   };
-  app.options( cors(corsConfig));
+  app.options(cors(corsConfig));
 // Serve static files
 app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(express.static('public', { maxAge: '7d' }));
