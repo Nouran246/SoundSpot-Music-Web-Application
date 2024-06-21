@@ -50,23 +50,8 @@ function setupRoutes(app) {
   // Route for processing plan creation with file uploads
   app.post('/plans/process', upload.fields([{ name: 'adsVideo', maxCount: 1 }, { name: 'popupImage', maxCount: 1 }]), planController.createPlan);
   app.post('/auth/delete-plan/:title', planController.deletePlan);
-  app.put('/plans/:id', planController.updatePlan);
-//   router.delete('/auth/delete-plan/:title', async (req, res) => {
-//     try {
-//         const planTitle = req.params.title;
-//         const plan = await Plan.findOneAndDelete({ Title: planTitle });
-
-//         if (!plan) {
-//             return res.status(404).json({ message: 'Plan not found' });
-//         }
-
-//         res.json({ message: 'Plan deleted successfully' });
-//     } catch (error) {
-//         console.error('Error deleting plan:', error);
-//         res.status(500).json({ message: 'Internal Server Error' });
-//     }
-// });
-router.get('/plans', async (req, res) => {
+  router.put('/plans/:title', planController.updatePlan);
+  router.get('/plans', async (req, res) => {
     try {
         
       const plans = await plan.find();
@@ -138,5 +123,39 @@ router.get('/plans', async (req, res) => {
   });
 }
 
+router.get('/plans/:planTitle', async (req, res) => {
+  try {
+      const planTitle = req.params.planTitle;
+      console.log(`Fetching plan with title: ${planTitle}`); // Log the plan title being fetched
+      const plan = await Plan.findOne({ Title: planTitle }); // Adjust the query as per your schema
+      if (!plan) {
+          console.error(`Plan not found: ${planTitle}`);
+          return res.status(404).json({ error: 'Plan not found' });
+      }
+      res.json(plan);
+  } catch (error) {
+      console.error('Error fetching plan data:', error); // Log the error
+      res.status(500).json({ error: 'Failed to fetch plan data' });
+  }
+});
+
+// Update plan data based on planTitle
+router.put('/auth/plans/:planTitle', async (req, res) => {
+  try {
+      const planTitle = req.params.planTitle;
+      const updatedPlanData = req.body;
+      
+      console.log(`Updating plan with title: ${planTitle}`); // Log the plan title being updated
+      const plan = await Plan.findOneAndUpdate({ Title: planTitle }, updatedPlanData, { new: true }); // Adjust the query as per your schema
+      if (!plan) {
+          console.error(`Plan not found: ${planTitle}`);
+          return res.status(404).json({ error: 'Plan not found' });
+      }
+      res.json(plan);
+  } catch (error) {
+      console.error('Error updating plan data:', error); // Log the error
+      res.status(500).json({ error: 'Failed to update plan data' });
+  }
+});
 
 module.exports = { setupRoutes };

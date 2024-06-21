@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Deleting song with ID:', songId);
 
             try {
-                const response = await fetch(`/song/${songId}`, {
-                    method: 'DELETE'
+                const response = await fetch(`/songs/${songId}`, {
+                    method: 'POST'
                 });
 
                 if (response.ok) {

@@ -111,8 +111,8 @@ router.get("/premium", authMiddleware, async (req, res) => {
 router.get('/plans', async (req, res) => {
   try {
     const plans = await plan.find();
-    console.log(plans);
-    res.json(plans);
+    // console.log(plans);
+    // res.json(plans);
   } catch (error) {
     console.error('Error fetching plans:', error);
     res.status(500).send("Internal Server Error");
@@ -285,14 +285,21 @@ router.get("/SongPlaying", (req, res) => {
   }
 });
 
-router.get("/Recap", (req, res) => {
+router.get("/Recap", async (req, res) => {
+  try {
+    const songs = await song.find();
   if (req.session.user) {
     res.render("UserPart/Recap", {
       currentPage: "Recap",
       user: req.session.user,
+      songs: songs,
     });
-  } else {
-    res.redirect("/");
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.error('Error fetching songs:', error);
+    res.status(500).send("Internal Server Error");
   }
 });
 router.get("/Report", (req, res) => {

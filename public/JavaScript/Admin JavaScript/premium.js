@@ -1,3 +1,4 @@
+// premuim.js
 document.addEventListener('DOMContentLoaded', function() {
 
     const addPlanButton = document.getElementById('addPlanButton');
@@ -169,3 +170,220 @@ function deletePlan(planTitle) {
     var deletePopup = document.getElementById('delete-popup');
     deletePopup.style.display = 'none'; 
 }
+document.addEventListener('DOMContentLoaded', function () {
+    function handlePlanEditing() {
+        var editButtons = document.querySelectorAll('.edit-button');
+        var editPopupForm = document.getElementById('editPopupForm');
+        var editSaveButton = document.getElementById('editSaveButton');
+        var editCancelButton = document.getElementById('editCancelButton');
+        
+        // Event listeners for each edit button
+        editButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var selectedPlanTitle = button.getAttribute('data-plan-title');
+                
+                if (selectedPlanTitle) {
+                    // Make AJAX request to fetch plan data based on selectedPlanTitle
+                    fetch(`/plans/${selectedPlanTitle}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to fetch plan data');
+                        }
+                        return response.json();
+                    })
+                    .then(plan => {
+                        // Populate edit form fields with plan data fetched
+                        document.getElementById('editTitle').value = plan.Title;
+                        document.getElementById('editPrice').value = plan.price;
+                        document.getElementById('editDuration').value = plan.Duration;
+                        
+                        // Uncheck all checkboxes
+                        var editFeatureCheckboxes = document.querySelectorAll('.editFeatureCheckbox');
+                        editFeatureCheckboxes.forEach(checkbox => {
+                            checkbox.checked = false;
+                        });
+                        
+                        // Check the appropriate checkboxes based on plan.Features
+                        plan.Features.forEach(feature => {
+                            var checkbox = document.querySelector(`.editFeatureCheckbox[value="${feature}"]`);
+                            if (checkbox) {
+                                checkbox.checked = true;
+                            }
+                        });
+
+                        document.getElementById('editPlanTitle').value = plan.Title;
+
+                        editPopupForm.style.display = 'block'; // Display edit popup after fetching plan data
+                    })
+                    .catch(error => {
+                        console.error('Error fetching plan data for editing:', error);
+                        window.alert('Failed to fetch plan data for editing. Please try again.');
+                    });
+                } else {
+                    window.alert('No plan title specified for editing.');
+                }
+            });
+        });
+
+        // Event listener for Save button in edit popup
+        editSaveButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            var planTitle = document.getElementById('editPlanTitle').value;
+            var updatedPlanData = {
+                Title: document.getElementById('editTitle').value,
+                price: document.getElementById('editPrice').value,
+                Duration: document.getElementById('editDuration').value,
+                Features: Array.from(document.querySelectorAll('.editFeatureCheckbox:checked')).map(checkbox => checkbox.value)
+            };
+
+            // Make an AJAX request to update plan data in the database
+            fetch(`/plans/${planTitle}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedPlanData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Plan data updated successfully');
+                    return response.json();
+                } else {
+                    throw new Error('Failed to update plan data');
+                }
+            })
+            .then(data => {
+                console.log('Updated plan data:', data);
+                // Optionally update UI or show success message
+                editPopupForm.style.display = 'none'; // Hide edit popup after saving
+                location.reload(); // Reload the page to reflect changes
+            })
+            .catch(error => {
+                console.error('Error updating plan data:', error);
+                // Handle error as needed
+            });
+
+            editPopupForm.style.display = 'none'; // Hide edit popup after saving
+        });
+
+        // Event listener for Cancel button in edit popup
+        editCancelButton.addEventListener('click', function () {
+            editPopupForm.style.display = 'none'; // Hide edit popup on cancel
+        });
+    }
+
+    handlePlanEditing();
+});
+
+
+
+// function handleUserEditing() {
+//     var editIcon = document.getElementById('edit-icon');
+//     var editPopup = document.getElementById('edit-popup');
+//     var selectItemPopup = document.getElementById('select-item-popup');
+//     var checkboxes = document.querySelectorAll('.custom-checkbox');
+//     var saveButton = document.getElementById('save-edit');
+//     var cancelButton = document.getElementById('cancel-edit');
+
+   
+    
+//     // Event listener for edit icon click
+//     editIcon.addEventListener('click', function () {
+//       var selectedUserId = null;
+  
+//       checkboxes.forEach(function (checkbox) {
+//         if (checkbox.checked) {
+//           selectedUserId = checkbox.getAttribute('data-userid');
+//           return; // Exit forEach loop early since only one checkbox should be checked for edit
+//         }
+//       });
+  
+//       if (selectedUserId) {
+//         // Make AJAX request to fetch user data based on selectedUserId
+//         fetch(`/auth/edit-user/${selectedUserId}`, {
+//           method: 'GET',
+//           headers: {
+//             'Content-Type': 'application/json'
+//           }
+//         })
+//         .then(response => {
+//           if (!response.ok) {
+//             throw new Error('Failed to fetch user data');
+//           }
+//           return response.json();
+//         })
+//         .then(user => {
+//           // Populate edit form fields with user data fetched
+//           document.getElementById('userId').value = user._id;
+//           document.getElementById('username').value = user.username;
+//           document.getElementById('Useremail').value = user.email;
+//           document.getElementById('phone').value = user.phone || '';
+//           document.getElementById('gender').value = user.gender || '';
+//           document.getElementById('country').value = user.country || '';
+//           document.getElementById('usertype').value = user.type || '';
+  
+//           editPopup.style.display = 'block'; // Display edit popup after fetching user data
+//         })
+//         .catch(error => {
+//           console.error('Error fetching user data for editing:', error);
+//           window.alert('Failed to fetch user data for editing. Please try again.');
+//         });
+//       } else {
+//         selectItemPopup.style.display = 'block'; // Display select-item-popup if no checkboxes are checked
+//         setTimeout(function () {
+//           selectItemPopup.style.display = 'none';
+//         }, 2000); // Hide select-item-popup after 2 seconds
+//       }
+//     });
+  
+//     // Event listener for Save button in edit popup
+//     saveButton.addEventListener('click', function () {
+//       var userId = document.getElementById('userId').value;
+//       var updatedUserData = {
+//         username: document.getElementById('username').value,
+//         email: document.getElementById('Useremail').value,
+//         phone: document.getElementById('phone').value || null,
+//         type: document.getElementById('usertype').value,
+//         gender: document.getElementById('gender').value || null,
+//         country: document.getElementById('country').value || null,
+//       };
+  
+//       // Make an AJAX request to update user data in the database
+//       fetch(`/auth/edit-user/${userId}`, {
+//         method: 'PUT',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(updatedUserData)
+//       })
+//       .then(response => {
+//         if (response.ok) {
+//           console.log('User data updated successfully');
+//           return response.json();
+//         } else {
+//           throw new Error('Failed to update user data');
+//         }
+//       })
+//       .then(data => {
+//         console.log('Updated user data:', data);
+//         // Optionally update UI or show success message
+//         editPopup.style.display = 'none'; // Hide edit popup after saving
+//       })
+//       .catch(error => {
+//         console.error('Error updating user data:', error);
+//         // Handle error as needed
+//       });
+  
+//       editPopup.style.display = 'none'; // Hide edit popup after saving
+//     });
+  
+//     // Event listener for Cancel button in edit popup
+//     cancelButton.addEventListener('click', function () {
+//       editPopup.style.display = 'none'; // Hide edit popup on cancel
+//     });
+//   }
