@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/CSS/User CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="stylesheet" href="/CSS/User CSS/SongPlaying.css">
+    <script src="/CSS/User js/SongPlaying.js"></script>
+
+    <link rel="icon" href="/photo/2.png" type="image/png">
+    <script src="/JavaScript/User js/Sidenavbar.js"></script>
+    <link rel="stylesheet" href="/CSS/User CSS/ManagePlaylists.css">
+    <link rel="stylesheet" href="/CSS/User CSS/playlistPage.css">
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+    
+</head>
+<body>
+    <%- include('../includes/sidenav&navbarsUSER.ejs')%>
+    <div class="container">
+        <div>
+        <h1 style="display: inline;">Playlists</h1>
+        <button id="addPlaylistButton">
+            <i class="fa-solid fa-plus"></i> 
+        </button>
+        </div>
+        
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <h2 id="modalHeader">Add New Playlist</h2>
+              <input type="text" id="playlistNameInput" placeholder="Playlist Name">
+              <input type="file" id="playlistImageInput" accept="image/*">
+              <button onclick="addPlaylist()">Create Playlist</button>
+            </div>
+          </div>
+        <ul>
+            <li>
+                <a href="playlistPage">
+                    <div class="playlist">
+                        <img src="/photo/LikedSongs.webp" alt="Playlist image">
+                        <div class="playlist-title">Liked Songs</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="playlistPage">
+                    <div class="playlist">
+                        <img src="/photo/offline_songs.jpg" alt="Playlist image">
+                        <div class="playlist-title">Offline Songs</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="playlistPage">
+                    <div class="playlist">
+                        <img src="/photo/playlist1.png" alt="Playlist image">
+                        <div class="playlist-title">Playlist 1</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="playlistPage">
+                    <div class="playlist">
+                        <img src="/photo/playlist2.jpg" alt="Playlist image">
+                        <div class="playlist-title">Playlist 2</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script src="/User/User js/ManagePlaylists.js"></script>
+    <%- include('../includes/SongPlaying.ejs')%>
+
+</body>
+</html>

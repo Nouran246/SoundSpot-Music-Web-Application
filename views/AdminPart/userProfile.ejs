@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/CSS/Admin%20CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="icon" href="/photo/2.png" type="image/png">
+
+    <script src="/JavaScript/Admin%20JavaScript/Sidenavbar.js"></script>
+    <script src="/JavaScript/Admin%20JavaScript/userProfile.js"></script>
+
+    <link rel="stylesheet" href="/CSS/Admin%20CSS/userProfile.css">
+    <link rel="stylesheet" href="/CSS/Admin%20CSS/ManageUsers.css">
+
+    <script src="/JavaScript/Admin%20JavaScript/ManageUsers.js"></script>
+    <script src="/JavaScript/Admin%20JavaScript/german.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+
+</head>
+
+
+<body>
+    <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
+
+    <div class="user-info">
+        <div id="user-img">
+            <img src="/photo/cat.jpg">
+        </div>
+        <div class="contentt">
+            <div class="name">
+                <div class="full-name">Roaa Khaled</div>
+                <div class="username" id="username">roaakh_</div>
+            </div>
+            <div class="buttons">
+                <button class="btn">Ban</button>
+                <button class="btn">Delete</button>
+                <button class="btn">Edit</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div>
+
+        <div class="user-details">
+            <div class="details">
+
+                <div class="head-personal-info" id="head">Personal Information</div>
+                <div class="personal-info">
+                    <div class="birthday" id="u">Date of birth: <span class="user-birthday">January 1, 1990</span>
+                    </div>
+                    <div class="country" id="u">Country: <span class="user-country">Egypt</span> </div>
+                </div>
+
+                <div class="head-contact-info" id="head">Contact Information</div>
+                <div class="contact-info">
+                    <div class="email" id="u">E-mail:<span class="user-email">example@gmail.com</span></div>
+                    <div class="phone-number" id="u">Phone Number:<span class="user-number">+20 1024987531</span></div>
+                </div>
+
+                <div class="head-subscription" id="head">Subscription Plan</div>
+                <label id="free" class="subscription">Free</label>
+                <label id="premium" class="subscription">Premium</label>
+                <label id="family" class="subscription">Family</label>
+                
+
+                <div class="heading-activity-log" id="head">Activity Log</div>
+                <div class="activity-log">
+                    <div id="u">Playlists created:
+                        <span class="user-created-playlists">5</span>
+                    </div>
+                    <div id="u">Followers:
+                        <span class="user-followers">100</span>
+                    </div>
+                    <div id="u">Following:
+                        <span class="user-following">50</span>
+                    </div>
+                </div>
+
+                <div class="head-security" id="head">Security</div>
+                <div class="security">
+                    <div id="u">Last account access: <span class="user-last-access">March 15, 2024</span></div>
+                    <!--send email if old -->
+                    <div id="u">Number of password changes:<span class="user-password-changes">3</span>
+                    </div>
+                    <div id="u">Date of registration: <span class="user-registration-date">January 23, 2017</span>
+                    </div>
+                    <div id="u">Two-factor authentication</div>
+                    <label id="enable-authen" class="authen">Enabled</label>
+                    <label id="disable-authen" class="authen">Disabled</label>
+                    
+                 
+                </div>
+
+            </div>
+        </div>
+
+</body>
+
+</html>

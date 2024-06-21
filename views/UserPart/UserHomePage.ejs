@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/CSS/User CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="stylesheet" href="/CSS/User CSS/SongPlaying.css">
+    <script src="/JavaScript/User js/SongPlaying.js"></script>
+
+    <link rel="icon" href="/photo/2.png" type="image/png">
+    <link rel="stylesheet" href="/CSS/User CSS/Userhomepage.css">
+    <script src="/JavaScript/User js/Sidenavbar.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+</head>
+<body>
+  <%- include('../includes/sidenav&navbarsUSER.ejs')%>
+  <div class="container">
+    <h1 class="greeting">Hello <%= user.username %>!<br>What would you like to listen to today?</h1>
+
+    <a class="text-a" href="Songs">
+      <div class="unit">
+        <img src="/photo/songs.jpg" alt="Songs">
+        <div class="overlay"></div>
+        <p class="text">Songs</p>
+      </div>
+    </a>
+
+    <a class="text-a" href="ManagePlaylists">
+      <div class="unit">
+        <img src="/photo/playlists.jpg" alt="Playlists">
+        <div class="overlay"></div>
+        <p class="text">Playlists</p>
+      </div>
+    </a>
+
+    <a class="text-a" href="history">
+      <div class="unit">
+        <img src="/photo/history.jpg" alt="History">
+        <div class="overlay"></div>
+        <p class="text">History</p>
+      </div>
+    </a>
+
+    <a class="text-a" href="recap">
+      <div class="unit">
+        <img src="/photo/recap.jpg" alt="Recap">
+        <div class="overlay"></div>
+        <p class="text">Recap</p>
+      </div>
+    </a>
+
+    <hr>
+    <div class="row">
+      <h2>New Releases</h2>
+      <% songs.reverse().forEach(song => { %>
+          <div class="card" 
+               data-song="/uploads/<%= song.songFileId %>" 
+               data-artist="<%= song.artistName %>" 
+               data-title="<%= song.songName %>"
+               data-lyrics="<%= song.lyrics %>" 
+               data-image="/uploads/<%= song.imageFileId %>">
+              <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
+              <div class="content">
+                  <h3><%= song.songName %></h3>
+                  <p><%= song.artistName %></p>
+              </div>
+          </div>
+      <% }) %>
+  </div>
+  <div class="row">
+      <h2>You might also like</h2>
+      <% songs.reverse().forEach(song => { %>
+          <div class="card" 
+               data-song="/uploads/<%= song.songFileId %>" 
+               data-artist="<%= song.artistName %>" 
+               data-title="<%= song.songName %>" 
+               data-lyrics="<%= song.lyrics %>" 
+               data-image="/uploads/<%= song.imageFileId %>">
+              <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
+              <div class="content">
+                  <h3><%= song.songName %></h3>
+                  <p><%= song.artistName %></p>
+              </div>
+          </div>
+      <% }) %>
+  </div>
+</div>
+<%- include('../includes/SongPlaying.ejs') %>
+</body>
+</html>
+  

@@ -1,0 +1,1266 @@
+@media (prefers-reduced-motion:no-preference) {
+    :root {
+        scroll-behavior: smooth
+    }
+}
+
+.main-content {
+    margin-top: 0px;
+    transition: transform 0.5s ease;
+    margin-left: 10px;
+    margin-right: 200px;
+    transition: margin-left 0.5s ease;
+}
+
+.list-container {
+    margin-left: 350px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 1040px;
+}
+
+.list-item,
+.top-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1050px;
+    height: 30px;
+    border-radius: 19px;
+    background-color: #1a1a1a;
+    font-size: 25px;
+    padding: 20px;
+    border: 1.5px solid #464446;
+    position: relative;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+}
+
+.top-content {
+    border: 2px solid #800080;
+}
+
+.list-item i {
+    font-size: 35px;
+    margin-top:-4px;
+    margin-left: 9px;
+    border-radius: 50%;
+    margin-right: 60px;
+}
+
+.content div {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 190px;
+    margin-right: 0px;
+    margin-left: 5px;
+    margin-top: -5px;
+}
+
+.content {
+    display: flex;
+    gap:30px;
+}
+
+#plus {
+    margin-left: 20px;
+    font-size: 25px;
+
+}
+
+.list-item .fa-chevron-right {
+    color: #ddd;
+    font-size: 18px;
+    margin-left: 90px;
+    margin-top: 2px;
+}
+
+.text {
+    color: #ddd;
+    font-size: 17px;
+    text-overflow: ellipsis;
+    padding: 5px;
+    margin: 0;
+    width: 185px;
+}
+
+.top-text {
+
+    color: #ddd;
+    font-size: 20px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+.top-texts {
+    margin-left:50px;
+    display: flex;
+    width: 750px;
+    padding: 15px;
+    gap: 100px;
+}
+
+.btn {
+    background-color: #852b85;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    margin: 0px;
+    width: 70px;
+
+}
+
+.btn:hover {
+    background-color: #660066;
+}
+
+
+.top-content i {
+    font-size: 22px;
+    margin: 1px;
+    margin-bottom: 8px;;
+}
+
+.top-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    border-radius: 19px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    margin-bottom: 25px;
+    margin-left: 350px;
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+.actions{
+    width: 130px;
+    font-size: 10px;
+    overflow: hidden;
+    display: flex;
+    padding: 5px;
+    gap: 25px;
+    margin-right: 7px;
+    margin-left: 0px;
+    margin-top: 2px;
+    align-content: center;
+}
+
+.content .custom-checkbox {
+    margin-right: 25px;
+}
+
+.actions i {
+    margin-top: 3px;
+}
+
+.list-item:hover {
+    background-color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    color: #852b85;
+}
+
+body.light-mode .text {
+    color: #000;
+}
+
+body.light-mode .list-item:hover {
+    background-color: #cccbcb;
+}
+
+
+.list-item:hover i {
+    animation: scaleIcon 0.5s ease forwards;
+}
+
+body.light-mode .list-item {
+    background-color: white;
+}
+
+body.light-mode .text {
+    color: #000;
+}
+
+body.light-mode .list-item:hover {
+    background-color: #cccbcb;
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 100px;
+    width: 1000px;
+    margin-left: 340px;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 2px solid #800080;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    color: #ddd;
+}
+
+.page-link:hover {
+    background-color: #333;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.page-item.disabled .page-link {
+    color: #999;
+    pointer-events: none;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+    font-weight: bold;
+}
+
+
+/* checkbox */
+
+
+.checkbox-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+.checkbox-custom {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #1a1a1a;
+    border: 2px solid #800080;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* check mark */
+.checkbox-custom::after {
+    content: '\2713';
+    font-size: 14px;
+    color: #ddd;
+    background-color: #800080;
+    line-height: 20px;
+    text-align: center;
+    display: none;
+}
+
+.checkbox-input:checked+.checkbox-custom::after {
+    display: block;
+}
+
+.custom-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #800080;
+    border-radius: 4px;
+    position: relative;
+    margin-left: 88px;
+}
+
+.custom-checkbox::after {
+    content: '\2713';
+    font-size: 14px;
+    color: #ddd;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.custom-checkbox:checked {
+    background-color: purple;
+}
+
+.custom-checkbox:checked::after {
+    opacity: 1;
+}
+
+.red-text {
+    color: red;
+}
+
+/* Light mode styles */
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+
+body.light-mode .main-content,
+body.light-mode .list-container,
+body.light-mode .list-item,
+body.light-mode .top-content,
+body.light-mode .top-text,
+body.light-mode .top-content i,
+body.light-mode .actions,
+body.light-mode .checkbox-custom,
+body.light-mode .page-link {
+    background-color: white;
+    border-color: #800080;
+    color: black;
+}
+
+
+body.light-mode .general-content div,
+body.light-mode .security-content div,
+body.light-mode .activity-log-content div,
+.body.light-mode .user-info i {
+    color: black;
+}
+
+body.light-mode .fa-chevron-down,
+body.light-mode .fa-chevron-right {
+    color: #800080;
+}
+
+body.light-mode .page-link {
+    border: 2px solid #800080;
+
+}
+
+body.light-mode .list-item:hover {
+    background-color: #cccbcb;
+    color: #852b85;
+}
+
+body.light-mode .checkbox-custom {
+    background-color: white;
+    border-color: #800080;
+}
+
+body.light-mode .checkbox-custom::after {
+    color: #ddd;
+    background-color: #800080;
+}
+
+body.light-mode .custom-checkbox:checked {
+    background-color: #800080;
+    border-color: #800080;
+}
+
+body.light-mode .custom-checkbox:checked::after {
+    color: white;
+}
+
+body.light-mode .red-text {
+    color: red;
+}
+
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-right: 30px;
+    }
+
+    .list-container {
+        margin-left: 50px;
+    }
+
+    .list-item,
+    .top-content {
+        width: 400px;
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .top-texts {
+        margin-left: 10px;
+        width: 300px;
+        gap: 60px;
+    }
+
+    .actions {
+        width: 60px;
+        gap: 5px;
+    }
+
+    .list-item a {
+        width: 400px;
+        gap: 10px;
+    }
+
+    .text {
+        width: 70px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        margin-right: 10px;
+    }
+
+    .list-container {
+        margin-left: 10px;
+    }
+
+    .list-item,
+    .top-content {
+        width: 300px;
+        font-size: 14px;
+        padding: 3px;
+    }
+
+    .top-texts {
+        margin-left: 5px;
+        width: 200px;
+        gap: 40px;
+    }
+
+    .actions {
+        width: 40px;
+        gap: 3px;
+    }
+
+    .list-item a {
+        width: 300px;
+        gap: 5px;
+    }
+
+    .text {
+        width: 50px;
+        font-size: 10px;
+    }
+}
+.list-item .fa-chevron-down {
+    color: #ddd;
+    font-size: 18px;
+    margin-left: 90px;
+    margin-top: 2px;
+}
+.see-more {
+    display: none;
+    width: 1040px;
+}
+
+
+.list-item.active .see-more {
+    display: inline-block;
+    margin-top: 20px;
+    ;
+}
+
+.list-item.active {
+    background-color: #333;
+}
+
+.caret-label {
+    cursor: pointer;
+}
+
+.list-item {
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, height 0.3s ease;
+    height: 20px;
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+.user-info-container {
+    animation: fadeIn 0.5s ease forwards;
+    position: relative;
+    width: 1030px;
+    height: auto;
+    padding: 15px;
+    padding-top: 0px;
+    ;
+    margin-bottom: 25px;
+    margin-left: 18px;
+    margin-top: 0px;
+    border-left: 3px ridge #800080;
+    border-right: 3px groove #800080;
+
+}
+
+.user-info {
+    display: flex;
+    padding: 30px;
+    padding-top: 10px;
+    padding-left: 5px;
+    height: auto;
+
+}
+
+
+.user-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20px;
+    position: relative;
+    width: 80px;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.user-info i {
+    display: block;
+    margin: 5px;
+    font-size: 24px;
+    width: fit-content;
+    padding: 5px;
+
+
+}
+
+.user-info i:hover,
+i.hovered {
+    outline: 1px groove #800080;
+    border-radius: 5px;
+}
+
+
+#personal {
+    margin-left: 15px;
+}
+
+.actual-content {
+    width: auto;
+    height: auto;
+}
+
+#first {
+    float: left;
+    border: 2px solid slateblue;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 250px;
+}
+
+#second {
+    float: inherit;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid white;
+    width: 300px;
+    height: 250px;
+}
+
+.security-content,
+.activity-log-content,
+.general-content {
+    margin: 15px;
+    margin-top: 25px;
+    margin-left: 0px;
+    width: 800px;
+    padding: 10px;
+    height: 250px;
+}
+
+.first-sec {
+    float: left;
+    width: 350px;
+    height: 250px;
+    margin-left: 50px;;
+}
+
+.first-sec div,
+.second-sec div {
+    margin-bottom: 16px;
+
+}
+
+.first-sec span {
+    float: right;
+
+}
+
+.second-sec {
+    float:inline-end;
+    width: 350px;
+    height: 250px;
+    margin-left: 10px;;
+}
+
+.second-sec span {
+    float: right;
+}
+
+.general-content div,
+.security-content div,
+.activity-log-content div {
+    padding: 10px;
+    color: #ddd;
+}
+
+
+.general-content span,
+.security-content span,
+.activity-log-content span {
+    display: inline;
+    justify-content: flex-start;
+    color: #999;
+}
+
+#edit-button {
+    float: right;
+    margin-right: 45px;
+    margin-top: 25px;
+
+}
+
+
+@media (max-width: 1200px) {
+    .main-content {
+        margin-right: 50px;
+    }
+
+    .list-container,
+    .top-content {
+        margin-left: 240px;
+    }
+
+    .list-item,
+    .top-content {
+        width: 800px;
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .top-texts {
+        margin-left: 60px;
+        width: 500px;
+        gap: 90px;
+        justify-content: end;
+    }
+
+    .top-text {
+        font-size: 16px;
+        margin-left: 5px;
+    }
+
+    .actions {
+        width: 120px;
+        gap: 4px;
+        margin-right: 0px;
+    }
+
+    .actions i {
+        margin-right: 10px;
+        font-size: 18px;
+
+    }
+
+    .actions .checkbox-custom {
+        margin-right: 10px;
+        width: 16px;
+    }
+
+    .text {
+        font-size: 16px;
+        padding: 4px;
+        justify-content: center;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .content div {
+        gap: 40px;
+        width: 800px;
+    }
+
+    .list-item i {
+        margin-right: 0px;
+    }
+
+    .list-item .fa-chevron-right {
+        margin-left: 1px;
+    }
+
+    .list-item img {
+        width: 40px;
+        height: 40px;
+        margin-top: -4px;
+        margin-left: 1px;
+        border-radius: 50%;
+    }
+
+    #plus {
+        margin-left: 9px;
+        margin-right: 9px;
+        font-size: 20px;
+    }
+
+    .custom-checkbox {
+        width: 10px;
+        height: 20px;
+    }
+
+    .pagination {
+        margin-left: 120px;
+    }
+
+    .user-info-container {
+        width: 760px;
+    }
+
+
+    .user-info i {
+        margin: 1px;
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    #personal {
+        margin-left: 10px;
+    }
+
+    #first {
+        float: left;
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 200px;
+
+    }
+
+    #second {
+        width: 200px;
+        height: 200px;
+    }
+
+    .security-content,
+    .activity-log-content,
+    .general-content {
+        margin: 10px;
+        margin-top: 9px;
+        margin-left: 0px;
+        width: 800px;
+        padding: 10px;
+        height: 200px;
+    }
+
+    .first-sec {
+        float: left;
+        width: 300px;
+        height: 240px;
+    }
+
+    .first-sec div,
+    .second-sec div {
+        margin-bottom: 16px;
+
+    }
+
+    .first-sec span {
+        float: right;
+        margin-left: 0px;
+    }
+
+    .second-sec {
+        float: inline-start;
+        width: 320px;
+        height: 240px;
+
+    }
+
+    .second-sec span {
+        float: right;
+
+    }
+
+    .general-content div,
+    .security-content div,
+    .activity-log-content div {
+        padding: 10px;
+        color: #ddd;
+    }
+
+
+    .general-content span,
+    .security-content span,
+    .activity-log-content span {
+        display: inline;
+        justify-content: flex-start;
+    }
+
+    #edit-button {
+        float: right;
+        margin-left: 0px;
+        margin-right: 44px;
+        margin-top: 20px;
+
+    }
+
+    .actual-content {
+        width: 700px;
+        height: auto;
+
+    }
+}
+
+@media (max-width: 992px) {
+    .main-content {
+        margin-right: 50px;
+    }
+
+    .list-container,
+    .top-content {
+        margin-left: 100px;
+    }
+
+
+    .list-item,
+    .top-content {
+        width: 750px;
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .top-texts {
+        margin-left: 60px;
+        width: 500px;
+        gap: 90px;
+        justify-content: end;
+    }
+
+    .top-text {
+        font-size: 16px;
+        margin-left: 5px;
+    }
+
+    .actions {
+        width: 120px;
+        gap: 4px;
+        margin-right: 0px;
+    }
+
+    .actions i {
+        margin-right: 10px;
+        font-size: 18px;
+
+    }
+
+    .actions .checkbox-custom {
+        margin-right: 10px;
+        width: 16px;
+    }
+
+    .text {
+        font-size: 16px;
+        padding: 4px;
+        justify-content: center;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .content div {
+        gap: 40px;
+        width: 750px;
+    }
+
+    .list-item i {
+        margin-right: 0px;
+    }
+
+    .list-item .fa-chevron-right {
+        margin-left: 1px;
+    }
+
+    .list-item img {
+        width: 40px;
+        height: 40px;
+        margin-top: -4px;
+        margin-left: 1px;
+        border-radius: 50%;
+    }
+
+    #plus {
+        margin-left: 9px;
+        margin-right: 9px;
+        font-size: 20px;
+    }
+
+    .custom-checkbox {
+        width: 10px;
+        height: 20px;
+    }
+
+    .pagination {
+        margin-left: 0px;
+    }
+
+    .user-info-container {
+        width: 710px;
+        height: 350px;
+    }
+
+
+    .user-info i {
+        margin: 1px;
+        font-size: 18px;
+        padding: 5px;
+
+    }
+
+    #personal {
+        margin-left: 10px;
+    }
+
+    #first {
+        float: left;
+        display: flex;
+        flex-direction: column;
+        width: 180px;
+        height: 200px;
+
+    }
+
+    #second {
+        width: 180px;
+        height: 200px;
+    }
+
+    .security-content,
+    .activity-log-content,
+    .general-content {
+        margin: 10px;
+        margin-top: 9px;
+        margin-left: 0px;
+        width: 700px;
+        padding: 10px;
+        height: 200px;
+
+    }
+
+    .first-sec {
+        float: left;
+        width: 250px;
+        height: 240px;
+
+    }
+
+    .first-sec div,
+    .second-sec div {
+        margin-bottom: 16px;
+
+    }
+
+    .first-sec span {
+        float: right;
+        margin-left: 0px;
+
+    }
+
+    .second-sec {
+        float: inline-start;
+        width: 320px;
+        height: 240px;
+
+
+    }
+
+    .second-sec span {
+        float: right;
+
+    }
+
+    .general-content div,
+    .security-content div,
+    .activity-log-content div {
+        padding: 10px;
+        color: #ddd;
+    }
+
+
+    .general-content span,
+    .security-content span,
+    .activity-log-content span {
+        display: inline;
+        justify-content: flex-start;
+    }
+
+    #edit-button {
+        float: right;
+        margin-left: 0px;
+        margin-right: 70px;
+        margin-top: 20px;
+
+    }
+
+    .actual-content {
+        width: 670px;
+        height: auto;
+    }
+}
+
+
+.main-content,
+.list-container {
+    transition: margin-left 0.5s ease;
+}
+
+
+/* pop up */
+.delete-popup {
+    text-align: center;
+    color: #ddd;
+    font-size: 15px;
+    border: 2px groove #800080;
+    background-color: #1a1a1a;
+    width: 400px;
+    height: 150px;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#cancel-delete,
+#ok-delete,
+#save,
+#cancel {
+    margin: 10px;
+    margin-top: 0px;
+    height: 35px;
+    width: 75px;
+    padding: 10px;
+    background-color: #1a1a1a;
+    outline: 2px groove #800080;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.popup-content {
+    text-align: center;
+    color: red;
+    font-size: 15px;
+    border: 2px groove #800080;
+    background-color: #1a1a1a;
+    width: 400px;
+    height: 60px;
+    position: fixed;
+    z-index: 1000;
+    top: 57%;
+    left: 58%;
+    transform: translate(-50%, -50%);
+    display: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#save,
+#cancel {
+
+    margin-top: 7px;
+}
+
+.editpopup-labels {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 50px;
+}
+
+.editpopup-labels label {
+    color: #ddd;
+    padding: 5px;
+    border-bottom: #800080 groove;
+    font-size: 20px;
+    margin-bottom: 15px;
+    ;
+}
+
+.editpopup-labels label.active {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+.add-playlist-div:active,
+.delete-playlist-div:active {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+#edit-popup i {
+
+    margin-top: 15px;
+}
+
+.add-playlist-div,
+.delete-playlist-div {
+    color: #ddd;
+    margin-bottom: 0px;
+    margin-left: 50px;
+}
+
+.playlist-display {
+    height: 179px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #1a1a1a #999;
+}
+
+.add-playlist-div .song,
+.delete-playlist-div .song {
+    margin: 0px;
+    width: 770px;
+    margin-top: 5px;
+    margin-left: -25px;
+}
+
+#edit-popup .generalContent-header,
+#edit-popup .generalContent-header {
+    margin: 0px;
+    width: 790px;
+    margin-top: 5px;
+    margin-left: -24px;
+}
+
+.editpopup-labels label:hover {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+
+#edit-popup {
+    width: 825px;
+    height: 350px;
+}
+
+/* Popup styles for light mode */
+body.light-mode .delete-popup,
+body.light-mode .popup-content {
+    color: #000;
+    border-color: #800080;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* Button styles for light mode */
+body.light-mode #cancel-delete,
+body.light-mode #ok-delete,
+body.light-mode #save,
+body.light-mode #cancel {
+    background-color: #fff;
+    color: #000;
+    outline-color: #800080;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+body.light-mode #edit-popup {
+    color: #000;
+    background-color: #fff;
+}
+
+body.light-mode .playlist-display {
+    scrollbar-color: #fff #999;
+}
+
+body.light-mode .editpopup-labels label {
+    color: #000;
+    border-bottom-color: #800080;
+}
+
+body.light-mode .editpopup-labels label.active {
+    background-color: #333;
+}
+
+body.light-mode .editpopup-labels label:hover {
+    background-color: #333;
+}/* Delete button style */
+.delete-song-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.delete-song-btn:hover {
+    background-color: #c0392b;
+}
+
+.delete-song-btn:focus {
+    outline: none;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+/* Delete button style */
+.delete-song-btn {
+    display: inline-block;
+    padding: 6px 10px; 
+    color: #800080;
+    font-size: 14px; 
+    text-transform:none;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid #800080; 
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.delete-song-btn:hover {
+    background-color: #800080;
+    color: #ffffff; 
+}
+.user-info-container {
+    display: none;
+}
+
+.fa-chevron-down {
+    display: none;
+}
+
+.list-item .fa-solid {
+    cursor: pointer;
+}

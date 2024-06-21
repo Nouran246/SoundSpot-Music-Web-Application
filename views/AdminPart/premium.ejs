@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/CSS/Admin%20CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="icon" href="/photo/2.png" type="image/png">
+    <link rel="stylesheet" href="/CSS/Admin%20CSS/ManageSongs.css">
+    <link rel="stylesheet" href="/CSS/Admin%20CSS/premium.css">
+    <link rel="stylesheet" href="/CSS/Admin%20CSS/free.css">
+    <script src="/JavaScript/Admin%20JavaScript/Sidenavbar.js"></script>
+    <script src="/JavaScript/Admin%20JavaScript/premium.js"></script>
+    <script src="/JavaScript/Admin%20JavaScript/german.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+</head>
+<body>
+    <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
+    <h1 class="title9">Subscription Packages</h1>
+    <div class="container">
+        <button id="addPlanButton">+</button>
+        <div id="dynamicPlansContainer">
+            <% plans.forEach(plan => { %>
+                <div class="plan" id="<%= `${plan.Title}-plan-details` %>">
+                    <div class="plan-details">
+                        <h3><%= `${plan.Title} Subscription Details` %></h3>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Price:</strong></td>
+                                    <td><%= plan.price %></td>
+                                    <td><strong>Features:</strong></td>
+                                    <td>
+                                        <ul>
+                                            <% plan.Features.forEach(feature => { %>
+                                                <li><%= feature %></li>
+                                            <% }) %>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Duration:</strong></td>
+                                    <td><%= plan.Duration %></td>
+                                    <td class="plan-actions">
+                                        <button class="edit-button" data-plan-title="<%= plan.Title %>">Edit</button>
+                                        <button class="delete-button" data-plan-title="<%= plan.Title %>">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <!-- Popup form for adding a new plan -->
+    <div id="popupForm" class="popup">
+        <h2>Add Plan</h2>
+        <form id="planForm" name="planForm" action="/plans/process" method="POST" enctype="multipart/form-data" >
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" placeholder="Enter title"><br>
+            <label>Features:</label><br>
+            <input type="checkbox" id="feature1" name="features" value="Ads-Free">
+            <label for="feature1">Ads-Free</label><br>
+            <input type="checkbox" id="feature2" name="features" value="Pop-ups Free">
+            <label for="feature2">Pop-ups Free</label><br>
+            <input type="checkbox" id="feature3" name="features" value="Free plan">
+            <label for="feature3">Free plan</label><br>
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" placeholder="Enter price"><br>
+            <label for="duration">Duration:</label>
+            <select id="duration" name="duration">
+                <option value="Free plan">Free plan</option>
+                <option value="1 month">1 month</option>
+                <option value="3 months">3 month</option>
+                <option value="6 months">6 months</option>
+                <option value="1 year">1 year</option>
+            </select><br>
+            <label for="adsVideo">Upload Ads Video (Optional):</label>
+            <input type="file" id="adsVideo" name="adsVideo" accept="video/*"><br>
+            <label for="popupImage">Upload Popup Image (Optional):</label>
+            <input type="file" id="popupImage" name="popupImage" accept="image/*"><br>
+            <button type="submit" onclick="validateForm()">Save</button>
+            <button type="button" onclick="hidePopupForm()">Cancel</button>
+        </form>
+        <div id="message" style="display: none;">Data saved successfully!</div>
+    </div>
+    <div id="editPopupForm" class="popup" style="display: none;">
+        <h2>Edit Plan</h2>
+        <form id="editPlanForm">
+            <label for="editTitle">Title:</label>
+            <input type="text" id="editTitle" name="editTitle"><br>
+            <label for="editPrice">Price:</label>
+            <input type="text" id="editPrice" name="editPrice"><br>
+            <label for="editDuration">Duration:</label>
+            <select id="editDuration" name="editDuration">
+                <option value="1 month">1 month</option>
+                <option value="3 months">3 months</option>
+                <option value="6 months">6 months</option>
+                <option value="1 year">1 year</option>
+            </select><br>
+            <fieldset>
+                <legend>Features:</legend>
+                <input type="checkbox" id="editFeature1" class="editFeatureCheckbox" name="editFeatures" value="Ads-Free">
+                <label for="editFeature1">Ads-Free</label><br>
+                <input type="checkbox" id="editFeature2" class="editFeatureCheckbox" name="editFeatures" value="Pop-ups Free">
+                <label for="editFeature2">Pop-ups Free</label><br>
+            </fieldset>
+            <input type="hidden" id="editPlanTitle" name="editPlanTitle">
+            <button type="submit" id="editSaveButton">Save</button>
+            <button type="button" id="editCancelButton">Cancel</button>
+        </form>
+    </div>
+    <input type="hidden" id="planTitle" name="planTitle">
+    <div class="settings-popup-container">
+        <div class="settings-popup">
+            <h3>Settings</h3>
+            <h4>Change Language</h4> 
+            <div id="google_translate_element"></div>
+            <div class="button-group">
+                <button id="save-button">Save</button>
+                <button id="cancel-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

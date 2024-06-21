@@ -1,0 +1,177 @@
+
+
+ h1{
+
+    margin-top: 50px;
+    text-align: center;
+}
+
+.contact {
+    position: fixed;
+    top:215px;
+    left: 55%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 2px double;
+    background-color: #222;
+    border-radius: 30px;
+    margin: 30px;
+    padding: 20px;
+    text-align: center;
+    width: 72%;
+    height: auto;
+    font-size: 20px;
+}
+
+
+.light-mode .contact {
+    background-color: white;
+    color: black; 
+    border-color: #ccc; 
+}
+
+
+.light-mode .item a {
+    color: black; 
+}
+
+
+.light-mode .aboutus pre {
+    background-color: white; 
+    color: black; 
+    border-color: #ccc; 
+}
+
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; 
+}
+
+.item i {
+    font-size: 30px;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: darkmagenta;
+    text-align: center;
+    transition: background-color 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.item i:hover {
+    background-color: #333;
+}
+
+.item a {
+    color: white;
+    text-decoration: none;
+}
+
+.item a:hover {
+    color: darkmagenta;
+}
+
+.aboutus pre {
+   
+        position: fixed;
+        top: 70%; /* Center vertically */
+        left: 57%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Center horizontally and vertically */
+        align-items: center;
+        display: block;
+        border: 2px double;
+        background-color: #222;
+        border-radius: 30px;
+        margin: 30px auto; /* Center horizontally */
+        padding: 20px;
+        text-align: center;
+        width: 72%;
+        height: auto;
+        font-family: Arial, sans-serif;
+        font-size: x-large;
+        color: white;
+        overflow: auto;
+        white-space: pre-wrap;
+    
+}
+
+
+h1{
+    margin-left: 260px;
+   
+}
+#con h1{
+    margin-top:200px;
+    margin-left: 270px;
+    text-align: center;
+}
+#cov{
+    position: fixed;
+    top: 80%; 
+}
+
+
+@media (max-width: 480px) {
+    .contact {
+        position: static; /* Remove fixed positioning for smaller screens */
+
+        width: 70%; /* Adjust width for smaller screens */
+        margin: 10px; /* Reduce margin for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+        flex-direction: column; /* Change to column layout for smaller screens */
+        align-items: center; /* Center items vertically for smaller screens */
+        top: auto; /* Remove fixed positioning for smaller screens */
+        left: auto; /* Remove fixed positioning for smaller screens */
+        transform: none; /* Remove fixed positioning for smaller screens */
+        margin-top:45px;
+        margin-left:90px;
+    }
+
+    .aboutus pre {
+        position: static; /* Remove fixed positioning for smaller screens */
+        top: auto; /* Remove fixed positioning for smaller screens */
+        left: auto; /* Remove fixed positioning for smaller screens */
+        transform: none; /* Remove fixed positioning for smaller screens */
+        margin: 10px auto; /* Center horizontally for smaller screens */
+        width: 90%; /* Adjust width for smaller screens */
+        margin-top: 300px;
+        width: 70%;
+        margin-top:45px;
+        margin-left:90px;
+    }
+
+    h1 {
+        margin-left: 70px; /* Reset margin for smaller screens */
+        margin-top: 20px; /* Adjust margin top for smaller screens */
+        text-align: center; /* Center the heading for smaller screens */
+    }
+
+    #con h1 {
+        margin-top: 20px; /* Adjust margin top for smaller screens */
+        margin-left: 0; /* Reset margin for smaller screens */
+        text-align: center; /* Center the heading for smaller screens */
+    }
+    #con{
+        margin-left:100px;
+      
+    }
+    #cov {
+        position: static; /* Remove fixed positioning for smaller screens */
+        top: auto; /* Remove fixed positioning for smaller screens */
+        left: auto; /* Remove fixed positioning for smaller screens */
+    }
+
+    .item {
+        margin-bottom: 10px; /* Reduce margin between items for smaller screens */
+    }
+}
+

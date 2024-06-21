@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/CSS/User CSS/Sidenavbar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <title>SoundSpot</title>
+        <link rel="stylesheet" href="/CSS/User CSS/SongPlaying.css">
+        <script src="/JavaScript/User JS/SongPlaying.js"></script>
+        <link rel="icon" href="/User/photo/2.png" type="image/png">
+        <link rel="stylesheet" href="/CSS/User CSS/Userhomepage.css">
+        <link rel="stylesheet" href="/CSS/User CSS/CommunityGuidlines.css">
+        <script src="/JavaScript/User JS/Sidenavbar.js"></script>
+        <script src="/JavaScript/User JS/Plans.js"></script>
+        <link rel="stylesheet" href="/CSS/User CSS/Plans.css">
+        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+    </head>
+    
+<body>
+    <%- include('../includes/sidenav&navbarsUSER.ejs')%>           
+    <div class="Plan">
+        <h1>Premium Subscriptions </h1>
+        <div class="three-buttons">
+            <div>
+                <span id="pay1" onclick="section()">Pay by card</span>
+                <span id="pay2" onclick="section1()">Pay by phone</span>
+                <span id="pay3" onclick="section2()">Pay by cash</span>
+            </div>
+        </div>
+        <!-- section 1  -->
+        <div class="plan-cards" id="planCards">
+            <div class="card" id="card1">
+                <h2>Student Plan</h2>
+                <br>
+                <p>Unlimited music streaming for students</p>
+                <br>
+                <h1>$1.49 <span id="mon">monthly</span></h1>
+                <a href = "Subscription"><button>Subscribe</button></a>
+            </div>
+            <div class="card" id="card2">
+                <h2>Individual Plan</h2>
+                <br>
+                <p>Enjoy music streaming for one person</p>
+                <br>
+                <h1>$2.4 <span id="mon">monthly</span></h1>
+                <a href = "Subscription"><button>Subscribe</button></a>
+            </div>
+            <div class="card" id="card3">
+                <h2>Family Plan</h2>
+                <br>
+                <p>Share music with your family members</p>
+                <br>
+                <h1>$4 <span id="mon">monthly</span></h1>
+                <a href = "Subscription"><button>Subscribe</button></a>
+            </div>
+        </div>
+        <div class="plan-cards" id="planCards1">
+            <div class="card" id="card1">
+                <img src="/photo/etisilat.png" id="et-vod-or">
+                <h2>Etisalat Offer</h2>
+                <br>
+                <p>Enjoy music streaming with Etisilat</p>
+                <br>
+                <h1>$2 <span id="mon">monthly</span></h1>
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+            <div class="card" id="card2">
+                <img src="/photo/vodafone.jpeg" id="et-vod-or">
+                <h2>Vodafone Offer</h2>
+                <br>
+                <p>Enjoy music streaming with Vodafone</p>
+                <br>
+                <h1>$2 <span id="mon">monthly</span></h1>
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+            <div class="card" id="card3">
+                <img src="/photo/orange.png" id="et-vod-or">
+                <h2>Orange Offer</h2>
+                <br>
+                <p>Enjoy music streaming with Orange</p>
+                <br>
+                <h1>$2 <span id="mon">monthly</span></h1>
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+        </div>
+         <!-- section 3  -->
+        <div class="plan-cards" id="planCards2">
+            <div class="card">
+                <img src="/photo/fawry.png" id="et-vod-or">
+                <h2>Fawry</h2>
+                <br>
+                <h1>Free</h1>
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modaling" id="myModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Please enter your number:</p>
+            <input type="text" id="phoneNumber" required>
+            <span class="error" id="error-message"></span>
+            <br><br>
+            <button id="cancelBtn">Cancel</button>
+            <button id="okBtn">OK</button>
+        </div>
+    </div>
+</div>
+<%- include('../includes/SongPlaying.ejs')%>
+
+</body>
+</html>

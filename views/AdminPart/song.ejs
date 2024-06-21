@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/CSS/Admin%20CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="icon" href="/photo/2.png" type="image/png">
+    <link rel="stylesheet" href="/CSS/Admin%20CSS/home.css">
+    <link rel="stylesheet" href="/CSS/Admin%20CSS/ManageUsers.css">
+    <script src="/JavaScript/Admin%20JavaScript/Sidenavbar.js"></script>
+    <link rel="stylesheet" href="/CSS/Admin%20CSS/songs.css">
+    <script src="/JavaScript/Admin%20JavaScript/songs.js"></script>
+    <script src="/JavaScript/Admin%20JavaScript/german.js"></script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+</head>
+
+<body>
+    <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
+        <div class=" main-content">
+            <div class="top-content">
+                <i class="fa-solid fa-plus" id="plus" title="Add User"></i>
+                <div class="top-texts">
+                    <div class="top-text">Name</div>
+                    <div class="top-text">Artist</div>
+                    <div class="top-text">Album</div>
+                    <div class="top-text">Release Date</div>
+                </div>
+                <div class="actions">
+                    <div class="checkbox" id="selectAllCheckbox">
+                        <input type="checkbox" id="topCheckbox" class="checkbox-input" />
+                        <span class="checkbox-custom"></span>
+                    </div>
+                    <i class="fa-solid fa-pen"></i>
+                </div>
+            </div>
+            <div class="list-container">
+                <%songs.forEach(song=>{%>
+                    <div class="list-item">
+                        <div class="content">
+                            <i class="fa-solid fa-music"></i>
+
+                            <div class="text">
+                                <%=song.songName%>
+                            </div>
+                            <div class="text">
+                                <%=song.artistName%>
+                            </div>
+                            <div class="text">
+                                <%=song.albumName%>
+                            </div>
+                            <div class="text">
+                                <%=song.releaseDate.toDateString() %>
+                            </div>
+                            <form id="deleteForm_<%= song._id %>">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="delete-song-btn" type="button" data-song-id="<%= song._id %>">Delete</button>
+                            </form>
+                            <i class="fa-solid fa-chevron-right toggle-info"></i>
+                        </div>
+                    </div>
+
+                    <div class="user-info-container">
+                        <div class="general-content">
+                            <div class="first-sec">
+                                <div>
+                                    <label>Genre</label>
+                                    <span>
+                                        <%=song.genre%>
+                                    </span>
+                                </div>
+                                <div>
+                                    <label>Duration</label>
+                                    <span>
+                                        <%= song.duration%>
+                                    </span>
+                                </div>
+                                <div>
+                                    <label>Record label</label>
+                                    <span>
+                                        <%= song.recordLabel %>
+                                    </span>
+                                </div>
+                                <div>
+                                    <label>Songwriters</label>
+                                    <span>Ed Sheeran, Steve Mac</span>
+                                </div>
+                                <div>
+                                    <label>Producers</label>
+                                    <span>
+                                        <%= song.producers%>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="second-sec">
+                                <div>
+                                    <label>Composer</label>
+                                    <span>
+                                        <%= song.composer %>
+                                    </span>
+                                </div>
+                                <div>
+                                    <label>Release type</label>
+                                    <span>
+                                        <%= song.releaseType %>
+                                    </span>
+                                </div>
+                                <div>
+                                    <label>Songwriters</label>
+                                    <span>
+                                        <%= song.Songwriters %>
+                                    </span>
+                                </div>
+                                <div>
+                                    <label>Collaborations</label>
+                                    <span>
+                                        <%= song.collaborations %>
+                                    </span>
+                                </div>
+                                <div>
+                                    <label>Featured artists</label>
+                                    <span>
+                                        <%= song.featuredArtists %>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--                     </div>
+ -->
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+        </div>
+
+        <div class="delete-popup" id="delete-popup" style="display: none;">
+            <h2>Confirm Deletion</h2>
+            <p>Are you sure you want to delete the selected item(s)?</p>
+            <button id="ok-delete" class="btn">OK</button>
+            <button id="cancel-delete" class="btn">CANCEL</button>
+        </div>
+
+
+        <div class="select-item-popup">
+            <div class="popup-content" id="select-item">
+                <h2>No songs</h2>
+            </div>
+        </div>
+
+        <div class="select-item-popup">
+            <div class="popup-content" id="select-item-popup" style="display: none;">
+                <h2>Please select an item</h2>
+            </div>
+        </div>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+</body>
+
+</html>

@@ -1,0 +1,504 @@
+.minimizedsongcontainer {
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.light-mode .minimizedsongcontainer {
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background-color: white;
+   color:black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-bar {
+    flex-direction: column;
+   
+}
+
+.player-bar button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 20px;
+    width: 40px;
+    height: 40px;
+    
+}
+.light-mode .player-bar button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: rgb(175, 173, 173);
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 20px;
+    width: 40px;
+    height: 40px;
+    
+}
+
+.player-bar #maxpage {
+    left: 60%;
+}
+
+.player-bar #play {
+    background-color: darkmagenta;
+}
+
+.player-bar button:hover {
+    opacity: 0.7;
+    background-color: #333;
+}
+
+.player-bar #play:hover {
+    background-color: darkmagenta;
+    opacity: 1;
+}
+
+.songinfo {
+    bottom: 55px;
+    margin: 90px;
+    padding-bottom: 40px;
+}
+
+#songname {
+    font-size: 17px;
+    position: absolute;
+    left: 320px;
+}
+
+#artistname {
+    font-size: 13px;
+    position: absolute;
+    left: 320px;
+}
+
+#songpic {
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    left: 250px;
+}
+
+#artistname:hover,
+#songname:hover {
+    text-decoration: underline;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 80px;
+    background-color: #333;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px;
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes beat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+#songname {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+}
+
+.fa-headphones-simple {
+    animation: none;
+    padding: 0px 5px;
+}
+
+.playing .fa-headphones-simple {
+    animation: beat 0.5s infinite;
+    color: darkmagenta;
+}
+
+input[type="range"] {
+    width: 90%;
+    margin-left: 1%;
+    background-color: darkmagenta;
+}
+
+.time-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-right:90px;
+    width:900px;
+}
+
+#current-time,
+#duration {
+    font-size: 12px;
+    color: white;
+}
+
+#volumeControl {
+    width: 90%;
+    margin: 0px 10px 5px;
+    background-color: darkmagenta;
+}
+
+.maximizedsongcontainer {
+    position: fixed;
+    background-color: black;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 2s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+#pic {
+    width: 400px;
+    height: 400px;
+    align-items: center;
+    margin-left: 770px;
+    margin-top: 20px;
+    display: none;
+}
+
+.minimizedsongcontainer {
+    transition: opacity 1s ease-out;
+    opacity: 1;
+}
+
+.maximizedsongcontainer.show {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+.maximizedsongcontainer button {
+    margin-left: 1500px;
+    margin-top: 20px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.maximizedsongcontainer .info {
+    align-items: center;
+    left: 300px;
+}
+
+.tool .tooltipptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: 99%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tool:hover .tooltipptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+#songh1 {
+    margin-left: 870px;
+}
+
+#songh3 {
+    margin-left: 930px;
+}
+
+#songh1:hover {
+    text-decoration: underline;
+    color: darkmagenta;
+}
+
+#songh3:hover {
+    text-decoration: underline;
+}
+
+.accent {
+    accent-color: darkmagenta;
+}
+
+/* Styling for the liked button */
+#likes {
+    margin-left:250px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+#likes:hover {
+    opacity: 0.7;
+}
+
+#likes .fa-heart {
+    color: white;
+}
+
+.light-mode #likes .fa-heart{
+    color:#aaa;
+}
+
+
+#likes.liked .fa-heart {
+    color: darkmagenta; /* Change to purple when liked */
+}
+/* Styles for the volume control slider */
+/* Styles for the volume control slider */
+.volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%; /* Set the width to 100% of its container */
+    height: 8px; /* Adjust height as needed */
+    background: #ccc; /* Background color of the slider track */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove default focus outline */
+    opacity: 0.7; /* Opacity of the slider track */
+    transition: opacity 0.15s ease-in-out; /* Smooth transition for opacity change */
+}
+
+/* Style for the slider thumb (handle) */
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px; /* Width of the slider thumb */
+    height: 16px; /* Height of the slider thumb */
+    background: #333; /* Color of the slider thumb */
+    border-radius: 50%; /* Rounded shape */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.15s ease-in-out; /* Smooth transition for background color change */
+}
+
+/* Style for the slider track (bar behind the thumb) */
+.volume-slider::-webkit-slider-runnable-track {
+    width: 100%; /* Width of the slider track */
+    height: 8px; /* Height of the slider track */
+    background: #ccc; /* Background color of the slider track */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Style for the slider thumb when active (hovered or dragged) */
+.volume-slider:hover::-webkit-slider-thumb,
+.volume-slider:focus::-webkit-slider-thumb {
+    background: #555; /* Color change on hover or focus */
+}
+
+/* Adjust styles for other browsers (Firefox, etc.) */
+.volume-slider::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume-slider::-ms-track {
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.volume-slider::-ms-thumb {
+    width: 16px;
+    height: 16px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: transparent;
+    margin: 5% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+   
+    font-size: 28px; /* Increased font size */
+    line-height: 1.8; /* Increased line height */
+}
+.light-mode .modal{
+    background-color: rgba(255,255,255,0.9);
+}
+
+.light-mode .modal-content{ 
+ 
+    color:black;
+}
+
+.close {
+    color: #aaa;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+}
+
+/* Optional: Add animation for modal appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@media (max-width: 480px) {
+    .minimizedsongcontainer, .light-mode .minimizedsongcontainer {
+        height: 80px;
+        padding: 5px;
+    }
+
+    .player-bar button {
+        font-size: 16px;
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+    }
+
+    #songname, #artistname {
+        font-size: 14px;
+        left: 100px;
+        width: 120px;
+    }
+
+    #songpic {
+        left: 70px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .time-display {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    #current-time, #duration {
+        font-size: 8px;
+    }
+
+    #songh1 {
+        margin-left: 60%;
+    }
+
+    #songh3 {
+        margin-left: 65%;
+    }
+
+    .maximizedsongcontainer button {
+        margin-left: 85%;
+        margin-top: 10px;
+    }
+
+    #pic {
+        width: 90%;
+        height: auto;
+        margin-left: 5%;
+    }
+
+    .modal-content {
+        padding: 20px;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .close {
+        font-size: 24px;
+        top: 10px;
+        right: 10px;
+    }
+}

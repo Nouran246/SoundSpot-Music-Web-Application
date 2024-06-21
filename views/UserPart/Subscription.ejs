@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/CSS/User CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="stylesheet" href="/CSS/User CSS/SongPlaying.css">
+    <script src="/JavaScript/User js/SongPlaying.js"></script>
+
+    <link rel="icon" href="/photo/2.png" type="image/png">
+    <link rel="stylesheet" href="/CSS/User CSS/Subscription.css">
+    <script src="/JavaScript/User js/Sidenavbar.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+</head>
+<body>
+    <%- include('../includes/sidenav&navbarsUSER.ejs') %>
+    <div class="subscribe_container" id="container">
+        <form id="signupForm">
+            <label for="firstname">First Name</label>
+            <input class="textbox" type="text" placeholder="First Name" name="firstname" id="firstname" required>
+            <div class="error" id="firstnameErr"></div>
+    
+            <label for="lastname">Last Name</label>
+            <input class="textbox" type="text" placeholder="Last Name" name="lastname" id="lastname" required>
+            <div class="error" id="lastnameErr"></div>
+    
+            <label for="address">Billing Address</label>
+            <input class="textbox" type="text" placeholder="Billing Address" name="address" id="address" required>
+            <div class="error" id="addressErr"></div>
+    
+            <label for="zip">Zip/Postal Code</label>
+            <input class="textbox" type="text" placeholder="Zip/Postal Code" name="zip" id="zip" required>
+            <div class="error" id="zipErr"></div>
+    
+            <label for="country">Country</label>
+            <select class="textbox" name="country" id="country">
+                <option value="">Select Country</option>
+                <option>Australia</option>
+                <option>Canada</option>
+                <option>India</option>
+                <option>United States</option>
+                <option>United Kingdom</option>
+            </select>
+            <div class="error" id="countryErr"></div>
+    
+            <label for="city">City</label>
+            <input class="textbox" type="text" placeholder="City" name="city" id="city" required>
+            <div class="error" id="cityErr"></div>
+    
+            <label for="phone">Phone Number</label>
+            <input class="textbox" type="text" placeholder="Phone Number" name="phone" id="phone" required>
+            <div class="error" id="phoneErr"></div>
+    
+            <label for="cardnumber">Card Number</label>
+            <input class="textbox" type="text" placeholder="Card Number" name="cardnumber" id="cardnumber" required>
+            <div class="error" id="cardnumberErr"></div>
+    
+            <label for="expiry">Expiry Date (MM/YY)</label>
+            <input class="textbox" type="text" placeholder="Expiry Date (MM/YY)" name="expiry" id="expiry" required>
+            <div class="error" id="expiryErr"></div>
+    
+            <label for="cvc">CVC</label>
+            <input class="textbox" type="text" placeholder="CVC" name="cvc" id="cvc" required>
+            <div class="error" id="cvcErr"></div>
+    
+            <button type="button" onclick="validateForm(document.getElementById('signupForm'))">Sign Up</button>
+        </form>
+    </div>
+    <%- include('../includes/SongPlaying.ejs')%>
+
+    
+    <script src="/User/User js/Subscription.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<div class="minimizedsongcontainer" style="display: none;">
+    <img id="songpic" src="" alt="Song Image">
+    <div class="songinfo">
+        <h1 id="songname">Song Title<i id="sing" class="fa-solid fa-headphones-simple fa-beat" style="--fa-animation-duration: 0.5s;"></i></h1><br>
+        <h3 id="artistname">Artist Name</h3>
+    </div>
+    <div class="player-bar" id="player-bar">
+        <button id="likes"><i class="fa-solid fa-heart" id="icons"></i></button>
+        <button id="backward" onclick="backwardAudio()"><i class="fa-solid fa-backward" id="icons"></i></button>
+        <button id="play" onclick="toggleAudio()"><i class="fa-solid fa-play" id="icons"></i></button>
+        <button id="forward"><i class="fa-solid fa-forward" id="icons"></i></button>
+        <button id="volumeIcon" onclick="toggleVolumeControl()"><i class="fa-solid fa-volume-high" id="icons"></i></button>
+        <!-- Volume control slider -->
+        <input type="range" id="volumeControl" class="accent" value="100" min="0" max="100" step="1" onchange="adjustVolume(this.value)" style="display: none;">
+        
+        <!-- Lyrics button and modal -->
+        <button id="lyricsButton" class="tooltip">
+            <i class="fa-solid fa-pen" id="icons"></i>
+            <span class="tooltiptext">Lyrics</span>
+        </button>
+        
+        <div id="lyricsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="lyricsContent">
+                    <!-- Lyrics content will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+        
+
+        <button id="maxpage" onclick="maximizePage()" class="tooltip">
+            <i class="fa-sharp fa-solid fa-up-right-and-down-left-from-center" id="icons"></i>
+            <span class="tooltiptext">Full Screen</span>
+        </button>
+        
+        <div class="time-display">
+            <span id="current-time">00:00</span>
+            <input type="range" id="progress-bar" class="accent" value="0" min="0" max="100" step="1" oninput="seekTo(this.value)">
+            <span id="duration">00:00</span>
+        </div>
+    </div>
+    <audio id="audioPlayer" src=""></audio>
+</div>

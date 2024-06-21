@@ -1,0 +1,79 @@
+<!-- user report -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/CSS/User CSS/Sidenavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SoundSpot</title>
+    <link rel="stylesheet" href="/CSS/User CSS/SongPlaying.css">
+    <script src="/JavaScript/User js/SongPlaying.js"></script>
+
+    <link rel="icon" href="/photo/2.png" type="image/png">
+    <link rel="stylesheet" href="/CSS/User CSS/Report.css">
+    
+    <script src="/JavaScript/User js/Sidenavbar.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
+</head>
+<body>
+    <%- include('../includes/sidenav&navbarsUSER.ejs')%>
+    <br><br> 
+    <div class="container">
+        <header>
+            <h1 style="color: magenta;">You are reporting an issue at SoundSpot</h1>
+        </header>
+        <section class="form-section">
+            <h2>Problem with the page:</h2>
+            <form id="issue-report-form" onsubmit="return validateReportForm(event, this)" action="/report/issue" method="POST">
+                <div class="checkbox-group">
+                    <div>
+                        <input type="checkbox" id="images" name="problem_type" value="images">
+                        <label for="images">Missing/Broken images</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="spelling" name="problem_type" value="spelling">
+                        <label for="spelling">Misspelling</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="links" name="problem_type" value="links">
+                        <label for="links">Broken link(s)</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="info" name="problem_type" value="info">
+                        <label for="info">Outdated or incorrect information</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="request_song" name="problem_type" value="request song">
+                        <label for="request_song">Request Song</label>
+                    </div>
+                </div>
+                <div class="error" id="problemTypeErr"></div>
+                
+                <div class="email-section">
+                    <div class="email-input">
+                        <label for="email">Your email:</label>
+                        <input type="email" id="email" name="email">
+                        <div class="error" id="emailErr"></div>
+                    </div>
+                    <div class="email-input">
+                        <label for="confirm-email">Confirm your email:</label>
+                        <input type="email" id="confirm-email" name="confirm_email">
+                        <div class="error" id="confirmEmailErr"></div>
+                    </div>
+                </div>
+                <div class="comment-section">
+                    <label for="comment">Comment:</label>
+                    <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+                    <div class="error" id="commentErr"></div>
+                </div>
+                
+                <button type="submit" id="submit-button">Submit</button>
+            </form>
+            
+        </section>
+    </div>
+    <%- include('../includes/SongPlaying.ejs')%>
+    <script src = "/JavaScript/User js/Report.js"></script>
+</body>
+</html>
