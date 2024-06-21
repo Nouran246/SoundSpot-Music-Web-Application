@@ -234,12 +234,29 @@ router.get("/Songs", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-router.get("/managePlaylist", async (req, res) => {
+router.get("/managePlaylist", authMiddleware, async (req, res) => {
   try {
     const playlists = await Playlist.find().populate('songs');
     if (req.session.user) {
       res.render("AdminPart/managePlaylist", {
         currentPage: "managePlaylist",
+        user: req.session.user,
+        playlists: playlists  
+      });
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.error('Error fetching playlist:', error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+router.get("/ManagePlaylists", async (req, res) => {
+  try {
+    const playlists = await Playlist.find().populate('songs');
+    if (req.session.user) {
+      res.render("UserPart/ManagePlaylists", {
+        currentPage: "ManagePlaylists",
         user: req.session.user,
         playlists: playlists  
       });
@@ -313,15 +330,22 @@ router.get("/playlistPage", async (req, res) => {
   }
 });
 
-router.get("/History", (req, res) => {
+router.get("/History", async(req, res) => {
+  try {
+    const songs = await song.find();
   if (req.session.user) {
     res.render("UserPart/History", {
       currentPage: "History",
       user: req.session.user,
+      songs: songs,
     });
   } else {
     res.redirect("/");
   }
+} catch (error) {
+  console.error('Error fetching songs:', error);
+  res.status(500).send("Internal Server Error");
+}
 });
 router.get("/addsong", authMiddleware, (req, res) => {
   if (req.session.user) {
