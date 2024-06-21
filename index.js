@@ -20,6 +20,7 @@ app.use(express.static('public', { maxAge: '7d' }));
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Route to serve uploaded files
