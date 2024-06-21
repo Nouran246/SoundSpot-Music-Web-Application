@@ -49,6 +49,7 @@ const userSchema = new mongoose.Schema({
   },
   type: {
     type: String,
+    enum: ['User', 'Admin'],
     required: true,
   },
   verificationToken: {
@@ -60,9 +61,6 @@ const userSchema = new mongoose.Schema({
   },
   dob: {
     type: Date,
-  },
-  role: {
-    type: String,
   },
   planType: {
     type: String,

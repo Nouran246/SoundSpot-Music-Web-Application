@@ -20,10 +20,7 @@ const playlistSchema = new mongoose.Schema({
     }],
     imagePlaylist: { type: String, required: true },
 });
-/* 
-playlistSchema.path('songs').validate(function (songs) {
-    return songs.length >= 2;
-}, 'A playlist must contain at least 2 songs.'); */
+
 
 const Playlist = mongoose.model('Playlist', playlistSchema);
 

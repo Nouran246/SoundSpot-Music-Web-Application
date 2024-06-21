@@ -38,43 +38,51 @@ const deleteUser = async (req, res) => {
   }
 };
 
-const updateUser = async (req, res) => {
-  const { id } = req.params;
-  const { username, email, role, phone, gender, country, state } = req.body;
-
+// Method to fetch user data for editing
+const getUserForEdit = async (req, res) => {
   try {
-      const updatedUser = await User.findByIdAndUpdate(
-          id,
-          { username, email, role, phone, gender, country, state },
-          { new: true, runValidators: true }
-      );
+    const userId = req.params.id;
+    const user = await User.findById(userId);
 
-      if (!updatedUser) {
-          return res.status(404).send('User not found');
-      }
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
 
-      res.json(updatedUser); // Optionally, send back the updated user object
+    res.json(user);
   } catch (error) {
-      console.error('Error updating user:', error);
-      res.status(500).send('Internal Server Error');
+    console.error("Error fetching user data for editing:", error);
+    res.status(500).send("Internal Server Error");
   }
 };
 
-const getUserById = async (req, res) => {
+// Method to update user data
+const updateUser = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
+    const userId = req.params.id;
+    const { username, email, phone, role, gender, country, state } = req.body;
+
+    const user = await User.findByIdAndUpdate(userId, {
+      username,
+      email,
+      phone,
+      type,
+      gender,
+      country,
+    }, { new: true });
+
     if (!user) {
-      return res.status(404).send('User not found');
+      return res.status(404).send("User not found");
     }
-    res.json(user); // Send user data as JSON response
+
+    res.status(200).send("User data updated successfully");
   } catch (error) {
-    console.error('Error fetching user data:', error);
-    res.status(500).send('Internal Server Error');
+    console.error("Error updating user data:", error);
+    res.status(500).send("Internal Server Error");
   }
 };
 
 module.exports = {
-  getUserById,
+  getUserForEdit,
   addUser,
   updateUser,
   deleteUser,

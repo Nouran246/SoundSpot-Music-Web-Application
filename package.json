@@ -1,4 +1,4 @@
-{
+{"main": "index.js",
   "dependencies": {
     "-": "^0.0.1",
     "bcrypt": "^5.1.1",
@@ -28,6 +28,10 @@
     "start": "node index.js"
   },
   "engines": {
+<<<<<<< HEAD
     "node": "v20.14.0"
+=======
+    "node": "20.x"
+>>>>>>> edit
   }
 }

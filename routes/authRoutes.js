@@ -5,15 +5,21 @@ const loginController = require("../controllers/loginController");
 const signupController = require("../controllers/signupController");
 const CommunityGuidelines = require("../models/Communityguidelinesschema");
 const CompanyOverviewModel = require("../models/company");
-const userController = require ("../controllers/userController");
+const userController = require("../controllers/userController");
 const authMiddleware = require("../controllers/authMiddleware");
 const plan = require("../models/planing");
 const router = express.Router();
 const User = require("../models/Users.js");
-const song = require("../models/song"); 
+const song = require("../models/song");
+const Playlist = require("../models/Playlist.js");
 
 router.post("/delete-users", userController.deleteUser);
-router.get('/users/:id', authMiddleware, userController.getUserById);
+
+// Route to fetch user data for editing
+router.get("/edit-user/:id", authMiddleware, userController.getUserForEdit);
+
+// Route to update user data
+router.put("/edit-user/:id", authMiddleware, userController.updateUser);
 
 // Home page (landing page)
 router.get("/", (req, res) => {
@@ -29,7 +35,7 @@ router.get("/index", (req, res) => {
     user: req.session.user || "",
   });
 });
-router.get("/home", authMiddleware,(req, res) => {
+router.get("/home", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/home", {
       currentPage: "home",
@@ -39,7 +45,7 @@ router.get("/home", authMiddleware,(req, res) => {
     res.redirect("/");
   }
 });
-router.get("/CommunityGuidelinesAdmin", authMiddleware,(req, res) => {
+router.get("/CommunityGuidelinesAdmin", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/CommunityGuidelinesAdmin", {
       currentPage: "CommunityGuidelinesAdmin",
@@ -49,7 +55,7 @@ router.get("/CommunityGuidelinesAdmin", authMiddleware,(req, res) => {
     res.redirect("/");
   }
 });
-router.get("/CompanyOverview", authMiddleware,(req, res) => {
+router.get("/CompanyOverview", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/CompanyOverview", {
       currentPage: "CompanyOverview",
@@ -89,7 +95,7 @@ router.get("/contact", async (req, res) => {
   }
 });
 
-router.get("/premium", authMiddleware, async(req, res) => {
+router.get("/premium", authMiddleware, async (req, res) => {
   if (req.session.user) {
     const plans = await plan.find();
     res.render("AdminPart/premium", {
@@ -154,12 +160,12 @@ router.get("/UserHomePage", async (req, res) => {
 // roaa
 router.get("/song", async (req, res) => {
   try {
-    const songs = await song.find(); 
+    const songs = await song.find();
     if (req.session.user) {
       res.render("AdminPart/song", {
         currentPage: "song",
         user: req.session.user,
-        songs: songs  
+        songs: songs
       });
     } else {
       res.redirect("/");
@@ -171,12 +177,12 @@ router.get("/song", async (req, res) => {
 });
 router.get("/addplaylist", async (req, res) => {
   try {
-    const songs = await song.find(); 
+    const songs = await song.find();
     if (req.session.user) {
       res.render("AdminPart/addplaylist", {
         currentPage: "addplaylist",
         user: req.session.user,
-        songs: songs  
+        songs: songs
       });
     } else {
       res.redirect("/");
@@ -233,21 +239,45 @@ router.get("/Songs", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+router.get("/managePlaylist", authMiddleware, async (req, res) => {
+  try {
+    const playlists = await Playlist.find().populate('songs');
+    if (req.session.user) {
+      res.render("AdminPart/managePlaylist", {
+        currentPage: "managePlaylist",
+        user: req.session.user,
+        playlists: playlists  
+      });
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.error('Error fetching playlist:', error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+router.get("/ManagePlaylists", async (req, res) => {
+  try {
+    const playlists = await Playlist.find().populate('songs');
+    if (req.session.user) {
+      res.render("UserPart/ManagePlaylists", {
+        currentPage: "ManagePlaylists",
+        user: req.session.user,
+        playlists: playlists  
+      });
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.error('Error fetching playlist:', error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 router.get("/SongPlaying", (req, res) => {
   if (req.session.user) {
     res.render("UserPart/SongPlaying", {
       currentPage: "SongPlaying",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
-});
-
-router.get("/ManagePlaylists", (req, res) => {
-  if (req.session.user) {
-    res.render("UserPart/ManagePlaylists", {
-      currentPage: "ManagePlaylists",
       user: req.session.user,
     });
   } else {
@@ -288,32 +318,39 @@ router.get("/contact", (req, res) => {
 });
 
 router.get("/playlistPage", async (req, res) => {
-  try{
+  try {
+    const songs = await song.find();
+    if (req.session.user) {
+      res.render("UserPart/playlistPage", {
+        currentPage: "playlistPage",
+        user: req.session.user,
+        songs: songs,
+      });
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.error('Error fetching songs:', error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+router.get("/History", async(req, res) => {
+  try {
     const songs = await song.find();
   if (req.session.user) {
-    res.render("UserPart/playlistPage", {
-      currentPage: "playlistPage",
+    res.render("UserPart/History", {
+      currentPage: "History",
       user: req.session.user,
       songs: songs,
     });
   } else {
     res.redirect("/");
   }
- }catch (error) {
-    console.error('Error fetching songs:', error);
-    res.status(500).send("Internal Server Error");
-} 
-});
-
-router.get("/History", (req, res) => {
-  if (req.session.user) {
-    res.render("UserPart/History", {
-      currentPage: "History",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
+} catch (error) {
+  console.error('Error fetching songs:', error);
+  res.status(500).send("Internal Server Error");
+}
 });
 router.get("/addsong", authMiddleware, (req, res) => {
   if (req.session.user) {
@@ -343,7 +380,7 @@ router.get("/logout", (req, res) => {
     res.redirect("/index");
   });
 });
-router.get("/ManageUsers", authMiddleware, async(req, res) => {
+router.get("/ManageUsers", authMiddleware, async (req, res) => {
   if (req.session.user) {
     const users = await User.find();
     res.render("AdminPart/ManageUsers", {
@@ -356,33 +393,7 @@ router.get("/ManageUsers", authMiddleware, async(req, res) => {
   }
 });
 
-router.get("/ManageUsers/:id", authMiddleware, async (req, res) => {
-  try {
-      const user = await User.findById(req.params.id);
-      if (!user) {
-          return res.status(404).send("User not found");
-      }
-      res.json(user); // Send user data as JSON response
-  } catch (error) {
-      console.error('Error fetching user data for editing:', error);
-      res.status(500).send("Internal Server Error");
-  }
-});
 
-
-
-
-
-router.get("/managePlaylist", authMiddleware,(req, res) => {
-  if (req.session.user) {
-    res.render("AdminPart/managePlaylist", {
-      currentPage: "managePlaylist",
-      user: req.session.user,
-    });
-  } else {
-    res.redirect("/");
-  }
-});
 router.get("/addplaylist", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/addplaylist", {
@@ -393,7 +404,7 @@ router.get("/addplaylist", authMiddleware, (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/Badges", authMiddleware,(req, res) => {
+router.get("/Badges", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/Badges", {
       currentPage: "Badges",
@@ -403,7 +414,7 @@ router.get("/Badges", authMiddleware,(req, res) => {
     res.redirect("/");
   }
 });
-router.get("/contactAdmin",authMiddleware, (req, res) => {
+router.get("/contactAdmin", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/contactAdmin", {
       currentPage: "contactAdmin",
@@ -413,7 +424,7 @@ router.get("/contactAdmin",authMiddleware, (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/free",authMiddleware, (req, res) => {
+router.get("/free", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/free", {
       currentPage: "free",
@@ -423,7 +434,7 @@ router.get("/free",authMiddleware, (req, res) => {
     res.redirect("/");
   }
 });
-router.get("/ManageSongs",authMiddleware, (req, res) => {
+router.get("/ManageSongs", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/ManageSongs", {
       currentPage: "ManageSongs",
@@ -446,7 +457,7 @@ router.get("/ManageSongs",authMiddleware, (req, res) => {
   }
 });
   */
-router.get("/Reports", authMiddleware, async(req, res) => {
+router.get("/Reports", authMiddleware, async (req, res) => {
   if (req.session.user) {
     const reports = await IssueReport.find();
     res.render("AdminPart/Reports", {
@@ -459,7 +470,7 @@ router.get("/Reports", authMiddleware, async(req, res) => {
   }
 });
 
-router.get("/userProfile", authMiddleware,(req, res) => {
+router.get("/userProfile", authMiddleware, (req, res) => {
   if (req.session.user) {
     res.render("AdminPart/userProfile", {
       currentPage: "userProfile",
@@ -469,5 +480,4 @@ router.get("/userProfile", authMiddleware,(req, res) => {
     res.redirect("/");
   }
 });
-
 module.exports = router;

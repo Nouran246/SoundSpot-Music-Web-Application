@@ -2,6 +2,7 @@
 
 const Playlist = require('../models/Playlist');
 
+// Upload in DB (POST)
 exports.uploadPlaylist = async (req, res) => {
     const { playlistName, genre, PrivacySettings, songIds } = req.body;
     console.log("Received data:", req.body);
@@ -67,5 +68,24 @@ exports.uploadPlaylist = async (req, res) => {
     } catch (error) {
         console.error('Error uploading playliat:', error);
         res.status(500).send('Internal Server Error');
+    }
+};
+
+// Display  (GET)
+exports.getPlaylist = async (req, res) => {
+    try {
+        const playlists = await Playlist.find().populate('songs');
+        if (req.session.user) {
+            res.render("AdminPart/managePlaylist", {
+                currentPage: "managePlaylist",
+                user: req.session.user,
+                playlists: playlists,
+            });
+        } else {
+            res.redirect("/");s
+        }
+    } catch (error) {
+        console.error('Error fetching playlist:', error);
+        res.status(500).send("Internal Server Error");
     }
 };

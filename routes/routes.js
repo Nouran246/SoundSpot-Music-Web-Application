@@ -47,23 +47,25 @@ function setupRoutes(app) {
   ]), playlistController.uploadPlaylist);
 
 
-
   // Route for processing plan creation with file uploads
   app.post('/plans/process', upload.fields([{ name: 'adsVideo', maxCount: 1 }, { name: 'popupImage', maxCount: 1 }]), planController.createPlan);
+  app.post('/auth/delete-plan/:title', planController.deletePlan);
   app.put('/plans/:id', planController.updatePlan);
-  router.delete('plans/:id', async (req, res) => {
-    try {
-        const planId = req.params.id;
-        const plan = await Plan.findByIdAndDelete(planId);
-        if (!plan) {
-            return res.status(404).json({ message: 'Plan not found' });
-        }
-        res.json({ message: 'Plan deleted successfully' });
-    } catch (error) {
-        console.error('Error deleting plan:', error);
-        res.status(500).json({ message: 'Internal Server Error' });
-    }
-}); 
+//   router.delete('/auth/delete-plan/:title', async (req, res) => {
+//     try {
+//         const planTitle = req.params.title;
+//         const plan = await Plan.findOneAndDelete({ Title: planTitle });
+
+//         if (!plan) {
+//             return res.status(404).json({ message: 'Plan not found' });
+//         }
+
+//         res.json({ message: 'Plan deleted successfully' });
+//     } catch (error) {
+//         console.error('Error deleting plan:', error);
+//         res.status(500).json({ message: 'Internal Server Error' });
+//     }
+// });
 router.get('/plans', async (req, res) => {
     try {
         
@@ -96,6 +98,7 @@ router.get('/plans', async (req, res) => {
   });
 
   app.get('/song', songController.getSongs);
+  app.get('/managePlaylist', playlistController.getPlaylist);
   router.get('/addplaylist', async (req, res) => {
     try {
         

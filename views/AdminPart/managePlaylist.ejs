@@ -21,15 +21,15 @@
     <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
         <div class=" main-content">
             <div class="top-content">
-                <a href="/views/AdminPart/addplaylist" title="Add Playlist">
+                <a href="/addplaylist" title="Add Playlist">
                     <i class="fa-solid fa-plus" id="plus"></i>
                 </a>
                 <div class="top-texts">
                     <div class="top-text">Name</div>
-                    <div class="top-text">Artist</div>
-                    <div class="top-text">Duration</div>
-                    <div class="top-text">Creator</div> 
-                </div>
+                    <div class="top-text">Genre</div>
+                    <div class="top-text">Privacy</div>
+<!--                     <div class="top-text">Creator</div> 
+ -->                </div>
                 <div class="actions">
                     <div class="checkbox" id="selectAllCheckbox">
                         <input type="checkbox" id="topCheckbox" class="checkbox-input" />
@@ -40,12 +40,13 @@
                 </div>
             </div>
             <div class="list-container">
+                <%playlists.forEach(playlist=>{%>
                 <div class="list-item">
                     <div class="content">
                         <i class="fa-solid fa-music"></i>
-                        <div class="text">jane_smith</div>
-                        <div class="text">Jane Smith</div>
-                        <div class="text">Yesterday</div>
+                        <div class="text"><%=playlist.name %></div>
+                        <div class="text"><%=playlist.genre %></div>
+                        <div class="text"><%=playlist.privacy %></div>
                         <input class="custom-checkbox" type="checkbox" id="userCheckbox_jane_smith"
                             data-username="jane_smith">
                         <i class="fa-solid fa-chevron-right toggle-button"></i>
@@ -55,49 +56,24 @@
                     <div class="user-info">
                         <div class="general-content">
                             <div class="generalContent-header">
+                                <div>Name</div>
                                 <div>Artist</div>
                                 <div>Album</div>
-                                <div>Duration</div>
                                 <div>Genre</div>
                             </div>
+                            <% playlist.songs.forEach(song => { %>
                             <div class="song">
                                 <i class="fa-solid fa-music"></i>
-                                <div>Ed Sheeran</div>
-                                <div>÷ (Divide)</div>
-                                <div>3:57</div>
-                                <div>Pop</div>
+                                <div><%= song.songName %></div>
+                                 <div><%= song.artistName %></div>
+                                 <div><%= song.albumName %></div>
+                                 <div><%= song.genre %></div>
                             </div>
-                            <div class="song">
-                                <i class="fa-solid fa-music"></i>
-                                <div>The Weeknd</div>
-                                <div>After Hours</div>
-                                <div>3:44</div>
-                                <div>R&B</div>
-                            </div>
-                            <div class="song">
-                                <i class="fa-solid fa-music"></i>
-                                <div>Journey</div>
-                                <div>Escape</div>
-                                <div>4:11</div>
-                                <div>Rock</div>
-                            </div>
-                            <div class="song">
-                                <i class="fa-solid fa-music"></i>
-                                <div>Queen</div>
-                                <div>Greatest Hits</div>
-                                <div>5:55</div>
-                                <div>Rock</div>
-                            </div>
-                            <div class="song">
-                                <i class="fa-solid fa-music"></i>
-                                <div>Nirvana</div>
-                                <div>Nevermind</div>
-                                <div>5:01</div>
-                                <div>Rock</div>
-                            </div>
+                            <% }) %>
                         </div>
                     </div>
                 </div>
+                <% }) %>
             </div>
 
 

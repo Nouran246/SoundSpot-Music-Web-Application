@@ -6,6 +6,7 @@ const { connectToMongoDB } = require('./config/mongo.js');
 const { setupRoutes } = require('./routes/routes.js');
 const app = express();
 const path = require('path');
+<<<<<<< HEAD
 const cors= require('cors');
 
 const corsConfig = {
@@ -19,12 +20,30 @@ app.use(cors(corsConfig));
 
 // Use the corsConfig for preflight requests
 app.options('*', cors(corsConfig));
+=======
+const cors=require('cors');
+const corsConfig ={
+
+  origin: "https://sound-spot-music-web-application-1ud6ag6hz.vercel.app/",
+  credential:true,
+  methods:["GET","POST","PUT","DELETE"],
+  allowedHeaders: ['Content-Type'],
+  };
+  app.options(cors(corsConfig));
+>>>>>>> edit
 // Serve static files
 app.use(express.static(path.join(__dirname, 'uploads')));
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Internal Server Error');
+});
+
 
 // Route to serve uploaded files
 app.get('/uploads/:file', (req, res) => {

@@ -157,12 +157,15 @@
                                 <label for="username">Username:</label>
                                 <input type="text" id="username" name="username">
                                 <label for="email">Email:</label>
-                                <input type="email" id="email" name="email">
+                                <input type="email" id="Useremail" name="email">
                                 <label for="phone">Phone:</label>
                                 <input type="text" id="phone" name="phone">
                                 <label for="role">Role:</label>
-                                <label for="admin">Admin</label><input type="radio" id="admin" name="role">
-                                <label for="user">User</label><input type="radio" id="user" name="role">
+                                <select id="usertype" name="type">
+                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                                </select>
                                 <label for="gender">Gender:</label>
                                 <select id="gender" name="gender" >
                                     <option value="Male">Male</option>
@@ -170,15 +173,11 @@
                                 </select>
                                 <label for="country">Country:</label>
                                 <select id="country" name="country">
-                                    <option value="Select">Select</option>
                                     <option value="Australia">Australia</option>
                                     <option value="India">India</option>
                                     <option value="United States">United States</option>
                                     <option value="United Kingdom">United Kingdom</option>
                                 </select><br>
-                                <label for="state">State:</label>
-                                <label for="active">Activate</label><input type="radio" id="active" name="state">
-                                <label for="deactive">Deactivate</label><input type="radio" id="deactive" name="state">
                                 <!-- Add other fields as needed -->
                                  <div>
                                     <button id="save" class="btn">SAVE</button>

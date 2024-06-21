@@ -40,7 +40,7 @@ exports.createPlan = async (req, res) => {
       photoFileId: popupImage ? popupImage.filename : null,
     });
     const savedPlan = await newPlan.save();
-    res.status(201).json(savedPlan);
+    res.status(200).json(savedPlan);
   } catch (error) {
     console.error('Error creating plan:', error);
     res.status(500).send('Internal Server Error');
@@ -67,15 +67,15 @@ exports.updatePlan = async (req, res) => {
 };
 // Delete a plan
 exports.deletePlan = async (req, res) => {
-  const { id } = req.params;
+  const { title } = req.params;
   try {
-    const deletedPlan = await Plan.findByIdAndDelete(id);
+    const deletedPlan = await Plan.findOneAndDelete({ Title: title });
     if (!deletedPlan) {
       return res.status(404).render("404", { currentPage: "404", user: req.session.user });
     }
     res.redirect("/plans");
   } catch (error) {
-    console.error(`Error deleting plan with ID ${id}:`, error);
+    console.error(`Error deleting plan with title ${title}:`, error);
     res.status(500).send("Internal Server Error");
   }
 };
