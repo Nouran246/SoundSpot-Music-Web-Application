@@ -12,8 +12,12 @@
             "src":"/(.*)",
             "dest":"/",
             "methods":["GET","POST","PUT","DELETE","OPTIONS"]
+        },
+        {
+          "regions": ["sfo1"] 
         }
 
     ]
+   
 
 }
