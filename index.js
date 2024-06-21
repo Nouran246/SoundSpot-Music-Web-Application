@@ -7,14 +7,18 @@ const { setupRoutes } = require('./routes/routes.js');
 const app = express();
 const path = require('path');
 const cors= require('cors');
-app.use(cors());
-const corsConfig ={
 
-  origin: "*",
-  credential:true,
-  methoud:["GET","POST","PUT","DELETE"]
-  };
-  app.options("",cors(corsConfig));
+const corsConfig = {
+  origin: "https://sound-spot-music-web-application-leh07zoku.vercel.app/",
+  methods: ["POST", "GET", "DELETE", "PUT"],
+  credentials: true
+};
+
+// Use cors middleware with corsConfig
+app.use(cors(corsConfig));
+
+// Use the corsConfig for preflight requests
+app.options('*', cors(corsConfig));
 // Serve static files
 app.use(express.static(path.join(__dirname, 'uploads')));
 
