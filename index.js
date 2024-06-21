@@ -11,7 +11,7 @@ const corsConfig ={
 
   origin: "*",
   credential:true,
-  methoud:["GET","POST","PUT","DELETE"],
+  methods:["GET","POST","PUT","DELETE"],
   };
   app.options("",cors(corsConfig));
 // Serve static files
