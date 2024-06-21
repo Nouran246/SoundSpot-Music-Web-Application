@@ -28,6 +28,6 @@
     "start": "node index.js"
   },
  "engines": {
-  "node": "18.x"
+  "node": "14.x"
 }
 }
