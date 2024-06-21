@@ -131,7 +131,7 @@
 
 
                 <label for="record-label">Record Label:</label>
-                <select id="record-label" name="recordLabel" required>
+                <select id="record-label" name="recordLabel" required onchange="validateInput('record-label')">
                     <option value="" selected disabled>Select Record Label</option>
                     <option value="Universal Music Group">Universal Music Group</option>
                     <option value="Sony Music Entertainment">Sony Music Entertainment</option>
@@ -187,15 +187,13 @@
                     name="featuredArtists" required>
                 <div id="featured-artists-error" class="error-message"></div>
 
-
-                <input type="checkbox" id="lyrics-checkbox" onchange="toggleLyricsSection()">
-                <label for="lyrics-checkbox">Add Lyrics</label>
-
-                <div id="lyrics-section" style="display: none;">
+                <div id="lyrics-section">
                     <label for="lyrics">Lyrics:</label>
                     <textarea id="lyrics" placeholder="Enter lyrics" name="lyrics" required></textarea>
                 </div>
-    <!--             <div>
+                <div id="lyrics-error" class="error-message"></div>
+
+                <!--             <div>
                     <label for="privacy-settings">Privacy Settings:</label>
                     <select id="privacy-settings">
                         <option value="public">Public</option>
@@ -204,7 +202,7 @@
                     </select>
                 </div>
  -->
-                <label for="song-file">Upload Song (MP3 / wav / ogg / aac / m4a):</label>
+                <label for="song-file">Upload Song (MP3 / WAV / OGG / AAC / M4A):</label>
                 <div class="file-upload">
                     <input type="file" id="song-file" accept=".mp3, .wav, .ogg, .aac, .m4a" required name="songFileId">
                     <div id="song-file-error" class="error-message"></div>
@@ -213,10 +211,11 @@
 
                 <label for="image-file">Upload Image (JPEG, PNG):</label>
                 <div class="file-upload">
-                    <input type="file" id="image-file" accept="image/*" required name="imageFileId">
+                    <input type="file" id="image-file" accept="image/jpeg, image/png" required name="imageFileId">
                     <div id="image-file-error" class="error-message"></div>
                     <label for="image-file">Click to upload</label>
                 </div>
+
                 <button type="button" id="save-button" onclick="validateForm()">Save</button>
             </form>
         </div>
