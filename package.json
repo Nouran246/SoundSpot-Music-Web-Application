@@ -1,4 +1,4 @@
-{
+{"main": "index.js",
   "dependencies": {
     "-": "^0.0.1",
     "bcrypt": "^5.1.1",
