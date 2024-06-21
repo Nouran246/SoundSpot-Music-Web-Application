@@ -1,27 +1,12 @@
-{ 
-    "version":2,
-    "builds":[
-        {
-            "src":"./index.js",
-            "use":"@vercel/node"
-        }
-    ],
-    "routes":[
-
-        {
-            "src":"/(.*)",
-            "dest":"/",
-            "methods": [
-              "GET",
-              "POST",
-              "PUT",
-              "PATCH",
-              "DELETE",
-              "OPTIONS"
-          ]
-        }
-
-    ]
-   
-
+{
+  "version": 2,
+  "builds": [
+    { "src": "index.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "index.js" }
+  ],
+  "env": {
+    "MONGODB_URI": "mongodb+srv://Yahia_Tamer:yts27904@yahiascluster.pkyujq3.mongodb.net/SoundSpot?retryWrites=true&w=majority&appName=Yahiascluster"
+  }
 }
