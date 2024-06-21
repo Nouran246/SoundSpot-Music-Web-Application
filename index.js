@@ -8,7 +8,12 @@ const app = express();
 const path = require('path');
 const cors= require('cors');
 app.use(cors());
+const corsConfig ={
 
+  origin: "*",
+  credential:true,
+  methoud:["GET","POST","PUT","DELETE"]
+  };
 // Serve static files
 app.use(express.static(path.join(__dirname, 'uploads')));
 
