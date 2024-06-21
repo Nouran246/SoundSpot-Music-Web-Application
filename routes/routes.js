@@ -51,21 +51,21 @@ function setupRoutes(app) {
   app.post('/plans/process', upload.fields([{ name: 'adsVideo', maxCount: 1 }, { name: 'popupImage', maxCount: 1 }]), planController.createPlan);
   app.post('/auth/delete-plan/:title', planController.deletePlan);
   router.put('/plans/:title', planController.updatePlan);
-  router.get('/plans', async (req, res) => {
-    try {
+  // router.get('/plans', async (req, res) => {
+  //   try {
         
-      const plans = await plan.find();
-      console.log(plans);
-      res.render("/premium", {
-        plans: plans,
-      })
+  //     const plans = await plan.find();
+  //     // console.log(plans);
+  //     res.render("/premium", {
+  //       plans: plans,
+  //     })
 
-      // res.json(plans);
-    } catch (error) {
-      console.error('Error fetching plans:', error);
-      res.status(500).send("Internal Server Error");
-    }
-  });
+  //     // res.json(plans);
+  //   } catch (error) {
+  //     console.error('Error fetching plans:', error);
+  //     res.status(500).send("Internal Server Error");
+  //   }
+  // });
   router.get('/songs', async (req, res) => {
     try {
         

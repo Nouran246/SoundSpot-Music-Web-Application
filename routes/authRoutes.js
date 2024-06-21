@@ -108,27 +108,34 @@ router.get("/premium", authMiddleware, async (req, res) => {
   }
 });
 
-router.get('/plans', async (req, res) => {
+// router.get('/plans', async (req, res) => {
+//   try {
+//     const plans = await plan.find();
+//     console.log(plans);
+//     res.json(plans);
+//   } catch (error) {
+//     console.error('Error fetching plans:', error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
+
+
+router.get("/Plans", async (req, res) => {
   try {
     const plans = await plan.find();
-    // console.log(plans);
-    // res.json(plans);
-  } catch (error) {
-    console.error('Error fetching plans:', error);
-    res.status(500).send("Internal Server Error");
-  }
-});
-
-
-router.get("/Plans", (req, res) => {
   if (req.session.user) {
     res.render("UserPart/Plans", {
       currentPage: "Plans",
       user: req.session.user,
+      plans: plans,
     });
   } else {
     res.redirect("/");
   }
+} catch (error) {
+  console.error('Error fetching songs:', error);
+  res.status(500).send("Internal Server Error");
+}
 });
 router.get("/Subscription", (req, res) => {
   if (req.session.user) {
