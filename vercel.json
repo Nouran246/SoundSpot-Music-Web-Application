@@ -10,7 +10,8 @@
 
         {
             "src":"/(.*)",
-            "dest":"/"
+            "dest":"/",
+            "methoud":["GET","POST","PUT","DELETE","OPTIONS"]
         }
 
     ]
