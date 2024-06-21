@@ -77,14 +77,12 @@ h2 {
     margin-top: -4%;
 }
 
-h1, h2 {
-    color: darkmagenta; 
-    margin-left: 20px; /* Reduced margin for better mobile view */
+.containers h1 {
+    color:white;
+    text-align: center;
 }
 
-h2 {
-    color: grey;
-}
+
 
 .commguide {
     border-style: solid;
