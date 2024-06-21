@@ -6,6 +6,8 @@ const authMiddleware = (req, res, next) => {
       res.redirect('/');
     }
   };
+
+
   
   module.exports = authMiddleware;
   

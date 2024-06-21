@@ -23,6 +23,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Internal Server Error');
+});
+
+
 // Route to serve uploaded files
 app.get('/uploads/:file', (req, res) => {
   const file = req.params.file;
