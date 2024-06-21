@@ -27,7 +27,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "engines": {
-    "node": "v18.14.0"
-  }
+ "engines": {
+  "node": "18.x"
+}
 }
