@@ -6,21 +6,7 @@ const { connectToMongoDB } = require('./config/mongo.js');
 const { setupRoutes } = require('./routes/routes.js');
 const app = express();
 const path = require('path');
-<<<<<<< HEAD
-const cors= require('cors');
 
-const corsConfig = {
-  origin: "https://sound-spot-music-web-application-leh07zoku.vercel.app/",
-  methods: ["POST", "GET", "DELETE", "PUT"],
-  credentials: true
-};
-
-// Use cors middleware with corsConfig
-app.use(cors(corsConfig));
-
-// Use the corsConfig for preflight requests
-app.options('*', cors(corsConfig));
-=======
 const cors=require('cors');
 const corsConfig ={
 
@@ -30,7 +16,7 @@ const corsConfig ={
   allowedHeaders: ['Content-Type'],
   };
   app.options(cors(corsConfig));
->>>>>>> edit
+
 // Serve static files
 app.use(express.static(path.join(__dirname, 'uploads')));
 
