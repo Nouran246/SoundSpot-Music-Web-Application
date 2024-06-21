@@ -9,7 +9,7 @@ const path = require('path');
 const cors=require('cors');
 const corsConfig ={
 
-  origin: "*",
+  origin: "https://sound-spot-music-web-application-1ud6ag6hz.vercel.app/",
   credential:true,
   methods:["GET","POST","PUT","DELETE"],
   };
