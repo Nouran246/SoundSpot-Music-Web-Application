@@ -34,6 +34,7 @@
                         <input type="checkbox" id="topCheckbox" class="checkbox-input" />
                         <span class="checkbox-custom"></span>
                     </div>
+                    <i class="fa-solid fa-trash" title="Delete" id="delete-icon1"></i>
                     <i class="fa-solid fa-pen"></i>
                 </div>
             </div>
@@ -55,10 +56,7 @@
                             <div class="text">
                                 <%=song.releaseDate.toDateString() %>
                             </div>
-                            <form id="deleteForm_<%= song._id %>">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <button class="delete-song-btn" type="button" data-song-id="<%= song._id %>">Delete</button>
-                            </form>
+                            <input class="custom-checkbox" type="checkbox" id="songCheckbox_<%= song._id %>" data-songid="<%= song._id %>">
                             <i class="fa-solid fa-chevron-right toggle-info"></i>
                         </div>
                     </div>

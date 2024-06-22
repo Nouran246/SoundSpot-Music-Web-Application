@@ -1,7 +1,7 @@
 // managePlaylist.js
 
 
-// Function to handle user deletion
+// Function to handle playlist deletion
 function handlePlaylistDeletion() {
     var deleteIcon = document.getElementById('delete-icon1');
     var deletePopup = document.getElementById('delete-popup');

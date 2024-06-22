@@ -178,16 +178,20 @@ exports.getSongs = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
+
+
+// Delete 
 exports.deleteSong = async (req, res) => {
   try {
-    const { id } = req.params;
-    const songId = ObjectId(id);
-    const deletedSong = await Song.findOneAndRemove({ _id: songId });
-    console.log(deletedSong);
-    console.log('Deleted song:', deletedSong);
-    res.status(200).json({ message: 'Song deleted successfully', deletedSong });
-  } catch (err) {
-    console.error('Error deleting song:', err);
-    res.status(500).json({ error: 'Internal Server Error' });
+      const { songIds } = req.body;
+      if (!songIds || !Array.isArray(songIds)) {
+          return res.status(400).send({ error: 'Invalid song IDs' });
+      }
+
+      await Song.deleteMany({ _id: { $in: songIds } });
+      res.status(200).send({ message: 'Song(s) deleted successfully' });
+  } catch (error) {
+      console.error('Error deleting song(s):', error);
+      res.status(500).send({ error: 'An error occurred while deleting song(s)' });
   }
 };

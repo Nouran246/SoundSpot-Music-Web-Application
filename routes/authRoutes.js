@@ -21,6 +21,12 @@ router.post("/delete-playlists", (req, res, next) => {
   next();
 }, playlistController.deletePlaylist);
 
+
+router.post("/delete-songs", (req, res, next) => {
+  console.log("Route /auth/delete-songs hit");
+  next();
+}, songController.deleteSong);
+
 router.post("/delete-users", userController.deleteUser);
 
 // Route to fetch user data for editing
