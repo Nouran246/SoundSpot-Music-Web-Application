@@ -37,33 +37,68 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("mic-button").addEventListener("click", function() {
             document.getElementById("micModal").style.display = "block";
         });
-
-
-        // Add event listener for mic button click
-document.getElementById("mic-button").addEventListener("click", function() {
-    openMicModal();
-});
+// Check if SpeechRecognition is available and use appropriate prefix
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new window.SpeechRecognition();
+recognition.interimResults = true;
 
 // Function to open mic modal window
 function openMicModal() {
     var micModal = document.getElementById("micModal");
+    console.log("start");
     if (micModal) {
         micModal.style.display = "block";
+        recognition.start();
     }
 }
+
+// Function to close mic modal window
+function closeMicModal() {
+    console.log("finish");
+    var micModal = document.getElementById("micModal");
+    if (micModal) {
+        micModal.style.display = "none";
+        recognition.stop();
+    }
+}
+
+// Event listener for mic button click
+document.getElementById("mic-button").addEventListener("click", function() {
+    openMicModal();
+});
 
 // Function to close mic modal window when X button is clicked
 document.getElementById("closeButton").addEventListener("click", function() {
     closeMicModal();
 });
 
-// Function to close mic modal window
-function closeMicModal() {
-    var micModal = document.getElementById("micModal");
-    if (micModal) {
-        micModal.style.display = "none";
+// Event listener to handle recognition results
+recognition.addEventListener('result', (e) => {
+    const text = Array.from(e.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+        .join('');
+
+    console.log('Detected speech:', text); // Log detected speech to the console
+
+    // Reset recognition on final result
+    if (e.results[0].isFinal) {
+        recognition.stop();
+
     }
-}
+});
+
+// Event listener to handle recognition end and restart
+recognition.addEventListener('end', () => {
+    var micModal = document.getElementById("micModal");
+    if (micModal && micModal.style.display === "block") {
+        recognition.start(); // Restart recognition if the modal is still open
+    } else {
+        if (micModal) {
+            micModal.style.display = "none";
+        }
+    }
+});
 
     // Dropdown menu
     var profileIcon = document.getElementById("profile-icon");
