@@ -10,8 +10,16 @@ const authMiddleware = require("../controllers/authMiddleware");
 const plan = require("../models/planing");
 const router = express.Router();
 const User = require("../models/Users.js");
+const songController = require("../controllers/songController.js");
 const song = require("../models/song");
 const Playlist = require("../models/Playlist.js");
+const playlistController = require("../controllers/playlistController.js");
+
+
+router.post("/delete-playlists", (req, res, next) => {
+  console.log("Route /auth/delete-playlists hit");
+  next();
+}, playlistController.deletePlaylist);
 
 router.post("/delete-users", userController.deleteUser);
 

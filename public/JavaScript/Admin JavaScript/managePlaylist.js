@@ -1,5 +1,94 @@
 // managePlaylist.js
 
+
+// Function to handle user deletion
+function handlePlaylistDeletion() {
+    var deleteIcon = document.getElementById('delete-icon1');
+    var deletePopup = document.getElementById('delete-popup');
+    var selectItemPopup = document.getElementById('select-item-popup');
+    var checkboxes = document.querySelectorAll('.custom-checkbox');
+    var okButton = document.getElementById('ok-delete');
+    var cancelButton = document.getElementById('cancel-delete');
+
+    deleteIcon.addEventListener('click', function () {
+        var anyCheckboxChecked = false;
+
+        checkboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                anyCheckboxChecked = true;
+                return; 
+            }
+        });
+
+        if (anyCheckboxChecked) {
+            deletePopup.style.display = 'block';
+        } else {
+            selectItemPopup.style.display = 'block'; 
+            setTimeout(function () {
+                selectItemPopup.style.display = 'none';
+            }, 2000); 
+        }
+    });
+
+    okButton.addEventListener('click', function () {
+        var selectedPlaylistIds = [];
+
+        checkboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                selectedPlaylistIds.push(checkbox.getAttribute('data-playlistid'));
+
+                var listItem = checkbox.closest('.list-item');
+                var userInfoContainer = listItem.nextElementSibling;
+
+                listItem.remove();
+                if (userInfoContainer && userInfoContainer.classList.contains('user-info-container')) {
+                    userInfoContainer.style.display = 'none';
+                }
+            }
+        });
+
+        fetch('/auth/delete-playlists', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ playlistIds: selectedPlaylistIds })
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Playlists deleted successfully');
+                window.location.reload(); 
+            } else {
+                console.error('Failed to delete playlists');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        
+        deletePopup.style.display = 'none'; 
+    });
+
+    // Event listener for Cancel button in delete confirmation popup
+    cancelButton.addEventListener('click', function () {
+        deletePopup.style.display = 'none'; // Hide delete popup on cancel
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Check all boxes
 function toggleAllCheckboxes() {
     var topCheckbox = document.getElementById('topCheckbox');
@@ -55,7 +144,7 @@ function applySearchListener() {
 }
 
 // delete function
-function deleteItems() {
+/* function deleteItems() {
     var deleteIcon = document.getElementById('delete-icon');
     var deletePopup = document.getElementById('delete-popup');
     var cancelButton = document.getElementById('cancel-delete');
@@ -105,7 +194,7 @@ function deleteItems() {
             topCheckbox.checked = false;
         });
     });
-}
+} */
 
 // edit function
 function editItems() {
@@ -260,11 +349,13 @@ function editItems() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function () {  
-   
+document.addEventListener('DOMContentLoaded', function () {
+
     // manipulate data
-    deleteItems();
-    editItems();
+/*     deleteItems();
+ */    editItems();
+
+    handlePlaylistDeletion();
 
     // search
     const searchInput = document.querySelector('.search-bar input');
