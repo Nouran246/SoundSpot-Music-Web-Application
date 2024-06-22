@@ -14,17 +14,17 @@ function handleSongDeletion() {
         checkboxes.forEach(function (checkbox) {
             if (checkbox.checked) {
                 anyCheckboxChecked = true;
-                return; 
+                return;
             }
         });
 
         if (anyCheckboxChecked) {
             deletePopup.style.display = 'block';
         } else {
-            selectItemPopup.style.display = 'block'; 
+            selectItemPopup.style.display = 'block';
             setTimeout(function () {
                 selectItemPopup.style.display = 'none';
-            }, 2000); 
+            }, 2000);
         }
     });
 
@@ -52,19 +52,19 @@ function handleSongDeletion() {
             },
             body: JSON.stringify({ songIds: selectedSongIds })
         })
-        .then(response => {
-            if (response.ok) {
-                console.log('Song(s) deleted successfully');
-                window.location.reload(); 
-            } else {
-                console.error('Failed to delete song(s)');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-        
-        deletePopup.style.display = 'none'; 
+            .then(response => {
+                if (response.ok) {
+                    console.log('Song(s) deleted successfully');
+                    window.location.reload();
+                } else {
+                    console.error('Failed to delete song(s)');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        deletePopup.style.display = 'none';
     });
 
     // Event listener for Cancel button in delete confirmation popup
@@ -72,7 +72,36 @@ function handleSongDeletion() {
         deletePopup.style.display = 'none'; // Hide delete popup on cancel
     });
 }
+function setupSearch() {
+    const searchInput = document.querySelector('.search-bar input');
 
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            const searchText = this.value.toLowerCase().trim();
+            const listItems = document.querySelectorAll('.list-item');
+
+            listItems.forEach(function (item) {
+                const itemText = item.querySelector('.text').textContent.toLowerCase();
+
+                if (searchText === '' || itemText.includes(searchText)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    }
+}
+// Check all boxes
+function toggleAllCheckboxes() {
+    var topCheckbox = document.getElementById('topCheckbox');
+    var isChecked = topCheckbox.checked;
+    var listItemCheckboxes = document.querySelectorAll('.list-item .custom-checkbox');
+
+    listItemCheckboxes.forEach(function (checkbox) {
+        checkbox.checked = isChecked;
+    });
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -104,9 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-  
 
+ // check all boxes
+ var topCheckbox = document.getElementById('topCheckbox');
+ topCheckbox.addEventListener('change', toggleAllCheckboxes);
+ toggleAllCheckboxes();
 
-
+    setupSearch();
     handleSongDeletion();
 });
