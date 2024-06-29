@@ -13,8 +13,8 @@ Experience music like never before with SoundSpot – your go-to destination for
 Sound On Spot 👌
 ## Authors
 
-- [@Malak Mohamed](https://github.com/MalakMohameed)
 - [@Nouran Hassan](https://github.com/Nouran246)
+- [@Malak Mohamed](https://github.com/MalakMohameed)
 - [@Yahia-Elshobokshy](https://github.com/Yahia-Elshobokshy)
 - [@Laila Amgad](https://github.com/Laila4563)
 - [@Roaa Khaled](https://github.com/Rowlkh)
