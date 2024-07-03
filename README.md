@@ -22,7 +22,9 @@ Sound On Spot 👌
 # Landing Page
 
 ![Screenshot Example](https://drive.google.com/uc?id=1AtXumDj9XsnQfXk3qoYwEsMI-ZdwRdTA)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1Esi32IMNiujilBbFLmFlx4XaVAw3b1fv)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1dzdndxm5u5vqKO_DCeFRoTs3TqFkqLb1)
 
 # Registration Form
