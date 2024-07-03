@@ -19,15 +19,21 @@ Sound On Spot 👌
 - [@Laila Amgad](https://github.com/Laila4563)
 - [@Roaa Khaled](https://github.com/Rowlkh)
 
-# User Side
+# Landing Page
 
 ![Screenshot Example](https://drive.google.com/uc?id=1AtXumDj9XsnQfXk3qoYwEsMI-ZdwRdTA)
 ![Screenshot Example](https://drive.google.com/uc?id=1Esi32IMNiujilBbFLmFlx4XaVAw3b1fv)
 ![Screenshot Example](https://drive.google.com/uc?id=1dzdndxm5u5vqKO_DCeFRoTs3TqFkqLb1)
+
+# Registration Form
+
 ![Screenshot Example](https://drive.google.com/uc?id=1cWazcvUXitjAQX-DJUdBl0_pTaJNaW3s)
 ![Screenshot Example](https://drive.google.com/uc?id=10TYiFFmIAHs-EqMXkvw6K65tzEv7ZAHk)
 ![Screenshot Example](https://drive.google.com/uc?id=18kc2cYUTDO9HQTOApnqFktYMWI9OboVb)
 ![Screenshot Example](https://drive.google.com/uc?id=1tHGPCHUBHqxl5_ZIVFlz84ks4mE1JfIz)
+
+# User Side
+
 ![Screenshot Example](https://drive.google.com/uc?id=1c9Wq-2JBhD3LvxRE3EUUCx3c4aMnqqOP)
 ![Screenshot Example](https://drive.google.com/uc?id=1bj2P2MYK1sRJuneVF4lCI6gqlRbnCrSz)
 ![Screenshot Example](https://drive.google.com/uc?id=1gJgZAwe-Va7-tvW-V4lIslKE5e_rqAe1)
