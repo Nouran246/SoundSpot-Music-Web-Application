@@ -30,45 +30,65 @@ Sound On Spot 👌
 # Registration Form
 
 ![Screenshot Example](https://drive.google.com/uc?id=1cWazcvUXitjAQX-DJUdBl0_pTaJNaW3s)
+
 ![Screenshot Example](https://drive.google.com/uc?id=10TYiFFmIAHs-EqMXkvw6K65tzEv7ZAHk)
+
 ![Screenshot Example](https://drive.google.com/uc?id=18kc2cYUTDO9HQTOApnqFktYMWI9OboVb)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1tHGPCHUBHqxl5_ZIVFlz84ks4mE1JfIz)
 
 # User Side
 
 ![Screenshot Example](https://drive.google.com/uc?id=1c9Wq-2JBhD3LvxRE3EUUCx3c4aMnqqOP)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1bj2P2MYK1sRJuneVF4lCI6gqlRbnCrSz)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1gJgZAwe-Va7-tvW-V4lIslKE5e_rqAe1)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1al_px310fw3Xuk1_GfLTUJTes0lYYoYK)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1IhG_LafElTR1Bm2I-liNp2Tju9oRe9QW)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1bIrp7i1OgA_2AdkCmJPB9S01e8bkPvXe)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1l3lwRtnU7bZpQVkEP_vrkgCQZUPopF_k)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1W6-4pbe-49H4Nt1jEQvCE1Km7na72on7)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1bvGNB1bdhOESPHZeLWhB8Atx43d13M3M)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1WXQiPI0iRXnRoc8CPHV0dq_vzBrPYRYj)
+
 ![Screenshot Example](https://drive.google.com/uc?id=1qbv-RQwziT7JfEQARapjfIu78ZKBtMIH)
 
 # Admin Side
 
 ![Screenshot Example](https://drive.google.com/uc?id=1zRSb2_nTgh1lhKXQ4RzpRBCNqQZTzq5g)
+
 ![Screenshot 1](https://drive.google.com/uc?id=123k7-rl8ti5wVk8Ucv72lhq0-5Q_0HJ3)
 
 # Managing Playlists
 
 ![Screenshot 2](https://drive.google.com/uc?id=1Q7Ob0RrSDMJjthMkqi57WpJR5TxXB3K8)
+
 ![Screenshot 3](https://drive.google.com/uc?id=14faFK7QS-JBpsYnFZsSPQE1uc2xR1oK1)
+
 ![Screenshot 4](https://drive.google.com/uc?id=1p9lt_lN1rsofi3-ZUrsvDsSKRIH7qw9Y)
+
 ![Screenshot 5](https://drive.google.com/uc?id=1Ax1kvjWsQeJo9Ke-GmerUnNQk8zs0U7T)
 
 # Managing Plans
 
 ![Screenshot 6](https://drive.google.com/uc?id=1D96XdWhK7x1kFmX9gw571UNh3f5tgLUq)
+
 ![Screenshot 7](https://drive.google.com/uc?id=1Rz8tgMyXKhYtTGswvrzwzC21ZGfpsinb)
+
 ![Screenshot 8](https://drive.google.com/uc?id=11FuW0Xk1IxP9-AE9VGskG18JxHuYf1A9)
 
 # Bagdes
 
 ![Screenshot 9](https://drive.google.com/uc?id=1w5hzH8iYxmfEVqNvsuae9vvIvsXXGrv5)
+
 ![Screenshot 10](https://drive.google.com/uc?id=10IlugjoUZtSzJlO3bMhkhTKKQw0Nh8Y5)
 
 # Light Mode 
