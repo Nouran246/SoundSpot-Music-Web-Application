@@ -54,9 +54,15 @@ Sound On Spot 👌
 ![Screenshot 3](https://drive.google.com/uc?id=14faFK7QS-JBpsYnFZsSPQE1uc2xR1oK1)
 ![Screenshot 4](https://drive.google.com/uc?id=1p9lt_lN1rsofi3-ZUrsvDsSKRIH7qw9Y)
 ![Screenshot 5](https://drive.google.com/uc?id=1Ax1kvjWsQeJo9Ke-GmerUnNQk8zs0U7T)
+
+#Managing Playlists
+
 ![Screenshot 6](https://drive.google.com/uc?id=1D96XdWhK7x1kFmX9gw571UNh3f5tgLUq)
 ![Screenshot 7](https://drive.google.com/uc?id=1Rz8tgMyXKhYtTGswvrzwzC21ZGfpsinb)
 ![Screenshot 8](https://drive.google.com/uc?id=11FuW0Xk1IxP9-AE9VGskG18JxHuYf1A9)
+
+# Managing Plans
+
 ![Screenshot 9](https://drive.google.com/uc?id=1w5hzH8iYxmfEVqNvsuae9vvIvsXXGrv5)
 ![Screenshot 10](https://drive.google.com/uc?id=10IlugjoUZtSzJlO3bMhkhTKKQw0Nh8Y5)
 
