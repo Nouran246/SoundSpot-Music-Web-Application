@@ -13,7 +13,10 @@ Experience music like never before with SoundSpot – your go-to destination for
 Sound On Spot 👌
 
 ### Technologies Used
-- **Node.js** - **Express.js** - **Multer** - **Google API** 
+- **Node.js**
+- **Express.js**
+- **Multer**
+- **Google API** 
 
 ### User Side Features
 - **Game:** Engage with our interactive game to explore and familiarize yourself with our platform.
