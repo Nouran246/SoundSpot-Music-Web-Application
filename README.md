@@ -11,6 +11,37 @@ Connect and share your favorite tracks with friends and fellow music enthusiasts
 
 Experience music like never before with SoundSpot – your go-to destination for all things music. 
 Sound On Spot 👌
+
+------
+
+### User Side Features
+- **Game:** Engage with our interactive game to explore and familiarize yourself with our platform.
+- **Song Recaps:** Recap your recently played songs for easy access and rediscovery.
+- **Search:** Effortlessly find your favorite songs, artists, or playlists.
+- **Song Recognition:** Identify songs playing around you with our integrated recognition feature.
+- **Languages:** Choose from multiple languages to customize your user experience.
+- **Light Mode and Dark Mode:** Switch between light and dark themes, with dark mode set as default.
+- **Subscription Plans:** Opt for different subscription tiers to unlock premium features.
+- **Badges:** Earn badges as you progress through different levels of user engagement.
+- **Playlists:** Create and manage personalized playlists tailored to your music preferences.
+- **Lyrics:** Access lyrics for your favorite songs directly on our platform.
+
+### Admin Side Features
+- **View As:** Preview the user interface as seen by different user roles to ensure a seamless experience.
+- **Light Mode and Dark Mode:** Admin panel supports both light and dark themes for visual consistency.
+- **Languages:** Manage language settings for platform localization.
+- **Song and Playlist Management:** Curate and update songs and playlists available on the platform.
+- **User Management:** Admin tools for managing user accounts, permissions, and profiles.
+- **Community Guidelines:** Enforce community standards and guidelines for user interaction.
+- **Contact Information:** Edit, delete, add, and display contact information with responsive design.
+
+### Common Features
+- **Responsive Design:** Ensures optimal viewing experience across devices, from desktops to mobile phones.
+  
+Explore our Music Player Website and immerse yourself in a world of music, community, and seamless user interaction.
+
+
+
 ## Authors
 
 - [@Nouran Hassan](https://github.com/Nouran246)
