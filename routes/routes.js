@@ -50,37 +50,22 @@ function setupRoutes(app) {
   // Route for processing plan creation with file uploads
   app.post('/plans/process', upload.fields([{ name: 'adsVideo', maxCount: 1 }, { name: 'popupImage', maxCount: 1 }]), planController.createPlan);
   app.post('/auth/delete-plan/:title', planController.deletePlan);
-  app.put('/plans/:id', planController.updatePlan);
-//   router.delete('/auth/delete-plan/:title', async (req, res) => {
-//     try {
-//         const planTitle = req.params.title;
-//         const plan = await Plan.findOneAndDelete({ Title: planTitle });
-
-//         if (!plan) {
-//             return res.status(404).json({ message: 'Plan not found' });
-//         }
-
-//         res.json({ message: 'Plan deleted successfully' });
-//     } catch (error) {
-//         console.error('Error deleting plan:', error);
-//         res.status(500).json({ message: 'Internal Server Error' });
-//     }
-// });
-router.get('/plans', async (req, res) => {
-    try {
+  router.put('/plans/:title', planController.updatePlan);
+  // router.get('/plans', async (req, res) => {
+  //   try {
         
-      const plans = await plan.find();
-      console.log(plans);
-      res.render("/premium", {
-        plans: plans,
-      })
+  //     const plans = await plan.find();
+  //     // console.log(plans);
+  //     res.render("/premium", {
+  //       plans: plans,
+  //     })
 
-      // res.json(plans);
-    } catch (error) {
-      console.error('Error fetching plans:', error);
-      res.status(500).send("Internal Server Error");
-    }
-  });
+  //     // res.json(plans);
+  //   } catch (error) {
+  //     console.error('Error fetching plans:', error);
+  //     res.status(500).send("Internal Server Error");
+  //   }
+  // });
   router.get('/songs', async (req, res) => {
     try {
         
@@ -137,6 +122,19 @@ router.get('/plans', async (req, res) => {
     });
   });
 }
+router.get('/plans/:title', async (req, res) => {
+  const { title } = req.params;
+  try {
+      const plan = await Plan.findOne({ Title: title });
+      if (!plan) {
+          return res.status(404).send("Plan not found");
+      }
+      res.json(plan);
+  } catch (error) {
+      console.error('Error fetching plan data:', error);
+      res.status(500).send("Internal Server Error");
+  }
+});
 
 
 module.exports = { setupRoutes };

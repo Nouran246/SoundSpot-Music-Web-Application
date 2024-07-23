@@ -41,6 +41,7 @@ exports.createPlan = async (req, res) => {
     });
     const savedPlan = await newPlan.save();
     res.status(200).json(savedPlan);
+    
   } catch (error) {
     console.error('Error creating plan:', error);
     res.status(500).send('Internal Server Error');

@@ -45,9 +45,7 @@ const registrationProcess = async (req, res) => {
             errors.country = 'Please select your country';
         }
 
-        if (!type) {
-            errors.type = 'User type is required';
-        }
+        
 
         if (Object.keys(errors).length > 0) {
             return res.status(400).json({ success: false, errors });
@@ -68,7 +66,7 @@ const registrationProcess = async (req, res) => {
             phone: phone_number,
             gender,
             country,
-            type,
+            type: 'user',
             verificationToken,
             isVerified: false,
         });

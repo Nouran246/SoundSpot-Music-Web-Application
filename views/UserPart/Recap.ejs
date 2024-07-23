@@ -18,105 +18,57 @@
   <%- include('../includes/sidenav&navbarsUSER.ejs')%>
 <div class ="container">
 <hr>
-<div class="row">
-  <h2>2024</h2>
-  <div class="card">
-    <img src="/photo/Artist-Designed Album Covers 2.webp" alt="Album 1">
-    <div class="content">
-      <h3>Artist Name</h3>
-      <p>Album Title</p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="/photo/Dark_Side_of_the_Moon.png" alt="Album 2">
-    <div class="content">
-      <h3>Artist Name</h3>
-      <p>Album Title</p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="/photo/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Album 3">
-    <div class = "content">
-      <h3>Artist Name</h3>
-      <p>Album Title</p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="/photo/images.jpg" alt="Album 1">
-    <div class="content">
-      <h3>Artist Name</h3>
-      <p>Album Title</p>
-    </div>
-  </div>
-  
-
-</div>
-
     <div class="row">
       <h2>2023</h2>
-      <div class="card">
-        <img src="/photo/Artist-Designed Album Covers 2.webp" alt="Artist 1">
-        <div class="content">
-          <h3>Artist Name</h3>
-          <p>Genre</p>
+      <% songs.reverse().forEach(song => { %>
+        <div class="card" 
+             data-song="/uploads/<%= song.songFileId %>" 
+             data-artist="<%= song.artistName %>" 
+             data-title="<%= song.songName %>"
+             data-lyrics="<%= song.lyrics %>" 
+             data-image="/uploads/<%= song.imageFileId %>">
+            <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
+            <div class="content">
+                <h3><%= song.songName %></h3>
+                <p><%= song.artistName %></p>
+            </div>
         </div>
-      </div>
-      <div class="card">
-          <img src="/photo/Dark_Side_of_the_Moon.png" alt="Artist 1">
-          <div class="content">
-            <h3>Artist Name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="/photo/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Artist 1">
-          <div class="content">
-            <h3>Artist Name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="/photo/images.jpg" alt="Artist 1">
-          <div class="content">
-            <h3>Artist Name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-      
+    <% }) %>
     </div>
-
     <div class="row">
       <h2>2022</h2>
-      <div class="card">
-          <img src="/photo/Artist-Designed Album Covers 2.webp" alt="Artist 1">
-          <div class="content">
-            <h3>Mix name</h3>
-            <p>Genre</p>
-          </div>
+      <% songs.reverse().forEach(song => { %>
+        <div class="card" 
+             data-song="/uploads/<%= song.songFileId %>" 
+             data-artist="<%= song.artistName %>" 
+             data-title="<%= song.songName %>"
+             data-lyrics="<%= song.lyrics %>" 
+             data-image="/uploads/<%= song.imageFileId %>">
+            <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
+            <div class="content">
+                <h3><%= song.songName %></h3>
+                <p><%= song.artistName %></p>
+            </div>
         </div>
-        <div class="card">
-          <img src="/photo/Dark_Side_of_the_Moon.png" alt="Artist 1">
-          <div class="content">
-            <h3>Mix name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="/photo/1_EBOL4lka5QjcYoxj6AHp-g.png" alt="Artist 1">
-          <div class="content">
-            <h3>Mix name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="/photo/images.jpg" alt="Artist 1">
-          <div class="content">
-            <h3>Mix name</h3>
-            <p>Genre</p>
-          </div>
-        </div>
+    <% }) %>
     </div>
-</div>
+    <div class="row">
+      <h2>2021</h2>
+      <% songs.reverse().forEach(song => { %>
+        <div class="card" 
+             data-song="/uploads/<%= song.songFileId %>" 
+             data-artist="<%= song.artistName %>" 
+             data-title="<%= song.songName %>"
+             data-lyrics="<%= song.lyrics %>" 
+             data-image="/uploads/<%= song.imageFileId %>">
+            <img src="/uploads/<%= song.imageFileId %>" alt="<%= song.songName %>">
+            <div class="content">
+                <h3><%= song.songName %></h3>
+                <p><%= song.artistName %></p>
+            </div>
+        </div>
+    <% }) %>
+    </div>
 <%- include('../includes/SongPlaying.ejs')%>
 
 </body>

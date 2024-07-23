@@ -17,6 +17,7 @@
         src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en"></script>
 
 </head>
+
 <body>
     <%- include('../includes/sidenav&navbarsADMIN.ejs')%>
         <h1 class="title2">Add a new song</h1>
@@ -51,7 +52,11 @@
                         <option value="Beyoncé">Beyoncé</option>
                         <option value="Ed Sheeran">Ed Sheeran</option>
                         <option value="Adele">Adele</option>
+                        <option value="Eyedress & Dent May">Eyedress & Dent May</option>
+                        <option value="pink">Pink Floyd</option>
+                        <option value=" Duet ft. Ryan Gosling, Emma Stone">Ryan Gosling, Emma Stone</option>
                         <option value="Drake">Drake</option>
+                        <option value="d4vd">d4vd</option>
                         <option value="Billie Eilish">Billie Eilish</option>
                         <option value="New West">New West</option>
                         <option value="Taylor Swift">Taylor Swift</option>
@@ -122,10 +127,11 @@
                 <label for="duration">Duration (format: 3:35):</label>
                 <input type="text" id="duration" placeholder="Enter duration (e.g., 3:35)" name="duration"
                     pattern="\d{1,2}:\d{2}" title="Please enter a valid duration format (e.g., 3:35)" required>
-                    <div id="duration-error" class="error-message"></div>
+                <div id="duration-error" class="error-message"></div>
+
 
                 <label for="record-label">Record Label:</label>
-                <select id="record-label" name="recordLabel" required>
+                <select id="record-label" name="recordLabel" required onchange="validateInput('record-label')">
                     <option value="" selected disabled>Select Record Label</option>
                     <option value="Universal Music Group">Universal Music Group</option>
                     <option value="Sony Music Entertainment">Sony Music Entertainment</option>
@@ -134,22 +140,20 @@
                     <option value="Capitol Records">Capitol Records</option>
                     <option value="None">None</option>
                 </select>
-
                 <div id="record-label-error" class="error-message"></div>
-
 
 
 
                 <label for="songwriters">Songwriters:</label>
                 <input type="text" id="songwriters" placeholder="Enter songwriters (e.g., Ed Sheeran, Steve Mac)"
                     name="songwriters" required>
-                    <div id="songwriters-error" class="error-message"></div>
+                <div id="songwriters-error" class="error-message"></div>
 
 
                 <label for="producers">Producers:</label>
                 <input type="text" id="producers" placeholder="Enter producers (e.g., Ed Sheeran, Steve Mac)"
                     name="producers" required>
-                    <div id="producers-error" class="error-message"></div>
+                <div id="producers-error" class="error-message"></div>
 
 
                 <label for="composer">Composer:</label>
@@ -157,7 +161,7 @@
                 <div id="composer-error" class="error-message"></div>
 
                 <label for="release-type">Release Type:</label>
-                <select id="release-type" name="releaseType"required>
+                <select id="release-type" name="releaseType" required>
                     <option value="" selected disabled>Select Release Type</option>
                     <option value="Single">Single</option>
                     <option value="Album">Album</option>
@@ -181,17 +185,15 @@
                 <label for="featured-artists">Featured artists:</label>
                 <input type="text" id="featured-artists" placeholder="Enter featured artists (e.g., None)"
                     name="featuredArtists" required>
-                    <div id="featured-artists-error" class="error-message"></div>
+                <div id="featured-artists-error" class="error-message"></div>
 
-
-                <input type="checkbox" id="lyrics-checkbox" onchange="toggleLyricsSection()">
-                <label for="lyrics-checkbox">Add Lyrics</label>
-
-                <div id="lyrics-section" style="display: none;">
+                <div id="lyrics-section">
                     <label for="lyrics">Lyrics:</label>
-                    <textarea id="lyrics" placeholder="Enter lyrics" name="lyrics"></textarea>
+                    <textarea id="lyrics" placeholder="Enter lyrics" name="lyrics" required></textarea>
                 </div>
-                <div>
+                <div id="lyrics-error" class="error-message"></div>
+
+                <!--             <div>
                     <label for="privacy-settings">Privacy Settings:</label>
                     <select id="privacy-settings">
                         <option value="public">Public</option>
@@ -199,8 +201,8 @@
                         <option value="hidden">Hidden</option>
                     </select>
                 </div>
-
-                <label for="song-file">Upload Song (MP3 / wav / ogg / aac / m4a):</label>
+ -->
+                <label for="song-file">Upload Song (MP3 / WAV / OGG / AAC / M4A):</label>
                 <div class="file-upload">
                     <input type="file" id="song-file" accept=".mp3, .wav, .ogg, .aac, .m4a" required name="songFileId">
                     <div id="song-file-error" class="error-message"></div>
@@ -209,10 +211,11 @@
 
                 <label for="image-file">Upload Image (JPEG, PNG):</label>
                 <div class="file-upload">
-                    <input type="file" id="image-file" accept="image/*" required name="imageFileId">
+                    <input type="file" id="image-file" accept="image/jpeg, image/png" required name="imageFileId">
                     <div id="image-file-error" class="error-message"></div>
                     <label for="image-file">Click to upload</label>
                 </div>
+
                 <button type="button" id="save-button" onclick="validateForm()">Save</button>
             </form>
         </div>

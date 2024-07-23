@@ -10,8 +10,22 @@ const authMiddleware = require("../controllers/authMiddleware");
 const plan = require("../models/planing");
 const router = express.Router();
 const User = require("../models/Users.js");
+const songController = require("../controllers/songController.js");
 const song = require("../models/song");
 const Playlist = require("../models/Playlist.js");
+const playlistController = require("../controllers/playlistController.js");
+
+
+router.post("/delete-playlists", (req, res, next) => {
+  console.log("Route /auth/delete-playlists hit");
+  next();
+}, playlistController.deletePlaylist);
+
+
+router.post("/delete-songs", (req, res, next) => {
+  console.log("Route /auth/delete-songs hit");
+  next();
+}, songController.deleteSong);
 
 router.post("/delete-users", userController.deleteUser);
 
@@ -108,27 +122,34 @@ router.get("/premium", authMiddleware, async (req, res) => {
   }
 });
 
-router.get('/plans', async (req, res) => {
+// router.get('/plans', async (req, res) => {
+//   try {
+//     const plans = await plan.find();
+//     console.log(plans);
+//     res.json(plans);
+//   } catch (error) {
+//     console.error('Error fetching plans:', error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
+
+
+router.get("/Plans", async (req, res) => {
   try {
     const plans = await plan.find();
-    console.log(plans);
-    res.json(plans);
-  } catch (error) {
-    console.error('Error fetching plans:', error);
-    res.status(500).send("Internal Server Error");
-  }
-});
-
-
-router.get("/Plans", (req, res) => {
   if (req.session.user) {
     res.render("UserPart/Plans", {
       currentPage: "Plans",
       user: req.session.user,
+      plans: plans,
     });
   } else {
     res.redirect("/");
   }
+} catch (error) {
+  console.error('Error fetching songs:', error);
+  res.status(500).send("Internal Server Error");
+}
 });
 router.get("/Subscription", (req, res) => {
   if (req.session.user) {
@@ -285,14 +306,21 @@ router.get("/SongPlaying", (req, res) => {
   }
 });
 
-router.get("/Recap", (req, res) => {
+router.get("/Recap", async (req, res) => {
+  try {
+    const songs = await song.find();
   if (req.session.user) {
     res.render("UserPart/Recap", {
       currentPage: "Recap",
       user: req.session.user,
+      songs: songs,
     });
-  } else {
-    res.redirect("/");
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.error('Error fetching songs:', error);
+    res.status(500).send("Internal Server Error");
   }
 });
 router.get("/Report", (req, res) => {

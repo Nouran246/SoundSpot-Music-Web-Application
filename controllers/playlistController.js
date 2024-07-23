@@ -89,3 +89,20 @@ exports.getPlaylist = async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 };
+
+
+// Delete 
+exports.deletePlaylist = async (req, res) => {
+    try {
+        const { playlistIds } = req.body;
+        if (!playlistIds || !Array.isArray(playlistIds)) {
+            return res.status(400).send({ error: 'Invalid playlist IDs' });
+        }
+
+        await Playlist.deleteMany({ _id: { $in: playlistIds } });
+        res.status(200).send({ message: 'Playlist(s) deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting playlist(s):', error);
+        res.status(500).send({ error: 'An error occurred while deleting playlist(s)' });
+    }
+};
