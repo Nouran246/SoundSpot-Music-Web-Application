@@ -96,6 +96,8 @@ https://github.com/user-attachments/assets/f7c9ff99-afc7-431e-9014-ae05d5f7614c
 ![Screenshot Example](https://drive.google.com/uc?id=1WXQiPI0iRXnRoc8CPHV0dq_vzBrPYRYj)
 
 ![Screenshot Example](https://drive.google.com/uc?id=1qbv-RQwziT7JfEQARapjfIu78ZKBtMIH)
+![Screenshot 2024-08-29 133838](https://github.com/user-attachments/assets/0823395c-d4c5-4c8d-8f59-47340b1f8d0b)
+
 ![Screenshot 2024-05-03 204223](https://github.com/user-attachments/assets/c80c8532-221d-4110-b30a-e73ca9a3d5ae)
 
 # Admin Side
