@@ -52,6 +52,10 @@ Sound On Spot 👌
 
 # Landing Page
 
+
+https://github.com/user-attachments/assets/f7c9ff99-afc7-431e-9014-ae05d5f7614c
+
+
 ![Screenshot Example](https://drive.google.com/uc?id=1AtXumDj9XsnQfXk3qoYwEsMI-ZdwRdTA)
 
 ![Screenshot Example](https://drive.google.com/uc?id=1Esi32IMNiujilBbFLmFlx4XaVAw3b1fv)
