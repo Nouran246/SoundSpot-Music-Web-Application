@@ -1,3 +1,109 @@
+
+// Function to handle song deletion
+function handleSongDeletion() {
+    var deleteIcon = document.getElementById('delete-icon1');
+    var deletePopup = document.getElementById('delete-popup');
+    var selectItemPopup = document.getElementById('select-item-popup');
+    var checkboxes = document.querySelectorAll('.custom-checkbox');
+    var okButton = document.getElementById('ok-delete');
+    var cancelButton = document.getElementById('cancel-delete');
+
+    deleteIcon.addEventListener('click', function () {
+        var anyCheckboxChecked = false;
+
+        checkboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                anyCheckboxChecked = true;
+                return;
+            }
+        });
+
+        if (anyCheckboxChecked) {
+            deletePopup.style.display = 'block';
+        } else {
+            selectItemPopup.style.display = 'block';
+            setTimeout(function () {
+                selectItemPopup.style.display = 'none';
+            }, 2000);
+        }
+    });
+
+    okButton.addEventListener('click', function () {
+        var selectedSongIds = [];
+
+        checkboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                selectedSongIds.push(checkbox.getAttribute('data-songid'));
+
+                var listItem = checkbox.closest('.list-item');
+                var userInfoContainer = listItem.nextElementSibling;
+
+                listItem.remove();
+                if (userInfoContainer && userInfoContainer.classList.contains('user-info-container')) {
+                    userInfoContainer.style.display = 'none';
+                }
+            }
+        });
+
+        fetch('/auth/delete-songs', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ songIds: selectedSongIds })
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Song(s) deleted successfully');
+                    window.location.reload();
+                } else {
+                    console.error('Failed to delete song(s)');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        deletePopup.style.display = 'none';
+    });
+
+    // Event listener for Cancel button in delete confirmation popup
+    cancelButton.addEventListener('click', function () {
+        deletePopup.style.display = 'none'; // Hide delete popup on cancel
+    });
+}
+function setupSearch() {
+    const searchInput = document.querySelector('.search-bar input');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            const searchText = this.value.toLowerCase().trim();
+            const listItems = document.querySelectorAll('.list-item');
+
+            listItems.forEach(function (item) {
+                const itemText = item.querySelector('.text').textContent.toLowerCase();
+
+                if (searchText === '' || itemText.includes(searchText)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    }
+}
+// Check all boxes
+function toggleAllCheckboxes() {
+    var topCheckbox = document.getElementById('topCheckbox');
+    var isChecked = topCheckbox.checked;
+    var listItemCheckboxes = document.querySelectorAll('.list-item .custom-checkbox');
+
+    listItemCheckboxes.forEach(function (checkbox) {
+        checkbox.checked = isChecked;
+    });
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     //accordion
     const listItems = document.querySelectorAll('.list-item');
@@ -27,41 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    //delete
-    const deleteButtons = document.querySelectorAll('.delete-song-btn');
 
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', async () => {
-            const songId = button.getAttribute('data-song-id');
-            console.log('Deleting song with ID:', songId);
+ // check all boxes
+ var topCheckbox = document.getElementById('topCheckbox');
+ topCheckbox.addEventListener('change', toggleAllCheckboxes);
+ toggleAllCheckboxes();
 
-            try {
-                const response = await fetch(`/song/${songId}`, {
-                    method: 'DELETE'
-                });
-
-                if (response.ok) {
-                    console.log('Song deleted successfully');
-                    const songElement = button.closest('.list-item');
-                    const userInfoContainer = songElement.nextElementSibling;
-
-                    if (songElement) {
-                        songElement.remove();
-                    } else {
-                        console.error('Failed to find song element to remove');
-                    }
-
-                    if (userInfoContainer) {
-                        userInfoContainer.remove();
-                    } else {
-                        console.error('Failed to find userInfoContainer element to remove');
-                    }
-                } else {
-                    console.error('Failed to delete song');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        });
-    });
+    setupSearch();
+    handleSongDeletion();
 });

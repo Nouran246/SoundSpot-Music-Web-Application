@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const addPlanButton = document.getElementById('addPlanButton');
     const popupForm = document.getElementById('popupForm');
     const cancelButton = popupForm.querySelector('button[type="button"]');
-    const saveButton = document.getElementById('save-button'); // Updated to match HTML id attribute
+    const saveButton = document.getElementById('save-button');
 
     // Show popup form when clicking the "Add Plan" button
     addPlanButton.addEventListener('click', function() {
@@ -36,10 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
         isValid = validateField(duration, 'duration', 'Please select a duration') && isValid;
 
         if (isValid) {
-            // If all fields are valid, submit the form
-            document.getElementById('planForm').submit();
-            document.getElementById('message').style.display = 'block'; // Show success message
-            hidePopupForm(); // Hide the form after successful submission
+            // If all fields are valid, submit the form using Fetch API
+            submitForm(title, features, price, duration);
         }
     }
 
@@ -91,6 +89,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Function to submit the form data using Fetch API
+    function submitForm(title, features, price, duration) {
+        const data = {
+            title: title,
+            features: features,
+            price: price,
+            duration: duration
+        };
+
+        fetch('/submit-plan', { // Change this URL to match your backend endpoint
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Error submitting the form');
+            }
+        })
+        .then(data => {
+            document.getElementById('message').style.display = 'block'; // Show success message
+            hidePopupForm(); // Hide the form after successful submission
+            setTimeout(() => {
+                window.location.reload(); // Reload the page to show the new plan
+            }, 500); // Adjust the timeout as needed
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
     // Function to display error message for a field
     function displayErrorMessage(field, message, id) {
         let errorMessage = field.parentNode.querySelector(`#${id}`);
@@ -121,6 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
     handlePlanDeletion();
@@ -169,3 +204,116 @@ function deletePlan(planTitle) {
     var deletePopup = document.getElementById('delete-popup');
     deletePopup.style.display = 'none'; 
 }
+
+
+    // function handlePlanEditing() {
+    //     var editButtons = document.querySelectorAll('.edit-button');
+    //     var editPopupForm = document.getElementById('editPopupForm');
+    //     var editSaveButton = document.getElementById('editSaveButton');
+    //     var editCancelButton = document.getElementById('editCancelButton');
+        
+    //     // Event listeners for each edit button
+    //     editButtons.forEach(function (button) {
+    //         button.addEventListener('click', function () {
+    //             var selectedPlanTitle = button.getAttribute('data-plan-title');
+    //             if (selectedPlanTitle) {
+    //                 // Make AJAX request to fetch plan data based on selectedPlanTitle
+    //                 fetch(`/plans/${selectedPlanTitle}`, {
+    //                     method: 'GET',
+    //                     headers: {
+    //                         'Content-Type': 'application/json'
+    //                     }
+    //                 })
+    //                 .then(response => {
+    //                     if (!response.ok) {
+    //                         throw new Error('Failed to fetch plan data');
+    //                     }
+    //                     return response.json();
+    //                 })
+    //                 .then(plan => {
+    //                     // Populate edit form fields with plan data fetched
+    //                     document.getElementById('editTitle').value = plan.Title;
+    //                     document.getElementById('editPrice').value = plan.price;
+    //                     document.getElementById('editDuration').value = plan.Duration;
+                        
+    //                     // Uncheck all checkboxes
+    //                     var editFeatureCheckboxes = document.querySelectorAll('.editFeatureCheckbox');
+    //                     editFeatureCheckboxes.forEach(checkbox => {
+    //                         checkbox.checked = false;
+    //                     });
+                        
+    //                     // Check the appropriate checkboxes based on plan.Features
+    //                     plan.Features.forEach(feature => {
+    //                         var checkbox = document.querySelector(`.editFeatureCheckbox[value="${feature}"]`);
+    //                         if (checkbox) {
+    //                             checkbox.checked = true;
+    //                         }
+    //                     });
+
+    //                     document.getElementById('editPlanTitle').value = plan.Title;
+
+    //                     editPopupForm.style.display = 'block'; // Display edit popup after fetching plan data
+    //                 })
+    //                 .catch(error => {
+    //                     console.error('Error fetching plan data for editing:', error);
+    //                     window.alert('Failed to fetch plan data for editing. Please try again.');
+    //                 });
+    //             } else {
+    //                 window.alert('No plan title specified for editing.');
+    //             }
+    //         });
+    //     });
+
+    //     // Event listener for Save button in edit popup
+    //     editSaveButton.addEventListener('click', function (event) {
+    //         event.preventDefault();
+    //         var planTitle = document.getElementById('editPlanTitle').value;
+    //         var updatedPlanData = {
+    //             Title: document.getElementById('editTitle').value,
+    //             price: document.getElementById('editPrice').value,
+    //             Duration: document.getElementById('editDuration').value,
+    //             Features: Array.from(document.querySelectorAll('.editFeatureCheckbox:checked')).map(checkbox => checkbox.value)
+    //         };
+
+    //         // Make an AJAX request to update plan data in the database
+    //         fetch(`/plans/${(planTitle)}`, {
+    //             method: 'PUT',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(updatedPlanData)
+    //         })
+    //         .then(response => {
+    //             if (response.ok) {
+    //                 console.log('Plan data updated successfully');
+    //                 return response.json();
+    //             } else {
+    //                 throw new Error('Failed to update plan data');
+    //             }
+    //         })
+    //         .then(data => {
+    //             console.log('Updated plan data:', data);
+    //             // Optionally update UI or show success message
+    //             editPopupForm.style.display = 'none'; // Hide edit popup after saving
+    //             location.reload(); // Reload the page to reflect changes
+    //         })
+    //         .catch(error => {
+    //             console.error('Error updating plan data:', error);
+    //             // Handle error as needed
+    //         });
+
+    //         editPopupForm.style.display = 'none'; // Hide edit popup after saving
+    //     });
+
+    //     // Event listener for Cancel button in edit popup
+    //     editCancelButton.addEventListener('click', function () {
+    //         editPopupForm.style.display = 'none'; // Hide edit popup on cancel
+    //     });
+    // }
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     handlePlanEditing();
+    // });
+   
+
+

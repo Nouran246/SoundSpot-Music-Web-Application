@@ -36,7 +36,8 @@
                         <span class="checkbox-custom"></span>
                     </div>
                     <i class="fa-solid fa-pen" title="edit" id="edit-icon"></i>
-                    <i class="fa-solid fa-trash" title="Delete" id="delete-icon"></i>
+                    <i class="fa-solid fa-trash" title="Delete" id="delete-icon1"></i>
+
                 </div>
             </div>
             <div class="list-container">
@@ -47,8 +48,8 @@
                         <div class="text"><%=playlist.name %></div>
                         <div class="text"><%=playlist.genre %></div>
                         <div class="text"><%=playlist.privacy %></div>
-                        <input class="custom-checkbox" type="checkbox" id="userCheckbox_jane_smith"
-                            data-username="jane_smith">
+                        <input class="custom-checkbox" type="checkbox" id="playlistCheckbox_<%= playlist.id %>" data-playlistid="<%= playlist.id %>">
+
                         <i class="fa-solid fa-chevron-right toggle-button"></i>
                     </div>
                 </div>
