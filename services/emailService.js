@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendVerificationEmail = async (to, token) => {
-  const verificationUrl = `http://localhost:3000/auth/verify-email?token=${token}`;
+  const verificationUrl = `https://soundspotweb.onrender.com/auth/verify-email?token=${token}`;
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
