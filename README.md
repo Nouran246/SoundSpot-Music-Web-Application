@@ -59,7 +59,7 @@ https://github.com/user-attachments/assets/f7c9ff99-afc7-431e-9014-ae05d5f7614c
 ![Screenshot Example](https://drive.google.com/uc?id=1AtXumDj9XsnQfXk3qoYwEsMI-ZdwRdTA)
 ![Screenshot 2024-08-29 133208](https://github.com/user-attachments/assets/c39697ed-81a5-4ad4-835c-861d39304bfb)
 
-![Homepage](https://drive.google.com/uc?id=1Esi32IMNiujilBbFLmFlx4XaVAw3b1fv)
+![Screenshot Example](https://drive.google.com/uc?id=1Esi32IMNiujilBbFLmFlx4XaVAw3b1fv)
 
 ![Screenshot Example](https://drive.google.com/uc?id=1dzdndxm5u5vqKO_DCeFRoTs3TqFkqLb1)
 
