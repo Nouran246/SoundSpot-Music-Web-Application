@@ -11,7 +11,7 @@ Connect and share your favorite tracks with friends and fellow music enthusiasts
 
 Experience music like never before with SoundSpot – your go-to destination for all things music. 
 Sound On Spot 👌
-
+ 
 ### Technologies Used
 - **Node.js**
 - **Express.js**
